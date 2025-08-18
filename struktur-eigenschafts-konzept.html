@@ -433,6 +433,86 @@
         .content-section:nth-child(odd) {
             animation-delay: 0.2s;
         }
+/* Allgemeine Section-Stile */
+.section {
+    background: rgba(255, 255, 255, 0.95);
+    margin-bottom: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px 30px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.section-content {
+    padding: 30px;
+}
+
+/* Grid-Layout */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* Button-Stile */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 10px 5px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .section-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-content {
+        padding: 15px;
+    }
+}
     </style>
 </head>
 <body>
@@ -832,13 +912,21 @@
                 </div>
             </div>
         </div>
-
+<!-- Navigation zu anderen Kapiteln -->
+<section class="section fade-in">
+    <div class="section-header">
+        🧭 Weiterführende Kapitel
+    </div>
+    <div class="section-content">
+        <div class="grid-3">
+            <a href="stoff-teilchen-konzept.html" class="btn btn-primary">← ⚛️ Stoff-Teilchen-Konzept</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Hauptübersicht</a>
+            <a href="donator-akzeptor-konzept.html" class="btn btn-primary">🔄 Donator-Akzeptor-Konzept →</a>
+        </div>
+    </div>
+</section>
                </div>
 
-        <footer>
-            <p>&copy; 2025 Chemie Lernzettel - Struktur-Eigenschafts-Konzept | Abitur 2026</p>
-            <p> <a href="index.html" style="color: #667eea;">📚 Zurück zur Hauptübersicht</a> | <a href="donator-akzeptor-konzept.html#basiskonzepte" style="color: #667eea;">🔄 Donator-Akzeptor-Konzept</a></p>
-        </footer>
     </div>
 
     <script>
