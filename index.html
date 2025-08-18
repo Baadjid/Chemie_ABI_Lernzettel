@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemie Lernzettel - Abitur 2026</title>
+	<base target="_self">    
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .intro {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .basiskonzepte {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .konzept-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .konzept-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .konzept-card:hover {
+            transform: translateY(-5px);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .themen-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .thema-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border-left: 5px solid #667eea;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .thema-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .thema-nummer {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .thema-title {
+            color: #2c3e50;
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .thema-description {
+            color: #7f8c8d;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+        }
+        
+        .unterkapitel {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+        
+        .unterkapitel h4 {
+            color: #495057;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
+        
+        .unterkapitel-liste {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .unterkapitel-liste li {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 3px;
+            padding-left: 15px;
+            position: relative;
+        }
+        
+        .unterkapitel-liste li:before {
+            content: "•";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+        }
+        
+        .progress-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .study-tips {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+	    margin-top: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .tip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .tip-card {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 20px;
+            border-radius: 10px;
+            color: #2c3e50;
+        }
+        
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 30px;
+        }
+        
+        .update-info {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .wichtig {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .themen-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .konzept-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .thema-card, .konzept-card {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🧪 Chemie Lernzettel</h1>
+            <p class="subtitle">Abitur 2026 - Umfassende Vorbereitung</p>
+            <p>Alle wichtigen Themen strukturiert und verständlich aufbereitet</p>
+        </header>
+
+        <div style="background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 10px; margin-bottom: 20px; text-align: center;">
+            <h3 style="margin-bottom: 10px; color: #2c3e50;">🧭 Schnellnavigation</h3>
+            <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                <a href="formeln.html" style="padding: 8px 15px; background: #f093fb; color: white; text-decoration: none; border-radius: 5px; font-size: 0.9em;">📐 Formeln</a>
+                <a href="quiz.html" style="padding: 8px 15px; background: #84fab0; color: #2c3e50; text-decoration: none; border-radius: 5px; font-size: 0.9em;">🧩 Quiz</a>
+            </div>
+        </div>
+
+        <section class="intro">
+            <h2>🎯 Willkommen zu deinem Chemie-Lernzettel!</h2>
+            <p>Diese interaktive Lernhilfe wurde speziell für das <strong>Abitur 2026</strong> entwickelt und deckt alle relevanten Themenbereiche der gymnasialen Oberstufe ab. Die Inhalte orientieren sich an den aktuellen Bildungsstandards und Lehrplänen aller Bundesländer.</p>
+            
+            <div class="wichtig">
+                <strong>⚠️ Wichtige Änderungen ab 2026:</strong>
+                <ul style="margin-top: 10px; padding-left: 20px;">
+                    <li>Neue ländergemeinsame mathematisch-naturwissenschaftliche Formelsammlung als einziges Hilfsmittel</li>
+                    <li>Überarbeitete Bildungsstandards und Kompetenzorientierung</li>
+                    <li>Verstärkte Fokussierung auf Basiskonzepte der Chemie</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="basiskonzepte">
+            <h2>🏗️ Die 5 Basiskonzepte der Chemie</h2>
+            <p>Diese fundamentalen Konzepte durchziehen alle Themenbereiche und bilden das Grundgerüst des chemischen Verständnisses:</p>
+            
+            <div class="konzept-grid">
+                <a href="stoff-teilchen-konzept.html" class="konzept-card">
+                    <h3>⚛️ Stoff-Teilchen-Konzept</h3>
+                    <p>Beziehung zwischen Stoffebene und Teilchenebene - Atome, Moleküle, Ionen</p>
+                </a>
+                <a href="struktur-eigenschafts-konzept.html" class="konzept-card">
+                    <h3>🔗 Struktur-Eigenschafts-Konzept</h3>
+                    <p>Zusammenhang zwischen Teilchenstruktur und Stoffeigenschaften</p>
+                </a>
+                <a href="donator-akzeptor-konzept.html" class="konzept-card">
+                    <h3>🔄 Donator-Akzeptor-Konzept</h3>
+                    <p>Säure-Base- und Redox-Reaktionen als Teilchenübertragung</p>
+                </a>
+                <a href="energiekonzept.html" class="konzept-card">
+                    <h3>⚡ Energiekonzept</h3>
+                    <p>Energieumsätze bei chemischen Reaktionen und Zustandsänderungen</p>
+                </a>
+                <a href="gleichgewichtskonzept.html" class="konzept-card">
+                    <h3>⚖️ Gleichgewichtskonzept</h3>
+                    <p>Dynamische Gleichgewichte und deren Beeinflussung</p>
+                </a>
+            </div>
+        </section>
+
+        <h2 style="color: white; text-align: center; margin-bottom: 30px; font-size: 2em;">📚 Alle Themenbereiche</h2>
+
+        <div class="themen-grid">
+            <a href="atombau-periodensystem.html" class="thema-card">
+                <div class="thema-nummer">1</div>
+                <h3 class="thema-title">Atombau, Periodensystem und chemische Bindung</h3>
+                <p class="thema-description">Grundlagen der Chemie: Atomaufbau, Periodensystem, Ionenbindung, Elektronenpaarbindung, Metallbindung</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Atommodelle und Orbitale</li>
+                        <li>Periodensystem und Periodizität</li>
+                        <li>Ionenbindung und Salzbildung</li>
+                        <li>Elektronenpaarbindung und Molekülgeometrie</li>
+                        <li>Metallbindung und Eigenschaften</li>
+                        <li>Zwischenmolekulare Kräfte</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="kohlenwasserstoffe.html" class="thema-card">
+                <div class="thema-nummer">2</div>
+                <h3 class="thema-title">Kohlenstoff und Kohlenwasserstoffe</h3>
+                <p class="thema-description">Organische Chemie-Grundlagen: Alkane, Alkene, Nomenklatur, Isomerie</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Kohlenstoff-Allotrope (Graphit, Diamant, Fullerene)</li>
+                        <li>Alkane: Homologe Reihe und Nomenklatur</li>
+                        <li>Alkene und Alkine</li>
+                        <li>Räumlicher Bau organischer Moleküle</li>
+                        <li>Isomerie-Arten</li>
+                        <li>Erdöl und Erdgas</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="sauerstoff-verbindungen.html" class="thema-card">
+                <div class="thema-nummer">3</div>
+                <h3 class="thema-title">Organische Sauerstoff-Verbindungen</h3>
+                <p class="thema-description">Alkohole, Aldehyde, Ketone, Carbonsäuren, Ester und ihre Reaktionen</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Alkohole: Eigenschaften und Reaktionen</li>
+                        <li>Oxidation von Alkoholen</li>
+                        <li>Aldehyde und Ketone</li>
+                        <li>Carbonsäuren und ihre Eigenschaften</li>
+                        <li>Ester: Bildung und Spaltung</li>
+                        <li>Bedeutung in Alltag und Technik</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="energetik.html" class="thema-card">
+                <div class="thema-nummer">4</div>
+                <h3 class="thema-title">Chemische Energetik</h3>
+                <p class="thema-description">Thermodynamik: Enthalpie, Entropie, freie Enthalpie, Kalorimetrie</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Innere Energie und Enthalpie</li>
+                        <li>Kalorimetrie und Messmethoden</li>
+                        <li>Bildungs- und Verbrennungsenthalpien</li>
+                        <li>Entropie und Wahrscheinlichkeit</li>
+                        <li>Freie Enthalpie und Spontaneität</li>
+                        <li>Energiediagramme</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="kinetik-gleichgewicht.html" class="thema-card">
+                <div class="thema-nummer">5</div>
+                <h3 class="thema-title">Reaktionsgeschwindigkeit und chemisches Gleichgewicht</h3>
+                <p class="thema-description">Kinetik, Katalyse, Gleichgewichtslehre, Massenwirkungsgesetz</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Faktoren der Reaktionsgeschwindigkeit</li>
+                        <li>Katalyse und Enzyme</li>
+                        <li>Aktivierungsenergie</li>
+                        <li>Chemisches Gleichgewicht</li>
+                        <li>Prinzip von Le Chatelier</li>
+                        <li>Massenwirkungsgesetz</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="saeure-base.html" class="thema-card">
+                <div class="thema-nummer">6</div>
+                <h3 class="thema-title">Säure-Base-Reaktionen</h3>
+                <p class="thema-description">Brønsted-Theorie, pH-Wert, Puffersysteme, Titrationen</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Brønsted-Säure-Base-Theorie</li>
+                        <li>pH-Wert und Autoprotolyse</li>
+                        <li>Säure- und Basenstärke</li>
+                        <li>Puffersysteme</li>
+                        <li>Titrationskurven</li>
+                        <li>Indikatoren</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="redox-elektrochemie.html" class="thema-card">
+                <div class="thema-nummer">7</div>
+                <h3 class="thema-title">Redoxreaktionen und Elektrochemie</h3>
+                <p class="thema-description">Oxidationszahlen, galvanische Elemente, Elektrolyse, Batterien</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Oxidationszahlen und Redoxreaktionen</li>
+                        <li>Galvanische Zellen</li>
+                        <li>Spannungsreihe</li>
+                        <li>Nernst-Gleichung</li>
+                        <li>Elektrolyse</li>
+                        <li>Batterien und Akkumulatoren</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="reaktionsmechanismen.html" class="thema-card">
+                <div class="thema-nummer">8</div>
+                <h3 class="thema-title">Reaktionswege und Reaktionsmechanismen</h3>
+                <p class="thema-description">Organische Reaktionsmechanismen: Substitution, Addition, Elimination</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Nucleophile Substitution</li>
+                        <li>Elektrophile Addition</li>
+                        <li>Eliminierungsreaktionen</li>
+                        <li>Reaktionsmechanismen im Vergleich</li>
+                        <li>Technische Synthesen</li>
+                        <li>Selektivität und Spezifität</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="aromaten.html" class="thema-card">
+                <div class="thema-nummer">9</div>
+                <h3 class="thema-title">Aromaten</h3>
+                <p class="thema-description">Benzol, Aromatizität, elektrophile Substitution, Arzneimittel</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Benzol-Struktur und Bindung</li>
+                        <li>Aromatizität und Mesomerie</li>
+                        <li>Elektrophile aromatische Substitution</li>
+                        <li>Zweitsubstitution und Dirigierung</li>
+                        <li>Wichtige Aromaten</li>
+                        <li>Arzneimittel (z.B. ASS)</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="kunststoffe.html" class="thema-card">
+                <div class="thema-nummer">10</div>
+                <h3 class="thema-title">Kunststoffe</h3>
+                <p class="thema-description">Polymerisation, Polykondensation, Polyaddition, Eigenschaften und Recycling</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Polymerisation</li>
+                        <li>Polykondensation</li>
+                        <li>Polyaddition</li>
+                        <li>Kunststoff-Eigenschaften</li>
+                        <li>Recycling und Umwelt</li>
+                        <li>Neue Materialien</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="naturstoffe.html" class="thema-card">
+                <div class="thema-nummer">11</div>
+                <h3 class="thema-title">Naturstoffe</h3>
+                <p class="thema-description">Fette, Aminosäuren, Proteine, Kohlenhydrate, Nucleinsäuren</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Fette und Öle</li>
+                        <li>Aminosäuren und Proteine</li>
+                        <li>Kohlenhydrate</li>
+                        <li>Nucleinsäuren</li>
+                        <li>Chiralität und optische Aktivität</li>
+                        <li>Biochemische Bedeutung</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="waschmittel.html" class="thema-card">
+                <div class="thema-nummer">12</div>
+                <h3 class="thema-title">Seifen und Waschmittel</h3>
+                <p class="thema-description">Tenside, Waschvorgang, Seifenherstellung, Umweltaspekte</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Seifenherstellung (Verseifung)</li>
+                        <li>Tensidwirkung</li>
+                        <li>Waschvorgang</li>
+                        <li>Moderne Waschmittel</li>
+                        <li>Umweltaspekte</li>
+                        <li>Oberflächenspannung</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="farbstoffe.html" class="thema-card">
+                <div class="thema-nummer">13</div>
+                <h3 class="thema-title">Organische Farbstoffe</h3>
+                <p class="thema-description">Licht und Farbe, Chromophore, Färbeverfahren, Indikatoren</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Licht und Farbwahrnehmung</li>
+                        <li>Chromophore und Auxochrome</li>
+                        <li>Farbstoffklassen</li>
+                        <li>Färbeverfahren</li>
+                        <li>Lebensmittelfarbstoffe</li>
+                        <li>Indikatoren als Farbstoffe</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="komplexe.html" class="thema-card">
+                <div class="thema-nummer">14</div>
+                <h3 class="thema-title">Komplexverbindungen</h3>
+                <p class="thema-description">Aufbau von Komplexen, Nomenklatur, Eigenschaften, Anwendungen</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Komplexstruktur und Bindung</li>
+                        <li>Liganden und Zentralatom</li>
+                        <li>Nomenklatur</li>
+                        <li>Komplexbildungsgleichgewichte</li>
+                        <li>Farbe und Magnetismus</li>
+                        <li>Biologische Bedeutung</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="kreislaeufe.html" class="thema-card">
+                <div class="thema-nummer">15</div>
+                <h3 class="thema-title">Globale Kreisläufe und Umweltchemie</h3>
+                <p class="thema-description">Kohlenstoff-, Stickstoff-, Phosphorkreislauf, Klimawandel, Dünger</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Kohlenstoffkreislauf</li>
+                        <li>Treibhauseffekt</li>
+                        <li>Stickstoffkreislauf</li>
+                        <li>Phosphorkreislauf</li>
+                        <li>Ozonschicht</li>
+                        <li>Umweltanalytik</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="analytik.html" class="thema-card">
+                <div class="thema-nummer">16</div>
+                <h3 class="thema-title">Analytik und Spektroskopie</h3>
+                <p class="thema-description">Chromatografie, Spektroskopie, Strukturaufklärung, quantitative Analyse</p>
+                <div class="unterkapitel">
+                    <h4>Wichtige Unterkapitel:</h4>
+                    <ul class="unterkapitel-liste">
+                        <li>Dünnschichtchromatografie</li>
+                        <li>Gaschromatografie</li>
+                        <li>Massenspektrometrie</li>
+                        <li>IR-Spektroskopie</li>
+                        <li>NMR-Spektroskopie</li>
+                        <li>Quantitative Analyse</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+
+        <section class="study-tips">
+            <h2>💡 Lerntipps für das Chemie-Abitur</h2>
+            <div class="tip-grid">
+                <div class="tip-card">
+                    <h3>🧠 Konzeptionelles Lernen</h3>
+                    <p>Verstehe die Basiskonzepte - sie sind der Schlüssel zum Erfolg und verbinden alle Themenbereiche.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>📝 Formelsammlung nutzen</h3>
+                    <p>Übe mit der neuen ländergemeinsamen Formelsammlung - sie ist ab 2026 das einzige zugelassene Hilfsmittel!</p>
+                </div>
+                <div class="tip-card">
+                    <h3>⚗️ Experimente verstehen</h3>
+                    <p>Lerne nicht nur die Theorie, sondern verstehe auch die experimentellen Grundlagen und Nachweisreaktionen.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>🔄 Querverbindungen</h3>
+                    <p>Erkenne Verbindungen zwischen den Kapiteln - Chemie ist ein zusammenhängendes System!</p>
+                </div>
+            </div>
+            
+            <div class="update-info">
+                <h3>💡 Lerntipp des Tages</h3>
+                <p>⚛️ Heute: Verstehe die Elektronenkonfiguration - sie erklärt viele Eigenschaften!</p>
+            </div>
+        </section>
+
+        <div class="update-info">
+            <h3>📅 Aktualitätshinweis</h3>
+            <p><strong>Stand der Informationen:</strong> August 2025<br>
+            <strong>Gültig für:</strong> Abitur 2026 und folgende Jahre<br>
+            <strong>Basis:</strong> Aktuelle Bildungsstandards der KMK und Ländervorgaben</p>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Chemie Lernzettel - Abitur 2026 | Erstellt nach aktuellen Bildungsstandards</p>
+            <p>💡 Tipp: Bookmarke diese Seite für schnellen Zugriff auf alle Themenbereiche!</p>
+        </footer>
+    </div>
+
+    <script>
+        // Animationen und Interaktivität
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hover-Effekte für Karten
+            const cards = document.querySelectorAll('.thema-card, .konzept-card, .tip-card');
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+
+            // Easter Egg: Chemiker-Zitate
+            const quotes = [
+                "\"Nichts in der Welt ist zu fürchten, es ist nur zu verstehen.\" - Marie Curie",
+                "\"Die beste Methode, das Leben zu verstehen, ist die Chemie.\" - Linus Pauling",
+                "\"In der Chemie gibt es keine Zufälle, nur Gesetzmäßigkeiten.\" - Dmitri Mendelejew",
+                "\"Experimentieren ist besser als argumentieren.\" - Roger Bacon"
+            ];
+
+            // Zeige zufälliges Zitat bei Klick auf Titel
+            document.querySelector('h1').addEventListener('click', function() {
+                const quote = quotes[Math.floor(Math.random() * quotes.length)];
+                alert(quote);
+            });
+        });
+    </script>
+</body>
+</html>

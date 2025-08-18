@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organische Sauerstoff-Verbindungen - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            background-color: #f0f0f0;
+            text-decoration: underline;
+        }
+        
+        .nav-breadcrumb .separator {
+            color: #7f8c8d;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: clamp(1.8em, 4vw, 2.5em);
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: clamp(1em, 2.5vw, 1.2em);
+            margin-bottom: 20px;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-2px);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 25px;
+            font-size: clamp(1.1em, 2.5vw, 1.3em);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-content {
+            padding: 25px;
+        }
+        
+        /* Grid Layouts */
+        .substance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .substance-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .substance-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .substance-card h4 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        
+        .formula {
+            background: #e8f4fd;
+            padding: 10px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-weight: bold;
+            text-align: center;
+            margin: 10px 0;
+            border: 1px solid #667eea;
+        }
+        
+        .properties-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .properties-list li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .properties-list li:before {
+            content: "•";
+            color: #667eea;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        /* Tables */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #e8f4fd;
+        }
+        
+        /* Reaction Scheme */
+        .reaction-scheme {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 50%, #4facfe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: 500;
+        }
+        
+        .reaction-arrow {
+            font-size: 1.5em;
+            margin: 0 15px;
+        }
+        
+        /* Interactive Elements */
+        .quiz-section {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+        }
+        
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .quiz-option {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .quiz-option:hover {
+            border-color: #667eea;
+            background: #e8f4fd;
+        }
+        
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+        }
+        
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e9ecef;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Key Info Boxes */
+        .key-info {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border-left: 5px solid #f39c12;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .important-note {
+            background: linear-gradient(135deg, #d1ecf1, #bee5eb);
+            border-left: 5px solid #17a2b8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #f8d7da, #f5c6cb);
+            border-left: 5px solid #dc3545;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(100px);
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .section-content {
+                padding: 15px;
+            }
+            
+            .substance-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-breadcrumb {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .comparison-table {
+                font-size: 0.9em;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 8px;
+            }
+            
+            .back-to-top {
+                width: 45px;
+                height: 45px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.2em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                padding: 20px 15px;
+            }
+            
+            .section-content {
+                padding: 10px;
+            }
+            
+            .substance-card {
+                padding: 15px;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .content-section,
+            .substance-card,
+            .quiz-section {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            
+            .section-header {
+                background: #f0f0f0;
+                color: black;
+            }
+            
+            .back-to-top {
+                display: none;
+            }
+            
+            .nav-breadcrumb {
+                display: none;
+            }
+        }
+/* Kapitel Navigation */
+.chapter-navigation {
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-navigation h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.nav-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.nav-button {
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    text-align: center;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-prev {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.nav-home {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+.nav-next {
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Hauptübersicht</a>
+            <span class="separator">></span>
+            <span class="separator"></span>
+            <span>Organische Sauerstoff-Verbindungen</span>
+            <div style="margin-left: auto; display: flex; gap: 10px;">
+            </div>
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <h1>🧪 Organische Sauerstoff-Verbindungen</h1>
+            <p class="subtitle">Alkohole, Aldehyde, Ketone, Carbonsäuren, Ester und ihre Reaktionen</p>
+            <p>Kapitel 3 - Abitur 2026</p>
+        </header>
+
+        <!-- Progress -->
+        <div class="progress-container">
+            <h3>📊 Lernfortschritt</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="chapter-progress"></div>
+            </div>
+            <p style="margin-top: 10px; text-align: center; color: #7f8c8d;">0% abgeschlossen</p>
+        </div>
+
+        <!-- Overview -->
+        <section class="content-section">
+            <div class="section-header">
+                <span>🎯</span>
+                <span>Überblick und Lernziele</span>
+            </div>
+            <div class="section-content">
+                <p>Organische Sauerstoff-Verbindungen sind fundamentale Bausteine der organischen Chemie und spielen eine zentrale Rolle in biologischen Systemen, der Industrie und unserem Alltag. In diesem Kapitel lernst du:</p>
+                
+                <div class="substance-grid">
+                    <div class="substance-card">
+                        <h4>🍷 Alkohole (Alkanole)</h4>
+                        <p>Struktur, Eigenschaften, Herstellung und Verwendung von Alkoholen</p>
+                    </div>
+                    <div class="substance-card">
+                        <h4>🌺 Aldehyde & Ketone</h4>
+                        <p>Carbonylverbindungen und ihre charakteristischen Reaktionen</p>
+                    </div>
+                    <div class="substance-card">
+                        <h4>🍋 Carbonsäuren</h4>
+                        <p>Säurecharakter und Reaktionen organischer Säuren</p>
+                    </div>
+                    <div class="substance-card">
+                        <h4>🍃 Ester</h4>
+                        <p>Entstehung, Eigenschaften und Bedeutung in Natur und Technik</p>
+                    </div>
+                </div>
+
+                <div class="key-info">
+                    <h4>💡 Schlüsselkonzept: Funktionelle Gruppen</h4>
+                    <p>Funktionelle Gruppen bestimmen die Eigenschaften organischer Moleküle. Die Sauerstoff-enthaltenden Gruppen verleihen den Verbindungen charakteristische Eigenschaften wie Polarität, Wasserstoffbrückenbindungen und spezifische Reaktionsmöglichkeiten.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. Alkohole -->
+        <section class="content-section">
+            <div class="section-header">
+                <span>🍷</span>
+                <span>1. Alkohole (Alkanole)</span>
+            </div>
+            <div class="section-content">
+                <h3>1.1 Definition und Struktur</h3>
+                <p>Alkohole sind organische Verbindungen, die eine oder mehrere <strong>Hydroxygruppen (-OH)</strong> enthalten. Alkanole leiten sich von den Alkanen durch Ersatz eines Wasserstoffatoms durch eine OH-Gruppe ab.</p>
+                
+                <div class="formula">
+                    Allgemeine Formel: R-OH<br>
+                    Alkanole: C<sub>n</sub>H<sub>2n+1</sub>OH
+                </div>
+
+                <h3>1.2 Homologe Reihe der Alkanole</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Molekülformel</th>
+                            <th>Halbstrukturformel</th>
+                            <th>Siedepunkt [°C]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Methanol</td>
+                            <td>CH<sub>4</sub>O</td>
+                            <td>CH<sub>3</sub>-OH</td>
+                            <td>65</td>
+                        </tr>
+                        <tr>
+                            <td>Ethanol</td>
+                            <td>C<sub>2</sub>H<sub>6</sub>O</td>
+                            <td>CH<sub>3</sub>-CH<sub>2</sub>-OH</td>
+                            <td>78</td>
+                        </tr>
+                        <tr>
+                            <td>Propan-1-ol</td>
+                            <td>C<sub>3</sub>H<sub>8</sub>O</td>
+                            <td>CH<sub>3</sub>-CH<sub>2</sub>-CH<sub>2</sub>-OH</td>
+                            <td>97</td>
+                        </tr>
+                        <tr>
+                            <td>Butan-1-ol</td>
+                            <td>C<sub>4</sub>H<sub>10</sub>O</td>
+                            <td>CH<sub>3</sub>-CH<sub>2</sub>-CH<sub>2</sub>-CH<sub>2</sub>-OH</td>
+                            <td>118</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>1.3 Klassifizierung der Alkohole</h3>
+                <div class="substance-grid">
+                    <div class="substance-card">
+                        <h4>Primäre Alkohole</h4>
+                        <div class="formula">R-CH<sub>2</sub>-OH</div>
+                        <p>Das C-Atom mit der OH-Gruppe ist mit einem weiteren C-Atom verbunden</p>
+                        <p><strong>Beispiel:</strong> Ethanol, Propan-1-ol</p>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Sekundäre Alkohole</h4>
+                        <div class="formula">R-CHOH-R'</div>
+                        <p>Das C-Atom mit der OH-Gruppe ist mit zwei weiteren C-Atomen verbunden</p>
+                        <p><strong>Beispiel:</strong> Propan-2-ol, Butan-2-ol</p>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Tertiäre Alkohole</h4>
+                        <div class="formula">R-COH(R')(R'')</div>
+                        <p>Das C-Atom mit der OH-Gruppe ist mit drei weiteren C-Atomen verbunden</p>
+                        <p><strong>Beispiel:</strong> 2-Methylpropan-2-ol</p>
+                    </div>
+                </div>
+
+                <h3>1.4 Eigenschaften der Alkohole</h3>
+                <div class="important-note">
+                    <h4>🔗 Wasserstoffbrückenbindungen</h4>
+                    <p>Alkohol-Moleküle können aufgrund der polaren O-H-Bindung <strong>Wasserstoffbrückenbindungen</strong> ausbilden. Dies führt zu:</p>
+                    <ul class="properties-list">
+                        <li>Höheren Siedepunkten verglichen mit entsprechenden Alkanen</li>
+                        <li>Guter Löslichkeit kurzkettiger Alkohole in Wasser</li>
+                        <li>Amphiphilem Charakter (hydrophil und lipophil)</li>
+                    </ul>
+                </div>
+
+                <h3>1.5 Wichtige Alkohole</h3>
+                <div class="substance-grid">
+                    <div class="substance-card">
+                        <h4>Methanol (Holzgeist)</h4>
+                        <ul class="properties-list">
+                            <li>Giftig! Schädigung der Netzhaut</li>
+                            <li>Lösungsmittel, Brennstoff</li>
+                            <li>Herstellung aus Synthesegas</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Ethanol (Trinkalkohol)</h4>
+                        <ul class="properties-list">
+                            <li>Alkoholische Gärung: C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> → 2 C<sub>2</sub>H<sub>5</sub>OH + 2 CO<sub>2</sub></li>
+                            <li>Lösungsmittel, Desinfektionsmittel</li>
+                            <li>Bioethanol als Treibstoff (E10)</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Mehrwertige Alkohole</h4>
+                        <ul class="properties-list">
+                            <li><strong>Ethandiol (Glycol):</strong> Frostschutzmittel</li>
+                            <li><strong>Propantriol (Glycerin):</strong> Feuchthaltemittel, Kosmetik</li>
+                            <li>Erlenmeyer-Regel: Instabilität bei mehreren OH-Gruppen am selben C-Atom</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Oxidation von Alkoholen -->
+        <section class="content-section">
+            <div class="section-header">
+                <span>⚗️</span>
+                <span>2. Oxidation von Alkoholen</span>
+            </div>
+            <div class="section-content">
+                <h3>2.1 Oxidationsreihe</h3>
+                <p>Die Oxidation von Alkoholen führt zu verschiedenen Produkten, abhängig vom Typ des Alkohols:</p>
+
+                <div class="reaction-scheme">
+                    <strong>Primärer Alkohol</strong> <span class="reaction-arrow">→</span> <strong>Aldehyd</strong> <span class="reaction-arrow">→</span> <strong>Carbonsäure</strong>
+                    <br><br>
+                    <strong>Sekundärer Alkohol</strong> <span class="reaction-arrow">→</span> <strong>Keton</strong>
+                    <br><br>
+                    <strong>Tertiärer Alkohol</strong> <span class="reaction-arrow">→</span> <strong>keine Reaktion</strong> (unter milden Bedingungen)
+                </div>
+
+                <h3>2.2 Oxidationsstufen</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Oxidationsstufe</th>
+                            <th>Funktionelle Gruppe</th>
+                            <th>Beispiel</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>-I</td>
+                            <td>-CH<sub>2</sub>-OH</td>
+                            <td>CH<sub>3</sub>-CH<sub>2</sub>-OH</td>
+                            <td>Ethanol</td>
+                        </tr>
+                        <tr>
+                            <td>+I</td>
+                            <td>-CHO</td>
+                            <td>CH<sub>3</sub>-CHO</td>
+                            <td>Ethanal (Acetaldehyd)</td>
+                        </tr>
+                        <tr>
+                            <td>+III</td>
+                            <td>-COOH</td>
+                            <td>CH<sub>3</sub>-COOH</td>
+                            <td>Ethansäure (Essigsäure)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="warning">
+                    <h4>⚠️ Alkoholabbau im Körper</h4>
+                    <p>Der Alkoholabbau im Körper erfolgt über die Oxidationsreihe:</p>
+                    <div class="formula">
+                        Ethanol → Ethanal → Ethansäure → CO<sub>2</sub> + H<sub>2</sub>O
+                    </div>
+                    <p>Ethanal (Acetaldehyd) ist toxisch und für den "Kater" verantwortlich!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Aldehyde und Ketone -->
+        <section class="content-section">
+            <div class="section-header">
+                <span>🌺</span>
+                <span>3. Aldehyde und Ketone</span>
+            </div>
+            <div class="section-content">
+                <h3>3.1 Carbonylverbindungen</h3>
+                <p>Aldehyde und Ketone enthalten beide die <strong>Carbonylgruppe (C=O)</strong>, unterscheiden sich aber in ihrer Position:</p>
+
+                <div class="substance-grid">
+                    <div class="substance-card">
+                        <h4>Aldehyde</h4>
+                        <div class="formula">R-CHO</div>
+                        <ul class="properties-list">
+                            <li>Carbonylgruppe am Ende der Kohlenstoffkette</li>
+                            <li>Endung: -al</li>
+                            <li>Leicht oxidierbar zu Carbonsäuren</li>
+                            <li>Charakteristischer Geruch</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Ketone</h4>
+                        <div class="formula">R-CO-R'</div>
+                        <ul class="properties-list">
+                            <li>Carbonylgruppe innerhalb der Kohlenstoffkette</li>
+                            <li>Endung: -on</li>
+                            <li>Schwer oxidierbar</li>
+                            <li>Gute Lösungsmittel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>3.2 Wichtige Vertreter</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Formel</th>
+                            <th>Typ</th>
+                            <th>Verwendung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Methanal (Formaldehyd)</td>
+                            <td>HCHO</td>
+                            <td>Aldehyd</td>
+                            <td>Konservierung, Kunststoffherstellung</td>
+                        </tr>
+                        <tr>
+                            <td>Ethanal (Acetaldehyd)</td>
+                            <td>CH<sub>3</sub>CHO</td>
+                            <td>Aldehyd</td>
+                            <td>Zwischenprodukt bei Alkoholabbau</td>
+                        </tr>
+                        <tr>
+                            <td>Propanon (Aceton)</td>
+                            <td>CH<sub>3</sub>COCH<sub>3</sub></td>
+                            <td>Keton</td>
+                            <td>Lösungsmittel, Nagellackentferner</td>
+                        </tr>
+                        <tr>
+                            <td>Benzaldehyd</td>
+                            <td>C<sub>6</sub>H<sub>5</sub>CHO</td>
+                            <td>Aldehyd</td>
+                            <td>Aromasstoff (Bittermandel)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>3.3 Nachweisreaktionen für Aldehyde</h3>
+                <div class="substance-grid">
+                    <div class="substance-card">
+                        <h4>🥄 Silberspiegelprobe (Tollens-Reagenz)</h4>
+                        <ul class="properties-list">
+                            <li>Aldehyd + [Ag(NH<sub>3</sub>)<sub>2</sub>]<sup>+</sup> → Ag↓ + Carbonsäure</li>
+                            <li>Bildung eines Silberspiegels</li>
+                            <li>Spezifisch für Aldehyde</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>🔶 Fehling-Probe</h4>
+                        <ul class="properties-list">
+                            <li>Aldehyd + Cu<sup>2+</sup> → Cu<sub>2</sub>O↓ + Carbonsäure</li>
+                            <li>Rotbrauner Niederschlag</li>
+                            <li>Nur bei aliphatischen Aldehyden</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>🌈 Schiff'sche Probe</h4>
+                        <ul class="properties-list">
+                            <li>Farblose Lösung wird violett</li>
+                            <li>Empfindlich auch bei geringen Mengen</li>
+                            <li>Spezifisch für Aldehyde</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Carbonsäuren -->
+        <section class="content-section">
+            <div class="section-header">
+                <span>🍋</span>
+                <span>4. Carbonsäuren (Alkansäuren)</span>
+            </div>
+            <div class="section-content">
+                <h3>4.1 Definition und Struktur</h3>
+                <p>Carbonsäuren enthalten die <strong>Carboxygruppe (-COOH)</strong> als funktionelle Gruppe. Sie zeigen sauren Charakter durch Protonenabgabe.</p>
+
+                <div class="formula">
+                    R-COOH + H<sub>2</sub>O ⇌ R-COO<sup>-</sup> + H<sub>3</sub>O<sup>+</sup>
+                </div>
+
+                <h3>4.2 Homologe Reihe der Alkansäuren</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Formel</th>
+                            <th>Trivialname</th>
+                            <th>Schmelzpunkt [°C]</th>
+                            <th>Siedepunkt [°C]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Methansäure</td>
+                            <td>HCOOH</td>
+                            <td>Ameisensäure</td>
+                            <td>8</td>
+                            <td>101</td>
+                        </tr>
+                        <tr>
+                            <td>Ethansäure</td>
+                            <td>CH<sub>3</sub>COOH</td>
+                            <td>Essigsäure</td>
+                            <td>17</td>
+                            <td>118</td>
+                        </tr>
+                        <tr>
+                            <td>Propansäure</td>
+                            <td>CH<sub>3</sub>CH<sub>2</sub>COOH</td>
+                            <td>Propionsäure</td>
+                            <td>-21</td>
+                            <td>141</td>
+                        </tr>
+                        <tr>
+                            <td>Butansäure</td>
+                            <td>CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>COOH</td>
+                            <td>Buttersäure</td>
+                            <td>-6</td>
+                            <td>164</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>4.3 Eigenschaften der Carbonsäuren</h3>
+                <div class="important-note">
+                    <h4>🔗 Wasserstoffbrücken und Dimerisierung</h4>
+                    <p>Carbonsäuren bilden besonders starke Wasserstoffbrücken und können als Dimere vorliegen:</p>
+                    <ul class="properties-list">
+                        <li>Hohe Siedepunkte durch doppelte H-Brücken</li>
+                        <li>Gute Löslichkeit kurzkettiger Säuren in Wasser</li>
+                        <li>Saurer Charakter (pH < 7 in wässriger Lösung)</li>
+                    </ul>
+                </div>
+
+                <h3>4.4 Säurestärke der Carbonsäuren</h3>
+                <p>Die Säurestärke wird durch Substituenten am α-C-Atom beeinflusst:</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Carbonsäure</th>
+                            <th>pK<sub>s</sub>-Wert</th>
+                            <th>Säurestärke</th>
+                            <th>Erklärung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CH<sub>3</sub>COOH</td>
+                            <td>4,75</td>
+                            <td>schwach</td>
+                            <td>Referenz</td>
+                        </tr>
+                        <tr>
+                            <td>ClCH<sub>2</sub>COOH</td>
+                            <td>2,85</td>
+                            <td>stärker</td>
+                            <td>-I-Effekt des Chlors</td>
+                        </tr>
+                        <tr>
+                            <td>Cl<sub>2</sub>CHCOOH</td>
+                            <td>1,30</td>
+                            <td>noch stärker</td>
+                            <td>Zwei Chloratome</td>
+                        </tr>
+                        <tr>
+                            <td>Cl<sub>3</sub>CCOOH</td>
+                            <td>0,65</td>
+                            <td>sehr stark</td>
+                            <td>Drei Chloratome</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>4.5 Wichtige Carbonsäuren</h3>
+                <div class="substance-grid">
+                    <div class="substance-card">
+                        <h4>Methansäure (Ameisensäure)</h4>
+                        <ul class="properties-list">
+                            <li>Vorkommen: Ameisen, Brennnesseln</li>
+                            <li>Reduzierende Eigenschaften</li>
+                            <li>Konservierungsmittel</li>
+                            <li>Entkalker, Desinfektionsmittel</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Ethansäure (Essigsäure)</h4>
+                        <ul class="properties-list">
+                            <li>Essig: 5% wässrige Lösung</li>
+                            <li>Essigessenz: 25% Lösung</li>
+                            <li>Lebensmittelzusatzstoff E260</li>
+                            <li>Ausgangsstoff für Celluloseacetat</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Fettsäuren</h4>
+                        <ul class="properties-list">
+                            <li>Langkettige Carbonsäuren (C₁₂-C₂₀)</li>
+                            <li>Gesättigt: Palmitinsäure, Stearinsäure</li>
+                            <li>Ungesättigt: Ölsäure, Linolsäure</li>
+                            <li>Bausteine der Fette und Öle</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Ester -->
+        <section class="content-section">
+            <div class="section-header">
+                <span>🍃</span>
+                <span>5. Ester</span>
+            </div>
+            <div class="section-content">
+                <h3>5.1 Esterbildung und -spaltung</h3>
+                <p>Ester entstehen durch Kondensationsreaktionen zwischen Carbonsäuren und Alkoholen:</p>
+
+                <div class="reaction-scheme">
+                    <strong>Carbonsäure + Alkohol</strong> <span class="reaction-arrow">⇌</span> <strong>Ester + Wasser</strong>
+                    <br><br>
+                    R-COOH + R'-OH <span class="reaction-arrow">⇌</span> R-COO-R' + H<sub>2</sub>O
+                </div>
+
+                <div class="important-note">
+                    <h4>⚖️ Gleichgewichtsreaktion</h4>
+                    <p>Die Veresterung ist eine <strong>Gleichgewichtsreaktion</strong>:</p>
+                    <ul class="properties-list">
+                        <li><strong>Veresterung:</strong> Kondensation (Wasserabspaltung)</li>
+                        <li><strong>Hydrolyse:</strong> Spaltung durch Wasser</li>
+                        <li><strong>Verseifung:</strong> Alkalische Hydrolyse (irreversibel)</li>
+                        <li><strong>Katalyse:</strong> Säurekatalyse beschleunigt beide Richtungen</li>
+                    </ul>
+                </div>
+
+                <h3>5.2 Nomenklatur der Ester</h3>
+                <p>Ester werden nach dem Schema benannt: <strong>[Alkylrest] + [Carbonsäurename mit -at]</strong></p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Carbonsäure</th>
+                            <th>Alkohol</th>
+                            <th>Ester</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ethansäure</td>
+                            <td>Methanol</td>
+                            <td>CH<sub>3</sub>-COO-CH<sub>3</sub></td>
+                            <td>Methylethanoat</td>
+                        </tr>
+                        <tr>
+                            <td>Propansäure</td>
+                            <td>Ethanol</td>
+                            <td>CH<sub>3</sub>CH<sub>2</sub>-COO-CH<sub>2</sub>CH<sub>3</sub></td>
+                            <td>Ethylpropanoat</td>
+                        </tr>
+                        <tr>
+                            <td>Butansäure</td>
+                            <td>Methanol</td>
+                            <td>CH<sub>3</sub>CH<sub>2</sub>CH<sub>2</sub>-COO-CH<sub>3</sub></td>
+                            <td>Methylbutanoat</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>5.3 Eigenschaften und Verwendung von Estern</h3>
+                <div class="substance-grid">
+                    <div class="substance-card">
+                        <h4>🌸 Aromastoffe</h4>
+                        <ul class="properties-list">
+                            <li>Ethylbutanoat: Ananasaroma</li>
+                            <li>Isoamylacetat: Banane</li>
+                            <li>Methylsalicylat: Wintergrün</li>
+                            <li>Benzylacetat: Jasmin</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>🧪 Lösungsmittel</h4>
+                        <ul class="properties-list">
+                            <li>Ethylacetat: Nagellack, Klebstoffe</li>
+                            <li>Butylacetat: Lacke</li>
+                            <li>Niedrige Toxizität</li>
+                            <li>Gute Löslichkeit für organische Stoffe</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>💊 Medikamente</h4>
+                        <ul class="properties-list">
+                            <li>Acetylsalicylsäure (Aspirin)</li>
+                            <li>Prodrugs (verzögerte Wirkstofffreisetzung)</li>
+                            <li>Bessere Bioverfügbarkeit</li>
+                            <li>Schutz vor Magensäure</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>5.4 Fette als Ester</h3>
+                <div class="key-info">
+                    <h4>🥑 Fette und Öle</h4>
+                    <p>Fette sind <strong>Triglyceride</strong> - Ester aus Glycerin und drei Fettsäuren:</p>
+                    <div class="formula">
+                        Glycerin + 3 Fettsäuren → Triglycerid + 3 H<sub>2</sub>O
+                    </div>
+                    <ul class="properties-list">
+                        <li>Energiespeicher in Lebewesen</li>
+                        <li>Gesättigte Fette: fest bei Raumtemperatur</li>
+                        <li>Ungesättigte Fette: flüssig (Öle)</li>
+                        <li>Verseifung führt zu Seifen</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Ether -->
+        <section class="content-section">
+            <div class="section-header">
+                <span>💨</span>
+                <span>6. Ether</span>
+            </div>
+            <div class="section-content">
+                <h3>6.1 Struktur und Eigenschaften</h3>
+                <p>Ether enthalten die <strong>Ethergruppe (R-O-R')</strong> als funktionelle Gruppe.</p>
+
+                <div class="substance-grid">
+                    <div class="substance-card">
+                        <h4>Diethylether</h4>
+                        <div class="formula">CH<sub>3</sub>-CH<sub>2</sub>-O-CH<sub>2</sub>-CH<sub>3</sub></div>
+                        <ul class="properties-list">
+                            <li>Historisches Narkosemittel</li>
+                            <li>Lösungsmittel</li>
+                            <li>Niedrige Siedetemperatur (35°C)</li>
+                            <li>Brandgefahr!</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>MTBE (Methyl-tert-butyl-ether)</h4>
+                        <div class="formula">(CH<sub>3</sub>)<sub>3</sub>-C-O-CH<sub>3</sub></div>
+                        <ul class="properties-list">
+                            <li>Kraftstoffzusatz (Antiklopfmittel)</li>
+                            <li>Ersatz für bleihaltige Zusätze</li>
+                            <li>Umweltproblematisch</li>
+                            <li>Wassergefährdend</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Struktur-Eigenschafts-Beziehungen -->
+        <section class="content-section">
+            <div class="section-header">
+                <span>📊</span>
+                <span>7. Struktur-Eigenschafts-Beziehungen</span>
+            </div>
+            <div class="section-content">
+                <h3>7.1 Siedetemperaturen im Vergleich</h3>
+                <p>Die Siedetemperaturen zeigen deutliche Trends basierend auf den zwischenmolekularen Kräften:</p>
+
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Verbindung</th>
+                            <th>Formel</th>
+                            <th>Siedepunkt [°C]</th>
+                            <th>Zwischenmolekulare Kräfte</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Butan</td>
+                            <td>C<sub>4</sub>H<sub>10</sub></td>
+                            <td>-1</td>
+                            <td>London-Kräfte</td>
+                        </tr>
+                        <tr>
+                            <td>Diethylether</td>
+                            <td>C<sub>4</sub>H<sub>10</sub>O</td>
+                            <td>35</td>
+                            <td>London-Kräfte + Dipol-Dipol</td>
+                        </tr>
+                        <tr>
+                            <td>Butan-1-ol</td>
+                            <td>C<sub>4</sub>H<sub>10</sub>O</td>
+                            <td>118</td>
+                            <td>Wasserstoffbrücken</td>
+                        </tr>
+                        <tr>
+                            <td>Propansäure</td>
+                            <td>C<sub>3</sub>H<sub>6</sub>O<sub>2</sub></td>
+                            <td>141</td>
+                            <td>Starke H-Brücken (Dimere)</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>7.2 Löslichkeit in Wasser</h3>
+                <div class="important-note">
+                    <h4>💧 Hydrophilie vs. Lipophilie</h4>
+                    <p>Die Wasserlöslichkeit hängt vom Verhältnis polarer zu unpolaren Molekülteilen ab:</p>
+                    <ul class="properties-list">
+                        <li><strong>Kurzkettige Verbindungen:</strong> Wasserlöslich (Hydrophilie überwiegt)</li>
+                        <li><strong>Langkettige Verbindungen:</strong> Lipophil (unpolare Kette dominiert)</li>
+                        <li><strong>Grenze:</strong> Meist bei C₄-C₆ (abhängig von funktioneller Gruppe)</li>
+                        <li><strong>Mehrere OH-Gruppen:</strong> Erhöhen Wasserlöslichkeit</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Interaktive Übungen -->
+        <section class="quiz-section">
+            <h2>🧩 Interaktive Übungen</h2>
+            
+            <div class="quiz-question">
+                <h4>Frage 1: Welche Aussage über Alkohole ist korrekt?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Alle Alkohole sind wasserlöslich</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Alkohole können Wasserstoffbrücken bilden</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Tertiäre Alkohole oxidieren zu Ketonen</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Alkohole haben niedrigere Siedepunkte als entsprechende Alkane</div>
+                </div>
+            </div>
+
+            <div class="quiz-question">
+                <h4>Frage 2: Was entsteht bei der Oxidation von Propan-2-ol?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Propanal</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Propanon</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Propansäure</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Keine Reaktion</div>
+                </div>
+            </div>
+
+            <div class="quiz-question">
+                <h4>Frage 3: Welche Nachweisreaktion ist spezifisch für Aldehyde?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Iodprobe</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Silberspiegelprobe</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Phenolphthalein</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Universalindikator</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Zusammenfassung -->
+        <section class="content-section">
+            <div class="section-header">
+                <span>📝</span>
+                <span>Zusammenfassung</span>
+            </div>
+            <div class="section-content">
+                <h3>🎯 Wichtigste Punkte</h3>
+                
+                <div class="substance-grid">
+                    <div class="substance-card">
+                        <h4>Funktionelle Gruppen</h4>
+                        <ul class="properties-list">
+                            <li>-OH: Alkohole</li>
+                            <li>C=O: Aldehyde/Ketone</li>
+                            <li>-COOH: Carbonsäuren</li>
+                            <li>-COO-: Ester</li>
+                            <li>-O-: Ether</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Oxidationsreihe</h4>
+                        <ul class="properties-list">
+                            <li>Primärer Alkohol → Aldehyd → Carbonsäure</li>
+                            <li>Sekundärer Alkohol → Keton</li>
+                            <li>Tertiärer Alkohol → keine Reaktion</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Wichtige Reaktionen</h4>
+                        <ul class="properties-list">
+                            <li>Veresterung (Kondensation)</li>
+                            <li>Esterhydrolyse</li>
+                            <li>Alkoholische Gärung</li>
+                            <li>Nachweisreaktionen</li>
+                        </ul>
+                    </div>
+                    <div class="substance-card">
+                        <h4>Eigenschaften</h4>
+                        <ul class="properties-list">
+                            <li>Wasserstoffbrücken bei OH/COOH</li>
+                            <li>Amphiphiler Charakter</li>
+                            <li>Struktur bestimmt Eigenschaften</li>
+                            <li>Biologische Bedeutung</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="key-info">
+                    <h4>🔑 Schlüssel zum Erfolg</h4>
+                    <p>Verstehe die <strong>Zusammenhänge zwischen Struktur und Eigenschaften</strong>! Die funktionellen Gruppen bestimmen die chemischen und physikalischen Eigenschaften der Verbindungen. Präge dir die wichtigsten Reaktionen und Nachweismethoden ein.</p>
+                </div>
+            </div>
+        </section>
+
+<!-- Kapitel Navigation -->
+<div class="chapter-navigation">
+    <h3>📖 Kapitel Navigation</h3>
+    <div class="nav-buttons">
+        <button class="nav-button nav-prev" onclick="window.location.href='kohlenwasserstoffe.html'">
+            ← 🧬 Kohlenstoff und Kohlenwasserstoffe
+        </button>
+        <button class="nav-button nav-home" onclick="window.location.href='index.html'">
+            🏠 Zur Startseite
+        </button>
+        <button class="nav-button nav-next" onclick="window.location.href='energetik.html'">
+            ⚡ Chemische Energetik →
+        </button>
+    </div>
+</div>
+
+        <!-- Back to top button -->
+        <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+            ↑
+        </button>
+    </div>
+
+    <script>
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const button = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                button.classList.add('visible');
+            } else {
+                button.classList.remove('visible');
+            }
+        });
+
+        // Quiz functionality
+        function checkAnswer(element, isCorrect) {
+            // Remove previous selections in this question
+            const question = element.closest('.quiz-question');
+            const options = question.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+            });
+
+            // Mark current selection
+            if (isCorrect) {
+                element.classList.add('correct');
+                updateProgress();
+            } else {
+                element.classList.add('incorrect');
+                // Also show the correct answer
+                options.forEach(option => {
+                    if (option.onclick.toString().includes('true')) {
+                        option.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // Progress tracking
+        let completedSections = 0;
+        const totalSections = 8; // Number of main sections
+
+        function updateProgress() {
+            completedSections++;
+            const percentage = Math.min((completedSections / totalSections) * 100, 100);
+            
+            const progressFill = document.getElementById('chapter-progress');
+            const progressText = document.querySelector('.progress-container p');
+            
+            progressFill.style.width = percentage + '%';
+            progressText.textContent = Math.round(percentage) + '% abgeschlossen';
+            
+            // Save progress to session storage
+            sessionStorage.setItem('sauerstoff-verbindungen-progress', percentage);
+        }
+
+        // Load saved progress
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedProgress = sessionStorage.getItem('sauerstoff-verbindungen-progress');
+            if (savedProgress) {
+                document.getElementById('chapter-progress').style.width = savedProgress + '%';
+                document.querySelector('.progress-container p').textContent = 
+                    Math.round(savedProgress) + '% abgeschlossen';
+            }
+
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print functionality
+        function printPage() {
+            window.print();
+        }
+
+        // Add keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Ctrl + Home = Back to top
+            if (e.ctrlKey && e.key === 'Home') {
+                e.preventDefault();
+                scrollToTop();
+            }
+            // Ctrl + P = Print
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                printPage();
+            }
+        });
+    </script>
+</body>
+</html>

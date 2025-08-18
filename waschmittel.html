@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seifen und Waschmittel - Chemie Lernzettel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .nav-tabs {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        
+        .tab-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .tab-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tab-btn.active {
+            background: linear-gradient(45deg, #5a67d8, #553c9a);
+        }
+        
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            display: none;
+        }
+        
+        .content-section.active {
+            display: block;
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        
+        .card h4 {
+            color: #667eea;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #f39c12;
+        }
+        
+        .reaction-box {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+        }
+        
+        .formula {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            display: inline-block;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        table {
+            width: 100%;
+            min-width: 600px;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .quiz-section {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .quiz-question {
+            font-weight: 600;
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .quiz-answer {
+            display: none;
+            background: #d4edda;
+            border: 1px solid #c3e6c3;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #5a67d8;
+        }
+        
+        ul, ol {
+            margin-left: 20px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        .enhanced-list {
+            list-style: none;
+            margin-left: 0;
+        }
+        
+        .enhanced-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .enhanced-list li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+        
+        .enhanced-list li strong {
+            color: #667eea;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+            }
+            
+            .tab-btn {
+                width: 100%;
+            }
+        }
+/* Allgemeine Section-Stile */
+.section {
+    background: rgba(255, 255, 255, 0.95);
+    margin-bottom: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px 30px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.section-content {
+    padding: 30px;
+}
+
+/* Grid-Layout */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* Button-Stile */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 10px 5px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .section-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-content {
+        padding: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+<a href="index.html" class="btn btn-secondary">🏠 Startseite</a>
+        <header>
+
+            <h1>🧼 Seifen und Waschmittel</h1>
+            <p class="subtitle">Tenside, Waschvorgang, Verseifung und Umweltaspekte</p>
+            <p>Chemie Abitur Lernzettel</p>
+        </header>
+
+        <nav class="nav-tabs">
+            <button class="tab-btn active" onclick="showTab('overview')">📊 Überblick</button>
+            <button class="tab-btn" onclick="showTab('verseifung')">⚗️ Verseifung</button>
+            <button class="tab-btn" onclick="showTab('tenside')">🌊 Tenside</button>
+            <button class="tab-btn" onclick="showTab('waschvorgang')">🔄 Waschvorgang</button>
+            <button class="tab-btn" onclick="showTab('waschmittel')">🧪 Waschmittel</button>
+            <button class="tab-btn" onclick="showTab('umwelt')">🌱 Umwelt</button>
+            <button class="tab-btn" onclick="showTab('uebung')">📝 Übungen</button>
+        </nav>
+
+        <!-- Überblick -->
+        <section id="overview" class="content-section active">
+            <div class="section-header">
+                <span>🎯</span> Überblick und Lernziele
+            </div>
+            <div class="section-content">
+                <div class="info-box">
+                    <h3>🧼 Was du in diesem Kapitel lernst:</h3>
+                    <ul class="enhanced-list">
+                        <li><strong>Verseifung:</strong> Wie entstehen Seifen aus Fetten?</li>
+                        <li><strong>Tenside:</strong> Aufbau und Wirkungsweise waschaktiver Stoffe</li>
+                        <li><strong>Waschvorgang:</strong> Die drei Phasen des Waschens</li>
+                        <li><strong>Moderne Waschmittel:</strong> Zusammensetzung und Zusatzstoffe</li>
+                        <li><strong>Umweltaspekte:</strong> Biologische Abbaubarkeit und Gewässerschutz</li>
+                    </ul>
+                </div>
+
+                <div class="warning-box">
+                    <h3>⚠️ Abiturrelevanz</h3>
+                    <p><strong>Häufige Prüfungsthemen:</strong> Verseifungsreaktion, Tensidwirkung, Micellbildung, Umweltproblematik von Tensiden, Vergleich Seife vs. synthetische Tenside</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>🔬 Grundlagen</h3>
+                        <ul>
+                            <li>Amphiphile Moleküle</li>
+                            <li>Oberflächenspannung</li>
+                            <li>Emulgierung</li>
+                            <li>Grenzflächenaktivität</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>⚡ Anwendungen</h3>
+                        <ul>
+                            <li>Haushaltsreiniger</li>
+                            <li>Industrielle Waschmittel</li>
+                            <li>Kosmetika</li>
+                            <li>Medizinische Anwendungen</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🌍 Relevanz</h3>
+                        <ul>
+                            <li>Alltäglicher Gebrauch</li>
+                            <li>Umweltschutz</li>
+                            <li>Nachhaltigkeit</li>
+                            <li>Wirtschaftliche Bedeutung</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Verseifung -->
+        <section id="verseifung" class="content-section">
+            <div class="section-header">
+                <span>⚗️</span> Verseifung von Fetten
+            </div>
+            <div class="section-content">
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>🧪 Definition Verseifung</h3>
+                        <p>Die <strong>Verseifung</strong> ist die alkalische Hydrolyse eines Fettes oder Öls. Dabei entstehen Glycerin und die Alkalisalze der Fettsäuren (= Seifen).</p>
+                        
+                        <h4>Historisches:</h4>
+                        <ul>
+                            <li>Erste Seifen vor 4500 Jahren in Mesopotamien</li>
+                            <li>Verwendung von Pflanzenasche (enthält KOH)</li>
+                            <li>Industrielle Seifenherstellung seit 19. Jahrhundert</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🔬 Mechanismus</h3>
+                        <p>Die Verseifung erfolgt durch <strong>nucleophilen Angriff</strong> des Hydroxid-Ions:</p>
+                        
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 10px 0;">
+                            <strong>1. Schritt:</strong> Nucleophiler Angriff<br>
+                            <strong>2. Schritt:</strong> Tetraedrisches Zwischenprodukt<br>
+                            <strong>3. Schritt:</strong> Abspaltung des Alkoholat-Ions<br>
+                            <strong>4. Schritt:</strong> Protonenübertragung
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reaction-box">
+                    <h4>🧪 Verseifungsreaktion:</h4>
+                    <div style="font-size: 1.2em; margin: 15px 0;">
+                        <strong>Fett + 3 NaOH → Glycerin + 3 Natriumsalze der Fettsäuren</strong>
+                    </div>
+                    <div class="formula">
+                        C₃H₅(OOCR)₃ + 3 NaOH → C₃H₅(OH)₃ + 3 R-COONa
+                    </div>
+                    <p style="margin-top: 10px;">
+                        <strong>Beispiel:</strong> Tristearin + Natronlauge → Glycerin + 3 Natriumstearat
+                    </p>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-question">
+                        🤔 Quiz: Welche Bedingungen begünstigen die Verseifung?
+                    </div>
+                    <button class="btn" onclick="toggleAnswer('quiz1')">Antwort zeigen</button>
+                    <div id="quiz1" class="quiz-answer">
+                        <strong>Antwort:</strong> 
+                        <ul>
+                            <li><strong>Hohe Temperatur:</strong> Beschleunigt die Reaktion</li>
+                            <li><strong>Alkalische Bedingungen:</strong> NaOH oder KOH als starke Base</li>
+                            <li><strong>Überschuss an Base:</strong> Verschiebt Gleichgewicht nach rechts</li>
+                            <li><strong>Rühren:</strong> Verbessert Kontakt zwischen den Phasen</li>
+                            <li><strong>Lösungsmittel:</strong> Ethanol als Lösungsvermittler</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tenside -->
+        <section id="tenside" class="content-section">
+            <div class="section-header">
+                <span>🌊</span> Tenside - Grenzflächenaktive Stoffe
+            </div>
+            <div class="section-content">
+                <div class="info-box">
+                    <h3>📖 Definition</h3>
+                    <p><strong>Tenside</strong> (von lateinisch "tensus" = gespannt) sind grenzflächenaktive Stoffe, die die Oberflächenspannung von Wasser herabsetzen können. Alle Tenside sind amphiphil aufgebaut.</p>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>⚡ Anionische Tenside</h3>
+                        <p>Negativ geladene waschaktive Gruppe</p>
+                        <h4>Beispiele:</h4>
+                        <ul>
+                            <li><strong>Seifen:</strong> R-COO⁻</li>
+                            <li><strong>Alkylsulfonate:</strong> R-SO₃⁻</li>
+                            <li><strong>Alkylsulfate:</strong> R-OSO₃⁻</li>
+                        </ul>
+                        <div class="formula">
+                            Natriumdodecylsulfat:<br>
+                            C₁₂H₂₅OSO₃Na
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🔋 Kationische Tenside</h3>
+                        <p>Positiv geladene waschaktive Gruppe</p>
+                        <h4>Beispiele:</h4>
+                        <ul>
+                            <li><strong>Quaternäre Ammoniumsalze</strong></li>
+                            <li>Verwendung als Weichspüler</li>
+                            <li>Antibakterielle Wirkung</li>
+                        </ul>
+                        <div class="formula">
+                            Cetyltrimethylammonium-<br>bromid: C₁₆H₃₃N(CH₃)₃Br
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🔄 Nichtionische Tenside</h3>
+                        <p>Keine Ladung, polare Gruppen</p>
+                        <h4>Eigenschaften:</h4>
+                        <ul>
+                            <li>Unempfindlich gegen hartes Wasser</li>
+                            <li>pH-beständig</li>
+                            <li>Gute Fettlösekraft</li>
+                        </ul>
+                        <div class="formula">
+                            Alkylpolyglycol-<br>ether: R-O-(CH₂CH₂O)ₙ-H
+                        </div>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Eigenschaft</th>
+                                <th>Seife</th>
+                                <th>Alkylbenzolsulfonat</th>
+                                <th>Nichtionisches Tensid</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>pH-Bereich</strong></td>
+                                <td>Alkalisch (9-10)</td>
+                                <td>Neutral bis schwach alkalisch</td>
+                                <td>Neutral</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Härteempfindlichkeit</strong></td>
+                                <td>Hoch (Kalkseifenbildung)</td>
+                                <td>Gering</td>
+                                <td>Keine</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Säureempfindlichkeit</strong></td>
+                                <td>Hoch (Ausfällung)</td>
+                                <td>Gering</td>
+                                <td>Keine</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Biologische Abbaubarkeit</strong></td>
+                                <td>Vollständig</td>
+                                <td>Gut (über 90%)</td>
+                                <td>Gut</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-question">
+                        🤔 Quiz: Warum schäumt Seife in hartem Wasser schlecht?
+                    </div>
+                    <button class="btn" onclick="toggleAnswer('quiz2')">Antwort zeigen</button>
+                    <div id="quiz2" class="quiz-answer">
+                        <strong>Antwort:</strong> Hartes Wasser enthält Ca²⁺- und Mg²⁺-Ionen. Diese bilden mit den Seifen-Anionen unlösliche Kalkseifen (z.B. Calciumstearat), die ausfallen. Dadurch stehen weniger waschaktive Seifen-Anionen zur Verfügung und die Schaumbildung wird stark reduziert.
+                        <br><br>
+                        <strong>Reaktion:</strong> 2 R-COONa + Ca²⁺ → (R-COO)₂Ca↓ + 2 Na⁺
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Waschvorgang -->
+        <section id="waschvorgang" class="content-section">
+            <div class="section-header">
+                <span>🔄</span> Der Waschvorgang - Drei Phasen
+            </div>
+            <div class="section-content">
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>1️⃣ Phase 1: Benetzung</h3>
+                        <ul>
+                            <li>Tensid-Moleküle lagern sich an Grenzfläche an</li>
+                            <li>Oberflächenspannung wird verringert</li>
+                            <li>Faser wird vollständig benetzt</li>
+                            <li>Wasser kann in Gewebe eindringen</li>
+                        </ul>
+                        <div style="background: #e8f5e8; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <strong>Wichtig:</strong> Ohne Tenside perlt Wasser von fettigen Oberflächen ab!
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>2️⃣ Phase 2: Ablösung</h3>
+                        <ul>
+                            <li>Tensid-Moleküle dringen in Schmutzpartikel ein</li>
+                            <li>Umhüllung der Schmutzpartikel</li>
+                            <li>Faser wird negativ aufgeladen</li>
+                            <li>Elektrostatische Abstoßung</li>
+                        </ul>
+                        <div style="background: #fff3cd; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <strong>Mechanismus:</strong> Hydrophobe Wechselwirkungen werden aufgebrochen
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>3️⃣ Phase 3: Dispergierung</h3>
+                        <ul>
+                            <li>Bildung von Micellen um Fettpartikel</li>
+                            <li>Dispergierung fester Schmutzpartikel</li>
+                            <li>Stabilisierung in der Waschflotte</li>
+                            <li>Abtransport mit dem Spülwasser</li>
+                        </ul>
+                        <div style="background: #d4edda; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <strong>Ergebnis:</strong> Schmutz wird dauerhaft entfernt
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h3>⚡ Einflussfaktoren auf die Waschwirkung</h3>
+                    <ul class="enhanced-list">
+                        <li><strong>Temperatur:</strong> Höhere Temperatur → bessere Waschwirkung</li>
+                        <li><strong>Zeit:</strong> Längere Einwirkzeit → bessere Schmutzlösung</li>
+                        <li><strong>Mechanik:</strong> Bewegung unterstützt Ablösung</li>
+                        <li><strong>Konzentration:</strong> Ausreichend Tensid für Micellbildung nötig</li>
+                        <li><strong>pH-Wert:</strong> Optimal zwischen 9-11 für die meisten Tenside</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Waschmittel -->
+        <section id="waschmittel" class="content-section">
+            <div class="section-header">
+                <span>🧪</span> Zusammensetzung moderner Waschmittel
+            </div>
+            <div class="section-content">
+                <div class="info-box">
+                    <h3>🏭 Waschmittel sind komplexe Systeme</h3>
+                    <p>Moderne Waschmittel enthalten 15-25 verschiedene Komponenten, die optimal aufeinander abgestimmt sind. Jeder Bestandteil hat eine spezifische Funktion beim Waschvorgang.</p>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bestandteil</th>
+                                <th>Funktion</th>
+                                <th>Typische Substanzen</th>
+                                <th>Anteil (%)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tenside</strong></td>
+                                <td>Waschaktive Substanz</td>
+                                <td>LAS, Alkylsulfate, Fettalkoholethoxylate</td>
+                                <td>20-30</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Builder</strong></td>
+                                <td>Wasserenthärtung, pH-Pufferung</td>
+                                <td>Zeolith A, Phosphonate, Silikate</td>
+                                <td>30-50</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Bleichmittel</strong></td>
+                                <td>Fleckenentfernung</td>
+                                <td>Natriumperborat, Wasserstoffperoxid</td>
+                                <td>10-25</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Enzyme</strong></td>
+                                <td>Protein-, Stärke-, Fettflecken</td>
+                                <td>Proteasen, Amylasen, Lipasen</td>
+                                <td>0.5-1.5</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Optische Aufheller</strong></td>
+                                <td>Weißgrad erhöhen</td>
+                                <td>Stilben-Derivate</td>
+                                <td>0.1-0.3</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>🧼 Tenside (20-30%)</h3>
+                        <h4>Aufgaben:</h4>
+                        <ul>
+                            <li>Herabsetzung der Oberflächenspannung</li>
+                            <li>Benetzung der Fasern</li>
+                            <li>Emulgierung von Fetten</li>
+                            <li>Micellbildung</li>
+                        </ul>
+                        <p><strong>Meist Kombination:</strong> Anionische + Nichtionische Tenside</p>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🗝️ Gerüststoffe/Builder (30-50%)</h3>
+                        <h4>Aufgaben:</h4>
+                        <ul>
+                            <li>Enthärtung des Wassers</li>
+                            <li>pH-Pufferung</li>
+                            <li>Unterstützung der Tensidwirkung</li>
+                            <li>Korrosionsschutz</li>
+                        </ul>
+                        <div class="formula">
+                            Zeolith A: Na₁₂[Al₁₂Si₁₂O₄₈] · 27 H₂O
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>⚪ Bleichmittel (10-25%)</h3>
+                        <h4>Typen:</h4>
+                        <ul>
+                            <li><strong>Sauerstoffbleiche:</strong> Natriumperborat</li>
+                            <li><strong>Aktivatoren:</strong> TAED, TAGU</li>
+                            <li><strong>Wirkung:</strong> Oxidation organischer Flecken</li>
+                        </ul>
+                        <div style="background: #fff3cd; padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <strong>Nur in Vollwaschmitteln!</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-question">
+                        🤔 Quiz: Warum enthalten Colorwaschmittel keine Bleichmittel?
+                    </div>
+                    <button class="btn" onclick="toggleAnswer('quiz3')">Antwort zeigen</button>
+                    <div id="quiz3" class="quiz-answer">
+                        <strong>Antwort:</strong> Bleichmittel wirken durch Oxidation organischer Verbindungen. Sie würden nicht nur Flecken, sondern auch die Farbstoffe in bunten Textilien angreifen und ausbleichen. Deshalb enthalten Colorwaschmittel keine Bleichmittel, dafür aber oft spezielle Farbübertragungsinhibitoren.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Umwelt -->
+        <section id="umwelt" class="content-section">
+            <div class="section-header">
+                <span>🌱</span> Umweltaspekte und Nachhaltigkeit
+            </div>
+            <div class="section-content">
+                <div class="info-box">
+                    <h3>🌍 Umweltproblematik</h3>
+                    <p>Jährlich gelangen in Deutschland etwa 600.000 Tonnen Waschmittel in die Umwelt. Die Auswirkungen auf Gewässer und Ökosysteme sind vielfältig und teilweise noch nicht vollständig verstanden.</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>⚠️ Probleme</h3>
+                        <h4>Eutrophierung:</h4>
+                        <ul>
+                            <li>Phosphate → Algenwachstum</li>
+                            <li>Sauerstoffmangel in Gewässern</li>
+                            <li>Fischsterben</li>
+                        </ul>
+                        
+                        <h4>Tensid-Belastung:</h4>
+                        <ul>
+                            <li>Schaumberge in Flüssen (historisch)</li>
+                            <li>Störung der Oberflächenspannung</li>
+                            <li>Beeinträchtigung der Wasserorganismen</li>
+                        </ul>
+                        
+                        <h4>Allergien:</h4>
+                        <ul>
+                            <li>Duftstoffe und Konservierungsmittel</li>
+                            <li>Hautreizungen</li>
+                            <li>Atemwegserkrankungen</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>✅ Lösungsansätze</h3>
+                        <h4>Phosphatersatz:</h4>
+                        <ul>
+                            <li>Zeolithe seit 1980er Jahren</li>
+                            <li>Phosphonatsäuren (HEDP)</li>
+                            <li>Polycarboxylate</li>
+                        </ul>
+                        
+                        <h4>Biologische Abbaubarkeit:</h4>
+                        <ul>
+                            <li>EU-Verordnung: > 90% in 28 Tagen</li>
+                            <li>Lineare Alkylbenzolsulfonate (LAS)</li>
+                            <li>Fettalkoholethoxylate</li>
+                        </ul>
+                        
+                        <h4>Konzentrate:</h4>
+                        <ul>
+                            <li>Weniger Verpackungsmaterial</li>
+                            <li>Reduzierte Transportkosten</li>
+                            <li>Geringere CO₂-Emissionen</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h3>📊 Phosphat-Problematik - Historische Entwicklung</h3>
+                    <ul class="enhanced-list">
+                        <li><strong>1960er Jahre:</strong> Massive Eutrophierung der Gewässer durch Phosphate</li>
+                        <li><strong>1980:</strong> Phosphathöchstmengenverordnung in Deutschland</li>
+                        <li><strong>1986:</strong> Phosphatverbot in Waschmitteln für Privathaushalte</li>
+                        <li><strong>2013:</strong> EU-weites Phosphatverbot in Haushaltswaschmitteln</li>
+                        <li><strong>Heute:</strong> Zeolithe und Phosphonate als umweltfreundlichere Alternative</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-question">
+                        🤔 Quiz: Wie funktioniert die Wasserenthärtung durch Zeolithe?
+                    </div>
+                    <button class="btn" onclick="toggleAnswer('quiz4')">Antwort zeigen</button>
+                    <div id="quiz4" class="quiz-answer">
+                        <strong>Antwort:</strong> Zeolithe sind kristalline Aluminosilikate mit einer käfigartigen Struktur. Sie funktionieren als Ionenaustauscher:
+                        <br><br>
+                        <strong>Reaktion:</strong> Na₁₂[Al₁₂Si₁₂O₄₈] + 6 Ca²⁺ → Ca₆[Al₁₂Si₁₂O₄₈] + 12 Na⁺
+                        <br><br>
+                        Die Ca²⁺- und Mg²⁺-Ionen des harten Wassers werden gegen Na⁺-Ionen ausgetauscht. Die Na⁺-Ionen stören die Tensidwirkung nicht, da sie keine unlöslichen Verbindungen mit Tensiden bilden.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Übungen -->
+        <section id="uebung" class="content-section">
+            <div class="section-header">
+                <span>📝</span> Übungen und Abituraufgaben
+            </div>
+            <div class="section-content">
+                <div class="info-box">
+                    <h3>🎯 Zentrale Konzepte</h3>
+                    <ul class="enhanced-list">
+                        <li><strong>Amphiphile Struktur:</strong> Alle waschaktiven Stoffe besitzen hydrophile und hydrophobe Bereiche</li>
+                        <li><strong>Micellbildung:</strong> Oberhalb der CMC bilden sich spontan Micellen</li>
+                        <li><strong>Drei-Phasen-Modell:</strong> Benetzung → Ablösung → Dispergierung</li>
+                        <li><strong>Synergieeffekte:</strong> Moderne Waschmittel nutzen das Zusammenspiel verschiedener Komponenten</li>
+                        <li><strong>Umweltverträglichkeit:</strong> Biologische Abbaubarkeit und Gewässerschutz</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-question">
+                        🎓 Abituraufgabe: Erklären Sie, warum Seife in saurem Milieu (pH < 6) ihre Waschwirkung verliert und gleichzeitig ein trüber Niederschlag entsteht. Formulieren Sie die entsprechende Reaktionsgleichung.
+                    </div>
+                    <button class="btn" onclick="toggleAnswer('quiz5')">Musterlösung zeigen</button>
+                    <div id="quiz5" class="quiz-answer">
+                        <strong>Musterlösung:</strong>
+                        <br><br>
+                        <strong>Erklärung:</strong> Im sauren Milieu werden die Seifen-Anionen (R-COO⁻) protoniert. Dabei entstehen die entsprechenden Fettsäuren (R-COOH), die in Wasser schlecht löslich sind und als trüber Niederschlag ausfallen. Da die Fettsäuren nicht mehr amphiphil sind (keine Ladung), können sie keine Micellen bilden und verlieren ihre Waschwirkung.
+                        <br><br>
+                        <strong>Reaktionsgleichung:</strong><br>
+                        R-COONa + H₃O⁺ → R-COOH↓ + Na⁺ + H₂O
+                        <br><br>
+                        <strong>Beispiel mit Natriumstearat:</strong><br>
+                        C₁₇H₃₅COONa + H₃O⁺ → C₁₇H₃₅COOH↓ + Na⁺ + H₂O
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h3>📝 Typische Abiturfragen</h3>
+                    <ol>
+                        <li>Erklären Sie den Mechanismus der Verseifung</li>
+                        <li>Vergleichen Sie Seifen mit synthetischen Tensiden</li>
+                        <li>Beschreiben Sie die drei Phasen des Waschvorgangs</li>
+                        <li>Erläutern Sie die Umweltproblematik von Phosphaten</li>
+                        <li>Begründen Sie die Bedeutung von Enzymen in Waschmitteln</li>
+                        <li>Analysieren Sie die Zusammensetzung eines Vollwaschmittels</li>
+                    </ol>
+                </div>
+
+                <div class="quiz-section">
+                    <div class="quiz-question">
+                        💡 Übungsaufgabe: Ein Schüler stellt fest, dass sich Olivenöl und Wasser nicht mischen lassen, aber nach Zugabe von Spülmittel eine stabile Emulsion entsteht. Erklären Sie dieses Phänomen auf molekularer Ebene.
+                    </div>
+                    <button class="btn" onclick="toggleAnswer('quiz6')">Lösung zeigen</button>
+                    <div id="quiz6" class="quiz-answer">
+                        <strong>Lösung:</strong>
+                        <br><br>
+                        <strong>Ohne Spülmittel:</strong> Olivenöl (unpolar) und Wasser (polar) sind aufgrund ihrer unterschiedlichen Polarität nicht mischbar. Die intermolekularen Kräfte (Wasserstoffbrücken im Wasser, van-der-Waals-Kräfte im Öl) führen zur Phasentrennung.
+                        <br><br>
+                        <strong>Mit Spülmittel:</strong> Die amphiphilen Tensidmoleküle ordnen sich an der Grenzfläche zwischen Öl und Wasser an:
+                        <ul style="margin-top: 10px;">
+                            <li>Hydrophobe Schwänze ragen in die Ölphase</li>
+                            <li>Hydrophile Köpfe ragen in die Wasserphase</li>
+                            <li>Bildung von Öl-in-Wasser-Micellen</li>
+                            <li>Öltröpfchen werden von Tensidmolekülen umhüllt und stabilisiert</li>
+                        </ul>
+                        So entsteht eine stabile Emulsion.
+                    </div>
+                </div>
+
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>📚 Weiterführende Themen</h3>
+                        <ul>
+                            <li>Ester und Carbonsäuren</li>
+                            <li>Fette und Öle</li>
+                            <li>pH-Wert und Puffer</li>
+                            <li>Enzyme und Katalyse</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🔬 Praktische Versuche</h3>
+                        <ul>
+                            <li>Seifenherstellung im Labor</li>
+                            <li>Oberflächenspannung messen</li>
+                            <li>Micellbildung nachweisen</li>
+                            <li>Wasserhärte bestimmen</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>🌍 Aktuelle Forschung</h3>
+                        <ul>
+                            <li>Biotenside aus Mikroorganismen</li>
+                            <li>Enzymoptimierung</li>
+                            <li>Nachhaltige Verpackungen</li>
+                            <li>Mikroplastik-Vermeidung</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+<!-- Navigation zu anderen Kapiteln -->
+<section class="section fade-in">
+    <div class="section-header">
+        🧭 Weiterführende Kapitel
+    </div>
+    <div class="section-content">
+        <div class="grid-3">
+            <a href="naturstoffe.html" class="btn btn-primary">← Naturstoffe</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Hauptübersicht</a>
+            <a href="farbstoffe.html" class="btn btn-primary">Organische Farbstoffe →</a>
+        </div>
+    </div>
+</section>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" onclick="scrollToTop()" id="backToTopBtn" title="Nach oben scrollen">
+            ↑
+        </button>
+    </div>
+
+    <script>
+        // Tab navigation
+        function showTab(tabId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(tabId).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Quiz functionality
+        function toggleAnswer(answerId) {
+            const answer = document.getElementById(answerId);
+            const button = event.target;
+            
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+                button.textContent = 'Antwort verbergen';
+                button.style.background = '#dc3545';
+            } else {
+                answer.style.display = 'none';
+                button.textContent = 'Antwort zeigen';
+                button.style.background = '#667eea';
+            }
+        }
+
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTopBtn = document.getElementById('backToTopBtn');
+            if (window.pageYOffset > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            // Ctrl + Home: Go to top
+            if (e.ctrlKey && e.key === 'Home') {
+                e.preventDefault();
+                scrollToTop();
+            }
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🧼 Seifen und Waschmittel - Lernzettel geladen!');
+            console.log('💡 Tipp: Verwende die Tabs oben, um zwischen den Abschnitten zu wechseln');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur-Eigenschafts-Konzept - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            background-color: #f0f0f0;
+            text-decoration: underline;
+        }
+        
+        .nav-breadcrumb span {
+            color: #7f8c8d;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .concept-intro {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 25px;
+            font-size: 1.4em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .force-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .force-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .force-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .force-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .property-comparison {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #28a745;
+        }
+        
+       .interactive-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.interactive-table th {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    position: sticky;
+    top: 0;
+}
+
+.interactive-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+.interactive-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+@media (max-width: 768px) {
+    .interactive-table th, 
+    .interactive-table td {
+        padding: 10px 8px;
+        font-size: 0.9em;
+        white-space: normal;
+    }
+    
+    .interactive-table {
+        display: block;
+        white-space: nowrap;
+    }
+}
+        
+        .example-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            color: #2c3e50;
+        }
+        
+        .structure-viewer {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .quiz-options {
+            margin: 15px 0;
+        }
+        
+        .quiz-options label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .quiz-options label:hover {
+            background-color: #e9ecef;
+        }
+        
+        .quiz-options input[type="radio"] {
+            margin-right: 10px;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .formula-box {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+        }
+        
+        .highlight-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .key-points {
+            background: #e8f5e8;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .key-points h3 {
+            color: #155724;
+            margin-bottom: 15px;
+        }
+        
+        .key-points ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .key-points li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .key-points li:before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 30px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .force-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .concept-intro {
+                padding: 20px;
+            }
+            
+            .nav-breadcrumb {
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .section-header {
+                font-size: 1.2em;
+                padding: 15px 20px;
+            }
+            
+            .interactive-table th,
+            .interactive-table td {
+                padding: 10px 8px;
+                font-size: 0.9em;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .content-section,
+            .concept-intro,
+            .quiz-section {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            
+            .section-header {
+                background: #f0f0f0;
+                color: black;
+            }
+            
+            .force-card {
+                background: #f0f0f0;
+                color: black;
+                border: 1px solid #ccc;
+            }
+        }
+        
+        /* Animationen */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .content-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .content-section:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+        
+        .content-section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav-breadcrumb">
+            <a href="index.html">🏠 Startseite</a>
+            <span>></span>
+
+            <span>🔗 Struktur-Eigenschafts-Konzept</span>
+        </div>
+
+        <header>
+            <h1>🔗 Struktur-Eigenschafts-Konzept</h1>
+            <p class="subtitle">Wie die Teilchenstruktur die Stoffeigenschaften bestimmt</p>
+            <p>Abitur 2026 - Eines der 5 fundamentalen Basiskonzepte der Chemie</p>
+        </header>
+
+        <div class="concept-intro">
+            <h2>🎯 Was ist das Struktur-Eigenschafts-Konzept?</h2>
+            <p><strong>Das Struktur-Eigenschafts-Konzept</strong> ist ein fundamentales Prinzip der Chemie, das den direkten Zusammenhang zwischen der <strong>Struktur von Teilchen</strong> (Atome, Moleküle, Ionen) und den <strong>makroskopischen Eigenschaften</strong> der daraus aufgebauten Stoffe beschreibt.</p>
+            
+            <div class="highlight-box">
+                <strong>Kernaussage:</strong> Die Art und Weise, wie Atome in Molekülen oder Kristallen angeordnet sind, und die zwischen ihnen wirkenden Kräfte bestimmen direkt die beobachtbaren Eigenschaften wie Schmelzpunkt, Siedepunkt, Löslichkeit, Härte, Leitfähigkeit und chemische Reaktivität.
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <span>⚛️</span>
+                <span>Grundlagen: Von der Struktur zur Eigenschaft</span>
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div>
+                        <h3>🔬 Teilchenebene (Mikroskopisch)</h3>
+                        <ul>
+                            <li><strong>Atomare Struktur:</strong> Elektronenkonfiguration</li>
+                            <li><strong>Molekülstruktur:</strong> Bindungsarten und -winkel</li>
+                            <li><strong>Kristallstruktur:</strong> Gitteranordnung</li>
+                            <li><strong>Zwischenmolekulare Kräfte:</strong> Van-der-Waals, H-Brücken</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>🔍 Stoffebene (Makroskopisch)</h3>
+                        <ul>
+                            <li><strong>Physikalische Eigenschaften:</strong> Schmelz-/Siedepunkt</li>
+                            <li><strong>Mechanische Eigenschaften:</strong> Härte, Elastizität</li>
+                            <li><strong>Elektrische Eigenschaften:</strong> Leitfähigkeit</li>
+                            <li><strong>Chemische Eigenschaften:</strong> Reaktivität</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="formula-box">
+                    <strong>Struktur → Zwischenmolekulare Kräfte → Makroskopische Eigenschaften</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <span>🔗</span>
+                <span>Zwischenmolekulare Kräfte - Die Brücke zwischen Struktur und Eigenschaft</span>
+            </div>
+            <div class="section-content">
+                <p>Zwischenmolekulare Kräfte sind der Schlüssel zum Verständnis des Struktur-Eigenschafts-Konzepts. Sie verbinden die molekulare Struktur direkt mit den beobachtbaren Stoffeigenschaften.</p>
+                
+                <div class="force-grid">
+                    <div class="force-card">
+                        <h3>🌀 London-Kräfte (Van-der-Waals)</h3>
+                        <p><strong>Entstehung:</strong> Temporäre Dipole durch schwankende Elektronenverteilung</p>
+                        <p><strong>Stärke:</strong> Schwach (0.1-2 kJ/mol)</p>
+                        <p><strong>Beispiele:</strong> Alkane, Edelgase</p>
+                        <p><strong>Einfluss:</strong> Größeres Molekül = stärkere London-Kräfte</p>
+                    </div>
+                    
+                    <div class="force-card">
+                        <h3>⚡ Dipol-Dipol-Kräfte</h3>
+                        <p><strong>Entstehung:</strong> Permanente Dipole richten sich aus</p>
+                        <p><strong>Stärke:</strong> Mittel (5-25 kJ/mol)</p>
+                        <p><strong>Beispiele:</strong> HCl, Aceton</p>
+                        <p><strong>Einfluss:</strong> Höhere Siedepunkte als unpolare Moleküle</p>
+                    </div>
+                    
+                    <div class="force-card">
+                        <h3>🔗 Wasserstoffbrücken</h3>
+                        <p><strong>Entstehung:</strong> H an F, O, N bindet an freie Elektronenpaare</p>
+                        <p><strong>Stärke:</strong> Stark (10-40 kJ/mol)</p>
+                        <p><strong>Beispiele:</strong> Wasser, Alkohole, Carbonsäuren</p>
+                        <p><strong>Einfluss:</strong> Deutlich erhöhte Siedepunkte</p>
+                    </div>
+                    
+                    <div class="force-card">
+                        <h3>⚛️ Ionenbindung</h3>
+                        <p><strong>Entstehung:</strong> Elektrostatische Anziehung zwischen Ionen</p>
+                        <p><strong>Stärke:</strong> Sehr stark (400-4000 kJ/mol)</p>
+                        <p><strong>Beispiele:</strong> Salze (NaCl, CaF₂)</p>
+                        <p><strong>Einfluss:</strong> Hohe Schmelzpunkte, Sprödigkeit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <span>📊</span>
+                <span>Struktur-Eigenschafts-Beziehungen in verschiedenen Stoffklassen</span>
+            </div>
+            <div class="section-content">
+                <table class="interactive-table">
+                    <thead>
+                        <tr>
+                            <th>Stoffklasse</th>
+                            <th>Struktur</th>
+                            <th>Zwischenmolekulare Kräfte</th>
+                            <th>Typische Eigenschaften</th>
+                            <th>Beispiele</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Alkane</strong></td>
+                            <td>Unpolare C-H-Ketten</td>
+                            <td>London-Kräfte</td>
+                            <td>Niedrige Siedepunkte, hydrophob</td>
+                            <td>Methan (-162°C), Hexan (69°C)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Alkohole</strong></td>
+                            <td>OH-Gruppe an C-Kette</td>
+                            <td>Wasserstoffbrücken</td>
+                            <td>Höhere Siedepunkte, wasserlöslich</td>
+                            <td>Ethanol (78°C), Methanol (65°C)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Carbonsäuren</strong></td>
+                            <td>COOH-Gruppe</td>
+                            <td>Starke H-Brücken (Dimere)</td>
+                            <td>Hohe Siedepunkte, sauer</td>
+                            <td>Essigsäure (118°C)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Salze</strong></td>
+                            <td>Ionengitter</td>
+                            <td>Ionenbindung</td>
+                            <td>Hohe Schmelzpunkte, spröde</td>
+                            <td>NaCl (801°C), CaO (2613°C)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Metalle</strong></td>
+                            <td>Elektronengas</td>
+                            <td>Metallbindung</td>
+                            <td>Leitfähig, verformbar</td>
+                            <td>Kupfer, Eisen, Aluminium</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <span>🧪</span>
+                <span>Praktische Beispiele: Wie Struktur Eigenschaften bestimmt</span>
+            </div>
+            <div class="section-content">
+                <div class="example-box">
+                    <h3>Beispiel 1: Siedepunkte von Alkoholen</h3>
+                    <p><strong>Beobachtung:</strong> Methanol (CH₃OH) siedet bei 65°C, Ethan (C₂H₆) bei -89°C</p>
+                    <p><strong>Struktureller Grund:</strong> Methanol kann Wasserstoffbrücken bilden (OH-Gruppe), Ethan nur schwache London-Kräfte</p>
+                    <p><strong>Konsequenz:</strong> Viel mehr Energie nötig, um Methanol-Moleküle zu trennen</p>
+                </div>
+                
+                <div class="example-box">
+                    <h3>Beispiel 2: Löslichkeit organischer Verbindungen</h3>
+                    <p><strong>Beobachtung:</strong> Ethanol löst sich in Wasser, Hexan nicht</p>
+                    <p><strong>Struktureller Grund:</strong> Ethanol hat polare OH-Gruppe (kann H-Brücken mit Wasser bilden), Hexan ist völlig unpolar</p>
+                    <p><strong>Konsequenz:</strong> "Gleiches löst Gleiches" - polare Stoffe lösen polare, unpolare lösen unpolare</p>
+                </div>
+                
+                <div class="example-box">
+                    <h3>Beispiel 3: Härte von Diamant vs. Graphit</h3>
+                    <p><strong>Beobachtung:</strong> Diamant ist härtest natürlicher Stoff, Graphit ist weich</p>
+                    <p><strong>Struktureller Grund:</strong> Diamant: 3D-Netzwerk starker C-C-Bindungen; Graphit: Schichten mit schwachen Zwischenschichtkräften</p>
+                    <p><strong>Konsequenz:</strong> Gleiche Atome, völlig verschiedene Eigenschaften durch unterschiedliche Struktur</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <span>🔬</span>
+                <span>Isomerie - Gleiche Zusammensetzung, verschiedene Eigenschaften</span>
+            </div>
+            <div class="section-content">
+                <p>Isomere sind ein perfektes Beispiel für das Struktur-Eigenschafts-Konzept: Gleiche Molekülformel, aber unterschiedliche Struktur führt zu verschiedenen Eigenschaften.</p>
+                
+                <div class="property-comparison">
+                    <h3>Konstitutionsisomerie - Beispiel: C₄H₁₀O</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4>Diethylether (CH₃-CH₂-O-CH₂-CH₃)</h4>
+                            <ul>
+                                <li>Siedepunkt: 35°C</li>
+                                <li>Schwach wasserlöslich</li>
+                                <li>Verwendung: Lösungsmittel, Narkosemittel</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Butanol (CH₃-CH₂-CH₂-CH₂-OH)</h4>
+                            <ul>
+                                <li>Siedepunkt: 117°C</li>
+                                <li>Mäßig wasserlöslich</li>
+                                <li>Verwendung: Lösungsmittel, Weichmacher</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p><strong>Grund:</strong> Butanol kann Wasserstoffbrücken bilden (OH-Gruppe), Ether nur schwächere Dipol-Dipol-Kräfte</p>
+                </div>
+                
+                <div class="property-comparison">
+                    <h3>Stereoisomerie - Beispiel: Milchsäure</h3>
+                    <p>L-Milchsäure und D-Milchsäure haben identische physikalische Eigenschaften, aber unterschiedliche biologische Wirkung aufgrund ihrer räumlichen Struktur (Chiralität).</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <span>🏗️</span>
+                <span>Makromoleküle - Struktur bestimmt Verwendung</span>
+            </div>
+            <div class="section-content">
+                <p>Bei Polymeren und biologischen Makromolekülen zeigt sich das Struktur-Eigenschafts-Konzept besonders deutlich:</p>
+                
+                <div class="force-grid">
+                    <div class="force-card">
+                        <h3>🧵 Thermoplaste</h3>
+                        <p><strong>Struktur:</strong> Lineare Ketten, schwache zwischenmolekulare Kräfte</p>
+                        <p><strong>Eigenschaften:</strong> Schmelzbar, verformbar bei Erwärmung</p>
+                        <p><strong>Beispiele:</strong> Polyethylen, PVC</p>
+                    </div>
+                    
+                    <div class="force-card">
+                        <h3>🕸️ Elastomere</h3>
+                        <p><strong>Struktur:</strong> Weitmaschig vernetzte Ketten</p>
+                        <p><strong>Eigenschaften:</strong> Elastisch, kehrt in ursprüngliche Form zurück</p>
+                        <p><strong>Beispiele:</strong> Gummi, Silikon</p>
+                    </div>
+                    
+                    <div class="force-card">
+                        <h3>🧱 Duromere</h3>
+                        <p><strong>Struktur:</strong> Engmaschig vernetztes 3D-Netzwerk</p>
+                        <p><strong>Eigenschaften:</strong> Hart, spröde, nicht schmelzbar</p>
+                        <p><strong>Beispiele:</strong> Epoxidharz, Bakelit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quiz-section">
+            <h2>🧩 Selbsttest: Struktur-Eigenschafts-Konzept</h2>
+            
+            <div class="quiz-question">
+                <h3>Frage 1: Warum hat Wasser einen viel höheren Siedepunkt als Schwefelwasserstoff (H₂S)?</h3>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q1" value="a"> Wasser hat eine größere Molekülmasse</label>
+                    <label><input type="radio" name="q1" value="b"> Wasser kann Wasserstoffbrücken bilden</label>
+                    <label><input type="radio" name="q1" value="c"> Wasser ist polarer</label>
+                    <label><input type="radio" name="q1" value="d"> Alle Antworten sind richtig</label>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>Frage 2: Welche Eigenschaft hat Diamant aufgrund seiner Kristallstruktur?</h3>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q2" value="a"> Elektrische Leitfähigkeit</label>
+                    <label><input type="radio" name="q2" value="b"> Extreme Härte</label>
+                    <label><input type="radio" name="q2" value="c"> Wasserlöslichkeit</label>
+                    <label><input type="radio" name="q2" value="d"> Magnetische Eigenschaften</label>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>Frage 3: Warum sind kurze Alkane gasförmig, während lange Alkane fest sind?</h3>
+                <div class="quiz-options">
+                    <label><input type="radio" name="q3" value="a"> Verschiedene Bindungsarten</label>
+                    <label><input type="radio" name="q3" value="b"> Stärkere London-Kräfte bei längeren Molekülen</label>
+                    <label><input type="radio" name="q3" value="c"> Wasserstoffbrücken bei langen Alkanen</label>
+                    <label><input type="radio" name="q3" value="d"> Ionenbindungen bei langen Alkanen</label>
+                </div>
+            </div>
+            
+            <button class="btn" onclick="checkAnswers()">Antworten überprüfen</button>
+            <div id="quiz-results"></div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <span>🎯</span>
+                <span>Abitur-relevante Anwendungen</span>
+            </div>
+            <div class="section-content">
+                <div class="key-points">
+                    <h3>Wichtige Struktur-Eigenschafts-Beziehungen für das Abitur:</h3>
+                    <ul>
+                        <li>Siedepunkte organischer Verbindungen vorhersagen</li>
+                        <li>Löslichkeitsverhalten erklären ("Gleiches löst Gleiches")</li>
+                        <li>Isomere und ihre unterschiedlichen Eigenschaften</li>
+                        <li>Polymer-Eigenschaften aus Struktur ableiten</li>
+                        <li>Kristallstrukturen und mechanische Eigenschaften</li>
+                        <li>Biologische Aktivität chiraler Moleküle</li>
+                        <li>Tensidwirkung und amphiphile Moleküle</li>
+                        <li>Farbstoffeigenschaften und Molekülstruktur</li>
+                    </ul>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>🔥 Abitur-Tipp: Typische Aufgabenstellungen</h3>
+                    <ul>
+                        <li><strong>"Erklären Sie den Unterschied der Siedepunkte..."</strong> → Zwischenmolekulare Kräfte vergleichen</li>
+                        <li><strong>"Begründen Sie die Löslichkeit von..."</strong> → Polare vs. unpolare Wechselwirkungen</li>
+                        <li><strong>"Leiten Sie die Eigenschaften aus der Struktur ab..."</strong> → Systematisch von Molekülstruktur zu makroskopischen Eigenschaften</li>
+                        <li><strong>"Vergleichen Sie die Isomere..."</strong> → Strukturunterschiede und deren Auswirkungen analysieren</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <span>🔗</span>
+                <span>Verknüpfung mit anderen Basiskonzepten</span>
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div>
+                        <h3>🤝 Verbindung zu anderen Konzepten:</h3>
+                        <div class="property-comparison">
+                            <h4>⚛️ Stoff-Teilchen-Konzept</h4>
+                            <p>Struktur bestimmt, welche Teilchen (Atome, Moleküle, Ionen) vorliegen und wie sie wechselwirken.</p>
+                        </div>
+                        
+                        <div class="property-comparison">
+                            <h4>🔄 Donator-Akzeptor-Konzept</h4>
+                            <p>Molekülstruktur bestimmt Säure-Base-Eigenschaften und Redox-Verhalten.</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="property-comparison">
+                            <h4>⚡ Energiekonzept</h4>
+                            <p>Bindungsenergien und zwischenmolekulare Kräfte bestimmen Stabilität und Reaktivität.</p>
+                        </div>
+                        
+                        <div class="property-comparison">
+                            <h4>⚖️ Gleichgewichtskonzept</h4>
+                            <p>Molekülstruktur beeinflusst Gleichgewichtslage und Reaktionsgeschwindigkeit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="section-header">
+                <span>📝</span>
+                <span>Zusammenfassung und Merksätze</span>
+            </div>
+            <div class="section-content">
+                <div class="key-points">
+                    <h3>🎯 Die wichtigsten Merksätze:</h3>
+                    <ul>
+                        <li><strong>"Die Struktur bestimmt die Funktion"</strong> - Grundprinzip in Chemie und Biologie</li>
+                        <li><strong>"Gleiches löst Gleiches"</strong> - Polare Stoffe lösen polare, unpolare lösen unpolare</li>
+                        <li><strong>"Je stärker die zwischenmolekularen Kräfte, desto höher der Siedepunkt"</strong></li>
+                        <li><strong>"Wasserstoffbrücken > Dipol-Dipol-Kräfte > London-Kräfte"</strong></li>
+                        <li><strong>"Größere Moleküle haben stärkere London-Kräfte"</strong></li>
+                        <li><strong>"Verzweigung verringert zwischenmolekulare Kräfte"</strong></li>
+                        <li><strong>"Chiralität kann biologische Aktivität völlig verändern"</strong></li>
+                    </ul>
+                </div>
+                
+                <div class="formula-box">
+                    <strong>Struktur → Bindungsart → Zwischenmolekulare Kräfte → Makroskopische Eigenschaften → Verwendung</strong>
+                </div>
+                
+                <div class="example-box">
+                    <h3>🔬 Lernstrategie für das Abitur:</h3>
+                    <ol>
+                        <li><strong>Struktur analysieren:</strong> Welche Atome, Bindungen, funktionelle Gruppen?</li>
+                        <li><strong>Kräfte identifizieren:</strong> Welche zwischenmolekularen Kräfte wirken?</li>
+                        <li><strong>Eigenschaften ableiten:</strong> Wie beeinflussen die Kräfte die Eigenschaften?</li>
+                        <li><strong>Vergleichen:</strong> Unterschiede zwischen ähnlichen Strukturen erklären</li>
+                        <li><strong>Anwenden:</strong> Verwendung und biologische Bedeutung ableiten</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+               </div>
+
+        <footer>
+            <p>&copy; 2025 Chemie Lernzettel - Struktur-Eigenschafts-Konzept | Abitur 2026</p>
+            <p> <a href="index.html" style="color: #667eea;">📚 Zurück zur Hauptübersicht</a> | <a href="donator-akzeptor-konzept.html#basiskonzepte" style="color: #667eea;">🔄 Donator-Akzeptor-Konzept</a></p>
+        </footer>
+    </div>
+
+    <script>
+        // Quiz-Funktionalität
+        function checkAnswers() {
+            const answers = {
+                q1: 'b', // Wasserstoffbrücken
+                q2: 'b', // Extreme Härte
+                q3: 'b'  // Stärkere London-Kräfte
+            };
+            
+            let score = 0;
+            let results = '<h3>Auswertung:</h3>';
+            
+            Object.keys(answers).forEach(question => {
+                const selected = document.querySelector(`input[name="${question}"]:checked`);
+                if (selected && selected.value === answers[question]) {
+                    score++;
+                    results += `<p style="color: green;">✓ ${question.toUpperCase()}: Richtig!</p>`;
+                } else {
+                    results += `<p style="color: red;">✗ ${question.toUpperCase()}: Falsch. Richtige Antwort: ${getAnswerText(question, answers[question])}</p>`;
+                }
+            });
+            
+            results += `<h4>Gesamtergebnis: ${score}/3 (${Math.round(score/3*100)}%)</h4>`;
+            
+            if (score === 3) {
+                results += '<p style="color: green; font-weight: bold;">🎉 Ausgezeichnet! Du hast das Struktur-Eigenschafts-Konzept verstanden!</p>';
+            } else if (score === 2) {
+                results += '<p style="color: orange; font-weight: bold;">👍 Gut! Wiederhole noch einmal die zwischenmolekularen Kräfte.</p>';
+            } else {
+                results += '<p style="color: red; font-weight: bold;">📚 Lies den Text noch einmal durch und konzentriere dich auf die Beispiele.</p>';
+            }
+            
+            document.getElementById('quiz-results').innerHTML = results;
+        }
+        
+        function getAnswerText(question, answer) {
+            const answerTexts = {
+                q1: {b: 'Wasser kann Wasserstoffbrücken bilden'},
+                q2: {b: 'Extreme Härte'},
+                q3: {b: 'Stärkere London-Kräfte bei längeren Molekülen'}
+            };
+            return answerTexts[question][answer];
+        }
+        
+        // Interaktive Tabelle - Hover-Effekte
+        document.addEventListener('DOMContentLoaded', function() {
+            const tableRows = document.querySelectorAll('.interactive-table tbody tr');
+            tableRows.forEach(row => {
+                row.addEventListener('mouseenter', function() {
+                    this.style.backgroundColor = '#e3f2fd';
+                    this.style.transform = 'scale(1.02)';
+                    this.style.transition = 'all 0.3s ease';
+                });
+                
+                row.addEventListener('mouseleave', function() {
+                    this.style.backgroundColor = '';
+                    this.style.transform = 'scale(1)';
+                });
+            });
+            
+            // Smooth Scroll für interne Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+            
+            // Animationen für Karten beim Scrollen
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Beobachte alle Content-Sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'all 0.6s ease';
+                observer.observe(section);
+            });
+            
+            // Fortschrittsanzeige
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                
+                // Erstelle Fortschrittsbalken falls nicht vorhanden
+                let progressBar = document.getElementById('progress-bar');
+                if (!progressBar) {
+                    progressBar = document.createElement('div');
+                    progressBar.id = 'progress-bar';
+                    progressBar.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: ${scrolled}%;
+                        height: 4px;
+                        background: linear-gradient(45deg, #667eea, #764ba2);
+                        z-index: 1000;
+                        transition: width 0.3s ease;
+                    `;
+                    document.body.appendChild(progressBar);
+                } else {
+                    progressBar.style.width = scrolled + '%';
+                }
+            });
+            
+            // Zurück-nach-oben Button
+            const backToTop = document.createElement('button');
+            backToTop.innerHTML = '↑';
+            backToTop.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: linear-gradient(45deg, #667eea, #764ba2);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                transition: all 0.3s ease;
+                z-index: 1000;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            `;
+            
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.style.opacity = '1';
+                } else {
+                    backToTop.style.opacity = '0';
+                }
+            });
+            
+            document.body.appendChild(backToTop);
+        });
+        
+        // Print-Funktion
+        function printPage() {
+            window.print();
+        }
+        
+        // Lokale Speicherung des Fortschritts
+        function markAsComplete() {
+            localStorage.setItem('struktur-eigenschafts-konzept-completed', 'true');
+            alert('✅ Struktur-Eigenschafts-Konzept als abgeschlossen markiert!');
+        }
+        
+        // Lade Fortschritt beim Seitenladen
+        window.addEventListener('load', () => {
+            if (localStorage.getItem('struktur-eigenschafts-konzept-completed') === 'true') {
+                const completedBadge = document.createElement('div');
+                completedBadge.innerHTML = '✅ Abgeschlossen';
+                completedBadge.style.cssText = `
+                    position: fixed;
+                    top: 20px;
+                    right: 20px;
+                    background: #28a745;
+                    color: white;
+                    padding: 8px 15px;
+                    border-radius: 20px;
+                    font-size: 14px;
+                    z-index: 1000;
+                `;
+                document.body.appendChild(completedBadge);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,2241 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Säure-Base-Reaktionen - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        /* === RESET UND GRUNDLAGEN === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.7;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            font-size: 16px;
+        }
+        
+        /* === CONTAINER UND LAYOUT === */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* === NAVIGATION === */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 15px 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+            font-size: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+        
+        .nav-breadcrumb a:hover {
+            background: rgba(102, 126, 234, 0.1);
+            color: #5a67d8;
+            transform: translateY(-1px);
+        }
+        
+        .nav-breadcrumb .current {
+            color: #2c3e50;
+            font-weight: 700;
+            background: rgba(118, 75, 162, 0.1);
+            padding: 4px 12px;
+            border-radius: 6px;
+        }
+        
+        .nav-breadcrumb span {
+            color: #7f8c8d;
+            margin: 0 5px;
+        }
+        
+        /* === HEADER === */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 35px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(31, 38, 135, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+            background-size: 300% 100%;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* === TYPOGRAFIE === */
+        h1 {
+            font-size: 3em;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            letter-spacing: -0.02em;
+        }
+        
+        h2 {
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+        
+        h3 {
+            font-size: 1.6em;
+            font-weight: 600;
+            margin: 25px 0 15px 0;
+            color: #34495e;
+            line-height: 1.4;
+        }
+        
+        h4 {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin: 20px 0 12px 0;
+            color: #34495e;
+            line-height: 1.4;
+        }
+        
+        .subtitle {
+            font-size: 1.3em;
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        
+        p {
+            margin-bottom: 16px;
+            line-height: 1.7;
+            font-size: 16px;
+            color: #34495e;
+        }
+        
+        strong {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+/* Allgemeine Section-Stile */
+.section {
+    background: rgba(255, 255, 255, 0.95);
+    margin-bottom: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px 30px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.section-content {
+    padding: 30px;
+}
+
+/* Grid-Layout */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* Button-Stile */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 10px 5px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .section-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-content {
+        padding: 15px;
+    }
+}
+        
+        /* === CONTENT SECTIONS === */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            margin-bottom: 30px;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .content-section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 70px rgba(31, 38, 135, 0.25);
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px 35px;
+            font-size: 1.5em;
+            font-weight: 700;
+            position: relative;
+            letter-spacing: -0.01em;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 300% 100%;
+            animation: gradientFlow 3s ease-in-out infinite;
+        }
+        
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .section-content {
+            padding: 35px;
+        }
+        
+        /* === INTRO SECTION === */
+        .concept-intro {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 35px;
+            border-radius: 18px;
+            margin-bottom: 35px;
+            box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
+            border-left: 6px solid #667eea;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+        }
+        
+        .concept-intro::before {
+            content: '💡';
+            position: absolute;
+            top: -10px;
+            left: 25px;
+            background: #667eea;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* === GRID LAYOUTS === */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        /* === CARD COMPONENTS === */
+        .info-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            margin-bottom: 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            border-left-color: #764ba2;
+        }
+        
+        .info-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .formula-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            font-family: 'Courier New', Monaco, monospace;
+            font-size: 1.1em;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .formula-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        }
+        
+        /* === HIGHLIGHT BOXES === */
+        .highlight-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 6px solid #ffc107;
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.2);
+            position: relative;
+        }
+        
+        .highlight-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #ffc107;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .success-box {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 6px solid #28a745;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.2);
+            position: relative;
+        }
+        
+        .success-box::before {
+            content: '✅';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #28a745;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        .danger-box {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border: 2px solid #dc3545;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 6px solid #dc3545;
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.2);
+            position: relative;
+        }
+        
+        .danger-box::before {
+            content: '❌';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: #dc3545;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+        
+        /* === LISTEN === */
+        ul, ol {
+            margin: 18px 0 18px 25px;
+            padding-left: 0;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            position: relative;
+            padding-left: 8px;
+        }
+        
+        ul li::before {
+            content: '▶';
+            color: #667eea;
+            position: absolute;
+            left: -18px;
+            font-size: 12px;
+        }
+        
+        /* === TABELLEN === */
+        .table-container {
+            overflow-x: auto;
+            margin: 30px 0;
+            border-radius: 15px;
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-radius: 15px;
+            overflow: hidden;
+            font-size: 15px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #eef2f7;
+            transition: background-color 0.3s ease;
+        }
+        
+        tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        tr:hover {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f0f4ff 100%);
+            transform: scale(1.01);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
+        }
+        
+        /* === PROGRESS BAR === */
+        .progress-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 25px;
+            overflow: hidden;
+            margin: 15px 0;
+            position: relative;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+            background-size: 200% 100%;
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 25px;
+            animation: progressGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes progressGlow {
+            0% { box-shadow: 0 0 5px rgba(102, 126, 234, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.8); }
+        }
+        
+        /* === QUIZ SECTION === */
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 18px;
+            padding: 35px;
+            margin: 35px 0;
+            box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .quiz-question {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-question:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .quiz-options {
+            margin: 20px 0;
+        }
+        
+        .quiz-option {
+            background: white;
+            padding: 15px 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .quiz-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .quiz-option:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+            transform: translateX(5px);
+        }
+        
+        .quiz-option:hover::before {
+            left: 100%;
+        }
+        
+        .quiz-option.correct {
+            border-color: #28a745;
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            color: #155724;
+        }
+        
+        .quiz-option.incorrect {
+            border-color: #dc3545;
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            color: #721c24;
+        }
+        
+        /* === BUTTONS === */
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2c3e50;
+            box-shadow: 0 6px 20px rgba(132, 250, 176, 0.3);
+        }
+        
+        .btn-secondary:hover {
+            box-shadow: 0 15px 40px rgba(132, 250, 176, 0.4);
+        }
+        
+        /* === BACK TO TOP BUTTON === */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            animation: pulse 2s infinite;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 20px 50px rgba(102, 126, 234, 0.6);
+        }
+        
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4); }
+            50% { box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6); }
+        }
+        
+        /* === FOOTER === */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 50px;
+            box-shadow: 0 15px 45px rgba(31, 38, 135, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        footer p {
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .three-column {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .section-content {
+                padding: 25px;
+            }
+            
+            .nav-breadcrumb {
+                padding: 12px 18px;
+                font-size: 12px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .formula-card {
+                font-size: 0.9em;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            h2 {
+                font-size: 1.6em;
+            }
+            
+            .section-header {
+                padding: 20px 25px;
+                font-size: 1.2em;
+            }
+            
+            .section-content,
+            .concept-intro,
+            .quiz-section {
+                padding: 20px;
+            }
+            
+            .info-card,
+            .quiz-question {
+                padding: 18px;
+            }
+            
+            table {
+                font-size: 13px;
+            }
+            
+            th, td {
+                padding: 12px 8px;
+            }
+        }
+        
+        /* === PRINT STYLES === */
+        @media print {
+            body {
+                background: white;
+                color: black;
+                font-size: 11pt;
+                line-height: 1.4;
+            }
+            
+            .container {
+                max-width: none;
+                padding: 0;
+            }
+            
+            .content-section,
+            .info-card,
+            .concept-intro {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ddd;
+                margin-bottom: 15pt;
+                page-break-inside: avoid;
+            }
+            
+            .section-header {
+                background: #f0f0f0;
+                color: black;
+                border-bottom: 2px solid #333;
+            }
+            
+            .back-to-top,
+            .nav-breadcrumb,
+            .quiz-section {
+                display: none;
+            }
+            
+            .quiz-section {
+                page-break-before: always;
+            }
+            
+            h1, h2, h3 {
+                page-break-after: avoid;
+            }
+            
+            .formula-card {
+                background: #f8f9fa;
+                color: black;
+                border: 1px solid #ddd;
+            }
+        }
+        
+        /* === ANIMATIONS === */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* === LOADING STATES === */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* === ACCESSIBILITY === */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- === NAVIGATION === -->
+    <div class="container">
+        <nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Hauptübersicht</a> 
+            <span>></span> 
+            <span class="current">6. Säure-Base-Reaktionen</span>
+        </nav>
+
+        <!-- === HEADER === -->
+        <header>
+            <h1>🧪 Säure-Base-Reaktionen</h1>
+            <p class="subtitle">Kapitel 6 - Brønsted-Theorie, pH-Wert, Puffersysteme und Titrationen</p>
+            <p>Umfassende Vorbereitung für das Abitur 2026</p>
+        </header>
+
+        <!-- === PROGRESS SECTION === -->
+        <div class="progress-section">
+            <h3>📊 Lernfortschritt dieses Kapitels</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="chapter-progress"></div>
+            </div>
+            <p id="progress-text">0% abgeschlossen</p>
+        </div>
+
+        <!-- === INTRODUCTION === -->
+        <section class="concept-intro">
+            <h2>🎯 Warum sind Säure-Base-Reaktionen wichtig?</h2>
+            <p>Säure-Base-Reaktionen sind <strong>fundamentale chemische Prozesse</strong>, die in der Natur, Technik und im Alltag eine zentrale Rolle spielen. Von der Verdauung in unserem Körper über die Herstellung von Medikamenten bis hin zur Umweltanalytik - das Verständnis von Säuren und Basen ist <strong>essentiell für das Abitur 2026</strong>.</p>
+            
+            <div class="highlight-box">
+                <h4>💡 Abitur-relevante Schwerpunkte:</h4>
+                <ul>
+                    <li><strong>Brønsted-Theorie</strong> und korrespondierende Säure-Base-Paare</li>
+                    <li><strong>pH-Wert-Berechnungen</strong> für verschiedene Lösungen</li>
+                    <li><strong>Puffersysteme</strong> und Henderson-Hasselbalch-Gleichung</li>
+                    <li><strong>Titrationen</strong> und Titrationskurven-Interpretation</li>
+                    <li><strong>Indikatoren</strong> und Endpunktsbestimmung</li>
+                </ul>
+            </div>
+        </section>
+        <!-- === SECTION 1: BRØNSTED THEORY === -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>1. 🔬 Die Säure-Base-Theorie nach Brønsted</h2>
+            </div>
+            <div class="section-content">
+                <h3>Definition der Begriffe</h3>
+                
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>🔴 Säuren (Protonendonatoren)</h4>
+                        <p><strong>Säuren geben Protonen (H⁺) ab</strong></p>
+                        <div class="formula-card">
+                            HA + H₂O ⇌ A⁻ + H₃O⁺
+                        </div>
+                        <p><strong>Beispiele:</strong></p>
+                        <ul>
+                            <li>HCl (Salzsäure)</li>
+                            <li>H₂SO₄ (Schwefelsäure)</li>
+                            <li>CH₃COOH (Essigsäure)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🔵 Basen (Protonenakzeptoren)</h4>
+                        <p><strong>Basen nehmen Protonen (H⁺) auf</strong></p>
+                        <div class="formula-card">
+                            B + H₂O ⇌ BH⁺ + OH⁻
+                        </div>
+                        <p><strong>Beispiele:</strong></p>
+                        <ul>
+                            <li>NH₃ (Ammoniak)</li>
+                            <li>OH⁻ (Hydroxid-Ion)</li>
+                            <li>CO₃²⁻ (Carbonat-Ion)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Korrespondierende Säure-Base-Paare</h3>
+                <p>Eine Säure geht durch <strong>Protonenabgabe</strong> in ihre korrespondierende Base über, eine Base durch <strong>Protonenaufnahme</strong> in ihre korrespondierende Säure.</p>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Säure (HA)</th>
+                                <th>⇌</th>
+                                <th>Base (A⁻)</th>
+                                <th>Reaktion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>HCl</td>
+                                <td>⇌</td>
+                                <td>Cl⁻</td>
+                                <td>HCl + H₂O → H₃O⁺ + Cl⁻</td>
+                            </tr>
+                            <tr>
+                                <td>NH₄⁺</td>
+                                <td>⇌</td>
+                                <td>NH₃</td>
+                                <td>NH₄⁺ + H₂O ⇌ NH₃ + H₃O⁺</td>
+                            </tr>
+                            <tr>
+                                <td>CH₃COOH</td>
+                                <td>⇌</td>
+                                <td>CH₃COO⁻</td>
+                                <td>CH₃COOH + H₂O ⇌ CH₃COO⁻ + H₃O⁺</td>
+                            </tr>
+                            <tr>
+                                <td>H₂O</td>
+                                <td>⇌</td>
+                                <td>OH⁻</td>
+                                <td>H₂O + NH₃ ⇌ OH⁻ + NH₄⁺</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Ampholyte - Die "Doppelgänger"</h3>
+                <div class="info-card">
+                    <h4>🔄 Was sind Ampholyte?</h4>
+                    <p><strong>Ampholyte</strong> sind Teilchen, die je nach Reaktionspartner sowohl als Säure als auch als Base reagieren können.</p>
+                    
+                    <div class="formula-card">
+                        <strong>Wasser als Ampholyt:</strong><br>
+                        Als Säure: H₂O + NH₃ ⇌ OH⁻ + NH₄⁺<br>
+                        Als Base: H₂O + HCl → H₃O⁺ + Cl⁻
+                    </div>
+                    
+                    <p><strong>Wichtige Ampholyte:</strong></p>
+                    <ul>
+                        <li>H₂O (Wasser)</li>
+                        <li>HSO₄⁻ (Hydrogensulfat-Ion)</li>
+                        <li>HCO₃⁻ (Hydrogencarbonat-Ion)</li>
+                        <li>H₂PO₄⁻ (Dihydrogenphosphat-Ion)</li>
+                        <li>HPO₄²⁻ (Hydrogenphosphat-Ion)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECTION 2: pH AND pOH === -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>2. 📏 pH-Wert und pOH-Wert</h2>
+            </div>
+            <div class="section-content">
+                <h3>Autoprotolyse des Wassers</h3>
+                <p>Wasser ist ein <strong>Ampholyt</strong> und kann mit sich selbst reagieren:</p>
+                
+                <div class="formula-card">
+                    H₂O + H₂O ⇌ H₃O⁺ + OH⁻
+                </div>
+                
+                <div class="info-card">
+                    <h4>💧 Ionenprodukt des Wassers</h4>
+                    <div class="formula-card">
+                        K_w = c(H₃O⁺) × c(OH⁻) = 1 × 10⁻¹⁴ mol²/L² (bei 25°C)
+                    </div>
+                    <p>Diese Konstante gilt für <strong>alle wässrigen Lösungen</strong> bei 25°C!</p>
+                </div>
+
+                <h3>Definition von pH- und pOH-Wert</h3>
+                <div class="two-column">
+                    <div class="formula-card">
+                        <strong>pH-Wert:</strong><br>
+                        pH = -lg[c(H₃O⁺)]
+                    </div>
+                    <div class="formula-card">
+                        <strong>pOH-Wert:</strong><br>
+                        pOH = -lg[c(OH⁻)]
+                    </div>
+                </div>
+                
+                <div class="formula-card">
+                    <strong>Wichtige Beziehung:</strong><br>
+                    pH + pOH = 14 (bei 25°C)
+                </div>
+
+                <h3>pH-Skala und Interpretation</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>pH-Bereich</th>
+                                <th>Charakter</th>
+                                <th>c(H₃O⁺) in mol/L</th>
+                                <th>Beispiele</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>0 - 3</td>
+                                <td>stark sauer</td>
+                                <td>1 - 10⁻³</td>
+                                <td>Magensäure, Zitronensaft</td>
+                            </tr>
+                            <tr>
+                                <td>3 - 7</td>
+                                <td>schwach sauer</td>
+                                <td>10⁻³ - 10⁻⁷</td>
+                                <td>Kaffee, Regen</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>neutral</td>
+                                <td>10⁻⁷</td>
+                                <td>reines Wasser</td>
+                            </tr>
+                            <tr>
+                                <td>7 - 11</td>
+                                <td>schwach basisch</td>
+                                <td>10⁻⁷ - 10⁻¹¹</td>
+                                <td>Seifenwasser, Backpulver</td>
+                            </tr>
+                            <tr>
+                                <td>11 - 14</td>
+                                <td>stark basisch</td>
+                                <td>10⁻¹¹ - 10⁻¹⁴</td>
+                                <td>Natronlauge, Rohrreiniger</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECTION 3: STRENGTH OF ACIDS AND BASES === -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>3. 💪 Stärke von Säuren und Basen</h2>
+            </div>
+            <div class="section-content">
+                <h3>Säurekonstante (K_s) und pK_s-Wert</h3>
+                <p>Die <strong>Säurestärke</strong> wird durch die Säurekonstante K_s quantifiziert:</p>
+                
+                <div class="formula-card">
+                    K_s = [c(H₃O⁺) × c(A⁻)] / c(HA)
+                </div>
+                
+                <div class="formula-card">
+                    pK_s = -lg(K_s)
+                </div>
+                
+                <div class="info-card">
+                    <h4>📊 Interpretation der K_s- und pK_s-Werte</h4>
+                    <ul>
+                        <li><strong>Große K_s-Werte (kleine pK_s-Werte)</strong> → starke Säure</li>
+                        <li><strong>Kleine K_s-Werte (große pK_s-Werte)</strong> → schwache Säure</li>
+                    </ul>
+                </div>
+
+                <h3>Basenkonstante (K_b) und pK_b-Wert</h3>
+                <div class="formula-card">
+                    K_b = [c(OH⁻) × c(BH⁺)] / c(B)
+                </div>
+                
+                <div class="formula-card">
+                    pK_b = -lg(K_b)
+                </div>
+
+                <h3>Wichtige Beziehungen</h3>
+                <div class="highlight-box">
+                    <h4>🔗 Korrespondierende Säure-Base-Paare</h4>
+                    <div class="formula-card">
+                        K_s × K_b = K_w = 10⁻¹⁴ mol²/L²<br>
+                        pK_s + pK_b = 14
+                    </div>
+                    <p><strong>Regel:</strong> Je stärker eine Säure, desto schwächer ihre korrespondierende Base!</p>
+                </div>
+
+                <h3>Übersicht: Säure- und Basenstärken</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Säure</th>
+                                <th>pK_s</th>
+                                <th>Stärke</th>
+                                <th>korr. Base</th>
+                                <th>pK_b</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>HCl</td>
+                                <td>≈ -6</td>
+                                <td>sehr stark</td>
+                                <td>Cl⁻</td>
+                                <td>≈ 20</td>
+                            </tr>
+                            <tr>
+                                <td>H₂SO₄</td>
+                                <td>≈ -3</td>
+                                <td>sehr stark</td>
+                                <td>HSO₄⁻</td>
+                                <td>≈ 17</td>
+                            </tr>
+                            <tr>
+                                <td>H₃O⁺</td>
+                                <td>≈ -1.7</td>
+                                <td>sehr stark</td>
+                                <td>H₂O</td>
+                                <td>≈ 15.7</td>
+                            </tr>
+                            <tr>
+                                <td>CH₃COOH</td>
+                                <td>4.75</td>
+                                <td>schwach</td>
+                                <td>CH₃COO⁻</td>
+                                <td>9.25</td>
+                            </tr>
+                            <tr>
+                                <td>NH₄⁺</td>
+                                <td>9.25</td>
+                                <td>sehr schwach</td>
+                                <td>NH₃</td>
+                                <td>4.75</td>
+                            </tr>
+                            <tr>
+                                <td>H₂O</td>
+                                <td>15.7</td>
+                                <td>sehr schwach</td>
+                                <td>OH⁻</td>
+                                <td>≈ -1.7</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+        <!-- === SECTION 4: pH CALCULATIONS === -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>4. 🧮 pH-Wert-Berechnungen</h2>
+            </div>
+            <div class="section-content">
+                <h3>Übersicht der Berechnungsformeln</h3>
+                
+                <div class="three-column">
+                    <div class="info-card">
+                        <h4>🔴 Starke Säuren</h4>
+                        <div class="formula-card">
+                            pH = -lg[c(HA)]
+                        </div>
+                        <p><strong>Annahme:</strong> Vollständige Dissoziation</p>
+                        <p><strong>Beispiel:</strong> HCl, H₂SO₄, HNO₃</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🔵 Starke Basen</h4>
+                        <div class="formula-card">
+                            pOH = -lg[c(BOH)]<br>
+                            pH = 14 - pOH
+                        </div>
+                        <p><strong>Annahme:</strong> Vollständige Dissoziation</p>
+                        <p><strong>Beispiel:</strong> NaOH, KOH, Ba(OH)₂</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🟡 Schwache Säuren</h4>
+                        <div class="formula-card">
+                            pH = ½(pK_s - lg[c(HA)])
+                        </div>
+                        <p><strong>Bedingung:</strong> c(HA) ≥ 100 × K_s</p>
+                        <p><strong>Beispiel:</strong> CH₃COOH, HF</p>
+                    </div>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>🟢 Schwache Basen</h4>
+                        <div class="formula-card">
+                            pOH = ½(pK_b - lg[c(B)])<br>
+                            pH = 14 - pOH
+                        </div>
+                        <p><strong>Beispiel:</strong> NH₃, Methylamin</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🟣 Salze (Hydrolyse)</h4>
+                        <div class="formula-card">
+                            pH = 7 + ½(pK_w + pK_s - lg[c(Salz)])
+                        </div>
+                        <p><strong>Für Salze schwacher Säuren</strong></p>
+                    </div>
+                </div>
+
+                <h3>Rechenbeispiele</h3>
+                
+                <div class="success-box">
+                    <h4>📝 Beispiel 1: Starke Säure</h4>
+                    <p><strong>Aufgabe:</strong> Berechne den pH-Wert einer 0,01 M HCl-Lösung.</p>
+                    <div class="formula-card">
+                        pH = -lg(0,01) = -lg(10⁻²) = 2
+                    </div>
+                    <p><strong>Antwort:</strong> pH = 2 (stark sauer)</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>📝 Beispiel 2: Schwache Säure</h4>
+                    <p><strong>Aufgabe:</strong> Berechne den pH-Wert einer 0,1 M Essigsäure-Lösung (pK_s = 4,75).</p>
+                    <div class="formula-card">
+                        pH = ½(4,75 - lg(0,1)) = ½(4,75 - (-1)) = ½(5,75) = 2,88
+                    </div>
+                    <p><strong>Antwort:</strong> pH ≈ 2,9 (schwach sauer)</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>📝 Beispiel 3: Starke Base</h4>
+                    <p><strong>Aufgabe:</strong> Berechne den pH-Wert einer 0,001 M NaOH-Lösung.</p>
+                    <div class="formula-card">
+                        pOH = -lg(0,001) = 3<br>
+                        pH = 14 - 3 = 11
+                    </div>
+                    <p><strong>Antwort:</strong> pH = 11 (stark basisch)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECTION 5: BUFFER SYSTEMS === -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>5. 🛡️ Puffersysteme</h2>
+            </div>
+            <div class="section-content">
+                <h3>Was sind Puffersysteme?</h3>
+                <div class="info-card">
+                    <h4>🔬 Definition</h4>
+                    <p><strong>Puffersysteme</strong> sind Lösungen, die ihren pH-Wert bei Zugabe von Säuren oder Basen nur geringfügig ändern.</p>
+                    
+                    <p><strong>Zusammensetzung:</strong></p>
+                    <ul>
+                        <li>Schwache Säure + ihre korrespondierende Base (konjugierte Base)</li>
+                        <li>Schwache Base + ihre korrespondierende Säure (konjugierte Säure)</li>
+                    </ul>
+                </div>
+
+                <h3>Wirkungsweise von Puffern</h3>
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>🔴 Bei H₃O⁺-Zugabe</h4>
+                        <p>Die schwache Base (A⁻) fängt die H₃O⁺-Ionen ab:</p>
+                        <div class="formula-card">
+                            A⁻ + H₃O⁺ → HA + H₂O
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🔵 Bei OH⁻-Zugabe</h4>
+                        <p>Die schwache Säure (HA) gibt Protonen an OH⁻ ab:</p>
+                        <div class="formula-card">
+                            HA + OH⁻ → A⁻ + H₂O
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Henderson-Hasselbalch-Gleichung</h3>
+                <div class="highlight-box">
+                    <h4>📊 Die wichtigste Puffergleichung</h4>
+                    <div class="formula-card">
+                        pH = pK_s + lg([A⁻]/[HA])
+                    </div>
+                    <p><strong>Oder allgemein:</strong></p>
+                    <div class="formula-card">
+                        pH = pK_s + lg([Base]/[Säure])
+                    </div>
+                </div>
+
+                <h3>Wichtige Puffersysteme</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Puffersystem</th>
+                                <th>Schwache Säure</th>
+                                <th>Konjugierte Base</th>
+                                <th>pK_s</th>
+                                <th>Puffer-pH</th>
+                                <th>Anwendung</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Acetat-Puffer</td>
+                                <td>CH₃COOH</td>
+                                <td>CH₃COO⁻</td>
+                                <td>4,75</td>
+                                <td>≈ 4,8</td>
+                                <td>Labor, Biochemie</td>
+                            </tr>
+                            <tr>
+                                <td>Phosphat-Puffer</td>
+                                <td>H₂PO₄⁻</td>
+                                <td>HPO₄²⁻</td>
+                                <td>7,21</td>
+                                <td>≈ 7,2</td>
+                                <td>Blut, Zellen</td>
+                            </tr>
+                            <tr>
+                                <td>Carbonat-Puffer</td>
+                                <td>H₂CO₃</td>
+                                <td>HCO₃⁻</td>
+                                <td>6,37</td>
+                                <td>≈ 6,4</td>
+                                <td>Blut, Ozeane</td>
+                            </tr>
+                            <tr>
+                                <td>Ammonium-Puffer</td>
+                                <td>NH₄⁺</td>
+                                <td>NH₃</td>
+                                <td>9,25</td>
+                                <td>≈ 9,3</td>
+                                <td>Alkalische Pufferung</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Pufferkapazität und -bereich</h3>
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>📈 Pufferkapazität</h4>
+                        <p>Die <strong>Pufferkapazität</strong> ist die Stoffmenge an Säure oder Base, die pro Liter Pufferlösung zugesetzt werden kann, ohne dass sich der pH-Wert um mehr als 1 Einheit ändert.</p>
+                        <p><strong>Maximum bei:</strong> [HA] = [A⁻] (pH = pK_s)</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>📊 Pufferbereich</h4>
+                        <p>Ein Puffer wirkt optimal im Bereich:</p>
+                        <div class="formula-card">
+                            pK_s ± 1
+                        </div>
+                        <p>Das entspricht einem Konzentrationsverhältnis von 10:1 bis 1:10</p>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <h4>📝 Rechenbeispiel: Acetat-Puffer</h4>
+                    <p><strong>Aufgabe:</strong> Ein Puffer enthält 0,1 M CH₃COOH und 0,05 M CH₃COO⁻. Berechne den pH-Wert.</p>
+                    <div class="formula-card">
+                        pH = 4,75 + lg(0,05/0,1) = 4,75 + lg(0,5) = 4,75 - 0,30 = 4,45
+                    </div>
+                    <p><strong>Antwort:</strong> pH = 4,45</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECTION 6: TITRATIONS === -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>6. 🧪 Titrationen</h2>
+            </div>
+            <div class="section-content">
+                <h3>Grundlagen der Titration</h3>
+                <div class="info-card">
+                    <h4>🎯 Was ist eine Titration?</h4>
+                    <p>Eine <strong>Titration</strong> ist ein quantitatives Analyseverfahren zur Bestimmung der Konzentration einer unbekannten Lösung durch schrittweise Zugabe einer Lösung bekannter Konzentration (Maßlösung).</p>
+                </div>
+
+                <h3>Wichtige Begriffe</h3>
+                <div class="three-column">
+                    <div class="info-card">
+                        <h4>📍 Äquivalenzpunkt</h4>
+                        <p>Punkt, an dem Säure und Base in äquimolaren Mengen vorliegen.</p>
+                        <div class="formula-card">
+                            n(Säure) = n(Base)
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>📍 Halbäquivalenzpunkt</h4>
+                        <p>Punkt, an dem die Hälfte der Säure neutralisiert ist.</p>
+                        <div class="formula-card">
+                            pH = pK_s
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>📍 Endpunkt</h4>
+                        <p>Experimentell bestimmter Punkt durch Indikator-Farbumschlag.</p>
+                    </div>
+                </div>
+
+                <h3>Titrationskurven</h3>
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>📈 Starke Säure + Starke Base</h4>
+                        <ul>
+                            <li><strong>Äquivalenzpunkt:</strong> pH = 7</li>
+                            <li><strong>Steiler Anstieg</strong> um den Äquivalenzpunkt</li>
+                            <li><strong>Kein Halbäquivalenzpunkt</strong> sichtbar</li>
+                            <li><strong>Beispiel:</strong> HCl + NaOH</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>📈 Schwache Säure + Starke Base</h4>
+                        <ul>
+                            <li><strong>Äquivalenzpunkt:</strong> pH > 7</li>
+                            <li><strong>Halbäquivalenzpunkt</strong> bei pH = pK_s</li>
+                            <li><strong>Flacherer Anstieg</strong></li>
+                            <li><strong>Beispiel:</strong> CH₃COOH + NaOH</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>📈 Starke Säure + Schwache Base</h4>
+                        <ul>
+                            <li><strong>Äquivalenzpunkt:</strong> pH < 7</li>
+                            <li><strong>Steiler Abfall</strong> um den Äquivalenzpunkt</li>
+                            <li><strong>Beispiel:</strong> HCl + NH₃</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>📈 Schwache Säure + Schwache Base</h4>
+                        <ul>
+                            <li><strong>Äquivalenzpunkt:</strong> pH abhängig von pK_s und pK_b</li>
+                            <li><strong>Sehr flacher Verlauf</strong></li>
+                            <li><strong>Schwer zu titrieren</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Titrationsmethoden</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Methode</th>
+                                <th>Prinzip</th>
+                                <th>Endpunktsbestimmung</th>
+                                <th>Vorteile</th>
+                                <th>Nachteile</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Indikator-Titration</td>
+                                <td>Farbumschlag</td>
+                                <td>Visuell</td>
+                                <td>Einfach, schnell</td>
+                                <td>Subjektiv, ungenau</td>
+                            </tr>
+                            <tr>
+                                <td>pH-metrische Titration</td>
+                                <td>pH-Messung</td>
+                                <td>Wendepunkt der Kurve</td>
+                                <td>Sehr genau, objektiv</td>
+                                <td>Aufwändiger</td>
+                            </tr>
+                            <tr>
+                                <td>Leitfähigkeitstitration</td>
+                                <td>Leitfähigkeitsmessung</td>
+                                <td>Knickpunkt</td>
+                                <td>Auch für schwache Säuren/Basen</td>
+                                <td>Spezielle Ausrüstung nötig</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Berechnungen bei Titrationen</h3>
+                <div class="highlight-box">
+                    <h4>🧮 Grundformel der Titration</h4>
+                    <div class="formula-card">
+                        c₁ × V₁ = c₂ × V₂<br><br>
+                        <strong>Oder allgemein:</strong><br>
+                        c(Säure) × V(Säure) × z(Säure) = c(Base) × V(Base) × z(Base)
+                    </div>
+                    <p><strong>z =</strong> Anzahl der abgebbaren/aufnehmbaren Protonen</p>
+                </div>
+
+                <div class="success-box">
+                    <h4>📝 Rechenbeispiel</h4>
+                    <p><strong>Aufgabe:</strong> 25,0 mL einer HCl-Lösung unbekannter Konzentration werden mit 0,1 M NaOH titriert. Der Verbrauch beträgt 22,4 mL. Berechne c(HCl).</p>
+                    
+                    <div class="formula-card">
+                        c(HCl) × V(HCl) = c(NaOH) × V(NaOH)<br>
+                        c(HCl) × 25,0 mL = 0,1 mol/L × 22,4 mL<br>
+                        c(HCl) = (0,1 × 22,4) / 25,0 = 0,0896 mol/L
+                    </div>
+                    
+                    <p><strong>Antwort:</strong> c(HCl) ≈ 0,090 mol/L</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECTION 7: INDICATORS === -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>7. 🌈 Indikatoren</h2>
+            </div>
+            <div class="section-content">
+                <h3>Was sind Indikatoren?</h3>
+                <div class="info-card">
+                    <h4>🎨 Definition</h4>
+                    <p><strong>Indikatoren</strong> sind schwache organische Säuren oder Basen, deren Molekülform und Ionenform unterschiedliche Farben aufweisen.</p>
+                    
+                    <div class="formula-card">
+                        HInd + H₂O ⇌ H₃O⁺ + Ind⁻<br>
+                        (Farbe 1) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Farbe 2)
+                    </div>
+                </div>
+
+                <h3>Wichtige Indikatoren</h3>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Indikator</th>
+                                <th>pK_s</th>
+                                <th>Umschlagsbereich</th>
+                                <th>Farbe sauer</th>
+                                <th>Farbe basisch</th>
+                                <th>Verwendung</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Methylorange</td>
+                                <td>3,7</td>
+                                <td>3,1 - 4,4</td>
+                                <td>rot</td>
+                                <td>gelb</td>
+                                <td>starke Säure + starke Base</td>
+                            </tr>
+                            <tr>
+                                <td>Bromthymolblau</td>
+                                <td>7,0</td>
+                                <td>6,0 - 7,6</td>
+                                <td>gelb</td>
+                                <td>blau</td>
+                                <td>starke Säure + starke Base</td>
+                            </tr>
+                            <tr>
+                                <td>Phenolphthalein</td>
+                                <td>9,4</td>
+                                <td>8,2 - 10,0</td>
+                                <td>farblos</td>
+                                <td>pink/rot</td>
+                                <td>schwache Säure + starke Base</td>
+                            </tr>
+                            <tr>
+                                <td>Lackmus</td>
+                                <td>6,8</td>
+                                <td>5,0 - 8,0</td>
+                                <td>rot</td>
+                                <td>blau</td>
+                                <td>Universalindikator</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Indikatorauswahl</h3>
+                <div class="highlight-box">
+                    <h4>🎯 Auswahlkriterium</h4>
+                    <p>Ein Indikator ist für eine Titration geeignet, wenn sein Umschlagsbereich den <strong>Äquivalenzpunkt</strong> enthält:</p>
+                    <div class="formula-card">
+                        pK_s(Indikator) ± 1 ≈ pH(Äquivalenzpunkt)
+                    </div>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>✅ Geeignete Kombinationen</h4>
+                        <ul>
+                            <li><strong>Starke Säure + Starke Base:</strong> fast alle Indikatoren</li>
+                            <li><strong>Schwache Säure + Starke Base:</strong> Phenolphthalein</li>
+                            <li><strong>Starke Säure + Schwache Base:</strong> Methylorange</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>❌ Ungeeignete Kombinationen</h4>
+                        <ul>
+                            <li><strong>Schwache Säure + Schwache Base:</strong> meist kein geeigneter Indikator</li>
+                            <li><strong>Mehrprotonige Säuren:</strong> komplexere Auswahl nötig</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === SECTION 8: PRACTICAL APPLICATIONS === -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>8. 🏭 Säuren und Basen im Alltag</h2>
+            </div>
+            <div class="section-content">
+                <h3>Biologische Systeme</h3>
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>🩸 Blutpuffer</h4>
+                        <p><strong>Carbonat-Puffersystem:</strong> H₂CO₃/HCO₃⁻</p>
+                        <ul>
+                            <li>pH des Blutes: 7,35 - 7,45</li>
+                            <li>Regulierung durch Lunge (CO₂) und Niere (HCO₃⁻)</li>
+                            <li>Lebenswichtig für Enzymfunktion</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🫁 Atmung und pH</h4>
+                        <div class="formula-card">
+                            CO₂ + H₂O ⇌ H₂CO₃ ⇌ H⁺ + HCO₃⁻
+                        </div>
+                        <ul>
+                            <li>Schnelle Atmung → CO₂-Abgabe → pH steigt</li>
+                            <li>Langsame Atmung → CO₂-Retention → pH sinkt</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Technische Anwendungen</h3>
+                <div class="three-column">
+                    <div class="info-card">
+                        <h4>🏭 Industrie</h4>
+                        <ul>
+                            <li><strong>Schwefelsäure:</strong> Düngemittel, Batterien</li>
+                            <li><strong>Salzsäure:</strong> Metallverarbeitung</li>
+                            <li><strong>Natronlauge:</strong> Seifenherstellung</li>
+                            <li><strong>Ammoniak:</strong> Düngemittel, Kühlung</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🏠 Haushalt</h4>
+                        <ul>
+                            <li><strong>Essig:</strong> Reinigung, Konservierung</li>
+                            <li><strong>Zitronensäure:</strong> Entkalker</li>
+                            <li><strong>Backpulver:</strong> Triebmittel (NaHCO₃)</li>
+                            <li><strong>Rohrreiniger:</strong> starke Lauge</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🌱 Umwelt</h4>
+                        <ul>
+                            <li><strong>Saurer Regen:</strong> pH < 5,6</li>
+                            <li><strong>Boden-pH:</strong> bestimmt Nährstoffverfügbarkeit</li>
+                            <li><strong>Gewässer:</strong> pH-Wert als Qualitätsmerkmal</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === QUIZ SECTION === -->
+        <section class="quiz-section">
+            <h2>🧩 Selbsttest: Säure-Base-Reaktionen</h2>
+            
+            <div class="quiz-question">
+                <h4>Frage 1: Welche Aussage zur Brønsted-Theorie ist korrekt?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        A) Säuren sind Elektronendonatoren
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, true)">
+                        B) Säuren sind Protonendonatoren
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        C) Basen sind Elektronenakzeptoren
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        D) Alle Säuren enthalten Wasserstoff
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-question">
+                <h4>Frage 2: Berechne den pH-Wert einer 0,01 M HCl-Lösung:</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        A) pH = 1
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, true)">
+                        B) pH = 2
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        C) pH = 3
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        D) pH = 12
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-question">
+                <h4>Frage 3: Was passiert am Halbäquivalenzpunkt einer schwachen Säure-Titration?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        A) pH = 7
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, true)">
+                        B) pH = pKs
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        C) pH = 14 - pKs
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        D) pH = pKs + 1
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-question">
+                <h4>Frage 4: Welcher Indikator ist für die Titration einer schwachen Säure mit einer starken Base geeignet?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        A) Methylorange (Umschlag bei pH 3,1-4,4)
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, true)">
+                        B) Phenolphthalein (Umschlag bei pH 8,2-10,0)
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        C) Bromthymolblau (Umschlag bei pH 6,0-7,6)
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        D) Alle sind gleich geeignet
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-question">
+                <h4>Frage 5: Ein Puffersystem besteht aus CH₃COOH (0,1 M) und CH₃COO⁻ (0,1 M). Der pKs-Wert beträgt 4,75. Wie lautet der pH-Wert?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        A) pH = 4,45
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, true)">
+                        B) pH = 4,75
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        C) pH = 5,05
+                    </div>
+                    <div class="quiz-option" onclick="selectAnswer(this, false)">
+                        D) pH = 7,00
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" onclick="checkAllAnswers()">🔍 Auswertung anzeigen</button>
+                <button class="btn btn-secondary" onclick="resetQuiz()" style="margin-left: 15px;">🔄 Quiz zurücksetzen</button>
+            </div>
+        </section>
+
+        <!-- === SUMMARY SECTION === -->
+        <section class="content-section">
+            <div class="section-header">
+                <h2>📋 Zusammenfassung: Die wichtigsten Punkte</h2>
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div class="success-box">
+                        <h4>🔑 Kernkonzepte</h4>
+                        <ul>
+                            <li><strong>Brønsted-Theorie:</strong> Säuren = Protonendonatoren, Basen = Protonenakzeptoren</li>
+                            <li><strong>pH-Wert:</strong> pH = -lg[H₃O⁺], pH + pOH = 14</li>
+                            <li><strong>Säurestärke:</strong> Ks-Wert bzw. pKs-Wert</li>
+                            <li><strong>Puffer:</strong> pH = pKs + lg([A⁻]/[HA])</li>
+                            <li><strong>Titration:</strong> c₁ × V₁ = c₂ × V₂</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="danger-box">
+                        <h4>⚠️ Häufige Fehlerquellen</h4>
+                        <ul>
+                            <li>Verwechslung von Ks und Kb</li>
+                            <li>Falsche Anwendung der pH-Formeln</li>
+                            <li>Indikatorauswahl bei Titrationen</li>
+                            <li>Vergessen der Stöchiometrie bei mehrprotonigen Säuren</li>
+                            <li>pH-Berechnung bei Salzlösungen</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>📚 Weiterführende Themen</h4>
+                    <ul>
+                        <li><strong>Mehrprotonige Säuren:</strong> H₂SO₄, H₃PO₄ (komplexere Berechnungen)</li>
+                        <li><strong>Lewis-Säuren und -Basen:</strong> Elektronenpaar-Akzeptoren/-Donatoren</li>
+                        <li><strong>Komplexchemie:</strong> Säure-Base-Verhalten von Komplexionen</li>
+                        <li><strong>Biochemie:</strong> Puffersysteme in lebenden Organismen</li>
+                        <li><strong>Umweltchemie:</strong> Säure-Base-Gleichgewichte in der Atmosphäre</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+<!-- Navigation zu anderen Kapiteln -->
+<section class="section fade-in">
+    <div class="section-header">
+        🧭 Weiterführende Kapitel
+    </div>
+    <div class="section-content">
+        <div class="grid-3">
+            <a href="kinetik-gleichgewicht.html" class="btn btn-primary">← Reaktionsgeschwindigkeit und chemisches Gleichgewicht</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Hauptübersicht</a>
+            <a href="redox-elektrochemie.html" class="btn btn-primary">Redoxreaktionen und Elektrochemie →</a>
+        </div>
+    </div>
+</section>
+              
+    </div>
+
+    <!-- === BACK TO TOP BUTTON === -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ↑
+    </button>
+
+    <!-- === FOOTER === -->
+    <footer>
+        <p>&copy; 2025 Chemie Lernzettel - Säure-Base-Reaktionen | Abitur 2026</p>
+        <p>📚 Kapitel 6 von 16 | ⏱️ Geschätzte Lernzeit: 4-6 Stunden</p>
+        <p>💡 Bei Fragen oder Anregungen: Nutze die interaktiven Elemente und Selbsttests!</p>
+    </footer>
+
+    <!-- === JAVASCRIPT === -->
+    <script>
+        // === GLOBAL VARIABLES ===
+        let completedSections = 0;
+        const totalSections = 8;
+        let quizScore = 0;
+        let quizCompleted = false;
+
+        // === QUIZ FUNCTIONALITY ===
+        function selectAnswer(element, isCorrect) {
+            // Remove previous selections in this question
+            const questionDiv = element.closest('.quiz-question');
+            const options = questionDiv.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                opt.style.pointerEvents = 'auto';
+            });
+
+            // Mark current selection
+            if (isCorrect) {
+                element.classList.add('correct');
+            } else {
+                element.classList.add('incorrect');
+                // Show correct answer
+                options.forEach(opt => {
+                    if (opt.onclick.toString().includes('true')) {
+                        opt.classList.add('correct');
+                    }
+                });
+            }
+
+            // Disable further clicking on this question
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+
+            // Store answer
+            questionDiv.setAttribute('data-answered', isCorrect);
+            updateProgress();
+        }
+
+        function checkAllAnswers() {
+            const questions = document.querySelectorAll('.quiz-question');
+            let correct = 0;
+            let total = questions.length;
+            let unanswered = 0;
+
+            questions.forEach(question => {
+                const answered = question.getAttribute('data-answered');
+                if (answered === null) {
+                    unanswered++;
+                } else if (answered === 'true') {
+                    correct++;
+                }
+            });
+
+            if (unanswered > 0) {
+                alert(`Bitte beantworte erst alle ${total} Fragen!\nNoch ${unanswered} Frage(n) offen.`);
+                return;
+            }
+
+            const percentage = Math.round((correct / total) * 100);
+            quizScore = percentage;
+            quizCompleted = true;
+            
+            let message = `🎯 Quiz abgeschlossen!\n\n`;
+            message += `Richtige Antworten: ${correct}/${total} (${percentage}%)\n\n`;
+
+            if (percentage >= 90) {
+                message += `🏆 Hervorragend! Du beherrschst das Thema perfekt!`;
+            } else if (percentage >= 80) {
+                message += `🎉 Ausgezeichnet! Du hast das Thema sehr gut verstanden.`;
+            } else if (percentage >= 70) {
+                message += `👍 Gut gemacht! Kleine Lücken können noch geschlossen werden.`;
+            } else if (percentage >= 60) {
+                message += `📚 Solide Grundlagen. Wiederhole die Bereiche mit falschen Antworten.`;
+            } else {
+                message += `📖 Arbeite das Kapitel noch einmal durch und versuche das Quiz erneut.`;
+            }
+
+            message += `\n\n💡 Tipp: Nutze die Formelsammlung und Praxis-Tipps zur Vertiefung!`;
+
+            alert(message);
+            updateProgress();
+        }
+
+        function resetQuiz() {
+            const options = document.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.classList.remove('correct', 'incorrect');
+                opt.style.pointerEvents = 'auto';
+            });
+
+            const questions = document.querySelectorAll('.quiz-question');
+            questions.forEach(question => {
+                question.removeAttribute('data-answered');
+            });
+
+            quizCompleted = false;
+            quizScore = 0;
+            updateProgress();
+        }
+
+        // === PROGRESS BAR FUNCTIONALITY ===
+        function updateProgress() {
+            const answeredQuestions = document.querySelectorAll('[data-answered]').length;
+            const totalQuestions = document.querySelectorAll('.quiz-question').length;
+            const sectionsRead = Math.min(Math.floor((window.pageYOffset / document.body.scrollHeight) * totalSections), totalSections);
+            
+            let progress = (sectionsRead * 70) / totalSections; // 70% for reading
+            progress += (answeredQuestions * 30) / totalQuestions; // 30% for quiz
+            
+            const progressBar = document.getElementById('chapter-progress');
+            const progressText = document.getElementById('progress-text');
+            
+            if (progressBar && progressText) {
+                progressBar.style.width = Math.min(progress, 100) + '%';
+                progressText.textContent = Math.round(Math.min(progress, 100)) + '% abgeschlossen';
+            }
+        }
+
+        // === SCROLL FUNCTIONALITY ===
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // === BACK TO TOP BUTTON VISIBILITY ===
+        function updateBackToTopButton() {
+            const backToTopButton = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        }
+
+        // === ADDITIONAL RESOURCE FUNCTIONS ===
+        function generateFormulaSheet() {
+            const formulas = `
+📋 FORMELSAMMLUNG: SÄURE-BASE-REAKTIONEN
+
+🔬 GRUNDLAGEN:
+• pH = -lg[H₃O⁺]
+• pOH = -lg[OH⁻]
+• pH + pOH = 14 (bei 25°C)
+• Kw = [H₃O⁺] × [OH⁻] = 10⁻¹⁴ mol²/L²
+
+💪 SÄURE- UND BASENSTÄRKE:
+• Ks = [H₃O⁺] × [A⁻] / [HA]
+• pKs = -lg(Ks)
+• Kb = [OH⁻] × [BH⁺] / [B]
+• pKb = -lg(Kb)
+• Ks × Kb = Kw
+• pKs + pKb = 14
+
+🧮 pH-BERECHNUNGEN:
+• Starke Säuren: pH = -lg[c(HA)]
+• Starke Basen: pOH = -lg[c(BOH)], pH = 14 - pOH
+• Schwache Säuren: pH = ½(pKs - lg[c(HA)])
+• Schwache Basen: pOH = ½(pKb - lg[c(B)])
+
+🛡️ PUFFERSYSTEME:
+• Henderson-Hasselbalch: pH = pKs + lg([A⁻]/[HA])
+• Pufferbereich: pKs ± 1
+• Optimale Pufferung bei: [HA] = [A⁻]
+
+🧪 TITRATIONEN:
+• c₁ × V₁ = c₂ × V₂
+• Allgemein: c(Säure) × V(Säure) × z = c(Base) × V(Base) × z
+• Halbäquivalenzpunkt: pH = pKs (schwache Säure)
+            `;
+            
+            alert(formulas);
+        }
+
+        function showPracticalTips() {
+            const tips = `
+💡 PRAXIS-TIPPS: SÄURE-BASE-REAKTIONEN
+
+🧪 LABOR-SICHERHEIT:
+• Immer Schutzbrille und Kittel tragen
+• Säuren zu Wasser geben, nie umgekehrt!
+• Bei Hautkontakt sofort mit viel Wasser spülen
+• Abzug verwenden bei gasförmigen Produkten
+
+📊 TITRATIONS-TIPPS:
+• Bürette vor Gebrauch spülen
+• Luftblasen in der Bürette vermeiden
+• Langsam titrieren in der Nähe des Äquivalenzpunkts
+• Mehrfache Bestimmung für Genauigkeit
+
+🧮 RECHEN-TRICKS:
+• Bei pH-Berechnungen auf Gültigkeitsbereiche achten
+• Vereinfachungen nur bei c >> Ks verwenden
+• Logarithmus-Regeln beherrschen
+• Einheiten immer mitführen
+
+🎯 KLAUSUR-STRATEGIEN:
+• Formeln vor Einsetzen hinschreiben
+• Plausibilitätsprüfung der Ergebnisse
+• pH-Werte zwischen 0-14 prüfen
+• Zwischenschritte dokumentieren
+            `;
+            
+            alert(tips);
+        }
+
+        // === EVENT LISTENERS ===
+        window.addEventListener('scroll', () => {
+            updateBackToTopButton();
+            updateProgress();
+        });
+
+        window.addEventListener('load', () => {
+            updateProgress();
+            
+            // Add fade-in animation to sections
+            const sections = document.querySelectorAll('.content-section, .concept-intro, .quiz-section');
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add('fade-in');
+                }, index * 100);
+            });
+        });
+
+        // === ACCESSIBILITY ===
+        document.addEventListener('keydown', (e) => {
+            // ESC key to close any modals or reset focus
+            if (e.key === 'Escape') {
+                document.activeElement.blur();
+            }
+            
+            // Enter or Space on quiz options
+            if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('quiz-option')) {
+                e.preventDefault();
+                e.target.click();
+            }
+        });
+
+        // === PRINT FUNCTIONALITY ===
+        function printContent() {
+            window.print();
+        }
+
+        // Add keyboard shortcut for printing
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'p') {
+                e.preventDefault();
+                printContent();
+            }
+        });
+    </script>
+</body>
+</html>

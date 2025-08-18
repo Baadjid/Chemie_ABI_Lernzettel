@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kunststoffe - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.3em;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        
+        .content-grid {
+            display: grid;
+            gap: 25px;
+        }
+        
+        /* Allgemeine Section-Stile */
+        .section, .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .section:hover, .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.4em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        /* Grid-Layout */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .synthesis-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .synthesis-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .synthesis-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .synthesis-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .property-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .property-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .formula-box {
+            background: #e8f5e8;
+            border: 2px solid #c3e6c3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .reaction-mechanism {
+            background: #f0f8ff;
+            border: 2px solid #b3d9ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .reaction-step {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .warning-box {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .quiz-section {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2c3e50;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        
+        .quiz-question {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-question:hover {
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-answer {
+            margin-top: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #28a745;
+            display: none;
+        }
+        
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .molecular-structure {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+            margin: 15px 0;
+            text-align: center;
+            font-size: 1.1em;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .important {
+            background: linear-gradient(120deg, #ffd93d 0%, #ff6b6b 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .application-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .application-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .recycling-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .flow-step {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid #1976d2;
+            position: relative;
+        }
+        
+        .flow-step::after {
+            content: '→';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5em;
+            color: #1976d2;
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        /* Button-Stile */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+            text-align: center;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 50px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .two-column, .three-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 20px;
+            }
+            
+            .flow-step::after {
+                display: none;
+            }
+            
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 15px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .content-section, .section {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 30px;
+                page-break-inside: avoid;
+            }
+            
+            .back-to-top {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav-breadcrumb">
+            🏠 <a href="index.html">Hauptübersicht</a> → 
+            🔬 <strong>Kunststoffe</strong>
+        </nav>
+
+        <header>
+            <h1>🔬 Kunststoffe</h1>
+            <p class="subtitle">Synthese, Eigenschaften, Anwendungen und Nachhaltigkeit</p>
+            <p>Umfassender Lernzettel für das Abitur 2026 - Von den Grundlagen bis zu aktuellen Umweltaspekten</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Einführung -->
+            <section class="content-section">
+                <div class="section-header">
+                    ⚡ Einführung in die Kunststoffe
+                </div>
+                <div class="section-content">
+                    <h2>Was sind Kunststoffe?</h2>
+                    <p><span class="highlight">Kunststoffe sind synthetische Verbindungen aus Makromolekülen</span>, die durch Polyreaktionen aus kleineren Molekülen (Monomeren) entstehen. Sie gehören zu den wichtigsten Werkstoffen unserer Zeit und haben einzigartige Eigenschaften:</p>
+                    
+                    <div class="property-grid">
+                        <div class="property-card">
+                            <h3>⚡ Elektrisch</h3>
+                            <p>Keine elektrische Leitfähigkeit</p>
+                        </div>
+                        <div class="property-card">
+                            <h3>🌡️ Thermisch</h3>
+                            <p>Keine Wärmeleitung</p>
+                        </div>
+                        <div class="property-card">
+                            <h3>💧 Chemisch</h3>
+                            <p>Nicht wasser- oder fettlöslich</p>
+                        </div>
+                        <div class="property-card">
+                            <h3>⏱️ Beständigkeit</h3>
+                            <p>Langlebig und stabil</p>
+                        </div>
+                        <div class="property-card">
+                            <h3>🔧 Formbarkeit</h3>
+                            <p>Verformbar (plastisch)</p>
+                        </div>
+                        <div class="property-card">
+                            <h3>🏭 Produktion</h3>
+                            <p>In großen Mengen produzierbar</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>💡 Wichtige Begriffe:</strong>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Monomer:</strong> Kleine Moleküle, die als Bausteine dienen</li>
+                            <li><strong>Polymer:</strong> Großes Molekül aus vielen Monomeren</li>
+                            <li><strong>Polymerisationsgrad:</strong> Anzahl der Monomer-Moleküle in einem Polymer</li>
+                            <li><strong>Repetiereinheit:</strong> Kleinste sich wiederholende Einheit im Polymer</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Syntheseverfahren -->
+            <section class="content-section">
+                <div class="section-header">
+                    🧬 Die drei Syntheseverfahren
+                </div>
+                <div class="section-content">
+                    <h2>Wie entstehen Kunststoffe?</h2>
+                    <p>Es gibt drei grundlegende Verfahren zur Herstellung von Kunststoffen. Jedes hat charakteristische Merkmale:</p>
+
+                    <div class="three-column">
+                        <div class="synthesis-card">
+                            <h3>🔗 Polymerisation</h3>
+                            <p><span class="important">Kettenbildung unter Umlagerung von Elektronen</span></p>
+                            
+                            <h4>Charakteristika:</h4>
+                            <ul>
+                                <li>Nur eine Monomer-Sorte nötig</li>
+                                <li>Monomere mit C=C-Doppelbindung</li>
+                                <li>Keine Abspaltung von Molekülen</li>
+                                <li>Nur C-C-Einfachbindungen im Produkt</li>
+                            </ul>
+
+                            <div class="reaction-mechanism">
+                                <h4>Mechanismus (radikalisch):</h4>
+                                <div class="reaction-step">
+                                    <strong>1. Kettenstart:</strong><br>
+                                    Radikal greift Doppelbindung an
+                                </div>
+                                <div class="reaction-step">
+                                    <strong>2. Kettenwachstum:</strong><br>
+                                    Wiederholte Addition von Monomeren
+                                </div>
+                                <div class="reaction-step">
+                                    <strong>3. Kettenabbruch:</strong><br>
+                                    Zwei Radikale reagieren miteinander
+                                </div>
+                            </div>
+
+                            <div class="formula-box">
+                                <strong>Beispiel Polyethen:</strong><br>
+                                n CH₂=CH₂ → [CH₂-CH₂]ₙ
+                            </div>
+
+                            <p><strong>Beispiele:</strong> Polyethen (PE), Polypropen (PP), Polystyrol (PS), PVC</p>
+                        </div>
+
+                        <div class="synthesis-card">
+                            <h3>💧 Polykondensation</h3>
+                            <p><span class="important">Kettenbildung unter Abspaltung kleiner Moleküle</span></p>
+                            
+                            <h4>Charakteristika:</h4>
+                            <ul>
+                                <li>Zwei verschiedene Monomere</li>
+                                <li>Funktionelle Gruppen reagieren</li>
+                                <li>Abspaltung von H₂O oder HCl</li>
+                                <li>Ester- oder Amidgruppen entstehen</li>
+                            </ul>
+
+                            <div class="reaction-mechanism">
+                                <h4>Wichtige Reaktionen:</h4>
+                                <div class="reaction-step">
+                                    <strong>Polyester:</strong><br>
+                                    Dicarbonsäure + Diol → Ester + H₂O
+                                </div>
+                                <div class="reaction-step">
+                                    <strong>Polyamid:</strong><br>
+                                    Dicarbonsäure + Diamin → Amid + H₂O
+                                </div>
+                                <div class="reaction-step">
+                                    <strong>Polycarbonat:</strong><br>
+                                    Phosgen + Diol → Carbonat + HCl
+                                </div>
+                            </div>
+
+                            <div class="formula-box">
+                                <strong>Beispiel PET:</strong><br>
+                                Terephthalsäure + Ethylenglykol<br>
+                                → Polyethylenterephthalat + H₂O
+                            </div>
+
+                            <p><strong>Beispiele:</strong> PET, Nylon, Bakelit, Polycarbonat</p>
+                        </div>
+
+                        <div class="synthesis-card">
+                            <h3>🔄 Polyaddition</h3>
+                            <p><span class="important">Kettenbildung unter Umlagerung von Protonen</span></p>
+                            
+                            <h4>Charakteristika:</h4>
+                            <ul>
+                                <li>Zwei verschiedene Monomere</li>
+                                <li>Protonenwanderung</li>
+                                <li>Keine Abspaltung von Molekülen</li>
+                                <li>Additionsreaktion</li>
+                            </ul>
+
+                            <div class="reaction-mechanism">
+                                <h4>Typische Reaktion:</h4>
+                                <div class="reaction-step">
+                                    <strong>Polyurethan:</strong><br>
+                                    Diol + Diisocyanat → Polyurethan
+                                </div>
+                                <div class="reaction-step">
+                                    <strong>Mechanismus:</strong><br>
+                                    R-OH + O=C=N-R' → R-O-CO-NH-R'
+                                </div>
+                            </div>
+
+                            <div class="formula-box">
+                                <strong>Allgemein:</strong><br>
+                                HO-R-OH + OCN-R'-NCO<br>
+                                → [-O-R-O-CO-NH-R'-NH-CO-]ₙ
+                            </div>
+
+                            <p><strong>Beispiele:</strong> Polyurethan (PU), Epoxidharz</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Einteilung nach Eigenschaften -->
+            <section class="content-section">
+                <div class="section-header">
+                    🗂️ Einteilung nach Eigenschaften
+                </div>
+                <div class="section-content">
+                    <h2>Drei Kunststoffklassen</h2>
+                    <p>Je nach ihrer räumlichen Struktur und ihren thermischen Eigenschaften werden Kunststoffe in drei Hauptklassen eingeteilt:</p>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Eigenschaft</th>
+                                    <th>Thermoplaste</th>
+                                    <th>Duromere</th>
+                                    <th>Elastomere</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Struktur</strong></td>
+                                    <td>Lineare/verzweigte Ketten</td>
+                                    <td>Engmaschig vernetzt</td>
+                                    <td>Weitmaschig vernetzt</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Erwärmung</strong></td>
+                                    <td>Schmelzbar, verformbar</td>
+                                    <td>Nicht schmelzbar</td>
+                                    <td>Nicht schmelzbar</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Mechanische Eigenschaften</strong></td>
+                                    <td>Hart bis weich</td>
+                                    <td>Hart und spröde</td>
+                                    <td>Gummielastisch</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Löslichkeit</strong></td>
+                                    <td>Oft löslich</td>
+                                    <td>Unlöslich</td>
+                                    <td>Quellbar</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Recycelbarkeit</strong></td>
+                                    <td>Gut recycelbar</td>
+                                    <td>Nicht recycelbar</td>
+                                    <td>Schwer recycelbar</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Beispiele</strong></td>
+                                    <td>PE, PP, PS, PVC, PET</td>
+                                    <td>Bakelit, Epoxidharz</td>
+                                    <td>Gummi, Silikone</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="success-box">
+                        <strong>🎯 Merkhilfe:</strong>
+                        <ul style="margin-top: 10px;">
+                            <li><strong>Thermoplaste:</strong> "Thermo" = wärmebehandelbar, wie Butter</li>
+                            <li><strong>Duromere:</strong> "Duro" = hart, wie gebackener Kuchen</li>
+                            <li><strong>Elastomere:</strong> "Elastisch" = gummiartig, wie Kaugummi</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Wichtige Kunststoffe -->
+            <section class="content-section">
+                <div class="section-header">
+                    🧪 Wichtige Kunststoffe im Detail
+                </div>
+                <div class="section-content">
+                    <h2>Die wichtigsten Kunststoffe für das Abitur</h2>
+
+                    <div class="two-column">
+                        <div>
+                            <h3>📸 Polyethen (PE)</h3>
+                            <div class="molecular-structure">
+                                CH₂=CH₂ → [-CH₂-CH₂-]ₙ
+                            </div>
+                            <p><strong>Eigenschaften:</strong> Chemisch beständig, transparent bis opak</p>
+                            <p><strong>Verwendung:</strong> Folien, Flaschen, Rohre</p>
+                            <p><strong>Besonderheit:</strong> LDPE (weich) vs. HDPE (hart)</p>
+
+                            <h3>📸 Polypropen (PP)</h3>
+                            <div class="molecular-structure">
+                                CH₂=CH-CH₃ → [-CH₂-CH(CH₃)-]ₙ
+                            </div>
+                            <p><strong>Eigenschaften:</strong> Steifer als PE, höhere Schmelztemperatur</p>
+                            <p><strong>Verwendung:</strong> Autoteile, Textilien, Verpackungen</p>
+                            <p><strong>Besonderheit:</strong> Taktizität beeinflusst Eigenschaften</p>
+
+                            <h3>📸 Polystyrol (PS)</h3>
+                            <div class="molecular-structure">
+                                CH₂=CH-C₆H₅ → [-CH₂-CH(C₆H₅)-]ₙ
+                            </div>
+                            <p><strong>Eigenschaften:</strong> Glasklar, spröde</p>
+                            <p><strong>Verwendung:</strong> Verpackungen, Dämmstoff (EPS)</p>
+
+                            <h3>📸 Polyvinylchlorid (PVC)</h3>
+                            <div class="molecular-structure">
+                                CH₂=CHCl → [-CH₂-CHCl-]ₙ
+                            </div>
+                            <p><strong>Eigenschaften:</strong> Hart oder weich (mit Weichmachern)</p>
+                            <p><strong>Verwendung:</strong> Rohre, Bodenbeläge, Folien</p>
+                        </div>
+
+                        <div>
+                            <h3>📸 Polyethylenterephthalat (PET)</h3>
+                            <div class="molecular-structure">
+                                [-CO-C₆H₄-CO-O-CH₂-CH₂-O-]ₙ
+                            </div>
+                            <p><strong>Synthese:</strong> Polykondensation</p>
+                            <p><strong>Eigenschaften:</strong> Transparent, bruchfest</p>
+                            <p><strong>Verwendung:</strong> Getränkeflaschen, Textilien</p>
+                            <p><strong>Recycling:</strong> Sehr gut recycelbar</p>
+
+                            <h3>📸 Polyamid (PA, Nylon)</h3>
+                            <div class="molecular-structure">
+                                [-CO-R-CO-NH-R'-NH-]ₙ
+                            </div>
+                            <p><strong>Synthese:</strong> Polykondensation</p>
+                            <p><strong>Eigenschaften:</strong> Hohe Festigkeit, abriebfest</p>
+                            <p><strong>Verwendung:</strong> Textilien, Zahnräder, Seile</p>
+
+                            <h3>📸 Polyurethan (PU)</h3>
+                            <div class="molecular-structure">
+                                [-O-R-O-CO-NH-R'-NH-CO-]ₙ
+                            </div>
+                            <p><strong>Synthese:</strong> Polyaddition</p>
+                            <p><strong>Eigenschaften:</strong> Von weich bis hart</p>
+                            <p><strong>Verwendung:</strong> Schaumstoffe, Lacke, Dichtungen</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Verarbeitung -->
+            <section class="content-section">
+                <div class="section-header">
+                    🏭 Verarbeitung von Kunststoffen
+                </div>
+                <div class="section-content">
+                    <h2>Wie werden Kunststoffe geformt?</h2>
+                    
+                    <div class="three-column">
+                        <div class="synthesis-card">
+                            <h3>🔥 Spritzgießen</h3>
+                            <p><strong>Verfahren:</strong> Kunststoff wird erhitzt und unter Druck in Form gespritzt</p>
+                            <p><strong>Geeignet für:</strong> Thermoplaste</p>
+                            <p><strong>Produkte:</strong> Gehäuse, Spielzeug, Haushaltsgeräte</p>
+                            <p><strong>Vorteile:</strong> Hohe Präzision, große Stückzahlen</p>
+                        </div>
+
+                        <div class="synthesis-card">
+                            <h3>📏 Extrusion</h3>
+                            <p><strong>Verfahren:</strong> Kontinuierliches Auspressen durch eine Düse</p>
+                            <p><strong>Geeignet für:</strong> Thermoplaste</p>
+                            <p><strong>Produkte:</strong> Rohre, Profile, Folien</p>
+                            <p><strong>Vorteile:</strong> Kontinuierliche Produktion</p>
+                        </div>
+
+                        <div class="synthesis-card">
+                            <h3>💨 Blasformen</h3>
+                            <p><strong>Verfahren:</strong> Aufblasen einer warmen Kunststoffröhre</p>
+                            <p><strong>Geeignet für:</strong> Thermoplaste</p>
+                            <p><strong>Produkte:</strong> Flaschen, Kanister, Tanks</p>
+                            <p><strong>Vorteile:</strong> Hohlkörper möglich</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <strong>🔧 Wichtiger Unterschied:</strong><br>
+                        <strong>Thermoplaste:</strong> Können nach Erwärmung beliebig oft neu geformt werden<br>
+                        <strong>Duromere:</strong> Müssen direkt in der gewünschten Form ausgehärtet werden
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recycling und Nachhaltigkeit -->
+            <section class="content-section">
+                <div class="section-header">
+                    ♻️ Recycling und Nachhaltigkeit (2025/2026)
+                </div>
+                <div class="section-content">
+                    <h2>Aktuelle Herausforderungen und Lösungen</h2>
+                    <p>Das Thema Kunststoffrecycling ist <span class="important">hochaktuell für das Abitur 2026</span> und umfasst sowohl technische als auch umweltpolitische Aspekte.</p>
+
+                    <div class="three-column">
+                        <div class="synthesis-card">
+                            <h3>🔄 Werkstoffliches Recycling</h3>
+                            <p><strong>Verfahren:</strong> Mechanische Aufbereitung</p>
+                            
+                            <div class="recycling-flow">
+                                <div class="flow-step">Sammlung</div>
+                                <div class="flow-step">Sortierung</div>
+                                <div class="flow-step">Reinigung</div>
+                                <div class="flow-step">Zerkleinerung</div>
+                                <div class="flow-step">Aufschmelzen</div>
+                                <div class="flow-step">Neues Produkt</div>
+                            </div>
+
+                            <p><strong>Anteil 2022:</strong> 40,7% in der EU</p>
+                            <p><strong>Problem:</strong> Qualitätsverlust bei jedem Zyklus</p>
+                            <p><strong>Geeignet für:</strong> Thermoplaste (PE, PP, PET)</p>
+                        </div>
+
+                        <div class="synthesis-card">
+                            <h3>⚗️ Chemisches Recycling</h3>
+                            <p><strong>Verfahren:</strong> Aufspaltung in Monomere</p>
+                            <p><strong>Methoden:</strong></p>
+                            <ul>
+                                <li><strong>Pyrolyse:</strong> Thermische Spaltung (400-800°C)</li>
+                                <li><strong>Depolymerisation:</strong> Rückführung zu Monomeren</li>
+                                <li><strong>Lösemittelverfahren:</strong> Selektive Trennung</li>
+                                <li><strong>Glykolyse:</strong> Speziell für PET</li>
+                            </ul>
+                            <p><strong>Vorteil:</strong> Qualität wie Neumaterial</p>
+                            <p><strong>Nachteil:</strong> Hoher Energieaufwand</p>
+                            <p><strong>Geeignet für:</strong> Gemischte, verschmutzte Kunststoffe</p>
+                        </div>
+
+                        <div class="synthesis-card">
+                            <h3>🔥 Energetisches Recycling</h3>
+                            <p><strong>Verfahren:</strong> Verbrennung zur Energiegewinnung</p>
+                            <p><strong>Anteil:</strong> 35% in der EU (2022)</p>
+                            <p><strong>Heizwert:</strong> ~40 MJ/kg (ähnlich Braunkohle)</p>
+                            <p><strong>Vorteil:</strong> Ersetzt fossile Brennstoffe</p>
+                            <p><strong>Nachteil:</strong> Material geht verloren, CO₂-Emissionen</p>
+                            <p><strong>Anwendung:</strong> Nicht-recycelbare Verbundstoffe</p>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h3>🌊 Mikroplastik - Aktuelles Problem</h3>
+                        <p><strong>Definition:</strong> Kunststoffteile < 5 mm Durchmesser</p>
+                        <p><strong>Quellen:</strong></p>
+                        <ul>
+                            <li><strong>Primär:</strong> Kosmetikprodukte, Synthetikkleidung, Reifenabrieb</li>
+                            <li><strong>Sekundär:</strong> Zersetzung größerer Kunststoffteile in der Umwelt</li>
+                        </ul>
+                        <p><strong>EU-Maßnahmen 2024/2025:</strong></p>
+                        <ul>
+                            <li>Verbot in Kosmetika ab Oktober 2023</li>
+                            <li>Strengere Sammelquoten für Einwegverpackungen</li>
+                            <li>Neue Vorschriften gegen Granulat-Verluste</li>
+                        </ul>
+                    </div>
+
+                    <div class="success-box">
+                        <h3>🎯 EU-Ziele bis 2030</h3>
+                        <ul>
+                            <li><strong>90%</strong> getrennte Sammlung von Einweg-Getränkeflaschen</li>
+                            <li><strong>30%</strong> Recyclinganteil in Plastikflaschen (25% bis 2025)</li>
+                            <li><strong>5%</strong> Reduktion der Verpackungsabfälle (vs. 2018)</li>
+                            <li><span class="highlight">Alle Kunststoffverpackungen</span> wiederverwendbar oder recycelbar</li>
+                            <li><strong>10 Mio. Tonnen</strong> Rezyklateinsatz EU-weit</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>📊 Aktuelle Zahlen Deutschland (2022-2025)</h3>
+                        <p><strong>Recyclingquote:</strong> 51,1% (EU-Spitzenreiter)</p>
+                        <p><strong>Sammelmenge:</strong> 2,9 Mio. Tonnen Kunststoffverpackungen</p>
+                        <p><strong>Rezyklateinsatz-Ziel:</strong> 1 Million Tonnen bis 2025</p>
+                        <p><strong>Ist-Stand 2021:</strong> 467.000 Tonnen (370.000t PCR + 97.000t PIR)</p>
+                        <p><strong>Herausforderung:</strong> Qualität und Verfügbarkeit von Rezyklaten</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Biologisch abbaubare Kunststoffe -->
+            <section class="content-section">
+                <div class="section-header">
+                    🌱 Biologisch abbaubare Kunststoffe
+                </div>
+                <div class="section-content">
+                    <h2>Neue Ansätze für Nachhaltigkeit</h2>
+                    
+                    <div class="two-column">
+                        <div>
+                            <h3>🧬 Biopolymere im Detail</h3>
+                            <p><strong>Prinzip:</strong> Makromoleküle mit Ester- oder Amidbindungen können von Mikroorganismen unter aeroben oder anaeroben Bedingungen abgebaut werden</p>
+                            
+                            <h4>Wichtige Beispiele:</h4>
+
+                            <div class="synthesis-card">
+                                <h4>🌽 PLA (Polylactid)</h4>
+                                <div class="molecular-structure">
+                                    n Milchsäure → [-CO-CH(CH₃)-O-]ₙ + n H₂O
+                                </div>
+                                <p><strong>Herstellung:</strong> Fermentation von Maisstärke</p>
+                                <p><strong>Eigenschaften:</strong> Transparent, steif</p>
+                                <p><strong>Abbau:</strong> 90 Tage bei 60°C (industrielle Kompostierung)</p>
+                                <p><strong>Verwendung:</strong> Verpackungen, 3D-Druck, Textilien</p>
+                            </div>
+
+                            <div class="synthesis-card">
+                                <h4>🦠 PHA (Polyhydroxyalkanoate)</h4>
+                                <div class="molecular-structure">
+                                    [-O-CH(R)-CH₂-CO-]ₙ
+                                </div>
+                                <p><strong>Herstellung:</strong> Bakterielle Produktion</p>
+                                <p><strong>Eigenschaften:</strong> Flexibel, wasserbeständig</p>
+                                <p><strong>Abbau:</strong> Auch in Meerwasser abbaubar</p>
+                                <p><strong>Verwendung:</strong> Folien, Beschichtungen</p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3>⚖️ Bewertung Biopolymere</h3>
+                            
+                            <div class="success-box">
+                                <strong>✅ Vorteile:</strong>
+                                <ul>
+                                    <li>Biologisch abbaubar (unter speziellen Bedingungen)</li>
+                                    <li>Aus nachwachsenden Rohstoffen</li>
+                                    <li>Reduzierte CO₂-Bilanz während der Nutzung</li>
+                                    <li>Kompostierbar in industriellen Anlagen</li>
+                                    <li>Keine Akkumulation in der Umwelt</li>
+                                </ul>
+                            </div>
+
+                            <div class="warning-box">
+                                <strong>⚠️ Nachteile und Grenzen:</strong>
+                                <ul>
+                                    <li>2-3x höhere Kosten als konventionelle Kunststoffe</li>
+                                    <li>Begrenzte mechanische Eigenschaften</li>
+                                    <li>Konkurrenz zur Nahrungsmittelproduktion</li>
+                                    <li>Spezielle Kompostierungsanlagen nötig (nicht Heimkompost)</li>
+                                    <li>Geringere Recyclingfähigkeit</li>
+                                    <li>Begrenzte Haltbarkeit</li>
+                                </ul>
+                            </div>
+
+                            <div class="info-box">
+                                <strong>🔬 Aktuelle Entwicklungen:</strong>
+                                <ul>
+                                    <li><strong>Algen-basierte Polymere:</strong> Keine Landnutzungskonkurrenz</li>
+                                    <li><strong>Lignin-Kunststoffe:</strong> Aus Holzabfällen</li>
+                                    <li><strong>Pilz-Mycel:</strong> Natürliche Schaumstoffe</li>
+                                    <li><strong>Protein-basierte Folien:</strong> Aus Lebensmittelabfällen</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Innovative Materialien -->
+            <section class="content-section">
+                <div class="section-header">
+                    🚀 Innovative Kunststoffe und Zukunftstechnologien
+                </div>
+                <div class="section-content">
+                    <h2>Neue Entwicklungen und Trends</h2>
+                    
+                    <div class="three-column">
+                        <div class="synthesis-card">
+                            <h3>🧊 Silikone</h3>
+                            <div class="molecular-structure">
+                                [-Si(CH₃)₂-O-]ₙ
+                            </div>
+                            <p><strong>Aufbau:</strong> Si-O-Grundgerüst statt C-C-Ketten</p>
+                            <p><strong>Eigenschaften:</strong></p>
+                            <ul>
+                                <li>Temperaturbeständig (-60°C bis +200°C)</li>
+                                <li>Chemisch inert und biokompatibel</li>
+                                <li>UV-beständig und witterungsfest</li>
+                                <li>Elastisch und flexibel</li>
+                                <li>Hydrophob (wasserabweisend)</li>
+                            </ul>
+                            <p><strong>Anwendung:</strong> Dichtungen, Medizintechnik, Küchenhelfer, Implantate</p>
+                        </div>
+
+                        <div class="synthesis-card">
+                            <h3>🔬 Carbonfasern (CFK)</h3>
+                            <p><strong>Aufbau:</strong> Kohlenstofffasern in Kunststoffmatrix (meist Epoxidharz)</p>
+                            <p><strong>Herstellung:</strong> Pyrolyse von Polyacrylnitril (PAN) bei 1000-2000°C</p>
+                            <p><strong>Eigenschaften:</strong></p>
+                            <ul>
+                                <li>Extrem leicht (Dichte: 1,6 g/cm³)</li>
+                                <li>Höhere Festigkeit als Stahl</li>
+                                <li>Sehr steif (hoher E-Modul)</li>
+                                <li>Korrosionsbeständig</li>
+                                <li>Leitfähig</li>
+                            </ul>
+                            <p><strong>Anwendung:</strong> Luft-/Raumfahrt, Sportwagen, Windräder, Sportgeräte</p>
+                            <p><strong>Problem:</strong> Schwer recycelbar, hohe Kosten</p>
+                        </div>
+
+                        <div class="synthesis-card">
+                            <h3>🎯 Smart Polymers</h3>
+                            <p><strong>Konzept:</strong> Materialien, die auf äußere Reize reagieren</p>
+                            <p><strong>Stimuli-responsive Eigenschaften:</strong></p>
+                            <ul>
+                                <li><strong>Temperatur:</strong> PNIPAM (Schalttemperatur 32°C)</li>
+                                <li><strong>pH-Wert:</strong> Polyacrylsäure (quillt bei hohem pH)</li>
+                                <li><strong>Licht:</strong> Azobenzol-Polymere (reversible Isomerisierung)</li>
+                                <li><strong>Elektrische Felder:</strong> Leitfähige Polymere</li>
+                                <li><strong>Magnetfelder:</strong> Ferrofluid-Polymere</li>
+                            </ul>
+                            <p><strong>Anwendung:</strong> Drug Delivery, Sensoren, künstliche Muskeln, selbstheilende Materialien</p>
+                        </div>
+                    </div>
+
+                    <div class="info-box">
+                        <h3>🔬 Weitere Zukunftstrends:</h3>
+                        <div class="applications-grid">
+                            <div class="application-card">
+                                <h4>🔧 Selbstheilende Polymere</h4>
+                                <p>Reparieren kleine Risse automatisch durch Mikrokapsel-Systeme oder reversible Bindungen</p>
+                            </div>
+                            <div class="application-card">
+                                <h4>⚡ Leitfähige Kunststoffe</h4>
+                                <p>Für flexible Elektronik, organische Solarzellen und Displays (z.B. PEDOT:PSS)</p>
+                            </div>
+                            <div class="application-card">
+                                <h4>🗂️ 4D-Druck</h4>
+                                <p>3D-gedruckte Objekte, die sich zeitgesteuert verformen können</p>
+                            </div>
+                            <div class="application-card">
+                                <h4>🧬 Bio-inspirierte Materialien</h4>
+                                <p>Nachahmen natürlicher Strukturen (Gecko-Haftung, Lotus-Effekt)</p>
+                            </div>
+                            <div class="application-card">
+                                <h4>♻️ Design for Recycling</h4>
+                                <p>Kunststoffe von vornherein für optimales Recycling entwickelt</p>
+                            </div>
+                            <div class="application-card">
+                                <h4>🌐 Graphen-Verstärkung</h4>
+                                <p>Graphen als Füllstoff für extreme Verstärkung bei geringen Mengen</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Anwendungen im Alltag -->
+            <section class="content-section">
+                <div class="section-header">
+                    🏠 Kunststoffe im Alltag und der Technik
+                </div>
+                <div class="section-content">
+                    <h2>Vielfältige Anwendungen</h2>
+                    
+                    <div class="two-column">
+                        <div>
+                            <h3>🚗 Automobilindustrie</h3>
+                            <ul>
+                                <li><strong>Karosserie:</strong> ABS, PC (Stoßfänger, Verkleidungen)</li>
+                                <li><strong>Innenraum:</strong> PU (Sitze), PP (Armaturenbrett)</li>
+                                <li><strong>Motor:</strong> PA (Ansaugkrümmer), PEEK (Hochtemperatur)</li>
+                                <li><strong>Gewichtsersparnis:</strong> 100 kg weniger = 0,4 L/100km Ersparnis</li>
+                            </ul>
+
+                            <h3>🏥 Medizintechnik</h3>
+                            <ul>
+                                <li><strong>Implantate:</strong> UHMWPE (Gelenkprothesen)</li>
+                                <li><strong>Einmalartikel:</strong> PP (Spritzen), PS (Petrischalen)</li>
+                                <li><strong>Schläuche:</strong> PVC, Silikon</li>
+                                <li><strong>Sterilisierbarkeit:</strong> Wichtiges Kriterium</li>
+                            </ul>
+
+                            <h3>📱 Elektronik</h3>
+                            <ul>
+                                <li><strong>Gehäuse:</strong> ABS, PC (Smartphones, Laptops)</li>
+                                <li><strong>Isolation:</strong> PE, PVC (Kabel)</li>
+                                <li><strong>Displays:</strong> PMMA (Acrylglas)</li>
+                                <li><strong>Leiterplatten:</strong> Epoxidharz-Duroplaste</li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h3>🏠 Bauwesen</h3>
+                            <ul>
+                                <li><strong>Rohre:</strong> PE, PP, PVC (Wasser, Abwasser)</li>
+                                <li><strong>Dämmung:</strong> EPS, XPS, PU-Schaum</li>
+                                <li><strong>Fenster:</strong> PVC-Profile</li>
+                                <li><strong>Abdichtung:</strong> Silikon, PU-Dichtmassen</li>
+                            </ul>
+
+                            <h3>📦 Verpackungsindustrie</h3>
+                            <ul>
+                                <li><strong>Getränkeflaschen:</strong> PET (recyclebar)</li>
+                                <li><strong>Folien:</strong> PE, PP (Schutz, Frische)</li>
+                                <li><strong>Schaumstoffe:</strong> EPS (Schutz vor Stößen)</li>
+                                <li><strong>Barriereeigenschaften:</strong> Schutz vor O₂, H₂O, UV</li>
+                            </ul>
+
+                            <h3>👕 Textilindustrie</h3>
+                            <ul>
+                                <li><strong>Sportkleidung:</strong> PA, PES (Nylon, Polyester)</li>
+                                <li><strong>Outdoorkleidung:</strong> Gore-Tex (ePTFE)</li>
+                                <li><strong>Mikrofasern:</strong> Sehr feine Polyesterfasern</li>
+                                <li><strong>Problem:</strong> Mikroplastik beim Waschen</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="warning-box">
+                        <h3>⚠️ Umweltauswirkungen verschiedener Anwendungen</h3>
+                        <p><strong>Einwegverpackungen:</strong> Kurze Nutzungsdauer, hoher Abfallanfall</p>
+                        <p><strong>Langlebige Anwendungen:</strong> Positive Ökobilanz durch lange Nutzungsdauer</p>
+                        <p><strong>Medizinbereich:</strong> Hygiene wichtiger als Recycling</p>
+                        <p><strong>Automobil:</strong> Gewichtsersparnis führt zu CO₂-Einsparung</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Prüfungsrelevante Aufgaben -->
+            <section class="quiz-section">
+                <h2>🎯 Prüfungsrelevante Übungsaufgaben</h2>
+                
+                <div class="quiz-question" onclick="toggleAnswer('q1')">
+                    <h3>Aufgabe 1: Synthesetypen unterscheiden</h3>
+                    <p>Ordnen Sie die folgenden Reaktionen den entsprechenden Synthesetypen zu und begründen Sie:</p>
+                    <p>a) n CH₂=CH₂ → [-CH₂-CH₂-]ₙ</p>
+                    <p>b) HOOC-R-COOH + HO-R'-OH → [-OC-R-CO-O-R'-O-]ₙ + n H₂O</p>
+                    <p>c) HO-R-OH + OCN-R'-NCO → [-O-R-O-CO-NH-R'-NH-CO-]ₙ</p>
+                    
+                    <div id="q1" class="quiz-answer">
+                        <strong>Lösung:</strong><br>
+                        a) <span class="highlight">Polymerisation</span> - Keine Abspaltung, C=C-Doppelbindung wird geöffnet, nur eine Monomer-Art<br>
+                        b) <span class="highlight">Polykondensation</span> - Wasserabspaltung, zwei verschiedene funktionelle Gruppen reagieren<br>
+                        c) <span class="highlight">Polyaddition</span> - Keine Abspaltung, aber Protonenwanderung vom OH zum NCO
+                    </div>
+                </div>
+
+                <div class="quiz-question" onclick="toggleAnswer('q2')">
+                    <h3>Aufgabe 2: Kunststoffeigenschaften erklären</h3>
+                    <p>Erklären Sie anhand der Molekülstruktur, warum:</p>
+                    <p>a) PET-Flaschen transparent und bruchfest sind</p>
+                    <p>b) PVC mit Weichmachern flexible Folien ergibt</p>
+                    <p>c) Bakelit nicht recycelbar ist</p>
+                    
+                    <div id="q2" class="quiz-answer">
+                        <strong>Lösung:</strong><br>
+                        <strong>a) PET:</strong> Aromatische Ringe sorgen für Steifigkeit, regelmäßige Struktur ermöglicht Transparenz, lange Ketten und Wasserstoffbrücken sorgen für Festigkeit<br>
+                        <strong>b) PVC + Weichmacher:</strong> Weichmacher-Moleküle lagern sich zwischen PVC-Ketten und reduzieren intermolekulare Kräfte → mehr Beweglichkeit<br>
+                        <strong>c) Bakelit (Duroplast):</strong> 3D-vernetzte Struktur, beim Erhitzen erfolgt Zersetzung statt Schmelzen
+                    </div>
+                </div>
+
+                <div class="quiz-question" onclick="toggleAnswer('q3')">
+                    <h3>Aufgabe 3: Umweltaspekte bewerten (Abitur 2026)</h3>
+                    <p>Bewerten Sie die folgenden Lösungsansätze für das Mikroplastik-Problem hinsichtlich Wirksamkeit und Umsetzbarkeit:</p>
+                    <p>a) Vollständiger Ersatz durch biologisch abbaubare Kunststoffe</p>
+                    <p>b) Verbesserung der Recycling-Infrastruktur</p>
+                    <p>c) Entwicklung von Mikroplastik-Filtern für Waschmaschinen</p>
+                    
+                    <div id="q3" class="quiz-answer">
+                        <strong>Bewertung:</strong><br>
+                        <strong>a) Biokunststoffe:</strong> ✅ Wirksamkeit hoch (kein Mikroplastik) ❌ Umsetzbarkeit gering (Kosten, Eigenschaften, Rohstoffkonkurrenz)<br>
+                        <strong>b) Recycling:</strong> ✅ Wirksamkeit mittel (weniger Neuplastik) ✅ Umsetzbarkeit hoch (politisch förderbar)<br>
+                        <strong>c) Filter:</strong> ✅ Wirksamkeit hoch für Textilien ✅ Umsetzbarkeit hoch (technisch machbar, kostengünstig)
+                    </div>
+                </div>
+
+                <div class="quiz-question" onclick="toggleAnswer('q4')">
+                    <h3>Aufgabe 4: Berechnung Polymerisationsgrad</h3>
+                    <p>Ein Polypropen-Molekül hat eine Molmasse von 420.000 g/mol. Berechnen Sie:</p>
+                    <p>a) Den Polymerisationsgrad</p>
+                    <p>b) Die Anzahl der CH₃-Gruppen im Molekül</p>
+                    
+                    <div id="q4" class="quiz-answer">
+                        <strong>Lösung:</strong><br>
+                        <strong>Molmasse Propen:</strong> M(C₃H₆) = 3×12 + 6×1 = 42 g/mol<br>
+                        <strong>a) Polymerisationsgrad:</strong> n = 420.000 g/mol ÷ 42 g/mol = 10.000<br>
+                        <strong>b) Anzahl CH₃-Gruppen:</strong> Jede Repetiereinheit hat eine CH₃-Gruppe → 10.000 CH₃-Gruppen
+                    </div>
+                </div>
+
+                <div class="quiz-question" onclick="toggleAnswer('q5')">
+                    <h3>Aufgabe 5: Recycling-Verfahren vergleichen</h3>
+                    <p>Für welche der folgenden Kunststoff-Abfälle ist welches Recycling-Verfahren am besten geeignet?</p>
+                    <p>a) Saubere PET-Flaschen aus der Pfandsammlung</p>
+                    <p>b) Verschmutzte Mischkunststoffe aus dem gelben Sack</p>
+                    <p>c) Duroplastische Verbundstoffe aus der Automobilindustrie</p>
+                    
+                    <div id="q5" class="quiz-answer">
+                        <strong>Lösung:</strong><br>
+                        <strong>a) PET-Flaschen:</strong> <span class="highlight">Werkstoffliches Recycling</span> - hohe Reinheit, sortensorte Sammlung, sehr gut recycelbar<br>
+                        <strong>b) Mischkunststoffe:</strong> <span class="highlight">Chemisches Recycling</span> - verschiedene Polymere, Verschmutzung, Pyrolyse möglich<br>
+                        <strong>c) Duroplaste:</strong> <span class="highlight">Energetisches Recycling</span> - nicht schmelzbar, hoher Heizwert, keine andere Option
+                    </div>
+                </div>
+            </section>
+
+            <!-- Navigation zu anderen Kapiteln -->
+            <section class="section fade-in">
+                <div class="section-header">
+                    🧭 Weiterführende Kapitel
+                </div>
+                <div class="section-content">
+                    <div class="grid-3">
+                        <a href="aromaten.html" class="btn btn-primary">← Aromaten</a>
+                        <a href="index.html" class="btn btn-secondary">🏠 Hauptübersicht</a>
+                        <a href="naturstoffe.html" class="btn btn-primary">Naturstoffe →</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <button class="back-to-top" onclick="scrollToTop()">↑</button>
+
+        <footer>
+            <p>© 2025 Chemie Lernzettel Abitur 2026 | Erstellt für optimale Prüfungsvorbereitung</p>
+            <p>Letzte Aktualisierung: August 2025 - Berücksichtigt aktuelle EU-Gesetzgebung und Recycling-Trends</p>
+        </footer>
+    </div>
+
+    <script>
+        // Quiz-Funktionalität
+        function toggleAnswer(questionId) {
+            const answer = document.getElementById(questionId);
+            if (answer.style.display === 'none' || answer.style.display === '') {
+                answer.style.display = 'block';
+            } else {
+                answer.style.display = 'none';
+            }
+        }
+
+        // Back-to-top Button
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Back-to-top Button Sichtbarkeit
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        });
+
+        // Smooth Scrolling für interne Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade-in Animation für Sections beim Scrollen
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Alle Sections für Animation beobachten
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section, .section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+
+        // Druck-Optimierung
+        window.addEventListener('beforeprint', function() {
+            document.querySelectorAll('.quiz-answer').forEach(answer => {
+                answer.style.display = 'block';
+            });
+        });
+
+        window.addEventListener('afterprint', function() {
+            document.querySelectorAll('.quiz-answer').forEach(answer => {
+                answer.style.display = 'none';
+            });
+        });
+
+        // Performance-Optimierung: Lazy Loading für Bilder (falls vorhanden)
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            document.querySelectorAll('img[data-src]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Keyboard Navigation für Quiz
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                const focusedElement = document.activeElement;
+                if (focusedElement.classList.contains('quiz-question')) {
+                    e.preventDefault();
+                    focusedElement.click();
+                }
+            }
+        });
+
+        // Mobile Touch Optimierung
+        let touchStartY = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchend', function(e) {
+            const touchEndY = e.changedTouches[0].clientY;
+            const touchDiff = touchStartY - touchEndY;
+            
+            // Swipe up detection für mobile Navigation
+            if (touchDiff > 50) {
+                const backToTopButton = document.querySelector('.back-to-top');
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.opacity = '1';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

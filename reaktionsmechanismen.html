@@ -1,0 +1,1411 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaktionswege und Reaktionsmechanismen - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header und Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 5px;
+            font-weight: 500;
+        }
+        
+        .nav-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .nav-breadcrumb .current {
+            color: #764ba2;
+            font-weight: bold;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        /* Hauptinhalt Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-2px);
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.4em;
+            font-weight: 600;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .section-header:after {
+            content: '▼';
+            position: absolute;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+        
+        .section-header.collapsed:after {
+            transform: translateY(-50%) rotate(-90deg);
+        }
+        
+        .section-content {
+            padding: 30px;
+            display: block;
+        }
+        
+        .section-content.collapsed {
+            display: none;
+        }
+        
+        /* Spezielle Layout-Elemente */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .mechanism-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .mechanism-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .mechanism-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .mechanism-card h4 {
+            color: #667eea;
+            margin: 15px 0 10px 0;
+            font-size: 1.1em;
+        }
+        
+        /* Reaktionsgleichungen */
+        .reaction-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 25%, #4facfe 75%, #00f2fe 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .chemical-formula {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid #667eea;
+        }
+        
+        /* Listen und Text */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .styled-list li {
+            background: #f8f9fa;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            position: relative;
+            padding-left: 50px;
+        }
+        
+        .styled-list li:before {
+            content: attr(data-number);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #667eea;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        /* Wichtige Hinweise */
+        .wichtig {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #ff9f00;
+        }
+        
+        .wichtig h3 {
+            color: #d68910;
+            margin-bottom: 10px;
+        }
+        
+        .tipp {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            border: 1px solid #28a745;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #28a745;
+        }
+        
+        .tipp h3 {
+            color: #155724;
+            margin-bottom: 10px;
+        }
+        
+        /* Tabellen */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .comparison-table tr:hover {
+            background: #e9ecef;
+        }
+        
+        /* Quiz und Interaktive Elemente */
+        .quiz-section {
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            color: #2c3e50;
+        }
+        
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-question:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-answer {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+            border-left: 4px solid #28a745;
+        }
+        
+        /* Nach oben Button */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+        }
+        
+        .scroll-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+        
+        .scroll-to-top.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .scroll-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-breadcrumb {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+            
+            .mechanism-card {
+                padding: 15px;
+            }
+            
+            .reaction-box {
+                font-size: 1em;
+                padding: 15px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .content-section {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            
+            .section-header {
+                background: #f0f0f0;
+                color: black;
+            }
+            
+            .scroll-to-top {
+                display: none;
+            }
+            
+            .nav-breadcrumb {
+                display: none;
+            }
+        }
+/* Allgemeine Section-Stile */
+.section {
+    background: rgba(255, 255, 255, 0.95);
+    margin-bottom: 25px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.section-header {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px 30px;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.section-content {
+    padding: 30px;
+}
+
+/* Grid-Layout */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin: 20px 0;
+}
+
+/* Button-Stile */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin: 10px 5px;
+    text-align: center;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .grid-3 {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .section-content {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .section-content {
+        padding: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <div class="nav-breadcrumb">
+            <a href="index.html">🏠 Hauptübersicht</a> › 
+            <span class="current">8. Reaktionswege und Reaktionsmechanismen</span>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <h1>⚗️ Reaktionswege und Reaktionsmechanismen</h1>
+            <p class="subtitle">Organische Chemie - Wie Moleküle reagieren</p>
+            <p>Verstehe die fundamentalen Reaktionstypen und ihre Mechanismen</p>
+        </header>
+
+        <!-- Einführung -->
+        <section class="content-section">
+            <div class="section-header">
+                🎯 Einführung und Lernziele
+            </div>
+            <div class="section-content">
+                <p>Reaktionsmechanismen zeigen uns, <strong>wie</strong> chemische Reaktionen ablaufen - nicht nur <em>was</em> passiert, sondern auch <em>warum</em> und in welchen Schritten. Dies ist besonders wichtig in der organischen Chemie, wo wir verstehen müssen:</p>
+                
+                <div class="styled-list">
+                    <li data-number="1"><strong>Elektronenbewegungen:</strong> Wie sich Elektronen während der Reaktion verschieben</li>
+                    <li data-number="2"><strong>Zwischenstufen:</strong> Welche instabilen Intermediate gebildet werden</li>
+                    <li data-number="3"><strong>Regioselektivität:</strong> Warum Reaktionen an bestimmten Stellen bevorzugt ablaufen</li>
+                    <li data-number="4"><strong>Stereoselektivität:</strong> Welche räumliche Anordnung der Produkte entsteht</li>
+                </div>
+
+                <div class="wichtig">
+                    <h3>⚠️ Wichtig für das Abitur 2026:</h3>
+                    <p>Reaktionsmechanismen sind zentral für das Verständnis der organischen Chemie. Du musst nicht nur die Reaktionstypen kennen, sondern auch erklären können, <strong>warum</strong> bestimmte Reaktionen ablaufen und andere nicht.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Die vier Hauptreaktionstypen -->
+        <section class="content-section">
+            <div class="section-header">
+                🔄 Die vier Hauptreaktionstypen
+            </div>
+            <div class="section-content">
+                <div class="three-column">
+                    <div class="mechanism-card">
+                        <h3>1. Substitutionsreaktionen</h3>
+                        <p><strong>Definition:</strong> Ein Atom oder eine Atomgruppe wird durch ein anderes Atom oder eine andere Atomgruppe ersetzt.</p>
+                        
+                        <div class="reaction-box">
+                            R-X + Nu⁻ → R-Nu + X⁻
+                        </div>
+                        
+                        <h4>Beispiel:</h4>
+                        <div class="chemical-formula">
+                            CH₃-Br + OH⁻ → CH₃-OH + Br⁻
+                        </div>
+                        
+                        <p><strong>Merksatz:</strong> "Tausch gegen Bezahlung" - Ein Substituent geht, ein neuer kommt.</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h3>2. Additionsreaktionen</h3>
+                        <p><strong>Definition:</strong> Zwei Reaktionspartner vereinigen sich unter Aufhebung von Mehrfachbindungen zu einem Produkt.</p>
+                        
+                        <div class="reaction-box">
+                            C=C + A-B → C(A)-C(B)
+                        </div>
+                        
+                        <h4>Beispiel:</h4>
+                        <div class="chemical-formula">
+                            CH₂=CH₂ + Br₂ → CH₂Br-CH₂Br
+                        </div>
+                        
+                        <p><strong>Merksatz:</strong> "Aus doppelt wird einfach" - Mehrfachbindungen werden aufgebrochen.</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h3>3. Eliminierungsreaktionen</h3>
+                        <p><strong>Definition:</strong> Aus einem Molekül wird ein kleineres Molekül abgespalten, oft unter Bildung einer Mehrfachbindung.</p>
+                        
+                        <div class="reaction-box">
+                            R-CH₂-CH₂-X → R-CH=CH₂ + HX
+                        </div>
+                        
+                        <h4>Beispiel:</h4>
+                        <div class="chemical-formula">
+                            CH₃-CH₂-OH → CH₂=CH₂ + H₂O
+                        </div>
+                        
+                        <p><strong>Merksatz:</strong> "Abspaltung schafft Ordnung" - Kleine Moleküle werden eliminiert.</p>
+                    </div>
+                </div>
+
+                <div class="mechanism-card" style="margin-top: 25px;">
+                    <h3>4. Umlagerungsreaktionen</h3>
+                    <p><strong>Definition:</strong> Atome oder Atomgruppen wechseln innerhalb eines Moleküls ihre Position.</p>
+                    
+                    <div class="reaction-box">
+                        R-CH₂-CH⁺-CH₃ → R-CH⁺-CH₂-CH₃
+                    </div>
+                    
+                    <h4>Beispiel:</h4>
+                    <div class="chemical-formula">
+                        (CH₃)₂CH-CH₂⁺ → (CH₃)₂CH⁺-CH₃ (primäres → sekundäres Carbo-Kation)
+                    </div>
+                    
+                    <p><strong>Merksatz:</strong> "Umziehen innerhalb des Hauses" - Nur die Position ändert sich, nicht die Zusammensetzung.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nucleophile Substitution -->
+        <section class="content-section">
+            <div class="section-header">
+                🎯 Nucleophile Substitution (SN1 und SN2)
+            </div>
+            <div class="section-content">
+                <p>Die nucleophile Substitution ist einer der wichtigsten Reaktionsmechanismen in der organischen Chemie. Je nach Bedingungen läuft sie über zwei verschiedene Mechanismen ab:</p>
+
+                <div class="two-column">
+                    <div class="mechanism-card">
+                        <h3>SN1-Mechanismus (unimolekular)</h3>
+                        
+                        <h4>Schritt 1: Bildung des Carbo-Kations</h4>
+                        <div class="chemical-formula">
+                            R₃C-X → R₃C⁺ + X⁻ (langsam, geschwindigkeitsbestimmend)
+                        </div>
+                        
+                        <h4>Schritt 2: Nucleophiler Angriff</h4>
+                        <div class="chemical-formula">
+                            R₃C⁺ + Nu⁻ → R₃C-Nu (schnell)
+                        </div>
+                        
+                        <h4>Charakteristika:</h4>
+                        <ul>
+                            <li>Zweistufiger Mechanismus</li>
+                            <li>Carbo-Kation als Zwischenstufe</li>
+                            <li>Geschwindigkeit ~ [Substrat]¹</li>
+                            <li>Bevorzugt bei tertiären C-Atomen</li>
+                            <li>Racemisierung bei chiralen Zentren</li>
+                        </ul>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h3>SN2-Mechanismus (bimolekular)</h3>
+                        
+                        <h4>Einstufiger Mechanismus:</h4>
+                        <div class="chemical-formula">
+                            Nu⁻ + R-X → [Nu---R---X]‡ → Nu-R + X⁻
+                        </div>
+                        
+                        <h4>Charakteristika:</h4>
+                        <ul>
+                            <li>Einstufiger Mechanismus</li>
+                            <li>Übergangszustand mit 5 Substituenten</li>
+                            <li>Geschwindigkeit ~ [Substrat][Nucleophil]</li>
+                            <li>Bevorzugt bei primären C-Atomen</li>
+                            <li>Inversion der Konfiguration (Walden-Umkehr)</li>
+                            <li>Sterische Hinderung verlangsamt Reaktion</li>
+                        </ul>
+
+                        <div class="tipp">
+                            <h3>💡 Merkhilfe:</h3>
+                            <p><strong>SN1:</strong> "Erst weg, dann ran" - Abgangsgruppe geht zuerst<br>
+                            <strong>SN2:</strong> "Rückseitenangriff" - Nucleophil greift von hinten an</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Faktoren, die SN1 vs. SN2 beeinflussen:</h3>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Faktor</th>
+                            <th>Begünstigt SN1</th>
+                            <th>Begünstigt SN2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Substrat</strong></td>
+                            <td>Tertiär > Sekundär</td>
+                            <td>Primär > Sekundär</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Nucleophil</strong></td>
+                            <td>Schwache Nucleophile</td>
+                            <td>Starke Nucleophile</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Lösungsmittel</strong></td>
+                            <td>Polar-protisch (stabilisiert Ionen)</td>
+                            <td>Polar-aprotisch (aktiviert Nucleophil)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Abgangsgruppe</strong></td>
+                            <td>Gute Abgangsgruppen wichtig</td>
+                            <td>Gute Abgangsgruppen wichtig</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Elektrophile Addition -->
+        <section class="content-section">
+            <div class="section-header">
+                ⚡ Elektrophile Addition an Alkene
+            </div>
+            <div class="section-content">
+                <p>Die elektrophile Addition ist die charakteristische Reaktion der Alkene. Das elektronenreiche π-System greift elektrophile Teilchen an.</p>
+
+                <div class="mechanism-card">
+                    <h3>Allgemeiner Mechanismus:</h3>
+                    
+                    <h4>Schritt 1: Elektrophiler Angriff</h4>
+                    <div class="chemical-formula">
+                        C=C + E⁺ → C⁺-C-E (Carbo-Kation-Zwischenstufe)
+                    </div>
+                    
+                    <h4>Schritt 2: Nucleophiler Angriff</h4>
+                    <div class="chemical-formula">
+                        C⁺-C-E + Nu⁻ → C(Nu)-C-E
+                    </div>
+                </div>
+
+                <h3>Markovnikov-Regel:</h3>
+                <div class="wichtig">
+                    <h3>📝 Markovnikov-Regel:</h3>
+                    <p>Bei der Addition von HX an unsymmetrische Alkene wird das Wasserstoff-Atom an das C-Atom gebunden, das bereits die meisten H-Atome trägt.</p>
+                    
+                    <div class="chemical-formula">
+                        CH₃-CH=CH₂ + HBr → CH₃-CHBr-CH₃ (nicht CH₃-CH₂-CH₂Br)
+                    </div>
+                    
+                    <p><strong>Begründung:</strong> Es bildet sich das stabilere sekundäre Carbo-Kation anstelle des primären.</p>
+                </div>
+
+                <h3>Wichtige Additionsreaktionen:</h3>
+                <div class="three-column">
+                    <div class="mechanism-card">
+                        <h4>1. Addition von Halogenwasserstoffen</h4>
+                        <div class="chemical-formula">
+                            R-CH=CH₂ + HX → R-CHX-CH₃
+                        </div>
+                        <p>Folgt der Markovnikov-Regel</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h4>2. Addition von Halogenen</h4>
+                        <div class="chemical-formula">
+                            R-CH=CH₂ + Br₂ → R-CHBr-CH₂Br
+                        </div>
+                        <p>Über Bromonium-Ion als Zwischenstufe</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h4>3. Hydratisierung</h4>
+                        <div class="chemical-formula">
+                            R-CH=CH₂ + H₂O → R-CHOH-CH₃
+                        </div>
+                        <p>Säurekatalysiert, folgt Markovnikov-Regel</p>
+                    </div>
+                </div>
+
+                <div class="tipp">
+                    <h3>💡 Anti-Markovnikov-Addition:</h3>
+                    <p>Bei radikalischen Bedingungen (Peroxide) kann die Addition auch gegen die Markovnikov-Regel verlaufen, da andere Zwischenstufen (Radikale statt Carbo-Kationen) gebildet werden.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eliminierungsreaktionen -->
+        <section class="content-section">
+            <div class="section-header">
+                🚫 Eliminierungsreaktionen (E1 und E2)
+            </div>
+            <div class="section-content">
+                <p>Eliminierungsreaktionen sind das Gegenteil von Additionsreaktionen. Sie führen zur Bildung von Mehrfachbindungen durch Abspaltung kleinerer Moleküle.</p>
+
+                <div class="two-column">
+                    <div class="mechanism-card">
+                        <h3>E1-Mechanismus</h3>
+                        
+                        <h4>Schritt 1: Bildung des Carbo-Kations</h4>
+                        <div class="chemical-formula">
+                            R-CH₂-CH(X)-R' → R-CH₂-CH⁺-R' + X⁻
+                        </div>
+                        
+                        <h4>Schritt 2: Protonenabspaltung</h4>
+                        <div class="chemical-formula">
+                            R-CH₂-CH⁺-R' + Base → R-CH=CH-R' + H⁺
+                        </div>
+                        
+                        <ul>
+                            <li>Zweistufiger Mechanismus</li>
+                            <li>Carbo-Kation als Zwischenstufe</li>
+                            <li>Erste Ordnung</li>
+                            <li>Bevorzugt bei tertiären Substraten</li>
+                        </ul>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h3>E2-Mechanismus</h3>
+                        
+                        <h4>Einstufiger, konzertierter Mechanismus:</h4>
+                        <div class="chemical-formula">
+                            Base + H-CH₂-CH(X)-R → Base-H⁺ + CH₂=CH-R + X⁻
+                        </div>
+                        
+                        <ul>
+                            <li>Einstufiger Mechanismus</li>
+                            <li>Synchroner Bruch und Bildung von Bindungen</li>
+                            <li>Zweite Ordnung</li>
+                            <li>Anti-periplanare Anordnung erforderlich</li>
+                            <li>Bevorzugt bei primären und sekundären Substraten</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Saytzeff-Regel (Zaitsev-Regel):</h3>
+                <div class="wichtig">
+                    <h3>📝 Saytzeff-Regel:</h3>
+                    <p>Bei Eliminierungsreaktionen entsteht bevorzugt das höher substituierte (stabilere) Alken als Hauptprodukt.</p>
+                    
+                    <div class="chemical-formula">
+                        (CH₃)₂CH-CH₂-CH₃ → (CH₃)₂C=CH-CH₃ (Hauptprodukt)<br>
+                        nicht: (CH₃)₂CH-CH=CH₂ (Nebenprodukt)
+                    </div>
+                    
+                    <p><strong>Begründung:</strong> Höher substituierte Alkene sind thermodynamisch stabiler.</p>
+                </div>
+
+                <div class="tipp">
+                    <h3>💡 Konkurrenz zwischen SN und E:</h3>
+                    <p><strong>Hohe Temperatur</strong> und <strong>starke, sterisch gehinderte Basen</strong> begünstigen Eliminierung.<br>
+                    <strong>Niedrige Temperatur</strong> und <strong>gute Nucleophile</strong> begünstigen Substitution.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Radikalische Substitution -->
+        <section class="content-section">
+            <div class="section-header">
+                ☢️ Radikalische Substitution
+            </div>
+            <div class="section-content">
+                <p>Radikalische Reaktionen verlaufen über ungepaarte Elektronen und sind typisch für Alkane unter UV-Licht oder hohen Temperaturen.</p>
+
+                <div class="mechanism-card">
+                    <h3>Allgemeiner Mechanismus (am Beispiel CH₄ + Cl₂):</h3>
+                    
+                    <h4>1. Startreaktion (Initiation):</h4>
+                    <div class="chemical-formula">
+                        Cl₂ → 2 Cl• (unter UV-Licht)
+                    </div>
+                    
+                    <h4>2. Kettenreaktion (Propagation):</h4>
+                    <div class="chemical-formula">
+                        Cl• + CH₄ → HCl + CH₃•<br>
+                        CH₃• + Cl₂ → CH₃Cl + Cl•
+                    </div>
+                    
+                    <h4>3. Abbruchreaktion (Termination):</h4>
+                    <div class="chemical-formula">
+                        2 Cl• → Cl₂<br>
+                        2 CH₃• → C₂H₆<br>
+                        CH₃• + Cl• → CH₃Cl
+                    </div>
+                </div>
+
+                <h3>Stabilität von Radikalen:</h3>
+                <div class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Radikaltyp</th>
+                            <th>Struktur</th>
+                            <th>Relative Stabilität</th>
+                            <th>Beispiel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Primär</td>
+                            <td>R-CH₂•</td>
+                            <td>Niedrigste</td>
+                            <td>CH₃-CH₂•</td>
+                        </tr>
+                        <tr>
+                            <td>Sekundär</td>
+                            <td>R₂-CH•</td>
+                            <td>Mittel</td>
+                            <td>(CH₃)₂-CH•</td>
+                        </tr>
+                        <tr>
+                            <td>Tertiär</td>
+                            <td>R₃-C•</td>
+                            <td>Höchste</td>
+                            <td>(CH₃)₃-C•</td>
+                        </tr>
+                        <tr>
+                            <td>Allyl</td>
+                            <td>R-CH₂-CH=CH•</td>
+                            <td>Sehr hoch</td>
+                            <td>CH₂=CH-CH₂•</td>
+                        </tr>
+                        <tr>
+                            <td>Benzyl</td>
+                            <td>Ar-CH₂•</td>
+                            <td>Sehr hoch</td>
+                            <td>C₆H₅-CH₂•</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="wichtig">
+                    <h3>⚠️ Regioselektivität bei radikalischer Substitution:</h3>
+                    <p>Die Substitution erfolgt bevorzugt am C-Atom, wo das stabilste Radikal gebildet wird: <strong>tertiär > sekundär > primär</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elektrophile aromatische Substitution -->
+        <section class="content-section">
+            <div class="section-header">
+                🔄 Elektrophile Aromatische Substitution
+            </div>
+            <div class="section-content">
+                <p>Aromaten reagieren charakteristisch durch Substitution unter Erhaltung des aromatischen Systems, nicht durch Addition.</p>
+
+                <div class="mechanism-card">
+                    <h3>Allgemeiner Mechanismus:</h3>
+                    
+                    <h4>Schritt 1: Elektrophiler Angriff</h4>
+                    <div class="chemical-formula">
+                        C₆H₆ + E⁺ → [C₆H₆E]⁺ (σ-Komplex, Arenium-Ion)
+                    </div>
+                    
+                    <h4>Schritt 2: Protonenabspaltung</h4>
+                    <div class="chemical-formula">
+                        [C₆H₆E]⁺ → C₆H₅E + H⁺
+                    </div>
+                    
+                    <p><strong>Triebkraft:</strong> Wiederherstellung der Aromatizität durch Eliminierung von H⁺</p>
+                </div>
+
+                <h3>Wichtige Reaktionen:</h3>
+                <div class="three-column">
+                    <div class="mechanism-card">
+                        <h4>Halogenierung</h4>
+                        <div class="chemical-formula">
+                            C₆H₆ + Br₂ → C₆H₅Br + HBr
+                        </div>
+                        <p>Katalysator: FeBr₃ (Lewis-Säure)</p>
+                        <p>Elektrophil: Br⁺ (aus Br₂ + FeBr₃)</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h4>Nitrierung</h4>
+                        <div class="chemical-formula">
+                            C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O
+                        </div>
+                        <p>Katalysator: H₂SO₄</p>
+                        <p>Elektrophil: NO₂⁺ (Nitronium-Ion)</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h4>Friedel-Crafts-Alkylierung</h4>
+                        <div class="chemical-formula">
+                            C₆H₆ + R-Cl → C₆H₅-R + HCl
+                        </div>
+                        <p>Katalysator: AlCl₃</p>
+                        <p>Elektrophil: R⁺ (Carbo-Kation)</p>
+                    </div>
+                </div>
+
+                <h3>Zweitsubstitution - Dirigierende Effekte:</h3>
+                <div class="two-column">
+                    <div class="mechanism-card">
+                        <h3>Ortho/Para-dirigierend</h3>
+                        <h4>Aktivierende Gruppen (+M-Effekt):</h4>
+                        <ul>
+                            <li>-OH (Hydroxyl)</li>
+                            <li>-NH₂ (Amino)</li>
+                            <li>-OCH₃ (Methoxy)</li>
+                            <li>-CH₃ (Methyl, +I-Effekt)</li>
+                        </ul>
+                        <p><strong>Wirkung:</strong> Erhöhen Elektronendichte, beschleunigen Reaktion</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h3>Meta-dirigierend</h3>
+                        <h4>Desaktivierende Gruppen (-M-Effekt):</h4>
+                        <ul>
+                            <li>-NO₂ (Nitro)</li>
+                            <li>-COOH (Carboxyl)</li>
+                            <li>-CHO (Formyl)</li>
+                            <li>-SO₃H (Sulfo)</li>
+                        </ul>
+                        <p><strong>Wirkung:</strong> Verringern Elektronendichte, verlangsamen Reaktion</p>
+                    </div>
+                </div>
+
+                <div class="tipp">
+                    <h3>💡 Merkhilfe für dirigierende Effekte:</h3>
+                    <p><strong>Elektronenschiebende Gruppen</strong> (+M, +I): "Geben gerne ab" → ortho/para<br>
+                    <strong>Elektronenziehende Gruppen</strong> (-M, -I): "Wollen für sich behalten" → meta</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Additions-Eliminierungs-Reaktionen -->
+        <section class="content-section">
+            <div class="section-header">
+                🔄 Additions-Eliminierungs-Reaktionen
+            </div>
+            <div class="section-content">
+                <p>Diese Reaktionen sind charakteristisch für Carbonylverbindungen (Aldehyde, Ketone, Carbonsäurederivate) und laufen in zwei Stufen ab.</p>
+
+                <div class="mechanism-card">
+                    <h3>Allgemeiner Mechanismus:</h3>
+                    
+                    <h4>Schritt 1: Nucleophile Addition</h4>
+                    <div class="chemical-formula">
+                        R-CO-X + Nu⁻ → R-C(OH)(Nu)-X⁻ (Tetraeder-Zwischenstufe)
+                    </div>
+                    
+                    <h4>Schritt 2: Eliminierung</h4>
+                    <div class="chemical-formula">
+                        R-C(OH)(Nu)-X⁻ → R-CO-Nu + X⁻ + H⁺
+                    </div>
+                </div>
+
+                <h3>Wichtige Beispiele:</h3>
+                <div class="three-column">
+                    <div class="mechanism-card">
+                        <h4>Esterbildung (Veresterung)</h4>
+                        <div class="chemical-formula">
+                            R-COOH + R'-OH ⇌ R-COO-R' + H₂O
+                        </div>
+                        <p>Säurekatalysiert, Gleichgewichtsreaktion</p>
+                        <p><strong>Nucleophil:</strong> Alkohol (R'-OH)</p>
+                        <p><strong>Abgangsgruppe:</strong> Wasser</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h4>Esterspaltung (Hydrolyse)</h4>
+                        <div class="chemical-formula">
+                            R-COO-R' + H₂O → R-COOH + R'-OH
+                        </div>
+                        <p>Sauer oder basisch katalysiert</p>
+                        <p><strong>Nucleophil:</strong> Wasser oder OH⁻</p>
+                        <p><strong>Abgangsgruppe:</strong> Alkoholat</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h4>Amidbildung</h4>
+                        <div class="chemical-formula">
+                            R-COCl + R'-NH₂ → R-CO-NH-R' + HCl
+                        </div>
+                        <p>Mit Säurechloriden</p>
+                        <p><strong>Nucleophil:</strong> Amin</p>
+                        <p><strong>Abgangsgruppe:</strong> Chlorid</p>
+                    </div>
+                </div>
+
+                <div class="wichtig">
+                    <h3>⚠️ Reaktivitätsreihe der Carbonsäurederivate:</h3>
+                    <p><strong>Säurechloride > Anhydride > Ester > Amide</strong></p>
+                    <p>Je besser die Abgangsgruppe, desto reaktiver das Derivat.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technische Synthesen -->
+        <section class="content-section">
+            <div class="section-header">
+                🏭 Technische Synthesen und Anwendungen
+            </div>
+            <div class="section-content">
+                <p>Reaktionsmechanismen sind nicht nur theoretisch wichtig, sondern finden auch in der industriellen Chemie breite Anwendung.</p>
+
+                <div class="three-column">
+                    <div class="mechanism-card">
+                        <h3>Steamcracking</h3>
+                        <p><strong>Prozess:</strong> Radikalische Spaltung von Kohlenwasserstoffen</p>
+                        <div class="chemical-formula">
+                            C₂H₆ → C₂H₄ + H₂ (800-900°C)
+                        </div>
+                        <p><strong>Produkte:</strong> Ethene, Propene für Polymerproduktion</p>
+                        <p><strong>Mechanismus:</strong> Radikalische C-C-Bindungsspaltung</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h3>Benzin-Veredelung</h3>
+                        <p><strong>Isomerisierung:</strong> Verzweigung erhöht Oktanzahl</p>
+                        <div class="chemical-formula">
+                            n-Hexan → 2-Methylpentan (Katalysator)
+                        </div>
+                        <p><strong>Reforming:</strong> Cyclisierung und Dehydrierung</p>
+                        <p><strong>Mechanismus:</strong> Carbo-Kation-Umlagerungen</p>
+                    </div>
+
+                    <div class="mechanism-card">
+                        <h3>Essigsäure-Synthese</h3>
+                        <p><strong>Methanol-Carbonylierung:</strong></p>
+                        <div class="chemical-formula">
+                            CH₃OH + CO → CH₃COOH (Katalysator: Rhodium)
+                        </div>
+                        <p><strong>Mechanismus:</strong> Insertion von CO in Metall-Alkyl-Bindung</p>
+                    </div>
+                </div>
+
+                <div class="tipp">
+                    <h3>💡 Katalysatoren in der Technik:</h3>
+                    <p>Katalysatoren senken die Aktivierungsenergie und ermöglichen neue Reaktionswege. Sie sind unverzichtbar für:</p>
+                    <ul>
+                        <li>Selektivität (gewünschte Produkte)</li>
+                        <li>Energieeinsparung (niedrigere Temperaturen)</li>
+                        <li>Umweltfreundlichkeit (weniger Nebenprodukte)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reaktionsmechanismen im Vergleich -->
+        <section class="content-section">
+            <div class="section-header">
+                📊 Reaktionsmechanismen im Vergleich
+            </div>
+            <div class="section-content">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Mechanismus</th>
+                            <th>Zwischenstufe</th>
+                            <th>Geschwindigkeitsgesetz</th>
+                            <th>Bevorzugte Substrate</th>
+                            <th>Stereochemie</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>SN1</strong></td>
+                            <td>Carbo-Kation</td>
+                            <td>v ~ [Substrat]</td>
+                            <td>Tertiär, benzylisch</td>
+                            <td>Racemisierung</td>
+                        </tr>
+                        <tr>
+                            <td><strong>SN2</strong></td>
+                            <td>Übergangszustand</td>
+                            <td>v ~ [Substrat][Nu]</td>
+                            <td>Primär, methylisch</td>
+                            <td>Inversion</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E1</strong></td>
+                            <td>Carbo-Kation</td>
+                            <td>v ~ [Substrat]</td>
+                            <td>Tertiär</td>
+                            <td>Saytzeff-Produkt</td>
+                        </tr>
+                        <tr>
+                            <td><strong>E2</strong></td>
+                            <td>Übergangszustand</td>
+                            <td>v ~ [Substrat][Base]</td>
+                            <td>Primär, sekundär</td>
+                            <td>Anti-Eliminierung</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Radikalisch</strong></td>
+                            <td>Radikale</td>
+                            <td>v ~ [Initiator]</td>
+                            <td>Alle Alkane</td>
+                            <td>Meist Racemisierung</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quiz und Selbsttest -->
+        <section class="quiz-section">
+            <h2>🧩 Selbsttest: Reaktionsmechanismen</h2>
+            
+            <div class="quiz-question" onclick="toggleAnswer(this)">
+                <h3>Frage 1: Mechanismus-Erkennung</h3>
+                <p>2-Brompropan reagiert mit Methoxid-Ionen (CH₃O⁻) in Methanol. Welcher Mechanismus läuft bevorzugt ab und warum?</p>
+                <div class="quiz-answer">
+                    <p><strong>Antwort:</strong> SN2-Mechanismus</p>
+                    <p><strong>Begründung:</strong></p>
+                    <ul>
+                        <li>Sekundäres Substrat (sowohl SN1 als auch SN2 möglich)</li>
+                        <li>Starkes Nucleophil (CH₃O⁻) begünstigt SN2</li>
+                        <li>Protisches Lösungsmittel schwächt den Effekt etwas ab</li>
+                        <li>Bei Raumtemperatur dominiert SN2</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quiz-question" onclick="toggleAnswer(this)">
+                <h3>Frage 2: Regioselektivität</h3>
+                <p>Warum entsteht bei der Addition von HBr an 2-Methylpropen hauptsächlich 2-Brom-2-methylpropan?</p>
+                <div class="quiz-answer">
+                    <p><strong>Antwort:</strong> Markovnikov-Regel</p>
+                    <p><strong>Mechanismus:</strong></p>
+                    <ol>
+                        <li>Protonierung am weniger substituierten C-Atom</li>
+                        <li>Bildung des stabileren tertiären Carbo-Kations</li>
+                        <li>Angriff des Bromid-Ions am positiv geladenen C-Atom</li>
+                    </ol>
+                    <p>Das tertiäre Carbo-Kation ist durch Hyperkonjugation stabilisiert.</p>
+                </div>
+            </div>
+
+            <div class="quiz-question" onclick="toggleAnswer(this)">
+                <h3>Frage 3: Aromaten-Substitution</h3>
+                <p>Warum ist die Nitrierung von Toluol schneller als die von Benzol, und wo findet sie hauptsächlich statt?</p>
+                <div class="quiz-answer">
+                    <p><strong>Antwort:</strong></p>
+                    <p><strong>Geschwindigkeit:</strong> Toluol ist reaktiver, da die Methylgruppe (+I-Effekt) die Elektronendichte im Ring erhöht.</p>
+                    <p><strong>Regioselektivität:</strong> Ortho- und Para-Position werden bevorzugt</p>
+                    <p><strong>Grund:</strong> Die Methylgruppe stabilisiert das σ-Komplex-Intermediat durch Hyperkonjugation an ortho- und para-Positionen.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zusammenfassung -->
+        <section class="content-section">
+            <div class="section-header">
+                📝 Zusammenfassung und Merkhilfen
+            </div>
+            <div class="section-content">
+                <div class="wichtig">
+                    <h3>🎯 Die wichtigsten Punkte für das Abitur:</h3>
+                    <ul>
+                        <li><strong>Mechanismus-Typen:</strong> SN1/SN2, E1/E2, elektrophile Addition, radikalische Substitution</li>
+                        <li><strong>Zwischenstufen:</strong> Carbo-Kationen, Radikale, Übergangszustände</li>
+                        <li><strong>Einflussfaktoren:</strong> Substrat, Nucleophil/Base, Lösungsmittel, Temperatur</li>
+                        <li><strong>Selektivität:</strong> Markovnikov-Regel, Saytzeff-Regel, dirigierende Effekte</li>
+                        <li><strong>Anwendungen:</strong> Industrielle Synthesen, Petrochemie</li>
+                    </ul>
+                </div>
+
+                <div class="tipp">
+                    <h3>💡 Lernstrategie:</h3>
+                    <ol>
+                        <li><strong>Verstehe die Elektronenbewegungen</strong> - Zeichne Pfeile!</li>
+                        <li><strong>Erkenne Muster</strong> - Ähnliche Substrate reagieren ähnlich</li>
+                        <li><strong>Übe mit Beispielen</strong> - Verschiedene Substrate und Bedingungen</li>
+                        <li><strong>Verknüpfe mit Anwendungen</strong> - Wo wird es in der Praxis genutzt?</li>
+                    </ol>
+                </div>
+
+                
+            </div>
+        </section>
+<!-- Navigation zu anderen Kapiteln -->
+<section class="section fade-in">
+    <div class="section-header">
+        🧭 Weiterführende Kapitel
+    </div>
+    <div class="section-content">
+        <div class="grid-3">
+            <a href="redox-elektrochemie.html" class="btn btn-primary">← Redoxreaktionen und Elektrochemie</a>
+            <a href="index.html" class="btn btn-secondary">🏠 Hauptübersicht</a>
+            <a href="aromaten.html" class="btn btn-primary">Aromaten →</a>
+        </div>
+    </div>
+</section>
+
+        <!-- Nach oben Button -->
+        <button class="scroll-to-top" onclick="scrollToTop()">
+            ↑
+        </button>
+    </div>
+
+    <script>
+        // Nach oben scrollen
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Button ein-/ausblenden basierend auf Scroll-Position
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.remove('hidden');
+            } else {
+                scrollButton.classList.add('hidden');
+            }
+        });
+
+        // Collapsible Sections
+        document.querySelectorAll('.section-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const isCollapsed = content.classList.contains('collapsed');
+                
+                if (isCollapsed) {
+                    content.classList.remove('collapsed');
+                    this.classList.remove('collapsed');
+                } else {
+                    content.classList.add('collapsed');
+                    this.classList.add('collapsed');
+                }
+            });
+        });
+
+        // Quiz Antworten ein-/ausblenden
+        function toggleAnswer(questionElement) {
+            const answer = questionElement.querySelector('.quiz-answer');
+            const isVisible = answer.style.display === 'block';
+            
+            if (isVisible) {
+                answer.style.display = 'none';
+            } else {
+                answer.style.display = 'block';
+            }
+        }
+
+        // Smooth Scroll für interne Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Initialer Zustand des Scroll-Buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollButton = document.querySelector('.scroll-to-top');
+            scrollButton.classList.add('hidden');
+
+            // Animation für Karten beim Laden
+            const cards = document.querySelectorAll('.mechanism-card, .content-section');
+            cards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'all 0.6s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 100);
+            });
+
+            // Fortschritt in lokalem Speicher markieren
+            markThemeProgress('reaktionsmechanismen', true);
+        });
+
+        // Fortschritt speichern (für Koordination mit index.html)
+        function markThemeProgress(theme, completed) {
+            let progress = JSON.parse(sessionStorage.getItem('chemie-progress') || '{}');
+            progress[theme] = completed;
+            sessionStorage.setItem('chemie-progress', JSON.stringify(progress));
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(e) {
+            // Escape: Alle aufgeklappten Antworten schließen
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.quiz-answer').forEach(answer => {
+                    answer.style.display = 'none';
+                });
+            }
+            
+            // Leertaste: Nach oben scrollen
+            if (e.key === ' ' && e.ctrlKey) {
+                e.preventDefault();
+                scrollToTop();
+            }
+        });
+
+        // Print-Funktion
+        function printPage() {
+            // Alle Sections aufklappen für Druck
+            document.querySelectorAll('.section-content.collapsed').forEach(content => {
+                content.classList.remove('collapsed');
+            });
+            document.querySelectorAll('.section-header.collapsed').forEach(header => {
+                header.classList.remove('collapsed');
+            });
+            
+            window.print();
+        }
+
+        // Tastenkombination für Drucken
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                e.preventDefault();
+                printPage();
+            }
+        });
+    </script>
+</body>
+</html>

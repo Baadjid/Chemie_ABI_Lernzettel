@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📐 Formeln - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.8em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        /* Navigation */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background: rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Search */
+        .search-section {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-box:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        /* Formula Categories */
+        .formula-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .category-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .category-header h2 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        
+        .category-content {
+            padding: 25px;
+        }
+        
+        .formula-item {
+            background: #f8f9fa;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .formula-item:hover {
+            background: #e3f2fd;
+            transform: translateX(5px);
+        }
+        
+        .formula-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        .formula-equation {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            color: #667eea;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 8px 0;
+            border: 1px solid #e9ecef;
+        }
+        
+        .formula-description {
+            color: #6c757d;
+            font-size: 0.95em;
+            margin-top: 8px;
+        }
+        
+        .formula-variables {
+            margin-top: 10px;
+            padding: 10px;
+            background: rgba(102, 126, 234, 0.05);
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+        
+        .formula-variables strong {
+            color: #495057;
+        }
+        
+        /* Important formulas */
+        .important-formula {
+            border-left-color: #dc3545;
+            background: #fff5f5;
+        }
+        
+        .important-formula:hover {
+            background: #ffebee;
+        }
+        
+        .important-badge {
+            background: #dc3545;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .back-to-top.show {
+            display: block;
+            animation: fadeInUp 0.3s ease;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .formula-categories {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .category-content {
+                padding: 20px;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 18px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .category-header {
+                padding: 15px;
+            }
+            
+            .category-content {
+                padding: 15px;
+            }
+            
+            .formula-item {
+                padding: 12px;
+            }
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .back-to-top {
+                display: none !important;
+            }
+            
+            .category-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+            }
+            
+            .category-header {
+                background: #f5f5f5 !important;
+                color: black !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>📐 Chemie-Formeln</h1>
+            <p class="subtitle">Alle wichtigen Formeln für das Abitur 2026</p>
+            <p>Basierend auf der ländergemeinsamen mathematisch-naturwissenschaftlichen Formelsammlung</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            <div class="nav-links">
+                <a href="index.html">🏠 Hauptübersicht</a>
+                <span>→</span>
+                <a href="quiz.html">🧩 Quiz</a>
+            </div>
+        </nav>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <input type="text" class="search-box" id="searchBox" placeholder="🔍 Formel suchen... (z.B. 'pH', 'Nernst', 'Enthalpie')">
+        </div>
+
+        <!-- Formula Categories -->
+        <div class="formula-categories">
+            
+            <!-- Grundlagen -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2>⚗️ Grundlagen</h2>
+                    <p>Basis-Berechnungen</p>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Stoffmenge <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">n = m / M = V / V<sub>m</sub> = N / N<sub>A</sub></div>
+                        <div class="formula-description">Berechnung der Stoffmenge in mol</div>
+                        <div class="formula-variables">
+                            <strong>n:</strong> Stoffmenge [mol] | <strong>m:</strong> Masse [g] | <strong>M:</strong> Molare Masse [g/mol]<br>
+                            <strong>V:</strong> Volumen [L] | <strong>V<sub>m</sub>:</strong> Molares Volumen [L/mol] | <strong>N:</strong> Teilchenzahl
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Konzentration <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">c = n / V = m / (M × V)</div>
+                        <div class="formula-description">Molare Konzentration einer Lösung</div>
+                        <div class="formula-variables">
+                            <strong>c:</strong> Konzentration [mol/L] | <strong>n:</strong> Stoffmenge [mol] | <strong>V:</strong> Volumen [L]
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Ideales Gasgesetz <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">p × V = n × R × T</div>
+                        <div class="formula-description">Zustandsgleichung idealer Gase</div>
+                        <div class="formula-variables">
+                            <strong>p:</strong> Druck [Pa] | <strong>V:</strong> Volumen [m³] | <strong>R:</strong> 8,314 J/(mol×K) | <strong>T:</strong> Temperatur [K]
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Massenprozent</div>
+                        <div class="formula-equation">w = (m<sub>Stoff</sub> / m<sub>gesamt</sub>) × 100%</div>
+                        <div class="formula-description">Massenanteil in Prozent</div>
+                        <div class="formula-variables">
+                            <strong>w:</strong> Massenanteil [%]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Säure-Base -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2>🧪 Säure-Base</h2>
+                    <p>pH-Wert und Puffer</p>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">pH-Wert <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">pH = -lg[H₃O⁺]</div>
+                        <div class="formula-description">Definition des pH-Wertes</div>
+                        <div class="formula-variables">
+                            <strong>[H₃O⁺]:</strong> Hydronium-Ionen-Konzentration [mol/L]
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Ionenprodukt des Wassers <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">K<sub>w</sub> = [H₃O⁺] × [OH⁻] = 10⁻¹⁴ (25°C)</div>
+                        <div class="formula-description">Autoprotolyse des Wassers</div>
+                        <div class="formula-variables">
+                            <strong>pH + pOH = 14</strong> (bei 25°C)
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Henderson-Hasselbalch <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">pH = pK<sub>s</sub> + lg([A⁻]/[HA])</div>
+                        <div class="formula-description">pH-Berechnung für Puffersysteme</div>
+                        <div class="formula-variables">
+                            <strong>[A⁻]:</strong> Konzentration der konjugierten Base | <strong>[HA]:</strong> Konzentration der Säure
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Säurekonstante</div>
+                        <div class="formula-equation">K<sub>s</sub> = ([H₃O⁺] × [A⁻]) / [HA]</div>
+                        <div class="formula-description">Stärke einer Säure</div>
+                        <div class="formula-variables">
+                            <strong>pK<sub>s</sub> = -lg K<sub>s</sub></strong> | Je kleiner pK<sub>s</sub>, desto stärker die Säure
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elektrochemie -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2>⚡ Elektrochemie</h2>
+                    <p>Redox und Elektrolyse</p>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Nernst-Gleichung <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">E = E° + (RT/nF) × ln([Ox]/[Red])</div>
+                        <div class="formula-description">Potential bei Nicht-Standardbedingungen</div>
+                        <div class="formula-variables">
+                            <strong>E°:</strong> Standardpotential | <strong>R:</strong> 8,314 J/(mol×K) | <strong>F:</strong> 96485 C/mol | <strong>n:</strong> Elektronenzahl
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Zellspannung <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">E<sub>Zelle</sub> = E<sub>Kathode</sub> - E<sub>Anode</sub></div>
+                        <div class="formula-description">Elektromotive Kraft</div>
+                        <div class="formula-variables">
+                            <strong>E<sub>Zelle</sub> > 0:</strong> Reaktion läuft freiwillig ab
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Faraday-Gesetze <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">m = (M × I × t) / (n × F)</div>
+                        <div class="formula-description">Elektrolyse - abgeschiedene Masse</div>
+                        <div class="formula-variables">
+                            <strong>m:</strong> Masse [g] | <strong>I:</strong> Stromstärke [A] | <strong>t:</strong> Zeit [s] | <strong>F:</strong> 96485 C/mol
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Freie Enthalpie und Spannung</div>
+                        <div class="formula-equation">ΔG = -n × F × E</div>
+                        <div class="formula-description">Thermodynamik und Elektrochemie</div>
+                        <div class="formula-variables">
+                            <strong>n:</strong> Anzahl übertragener Elektronen
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Thermodynamik -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2>🌡️ Thermodynamik</h2>
+                    <p>Energie und Entropie</p>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Freie Enthalpie <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">ΔG = ΔH - T × ΔS</div>
+                        <div class="formula-description">Gibbs-Helmholtz-Gleichung</div>
+                        <div class="formula-variables">
+                            <strong>ΔG < 0:</strong> spontan | <strong>ΔG = 0:</strong> Gleichgewicht | <strong>ΔG > 0:</strong> nicht spontan
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Reaktionsenthalpie <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">ΔH<sub>R</sub> = Σ ΔH<sub>f</sub>(Produkte) - Σ ΔH<sub>f</sub>(Edukte)</div>
+                        <div class="formula-description">Berechnung aus Bildungsenthalpien</div>
+                        <div class="formula-variables">
+                            <strong>ΔH<sub>f</sub>:</strong> Bildungsenthalpie
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Kalorimetrie <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">Q = m × c × ΔT</div>
+                        <div class="formula-description">Wärmeberechnung</div>
+                        <div class="formula-variables">
+                            <strong>Q:</strong> Wärmemenge [J] | <strong>c:</strong> spez. Wärmekapazität [J/(g×K)] | <strong>ΔT:</strong> Temperaturdifferenz [K]
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Entropieänderung</div>
+                        <div class="formula-equation">ΔS<sub>R</sub> = Σ S°(Produkte) - Σ S°(Edukte)</div>
+                        <div class="formula-description">Reaktionsentropie</div>
+                        <div class="formula-variables">
+                            <strong>S°:</strong> Standard-Entropie [J/(mol×K)]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gleichgewicht -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2>⚖️ Gleichgewicht</h2>
+                    <p>Kinetik und MWG</p>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Massenwirkungsgesetz <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">K<sub>c</sub> = ([C]<sup>c</sup> × [D]<sup>d</sup>) / ([A]<sup>a</sup> × [B]<sup>b</sup>)</div>
+                        <div class="formula-description">Für aA + bB ⇌ cC + dD</div>
+                        <div class="formula-variables">
+                            <strong>K<sub>c</sub>:</strong> Gleichgewichtskonstante | <strong>[X]:</strong> Konzentration im Gleichgewicht
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Arrhenius-Gleichung <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">k = A × e<sup>(-E<sub>A</sub>/(R×T))</sup></div>
+                        <div class="formula-description">Temperaturabhängigkeit der Reaktionsgeschwindigkeit</div>
+                        <div class="formula-variables">
+                            <strong>k:</strong> Geschwindigkeitskonstante | <strong>A:</strong> Frequenzfaktor | <strong>E<sub>A</sub>:</strong> Aktivierungsenergie
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Löslichkeitsprodukt</div>
+                        <div class="formula-equation">K<sub>L</sub> = [M⁺]<sup>m</sup> × [X⁻]<sup>n</sup></div>
+                        <div class="formula-description">Für M<sub>m</sub>X<sub>n</sub> ⇌ m M⁺ + n X⁻</div>
+                        <div class="formula-variables">
+                            <strong>K<sub>L</sub>:</strong> Löslichkeitsprodukt | Niederschlag bei Ionenprodukt > K<sub>L</sub>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Reaktionsgeschwindigkeit</div>
+                        <div class="formula-equation">v = k × [A]<sup>m</sup> × [B]<sup>n</sup></div>
+                        <div class="formula-description">Geschwindigkeitsgesetz</div>
+                        <div class="formula-variables">
+                            <strong>v:</strong> Reaktionsgeschwindigkeit | <strong>m, n:</strong> Reaktionsordnung
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Analytik -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2>🔬 Analytik</h2>
+                    <p>Spektroskopie</p>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Lambert-Beer-Gesetz <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">A = ε × c × d</div>
+                        <div class="formula-description">Absorption in der Photometrie</div>
+                        <div class="formula-variables">
+                            <strong>A:</strong> Absorption | <strong>ε:</strong> Extinktionskoeffizient | <strong>c:</strong> Konzentration | <strong>d:</strong> Schichtdicke
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Transmission</div>
+                        <div class="formula-equation">T = I / I₀ = 10<sup>-A</sup></div>
+                        <div class="formula-description">Durchlässigkeit von Licht</div>
+                        <div class="formula-variables">
+                            <strong>T:</strong> Transmission | <strong>I₀:</strong> Einfallendes Licht | <strong>I:</strong> Austretende Intensität
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Rf-Wert</div>
+                        <div class="formula-equation">R<sub>f</sub> = s<sub>Substanz</sub> / s<sub>Laufmittel</sub></div>
+                        <div class="formula-description">Chromatografie - Wanderungsstrecke</div>
+                        <div class="formula-variables">
+                            <strong>R<sub>f</sub>:</strong> Retentionsfaktor (0 ≤ R<sub>f</sub> ≤ 1)
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Planck-Gleichung</div>
+                        <div class="formula-equation">E = h × f = h × c / λ</div>
+                        <div class="formula-description">Energie elektromagnetischer Strahlung</div>
+                        <div class="formula-variables">
+                            <strong>h:</strong> Planck-Konstante | <strong>f:</strong> Frequenz | <strong>c:</strong> Lichtgeschwindigkeit | <strong>λ:</strong> Wellenlänge
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Konstanten -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2>📊 Konstanten</h2>
+                    <p>Wichtige Werte</p>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Naturkonstanten <span class="important-badge">MERKEN</span></div>
+                        <div class="formula-equation">
+                            N<sub>A</sub> = 6,022 × 10²³ mol⁻¹<br>
+                            R = 8,314 J/(mol×K)<br>
+                            F = 96485 C/mol<br>
+                            h = 6,626 × 10⁻³⁴ J×s<br>
+                            c = 2,998 × 10⁸ m/s
+                        </div>
+                        <div class="formula-description">Avogadro-, Gas-, Faraday-, Planck-Konstante, Lichtgeschwindigkeit</div>
+                        <div class="formula-variables">
+                            Diese Konstanten sind in der Formelsammlung enthalten!
+                        </div>
+                    </div>
+
+                    <div class="formula-item important-formula">
+                        <div class="formula-name">Spannungsreihe (Auszug) <span class="important-badge">WICHTIG</span></div>
+                        <div class="formula-equation">
+                            Li⁺/Li: -3,02 V | Na⁺/Na: -2,71 V<br>
+                            Zn²⁺/Zn: -0,76 V | 2H⁺/H₂: 0,00 V<br>
+                            Cu²⁺/Cu: +0,34 V | Ag⁺/Ag: +0,80 V
+                        </div>
+                        <div class="formula-description">Standard-Elektrodenpotentiale (25°C)</div>
+                        <div class="formula-variables">
+                            Je positiver E°, desto edler das Metall
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Temperatur-Umrechnung</div>
+                        <div class="formula-equation">T[K] = ϑ[°C] + 273,15</div>
+                        <div class="formula-description">Celsius ↔ Kelvin</div>
+                        <div class="formula-variables">
+                            <strong>0°C = 273,15 K</strong> | <strong>25°C = 298,15 K</strong>
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Molares Volumen</div>
+                        <div class="formula-equation">V<sub>m</sub> = 22,4 L/mol (STP)</div>
+                        <div class="formula-description">Ideale Gase bei Standardbedingungen</div>
+                        <div class="formula-variables">
+                            <strong>STP:</strong> 0°C, 1 bar | <strong>NTP:</strong> 20°C, 1 bar (24,5 L/mol)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Organische Chemie -->
+            <div class="category-card">
+                <div class="category-header">
+                    <h2>🧬 Organische Chemie</h2>
+                    <p>Naturstoffe und Kunststoffe</p>
+                </div>
+                <div class="category-content">
+                    
+                    <div class="formula-item">
+                        <div class="formula-name">Verseifungszahl</div>
+                        <div class="formula-equation">VZ = (56,1 × V<sub>KOH</sub> × c<sub>KOH</sub>) / m<sub>Fett</sub></div>
+                        <div class="formula-description">Charakterisierung von Fetten</div>
+                        <div class="formula-variables">
+                            <strong>VZ:</strong> Verseifungszahl [mg KOH/g] | <strong>V<sub>KOH</sub>:</strong> Verbrauch KOH [mL]
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Polymerisationsgrad</div>
+                        <div class="formula-equation">DP = M<sub>Polymer</sub> / M<sub>Monomer</sub></div>
+                        <div class="formula-description">Anzahl der Monomereinheiten</div>
+                        <div class="formula-variables">
+                            <strong>DP:</strong> Degree of Polymerization | <strong>M:</strong> Molare Masse
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Isoelektrischer Punkt</div>
+                        <div class="formula-equation">pI = (pK<sub>s1</sub> + pK<sub>s2</sub>) / 2</div>
+                        <div class="formula-description">pH-Wert bei dem Aminosäure neutral ist</div>
+                        <div class="formula-variables">
+                            <strong>Bei pI:</strong> Netto-Ladung = 0 (Zwitterion)
+                        </div>
+                    </div>
+
+                    <div class="formula-item">
+                        <div class="formula-name">Optische Aktivität</div>
+                        <div class="formula-equation">[α] = α / (c × d)</div>
+                        <div class="formula-description">Spezifische Drehung chiraler Verbindungen</div>
+                        <div class="formula-variables">
+                            <strong>[α]:</strong> spez. Drehung [°·mL·g⁻¹·dm⁻¹] | <strong>α:</strong> Drehwinkel | <strong>c:</strong> Konzentration [g/mL]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Quick Reference Card -->
+        <div class="category-card" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+            <div class="category-header" style="background: linear-gradient(45deg, #ff6b6b, #feca57);">
+                <h2>🚀 Prüfungs-Checkliste</h2>
+                <p>Diese Formeln musst du beherrschen!</p>
+            </div>
+            <div class="category-content">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #ff6b6b;">
+                        <strong>📐 Grundlagen:</strong><br>
+                        • Stoffmenge: n = m/M<br>
+                        • Konzentration: c = n/V<br>
+                        • Ideales Gas: pV = nRT
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #4ecdc4;">
+                        <strong>🧪 Säure-Base:</strong><br>
+                        • pH = -lg[H₃O⁺]<br>
+                        • Kw = 10⁻¹⁴ (25°C)<br>
+                        • Henderson-Hasselbalch
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #45b7d1;">
+                        <strong>⚡ Elektrochemie:</strong><br>
+                        • Nernst-Gleichung<br>
+                        • E = E°kathode - E°anode<br>
+                        • Faraday-Gesetze
+                    </div>
+                    <div style="background: white; padding: 15px; border-radius: 8px; border-left: 4px solid #f9ca24;">
+                        <strong>🌡️ Thermodynamik:</strong><br>
+                        • ΔG = ΔH - TΔS<br>
+                        • Q = mcΔT<br>
+                        • Massenwirkungsgesetz
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p><strong>💡 Hinweis:</strong> Alle Formeln entsprechen der ländergemeinsamen mathematisch-naturwissenschaftlichen Formelsammlung für das Abitur 2026</p>
+            <p>📚 <strong>Lerntipp:</strong> Übe die wichtigsten Formeln regelmäßig und verstehe ihre Anwendung!</p>
+            <p>&copy; 2025 Chemie Lernzettel - Abitur 2026</p>
+        </footer>
+
+        <!-- Back to Top Button -->
+        <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+            ↑
+        </button>
+    </div>
+
+    <script>
+        // Back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Search functionality
+        document.getElementById('searchBox').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            const formulaItems = document.querySelectorAll('.formula-item');
+            
+            formulaItems.forEach(item => {
+                const text = item.textContent.toLowerCase();
+                const parent = item.closest('.category-card');
+                
+                if (text.includes(searchTerm) || searchTerm === '') {
+                    item.style.display = 'block';
+                    // Highlight search term
+                    if (searchTerm !== '') {
+                        item.style.background = '#fff3cd';
+                        item.style.border = '2px solid #ffc107';
+                    } else {
+                        item.style.background = '';
+                        item.style.border = '';
+                    }
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            // Hide categories with no visible formulas
+            document.querySelectorAll('.category-card').forEach(card => {
+                const visibleItems = card.querySelectorAll('.formula-item[style*="display: block"], .formula-item:not([style*="display: none"])');
+                if (searchTerm !== '' && visibleItems.length === 0) {
+                    card.style.display = 'none';
+                } else {
+                    card.style.display = 'block';
+                }
+            });
+        });
+
+        // Print function
+        function printFormulas() {
+            window.print();
+        }
+
+                    // Add formula counter
+            const totalFormulas = document.querySelectorAll('.formula-item').length;
+            const counter = document.createElement('p');
+            counter.style.cssText = 'color: #7f8c8d; margin-top: 10px; font-size: 0.9em;';
+            counter.textContent = `📊 Insgesamt ${totalFormulas} wichtige Formeln verfügbar`;
+            header.appendChild(counter);
+
+            // Add keyboard shortcuts info
+            const shortcuts = document.createElement('p');
+            shortcuts.style.cssText = 'color: #7f8c8d; margin-top: 5px; font-size: 0.8em;';
+            shortcuts.innerHTML = '⌨️ <strong>Shortcuts:</strong> Strg+F = Suchen | Strg+P = Drucken | Pos1 = Nach oben';
+            header.appendChild(shortcuts);
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Home') {
+                e.preventDefault();
+                scrollToTop();
+            }
+            if (e.ctrlKey && e.key === 'f') {
+                e.preventDefault();
+                document.getElementById('searchBox').focus();
+            }
+        });
+
+        // Copy formula on double click
+        document.querySelectorAll('.formula-equation').forEach(eq => {
+            eq.addEventListener('dblclick', function() {
+                navigator.clipboard.writeText(this.textContent).then(() => {
+                    // Visual feedback
+                    const original = this.style.background;
+                    this.style.background = '#d4edda';
+                    setTimeout(() => {
+                        this.style.background = original;
+                    }, 500);
+                });
+            });
+            
+            // Add tooltip
+            eq.title = 'Doppelklick zum Kopieren';
+            eq.style.cursor = 'pointer';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add success message on page load
+        setTimeout(() => {
+            const successMsg = document.createElement('div');
+            successMsg.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #d4edda;
+                color: #155724;
+                padding: 15px;
+                border-radius: 8px;
+                border: 1px solid #c3e6cb;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            successMsg.innerHTML = '✅ Formelsammlung erfolgreich geladen!<br><small>Alle Formeln für das Abitur 2026 verfügbar</small>';
+            document.body.appendChild(successMsg);
+            
+            // Remove message after 3 seconds
+            setTimeout(() => {
+                successMsg.remove();
+            }, 3000);
+        }, 1000);
+
+        // Add slide-in animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

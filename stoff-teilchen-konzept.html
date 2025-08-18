@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoff-Teilchen-Konzept - Chemie Lernzettel Abitur 2026</title>
+    <style>
+/* Stil für den Scroll-to-Top Button */
+    .scroll-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .scroll-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .scroll-to-top.active {
+        opacity: 1;
+        visibility: visible;
+    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 5px;
+            font-weight: 500;
+        }
+        
+        .nav-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        /* Progress Indicator */
+        .progress-indicator {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 1s ease;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px 30px;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        /* Introduction Box */
+        .concept-intro {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 6px solid #667eea;
+        }
+        
+        .key-principle {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            font-style: italic;
+        }
+        
+        /* Particle Grid */
+        .particle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .particle-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border-top: 4px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .particle-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .particle-title {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        .particle-properties {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .particle-properties li {
+            padding: 10px 0;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .particle-properties li:last-child {
+            border-bottom: none;
+        }
+        
+        .property-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .property-value {
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        /* Formula Box */
+        .formula-box {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            text-align: center;
+            margin: 20px 0;
+            border: 2px solid #667eea;
+        }
+        
+        /* Tables */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Examples Grid */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .example-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-left: 4px solid #f093fb;
+            transition: transform 0.3s ease;
+        }
+        
+        .example-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .example-card h4 {
+            color: #2c3e50;
+            margin-bottom: 12px;
+            font-size: 1.2em;
+        }
+        
+        /* Special Boxes */
+        .wichtig {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .wichtig h3, .wichtig h4 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+        
+        .merksatz {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border: 2px solid #17a2b8;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            font-style: italic;
+            font-weight: 500;
+        }
+        
+        .merksatz h3, .merksatz h4 {
+            color: #0c5460;
+            margin-bottom: 15px;
+            font-style: normal;
+        }
+        
+        /* Quiz Section */
+        .interactive-quiz {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid #84fab0;
+        }
+        
+        .quiz-question {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .quiz-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+            margin: 15px 0;
+        }
+        
+        .quiz-option {
+            background: #e9ecef;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 2px solid transparent;
+            font-weight: 500;
+        }
+        
+        .quiz-option:hover {
+            background: #667eea;
+            color: white;
+            border-color: #495057;
+        }
+        
+        .quiz-option.correct {
+            background: #28a745;
+            color: white;
+        }
+        
+        .quiz-option.incorrect {
+            background: #dc3545;
+            color: white;
+        }
+        
+        /* Links and Navigation */
+        .related-concepts {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .concept-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .concept-link {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+            display: block;
+        }
+        
+        .concept-link:hover {
+            transform: translateY(-3px);
+            text-decoration: none;
+            color: white;
+        }
+        
+        .concept-link small {
+            display: block;
+            margin-top: 5px;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+        
+        /* Buttons */
+        .complete-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin: 20px auto;
+            display: block;
+        }
+        
+        .complete-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .particle-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .quiz-options {
+                grid-template-columns: 1fr;
+            }
+            
+            .concept-links {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section-header {
+                padding: 20px;
+                font-size: 1.3em;
+            }
+            
+            .particle-card {
+                padding: 20px;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .content-section, .particle-card, .example-card {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+            
+            .interactive-quiz {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="scrollToTopBtn" class="scroll-to-top">
+    ↑
+</div>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Übersicht</a> > 
+            <span>⚛️ Stoff-Teilchen-Konzept</span>
+        </nav>
+
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <h3>📊 Lernfortschritt: Stoff-Teilchen-Konzept</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+            <p id="progress-text">0% abgeschlossen</p>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <h1>⚛️ Stoff-Teilchen-Konzept</h1>
+            <p class="subtitle">Die Brücke zwischen makroskopischer Stoffebene und mikroskopischer Teilchenebene</p>
+        </header>
+
+        <!-- Introduction -->
+        <div class="concept-intro">
+            <h2>💡 Was ist das Stoff-Teilchen-Konzept?</h2>
+            <p>Das <strong>Stoff-Teilchen-Konzept</strong> ist eines der fundamentalsten Basiskonzepte der Chemie. Es beschreibt die Beziehung zwischen der <em>makroskopischen Stoffebene</em> (was wir sehen und messen können) und der <em>mikroskopischen Teilchenebene</em> (Atome, Moleküle, Ionen).</p>
+            
+            <div class="key-principle">
+                "Alle Stoffe bestehen aus kleinsten Teilchen. Die Eigenschaften der Stoffe werden durch Art, Anordnung und Wechselwirkungen dieser Teilchen bestimmt."
+            </div>
+            
+            <p>Dieses Konzept ermöglicht es uns zu verstehen, warum Stoffe unterschiedliche Eigenschaften haben und wie chemische Reaktionen auf Teilchenebene ablaufen.</p>
+        </div>
+
+        <!-- Die drei Hauptarten von Teilchen -->
+        <div class="content-section">
+            <div class="section-header">
+                🧱 Die drei Hauptarten von Teilchen
+            </div>
+            <div class="section-content">
+                <div class="particle-grid">
+                    <div class="particle-card">
+                        <h3 class="particle-title">⚛️ Atome</h3>
+                        <p><strong>Definition:</strong> Die kleinsten, chemisch nicht weiter teilbaren Einheiten eines Elements.</p>
+                        
+                        <ul class="particle-properties">
+                            <li>
+                                <span class="property-label">Aufbau:</span>
+                                <span class="property-value">Kern + Elektronenhülle</span>
+                            </li>
+                            <li>
+                                <span class="property-label">Größe:</span>
+                                <span class="property-value">10⁻¹⁰ m (0,1 nm)</span>
+                            </li>
+                            <li>
+                                <span class="property-label">Ladung:</span>
+                                <span class="property-value">Neutral (p⁺ = e⁻)</span>
+                            </li>
+                            <li>
+                                <span class="property-label">Vorkommen:</span>
+                                <span class="property-value">Edelgase, Metalle</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="formula-box">
+                            Beispiele: He, Ne, Ar, Cu, Fe, Au
+                        </div>
+                        
+                        <p><strong>Wichtig:</strong> Atome können Elektronen abgeben oder aufnehmen und werden dann zu Ionen.</p>
+                    </div>
+
+                    <div class="particle-card">
+                        <h3 class="particle-title">🔗 Moleküle</h3>
+                        <p><strong>Definition:</strong> Teilchen aus zwei oder mehr Atomen, die durch Elektronenpaarbindungen verbunden sind.</p>
+                        
+                        <ul class="particle-properties">
+                            <li>
+                                <span class="property-label">Bindung:</span>
+                                <span class="property-value">Elektronenpaarbindung</span>
+                            </li>
+                            <li>
+                                <span class="property-label">Größe:</span>
+                                <span class="property-value">0,1 - 100 nm</span>
+                            </li>
+                            <li>
+                                <span class="property-label">Ladung:</span>
+                                <span class="property-value">Neutral</span>
+                            </li>
+                            <li>
+                                <span class="property-label">Eigenschaften:</span>
+                                <span class="property-value">Polar/unpolar</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="formula-box">
+                            Beispiele: H₂O, CO₂, CH₄, C₆H₁₂O₆
+                        </div>
+                        
+                        <p><strong>Wichtig:</strong> Die räumliche Struktur (Geometrie) bestimmt wesentlich die Eigenschaften des Moleküls.</p>
+                    </div>
+
+                    <div class="particle-card">
+                        <h3 class="particle-title">⚡ Ionen</h3>
+                        <p><strong>Definition:</strong> Elektrisch geladene Atome oder Moleküle durch Elektronenverlust oder -gewinn.</p>
+                        
+                        <ul class="particle-properties">
+                            <li>
+                                <span class="property-label">Kationen:</span>
+                                <span class="property-value">Positiv geladen (+)</span>
+                            </li>
+                            <li>
+                                <span class="property-label">Anionen:</span>
+                                <span class="property-value">Negativ geladen (-)</span>
+                            </li>
+                            <li>
+                                <span class="property-label">Bindung:</span>
+                                <span class="property-value">Ionenbindung</span>
+                            </li>
+                            <li>
+                                <span class="property-label">Struktur:</span>
+                                <span class="property-value">Ionengitter</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="formula-box">
+                            Beispiele: Na⁺, Cl⁻, Ca²⁺, SO₄²⁻
+                        </div>
+                        
+                        <p><strong>Wichtig:</strong> Ionen bilden Salze mit charakteristischen Eigenschaften (Leitfähigkeit, Löslichkeit).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stoff-Teilchen-Beziehungen -->
+        <div class="content-section">
+            <div class="section-header">
+                🔍 Stoff-Teilchen-Beziehungen verstehen
+            </div>
+            <div class="section-content">
+                <h3>Wie hängen Stoffeigenschaften mit Teilcheneigenschaften zusammen?</h3>
+                
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Stoffeigenschaft</th>
+                            <th>Teilchenebene</th>
+                            <th>Beispiel</th>
+                            <th>Erklärung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Siedetemperatur</strong></td>
+                            <td>Zwischenmolekulare Kräfte</td>
+                            <td>Wasser: 100°C<br>Methan: -162°C</td>
+                            <td>Wasserstoffbrücken vs. schwache London-Kräfte</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Löslichkeit</strong></td>
+                            <td>Polarität der Moleküle</td>
+                            <td>NaCl in Wasser: gut löslich<br>Öl in Wasser: unlöslich</td>
+                            <td>"Gleiches löst Gleiches" - polar/unpolar</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Elektrische Leitfähigkeit</strong></td>
+                            <td>Bewegliche Ladungsträger</td>
+                            <td>Metalle: leitend<br>Ionenlösungen: leitend</td>
+                            <td>Freie Elektronen bzw. bewegliche Ionen</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Härte</strong></td>
+                            <td>Bindungsstärke im Kristallgitter</td>
+                            <td>Diamant: sehr hart<br>Graphit: weich</td>
+                            <td>3D-Netzwerk vs. Schichtstruktur</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Farbe</strong></td>
+                            <td>Elektronenübergänge</td>
+                            <td>Cu²⁺: blau<br>Fe³⁺: gelb-braun</td>
+                            <td>Absorption bestimmter Wellenlängen</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="merksatz">
+                    <h3>💡 Merksatz</h3>
+                    <p>"Um Stoffeigenschaften zu verstehen, muss man auf die Teilchenebene schauen: Art der Teilchen, ihre Anordnung und die Kräfte zwischen ihnen bestimmen alle makroskopischen Eigenschaften."</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anwendungen im Alltag -->
+        <div class="content-section">
+            <div class="section-header">
+                📚 Anwendungen im Alltag und Labor
+            </div>
+            <div class="section-content">
+                <h3>Wo begegnet uns das Stoff-Teilchen-Konzept?</h3>
+                
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h4>🧂 Salz in Wasser lösen</h4>
+                        <p><strong>Beobachtung:</strong> Kochsalz löst sich in Wasser</p>
+                        <p><strong>Teilchenebene:</strong> Na⁺ und Cl⁻ Ionen werden von polaren Wassermolekülen umhüllt und aus dem Ionengitter herausgelöst</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>❄️ Eis schwimmt auf Wasser</h4>
+                        <p><strong>Beobachtung:</strong> Eis hat geringere Dichte als Wasser</p>
+                        <p><strong>Teilchenebene:</strong> Wassermoleküle bilden im Eis durch Wasserstoffbrücken eine offenere Struktur</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>💡 Metalle leiten Strom</h4>
+                        <p><strong>Beobachtung:</strong> Kupferdraht leitet elektrischen Strom</p>
+                        <p><strong>Teilchenebene:</strong> Freie Elektronen im Elektronengas können sich bewegen</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>🌡️ Alkohol verdunstet schnell</h4>
+                        <p><strong>Beobachtung:</strong> Ethanol verdunstet bei Raumtemperatur</p>
+                        <p><strong>Teilchenebene:</strong> Schwächere Wasserstoffbrücken als bei Wasser, Moleküle entweichen leichter</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>🔥 Verbrennung von Methan</h4>
+                        <p><strong>Beobachtung:</strong> CH₄ + O₂ → CO₂ + H₂O + Energie</p>
+                        <p><strong>Teilchenebene:</strong> Atome werden neu angeordnet, stärkere Bindungen entstehen</p>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h4>🍰 Backpulver wirkt</h4>
+                        <p><strong>Beobachtung:</strong> Teig geht auf durch CO₂-Bildung</p>
+                        <p><strong>Teilchenebene:</strong> NaHCO₃ zersetzt sich, CO₂-Moleküle entstehen und expandieren</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quantitative Aspekte -->
+        <div class="content-section">
+            <div class="section-header">
+                🧮 Quantitative Aspekte: Von Teilchen zu Stoffmengen
+            </div>
+            <div class="section-content">
+                <h3>Wie rechnet man zwischen Teilchen- und Stoffebene um?</h3>
+                
+                <div class="formula-box">
+                    <strong>Avogadro-Konstante:</strong> N_A = 6,022 × 10²³ mol⁻¹<br>
+                    <strong>1 Mol</strong> = 6,022 × 10²³ Teilchen
+                </div>
+                
+                <h4>Wichtige Umrechnungen:</h4>
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Von</th>
+                            <th>Nach</th>
+                            <th>Formel</th>
+                            <th>Beispiel</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Teilchenzahl (N)</td>
+                            <td>Stoffmenge (n)</td>
+                            <td>n = N / N_A</td>
+                            <td>1,2 × 10²⁴ Atome = 2 mol</td>
+                        </tr>
+                        <tr>
+                            <td>Stoffmenge (n)</td>
+                            <td>Masse (m)</td>
+                            <td>m = n × M</td>
+                            <td>2 mol H₂O = 36 g</td>
+                        </tr>
+                        <tr>
+                            <td>Masse (m)</td>
+                            <td>Teilchenzahl (N)</td>
+                            <td>N = (m/M) × N_A</td>
+                            <td>18 g H₂O = 6,022 × 10²³ Moleküle</td>
+                        </tr>
+                        <tr>
+                            <td>Volumen Gas (V)</td>
+                            <td>Stoffmenge (n)</td>
+                            <td>n = V / V_m</td>
+                            <td>22,4 L (STP) = 1 mol</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="wichtig">
+                    <h4>🔢 Rechnenbeispiel: Wassermoleküle in einem Glas</h4>
+                    <p><strong>Gegeben:</strong> 200 mL Wasser (Dichte: 1 g/mL)</p>
+                    <p><strong>Gesucht:</strong> Anzahl der H₂O-Moleküle</p>
+                    <p><strong>Lösung:</strong></p>
+                    <ol style="margin-left: 20px; margin-top: 10px;">
+                        <li>Masse: m = 200 mL × 1 g/mL = 200 g</li>
+                        <li>Stoffmenge: n = 200 g ÷ 18 g/mol = 11,11 mol</li>
+                        <li>Teilchenzahl: N = 11,11 mol × 6,022 × 10²³ mol⁻¹ = 6,69 × 10²⁴ Moleküle</li>
+                    </ol>
+                    <p><strong>Antwort:</strong> Ein Glas Wasser enthält etwa 6,7 × 10²⁴ Wassermoleküle!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Zustandsänderungen -->
+        <div class="content-section">
+            <div class="section-header">
+                🔄 Zustandsänderungen auf Teilchenebene
+            </div>
+            <div class="section-content">
+                <h3>Wie erklären Teilchen die Aggregatzustände?</h3>
+                
+                <div class="particle-grid">
+                    <div class="particle-card">
+                        <h3 class="particle-title">🧊 Fest (solid)</h3>
+                        <ul class="particle-properties">
+                            <li><span class="property-label">Teilchenanordnung:</span><span class="property-value">Regelmäßig, fixe Plätze</span></li>
+                            <li><span class="property-label">Bewegung:</span><span class="property-value">Schwingungen um Ruhelage</span></li>
+                            <li><span class="property-label">Kräfte:</span><span class="property-value">Sehr stark</span></li>
+                            <li><span class="property-label">Eigenschaften:</span><span class="property-value">Form + Volumen konstant</span></li>
+                        </ul>
+                        <p><strong>Beispiele:</strong> Eis, Salz, Metalle</p>
+                    </div>
+                    
+                    <div class="particle-card">
+                        <h3 class="particle-title">💧 Flüssig (liquid)</h3>
+                        <ul class="particle-properties">
+                            <li><span class="property-label">Teilchenanordnung:</span><span class="property-value">Unregelmäßig, beweglich</span></li>
+                            <li><span class="property-label">Bewegung:</span><span class="property-value">Translation + Rotation</span></li>
+                            <li><span class="property-label">Kräfte:</span><span class="property-value">Mittel stark</span></li>
+                            <li><span class="property-label">Eigenschaften:</span><span class="property-value">Volumen konstant, Form variabel</span></li>
+                        </ul>
+                        <p><strong>Beispiele:</strong> Wasser, Alkohol, Quecksilber</p>
+                    </div>
+                    
+                    <div class="particle-card">
+                        <h3 class="particle-title">💨 Gasförmig (gas)</h3>
+                        <ul class="particle-properties">
+                            <li><span class="property-label">Teilchenanordnung:</span><span class="property-value">Chaotisch, große Abstände</span></li>
+                            <li><span class="property-label">Bewegung:</span><span class="property-value">Schnelle, freie Bewegung</span></li>
+                            <li><span class="property-label">Kräfte:</span><span class="property-value">Sehr schwach</span></li>
+                            <li><span class="property-label">Eigenschaften:</span><span class="property-value">Form + Volumen variabel</span></li>
+                        </ul>
+                        <p><strong>Beispiele:</strong> Wasserdampf, Luft, Helium</p>
+                    </div>
+                </div>
+                
+                <h4>Phasenübergänge verstehen:</h4>
+                <div class="formula-box">
+                    <strong>Schmelzen:</strong> Fest → Flüssig (Energie zuführen)<br>
+                    <strong>Verdampfen:</strong> Flüssig → Gas (Energie zuführen)<br>
+                    <strong>Erstarren:</strong> Flüssig → Fest (Energie abführen)<br>
+                    <strong>Kondensieren:</strong> Gas → Flüssig (Energie abführen)
+                </div>
+                
+                <div class="merksatz">
+                    <h3>🌡️ Temperatur und Teilchenbewegung</h3>
+                    <p><strong>Temperatur</strong> ist ein Maß für die mittlere kinetische Energie der Teilchen. Je höher die Temperatur, desto schneller bewegen sich die Teilchen und desto schwächer werden die zwischenmolekularen Kräfte relativ zur kinetischen Energie.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Häufige Fehler -->
+        <div class="wichtig">
+            <h3>⚠️ Häufige Fehler vermeiden</h3>
+            <ul style="margin-left: 20px; margin-top: 15px;">
+                <li><strong>Vermischung der Ebenen:</strong> Nicht sagen "Atome lösen sich auf" - Atome bleiben erhalten, nur ihre Anordnung ändert sich</li>
+                <li><strong>Falsche Größenvorstellungen:</strong> Atome sind nicht sichtbar - auch unter dem Lichtmikroskop nicht</li>
+                <li><strong>Eigenschaften übertragen:</strong> Einzelne Atome haben keine Temperatur oder Farbe - das sind Stoffeigenschaften</li>
+                <li><strong>Bindungsverwirrung:</strong> Unterscheiden zwischen Bindungen IN Teilchen und Kräften ZWISCHEN Teilchen</li>
+            </ul>
+        </div>
+
+        <!-- Interaktiver Quiz -->
+        <div class="interactive-quiz">
+            <h3>🧩 Interaktiver Selbsttest</h3>
+            <p>Teste dein Verständnis des Stoff-Teilchen-Konzepts:</p>
+            
+            <div class="quiz-question">
+                <h4>Frage 1: Welche Teilchenart erklärt die elektrische Leitfähigkeit von Kochsalzlösung?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Neutrale Atome</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Bewegliche Ionen</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Elektronenpaare</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Moleküle</div>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h4>Frage 2: Warum hat Wasser eine höhere Siedetemperatur als Methan (CH₄)?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Wassermoleküle sind größer</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Wasserstoffbrücken zwischen H₂O-Molekülen</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Wasser ist polarer</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Methan ist ein Gas</div>
+                </div>
+            </div>
+            
+            <div class="quiz-question">
+                <h4>Frage 3: Was passiert beim Lösen von Zucker in Wasser auf Teilchenebene?</h4>
+                <div class="quiz-options">
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Zuckermoleküle zerfallen in Atome</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">Zuckermoleküle werden von Wassermolekülen umhüllt</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Neue chemische Bindungen entstehen</div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">Ionen werden gebildet</div>
+                </div>
+            </div>
+            
+            <div id="quiz-result" style="margin-top: 20px; padding: 15px; border-radius: 10px; display: none;"></div>
+        </div>
+
+        <!-- Verwandte Konzepte -->
+        <div class="related-concepts">
+            <h3>🔗 Verbindung zu anderen Basiskonzepten</h3>
+            <p>Das Stoff-Teilchen-Konzept ist eng mit den anderen Basiskonzepten der Chemie verknüpft:</p>
+            
+            <div class="concept-links">
+                <a href="struktur-eigenschafts-konzept.html" class="concept-link">
+                    🔗 Struktur-Eigenschafts-Konzept
+                    <small>Wie Teilchenstruktur Eigenschaften bestimmt</small>
+                </a>
+                <a href="energiekonzept.html" class="concept-link">
+                    ⚡ Energiekonzept
+                    <small>Energieumsätze bei Teilchenreaktionen</small>
+                </a>
+                <a href="donator-akzeptor-konzept.html" class="concept-link">
+                    🔄 Donator-Akzeptor-Konzept
+                    <small>Teilchenübertragungen verstehen</small>
+                </a>
+                <a href="gleichgewichtskonzept.html" class="concept-link">
+                    ⚖️ Gleichgewichtskonzept
+                    <small>Dynamische Prozesse auf Teilchenebene</small>
+                </a>
+            </div>
+        </div>
+
+        <!-- Zusammenfassung -->
+        <div class="content-section">
+            <div class="section-header">
+                📝 Zusammenfassung und Lernkontrolle
+            </div>
+            <div class="section-content">
+                <h3>🎯 Das Wichtigste in Kürze</h3>
+                
+                <div class="wichtig">
+                    <h4>✅ Kernaussagen des Stoff-Teilchen-Konzepts:</h4>
+                    <ol style="margin-left: 20px; margin-top: 15px;">
+                        <li><strong>Aufbau:</strong> Alle Stoffe bestehen aus Atomen, Molekülen oder Ionen</li>
+                        <li><strong>Eigenschaften:</strong> Stoffeigenschaften ergeben sich aus Teilcheneigenschaften</li>
+                        <li><strong>Bewegung:</strong> Teilchen sind in ständiger Bewegung (Temperaturabhängigkeit)</li>
+                        <li><strong>Wechselwirkungen:</strong> Zwischen Teilchen wirken Kräfte unterschiedlicher Stärke</li>
+                        <li><strong>Erhaltung:</strong> Bei chemischen Reaktionen bleiben Atome erhalten, nur ihre Anordnung ändert sich</li>
+                    </ol>
+                </div>
+                
+                <h4>🧠 Lernkontrolle - Kannst du diese Fragen beantworten?</h4>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h5>Grundlagen</h5>
+                        <ul style="font-size: 0.9em;">
+                            <li>Was sind die drei Hauptarten von Teilchen?</li>
+                            <li>Wie unterscheiden sich Atome von Ionen?</li>
+                            <li>Was bestimmt die Eigenschaften von Stoffen?</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h5>Anwendungen</h5>
+                        <ul style="font-size: 0.9em;">
+                            <li>Warum löst sich Salz in Wasser?</li>
+                            <li>Wie erklärt sich die Leitfähigkeit von Metallen?</li>
+                            <li>Warum haben verschiedene Stoffe unterschiedliche Siedepunkte?</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="example-card">
+                        <h5>Berechnungen</h5>
+                        <ul style="font-size: 0.9em;">
+                            <li>Wie viele Moleküle sind in 1 mol Wasser?</li>
+                            <li>Wie berechnet man die Teilchenzahl aus der Masse?</li>
+                            <li>Was ist die Avogadro-Konstante?</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="merksatz">
+                    <h4>🎓 Für die Abiturprüfung besonders wichtig:</h4>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li><strong>Ebenen unterscheiden:</strong> Klar zwischen Stoff- und Teilchenebene trennen</li>
+                        <li><strong>Modellvorstellungen:</strong> Teilchenmodelle korrekt anwenden</li>
+                        <li><strong>Quantitative Aspekte:</strong> Mol-Konzept und Avogadro-Konstante</li>
+                        <li><strong>Alltagsbezug:</strong> Phänomene mit Teilchenmodell erklären können</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2025 Chemie Lernzettel - Stoff-Teilchen-Konzept | Abitur 2026</p>
+            <p>💡 <a href="index.html">Zurück zur Übersicht</a> | 
+            <a href="struktur-eigenschafts-konzept.html">Nächstes Konzept →</a></p>
+        </footer>
+    </div>
+
+    <script>
+// Scroll-to-Top Button Funktionalität
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    // Button sichtbar machen, wenn der Benutzer nach unten scrollt
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('active');
+        } else {
+            scrollToTopBtn.classList.remove('active');
+        }
+    });
+    
+    // Beim Klick nach oben scrollen
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+        let correctAnswers = 0;
+        let totalQuestions = 3;
+        let progress = 10;
+
+        function checkAnswer(element, isCorrect) {
+            // Alle Optionen in dieser Frage deaktivieren
+            const siblings = element.parentNode.querySelectorAll('.quiz-option');
+            siblings.forEach(option => {
+                option.style.pointerEvents = 'none';
+                if (option === element) {
+                    if (isCorrect) {
+                        option.classList.add('correct');
+                        correctAnswers++;
+                    } else {
+                        option.classList.add('incorrect');
+                    }
+                } else if (option.onclick.toString().includes('true')) {
+                    option.classList.add('correct');
+                }
+            });
+
+            updateQuizResult();
+            updateProgress();
+        }
+
+        function updateQuizResult() {
+            const resultDiv = document.getElementById('quiz-result');
+            const percentage = Math.round((correctAnswers / totalQuestions) * 100);
+            
+            resultDiv.style.display = 'block';
+            resultDiv.innerHTML = `
+                <h4>Quiz Ergebnis: ${correctAnswers}/${totalQuestions} richtig (${percentage}%)</h4>
+                <p>${getQuizFeedback(percentage)}</p>
+            `;
+            
+            if (percentage >= 80) {
+                resultDiv.style.background = '#d4edda';
+                resultDiv.style.border = '2px solid #28a745';
+            } else if (percentage >= 60) {
+                resultDiv.style.background = '#fff3cd';
+                resultDiv.style.border = '2px solid #ffc107';
+            } else {
+                resultDiv.style.background = '#f8d7da';
+                resultDiv.style.border = '2px solid #dc3545';
+            }
+        }
+
+        function getQuizFeedback(percentage) {
+            if (percentage >= 80) {
+                return '🎉 Ausgezeichnet! Du hast das Stoff-Teilchen-Konzept gut verstanden.';
+            } else if (percentage >= 60) {
+                return '👍 Gut gemacht! Noch ein bisschen üben und du beherrschst es perfekt.';
+            } else {
+                return '📚 Das Konzept braucht noch etwas mehr Aufmerksamkeit. Lies nochmal durch!';
+            }
+        }
+
+        function updateProgress() {
+            progress = Math.min(progress + 15, 85);
+            document.getElementById('progress').style.width = progress + '%';
+            document.getElementById('progress-text').textContent = progress + '% abgeschlossen';
+        }
+
+        function markConceptComplete() {
+            progress = 100;
+            document.getElementById('progress').style.width = '100%';
+            document.getElementById('progress-text').textContent = '100% abgeschlossen ✅';
+            
+            // Speichere Fortschritt
+            sessionStorage.setItem('stoff-teilchen-konzept-complete', 'true');
+            
+            alert('🎉 Glückwunsch! Du hast das Stoff-Teilchen-Konzept erfolgreich abgeschlossen.\n\nWeiter zum nächsten Basiskonzept: Struktur-Eigenschafts-Konzept');
+        }
+
+        // Lade gespeicherten Fortschritt
+        document.addEventListener('DOMContentLoaded', function() {
+            if (sessionStorage.getItem('stoff-teilchen-konzept-complete') === 'true') {
+                progress = 100;
+                document.getElementById('progress').style.width = '100%';
+                document.getElementById('progress-text').textContent = '100% abgeschlossen ✅';
+            } else {
+                // Animiere Fortschrittsbalken beim Laden
+                setTimeout(() => {
+                    document.getElementById('progress').style.width = progress + '%';
+                    document.getElementById('progress-text').textContent = progress + '% abgeschlossen';
+                }, 1000);
+            }
+        });
+
+        // Scroll-Effekt für Fortschritt
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            if (scrollPercent > 25 && progress < 25) {
+                updateProgress();
+            }
+            if (scrollPercent > 50 && progress < 50) {
+                updateProgress();
+            }
+            if (scrollPercent > 75 && progress < 75) {
+                updateProgress();
+            }
+        });
+    </script>
+</body>
+</html>

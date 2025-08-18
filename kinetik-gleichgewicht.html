@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reaktionsgeschwindigkeit und chemisches Gleichgewicht - Chemie Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 5px;
+            font-weight: 500;
+        }
+        
+        .nav-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        .nav-breadcrumb .current {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+        
+        .chapter-info {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 20px;
+            border-radius: 10px;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.4em;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, rgba(255,255,255,0.3), rgba(255,255,255,0.7), rgba(255,255,255,0.3));
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        /* Grid Layouts */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        /* Cards */
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 5px solid #667eea;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .info-card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .info-card.wichtig {
+            border-left-color: #e74c3c;
+            background: #fff5f5;
+        }
+        
+        .info-card.tipp {
+            border-left-color: #f39c12;
+            background: #fefcf5;
+        }
+        
+        .info-card.formel {
+            border-left-color: #27ae60;
+            background: #f8fff8;
+        }
+        
+        /* Formeln */
+        .formel-box {
+            background: linear-gradient(135deg, #e8f5e8, #f0f8f0);
+            border: 2px solid #27ae60;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.1em;
+            box-shadow: 0 4px 15px rgba(39, 174, 96, 0.1);
+        }
+        
+        .formel-box .formel {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #27ae60;
+            margin: 10px 0;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        .formel-box .erklaerung {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
+        }
+        
+        /* Diagramme und Visualisierungen */
+        .diagram-container {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .diagram {
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            background: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: #6c757d;
+            font-size: 1.1em;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Interaktive Elemente */
+        .quiz-container {
+            background: linear-gradient(135deg, #fff3cd, #fef9e7);
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .quiz-question {
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #856404;
+        }
+        
+        .quiz-options {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .quiz-option {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            border-color: #ffc107;
+            background: #fff8e1;
+        }
+        
+        .quiz-option.correct {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+        
+        .quiz-option.incorrect {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+        
+        /* Tabellen */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .data-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* Listen */
+        .styled-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .styled-list li {
+            background: white;
+            margin: 8px 0;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+        
+        .styled-list li:hover {
+            transform: translateX(5px);
+        }
+        
+        .styled-list li::before {
+            content: "✓";
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Progress Bar */
+        .reading-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            z-index: 1000;
+            transition: width 0.1s ease;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .section-header {
+                padding: 15px 20px;
+                font-size: 1.2em;
+            }
+            
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.2em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .formel-box {
+                padding: 15px;
+            }
+            
+            .info-card {
+                padding: 15px;
+            }
+            
+            .diagram {
+                height: 200px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .content-section,
+            .info-card {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+            }
+            
+            .back-to-top,
+            .reading-progress {
+                display: none;
+            }
+            
+            .section-header {
+                background: #333;
+                color: white;
+            }
+        }
+        
+        /* Animationen */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .content-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .content-section:nth-child(even) {
+            animation-delay: 0.1s;
+        }
+        
+        .content-section:nth-child(odd) {
+            animation-delay: 0.2s;
+        }
+.diagram-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto;
+}
+    </style>
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress" id="reading-progress"></div>
+    
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Übersicht</a> >
+            <span class="current">📈 Reaktionsgeschwindigkeit und chemisches Gleichgewicht</span>
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <h1>⚗️ Reaktionsgeschwindigkeit und chemisches Gleichgewicht</h1>
+            <p class="subtitle">Kapitel 5 - Kinetik und Thermodynamische Gleichgewichte</p>
+            <div class="chapter-info">
+                <strong>🎯 Lernziele:</strong> Faktoren der Reaktionsgeschwindigkeit verstehen • Katalyse und Enzyme • 
+                Dynamische Gleichgewichte • Massenwirkungsgesetz anwenden • Le Chatelier-Prinzip beherrschen
+            </div>
+        </section>
+
+
+        <!-- 1. Reaktionsgeschwindigkeit -->
+        <section class="content-section">
+            <div class="section-header">
+                🚀 1. Reaktionsgeschwindigkeit (Kinetik)
+            </div>
+            <div class="section-content">
+                <div class="info-card wichtig">
+                    <h3>⚡ Was ist Reaktionsgeschwindigkeit?</h3>
+                    <p>Die Reaktionsgeschwindigkeit gibt an, wie schnell sich die Konzentration der Reaktionsteilnehmer mit der Zeit ändert. Sie ist ein Maß dafür, wie schnell chemische Reaktionen ablaufen.</p>
+                </div>
+
+                <div class="formel-box">
+                    <h3>📐 Mathematische Definition</h3>
+                    <div class="formel">
+                        v̄ = |Δc| / Δt
+                    </div>
+                    <div class="erklaerung">
+                        <strong>v̄</strong> = mittlere Reaktionsgeschwindigkeit<br>
+                        <strong>Δc</strong> = Konzentrationsänderung<br>
+                        <strong>Δt</strong> = Zeitintervall
+                    </div>
+                </div>
+
+                <div class="diagram-container">
+                    <h3>📊 Konzentrations-Zeit-Diagramm</h3>
+                    <div class="diagram-container">
+    <img src="KcD.png" alt="Konzentrations-Zeit-Diagramm" class="diagram-image">
+</div>
+                </div>
+
+                <h3>🔍 Einflussfaktoren der Reaktionsgeschwindigkeit</h3>
+                <div class="three-column">
+                    <div class="info-card">
+                        <h3>🌡️ Temperatur</h3>
+                        <p><strong>RGT-Regel:</strong> Temperaturerhöhung um 10°C verdoppelt oft die Reaktionsgeschwindigkeit</p>
+                        <p>Höhere Temperatur → höhere kinetische Energie → mehr effektive Stöße</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📏 Konzentration</h3>
+                        <p>Höhere Konzentration → mehr Teilchen → häufigere Zusammenstöße → höhere Reaktionsgeschwindigkeit</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>⚡ Zerteilungsgrad</h3>
+                        <p>Größere Oberfläche → mehr Kontaktmöglichkeiten → schnellere Reaktion</p>
+                        <p><em>Beispiel:</em> Zuckerwürfel vs. Puderzucker</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Kollisionsmodell -->
+        <section class="content-section">
+            <div class="section-header">
+                💥 2. Kollisionsmodell und Aktivierungsenergie
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div>
+                        <h3>🎯 Kollisionstheorie</h3>
+                        <ul class="styled-list">
+                            <li>Teilchen müssen zusammenstoßen, um zu reagieren</li>
+                            <li>Nicht jeder Stoß führt zur Reaktion</li>
+                            <li>Teilchen brauchen Mindestenergie (Aktivierungsenergie)</li>
+                            <li>Richtige räumliche Orientierung notwendig</li>
+                        </ul>
+                    </div>
+                    <div class="info-card formel">
+                        <h3>⚡ Aktivierungsenergie E<sub>A</sub></h3>
+                        <p>Mindestenergie, die Teilchen beim Zusammenstoß haben müssen, damit eine Reaktion stattfindet.</p>
+                        <p><strong>Je niedriger E<sub>A</sub>, desto schneller die Reaktion!</strong></p>
+                    </div>
+                </div>
+
+                        </section>
+
+        <!-- 3. Katalyse -->
+        <section class="content-section">
+            <div class="section-header">
+                🧪 3. Katalyse und Enzyme
+            </div>
+            <div class="section-content">
+                <div class="info-card wichtig">
+                    <h3>💡 Was sind Katalysatoren?</h3>
+                    <p>Stoffe, die die Reaktionsgeschwindigkeit erhöhen, ohne selbst verbraucht zu werden. Sie senken die Aktivierungsenergie durch Bereitstellung eines alternativen Reaktionswegs.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h3>⚗️ Homogene Katalyse</h3>
+                        <ul class="styled-list">
+                            <li>Katalysator in gleicher Phase wie Reaktanten</li>
+                            <li>Beispiel: SO₂-Oxidation mit NO als Katalysator</li>
+                            <li>Bildung von Zwischenprodukten</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>🏭 Heterogene Katalyse</h3>
+                        <ul class="styled-list">
+                            <li>Katalysator in anderer Phase</li>
+                            <li>Reaktion an der Oberfläche</li>
+                            <li>Beispiel: Haber-Bosch-Verfahren (Fe-Katalysator)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-card tipp">
+                    <h3>🔬 Enzyme - Biokatalysatoren</h3>
+                    <p><strong>Besonderheiten von Enzymen:</strong></p>
+                    <ul>
+                        <li>Extrem spezifisch (Schlüssel-Schloss-Prinzip)</li>
+                        <li>Funktionieren unter milden Bedingungen</li>
+                        <li>Können durch Temperatur/pH denaturiert werden</li>
+                        <li>Beispiel: Katalase spaltet H₂O₂ in H₂O + O₂</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">
+                        🧩 Selbsttest: Was passiert mit einem Katalysator während der Reaktion?
+                    </div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">
+                            a) Er wird verbraucht und muss ständig nachgefüllt werden
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">
+                            b) Er wird nicht verbraucht und liegt am Ende unverändert vor
+                        </div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">
+                            c) Er wird zum Hauptprodukt der Reaktion
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Chemisches Gleichgewicht -->
+        <section class="content-section">
+            <div class="section-header">
+                ⚖️ 4. Chemisches Gleichgewicht
+            </div>
+            <div class="section-content">
+                <div class="info-card wichtig">
+                    <h3>🔄 Dynamisches Gleichgewicht</h3>
+                    <p>Ein Zustand, bei dem Hinreaktion und Rückreaktion gleich schnell ablaufen. Die Konzentrationen aller Reaktionsteilnehmer bleiben konstant, obwohl die Reaktion weiterhin stattfindet.</p>
+                </div>
+
+                <div class="formel-box">
+                    <h3>⚖️ Gleichgewichtsbedingung</h3>
+                    <div class="formel">
+                        v<sub>Hin</sub> = v<sub>Rück</sub>
+                    </div>
+                    <div class="erklaerung">
+                        Geschwindigkeit der Hinreaktion = Geschwindigkeit der Rückreaktion
+                    </div>
+                </div>
+
+                <h3>📋 Merkmale des chemischen Gleichgewichts</h3>
+                <div class="three-column">
+                    <div class="info-card">
+                        <h3>🔒 Geschlossenes System</h3>
+                        <p>Kein Stoffaustausch mit der Umgebung</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>🔄 Reversible Reaktion</h3>
+                        <p>Reaktion kann in beide Richtungen ablaufen</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📊 Konstante Konzentrationen</h3>
+                        <p>Makroskopisch keine Änderung sichtbar</p>
+                    </div>
+                </div>
+
+                <div class="diagram-container">
+                    <h3>📈 Gleichgewichtseinstellung</h3>
+                    <div class="diagram-container">
+    <img src="Sonderfall.png" alt="Konzentrations-Zeit-Diagramm" class="diagram-image">
+</div>
+                </div>
+            </div
+
+        <!-- 5. Massenwirkungsgesetz -->
+        <section class="content-section">
+            <div class="section-header">
+                📐 5. Massenwirkungsgesetz (MWG)
+            </div>
+            <div class="section-content">
+                <div class="info-card wichtig">
+                    <h3>🎯 Das Massenwirkungsgesetz</h3>
+                    <p>Beschreibt quantitativ das Verhältnis der Konzentrationen im chemischen Gleichgewicht. Für jede Reaktion bei konstanter Temperatur ist dieses Verhältnis konstant.</p>
+                </div>
+
+                <div class="formel-box">
+                    <h3>📊 Allgemeine Form</h3>
+                    <div class="formel">
+                        aA + bB ⇌ cC + dD
+                    </div>
+                    <div class="formel">
+                        K<sub>c</sub> = [C]<sup>c</sup> · [D]<sup>d</sup> / [A]<sup>a</sup> · [B]<sup>b</sup>
+                    </div>
+                    <div class="erklaerung">
+                        <strong>K<sub>c</sub></strong> = Gleichgewichtskonstante (konzentrationsbasiert)<br>
+                        <strong>[X]</strong> = Gleichgewichtskonzentration von Stoff X<br>
+                        <strong>Exponenten</strong> = stöchiometrische Koeffizienten
+                    </div>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card">
+                        <h3>📈 K<sub>c</sub> > 1</h3>
+                        <p><strong>Gleichgewicht liegt rechts</strong></p>
+                        <p>Mehr Produkte als Edukte im Gleichgewicht</p>
+                        <p>Reaktion läuft bevorzugt von links nach rechts</p>
+                    </div>
+                    <div class="info-card">
+                        <h3>📉 K<sub>c</sub> < 1</h3>
+                        <p><strong>Gleichgewicht liegt links</strong></p>
+                        <p>Mehr Edukte als Produkte im Gleichgewicht</p>
+                        <p>Reaktion läuft bevorzugt von rechts nach links</p>
+                    </div>
+                </div>
+
+                <div class="info-card tipp">
+                    <h3>💡 Wichtige Regeln zum MWG</h3>
+                    <ul>
+                        <li><strong>Feststoffe und reines Wasser</strong> gehen nicht in die MWG-Gleichung ein</li>
+                        <li><strong>K<sub>c</sub> ist nur temperaturabhängig</strong> - ändert sich nur bei Temperaturänderung</li>
+                        <li>Bei <strong>Gasreaktionen</strong> kann auch K<sub>p</sub> (Partialdrücke) verwendet werden</li>
+                        <li><strong>Katalysatoren</strong> beeinflussen K<sub>c</sub> nicht!</li>
+                    </ul>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">
+                        🧩 Rechenbeispiel: Für die Reaktion N₂ + 3H₂ ⇌ 2NH₃ gilt im Gleichgewicht:<br>
+                        [N₂] = 0,1 mol/L, [H₂] = 0,3 mol/L, [NH₃] = 0,6 mol/L<br>
+                        Berechne K<sub>c</sub>!
+                    </div>
+                    <div class="formel-box">
+                        <div class="formel">
+                            K<sub>c</sub> = [NH₃]² / ([N₂] · [H₂]³) = (0,6)² / (0,1 · (0,3)³) = 0,36 / (0,1 · 0,027) = 0,36 / 0,0027 ≈ 133
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Le Chatelier-Prinzip -->
+        <section class="content-section">
+            <div class="section-header">
+                🔄 6. Prinzip von Le Chatelier
+            </div>
+            <div class="section-content">
+                <div class="info-card wichtig">
+                    <h3>⚖️ Prinzip vom kleinsten Zwang</h3>
+                    <p><strong>"Übt man auf ein im Gleichgewicht befindliches System einen Zwang aus, so verschiebt sich das Gleichgewicht in die Richtung, die den Zwang vermindert."</strong></p>
+                </div>
+
+                <h3>🎛️ Einflussfaktoren auf das Gleichgewicht</h3>
+                
+                <div class="three-column">
+                    <div class="info-card">
+                        <h3>🌡️ Temperaturänderung</h3>
+                        <p><strong>Temperatur ↑:</strong></p>
+                        <p>→ Gleichgewicht zur endothermen Seite</p>
+                        <p><strong>Temperatur ↓:</strong></p>
+                        <p>→ Gleichgewicht zur exothermen Seite</p>
+                        <p><em>K<sub>c</sub> ändert sich!</em></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>📊 Konzentrationsänderung</h3>
+                        <p><strong>Konzentration ↑:</strong></p>
+                        <p>→ Gleichgewicht weg von diesem Stoff</p>
+                        <p><strong>Konzentration ↓:</strong></p>
+                        <p>→ Gleichgewicht hin zu diesem Stoff</p>
+                        <p><em>K<sub>c</sub> bleibt konstant!</em></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>🌪️ Druckänderung</h3>
+                        <p><strong>Druck ↑:</strong></p>
+                        <p>→ Gleichgewicht zur Seite mit weniger Gasteilchen</p>
+                        <p><strong>Druck ↓:</strong></p>
+                        <p>→ Gleichgewicht zur Seite mit mehr Gasteilchen</p>
+                        <p><em>K<sub>c</sub> bleibt konstant!</em></p>
+                    </div>
+                </div>
+
+                <div class="info-card formel">
+                    <h3>🏭 Beispiel: Haber-Bosch-Verfahren</h3>
+                    <div class="formel">
+                        N₂(g) + 3H₂(g) ⇌ 2NH₃(g) + Wärme
+                    </div>
+                    <p><strong>Optimale Bedingungen für NH₃-Produktion:</strong></p>
+                    <ul>
+                        <li><strong>Hoher Druck:</strong> 4 Gasteilchen → 2 Gasteilchen</li>
+                        <li><strong>Niedrige Temperatur:</strong> Exotherme Reaktion</li>
+                        <li><strong>Katalysator:</strong> Fe-Katalysator für akzeptable Geschwindigkeit</li>
+                        <li><strong>Kompromiss:</strong> 450°C, 200-300 bar</li>
+                    </ul>
+                </div>
+
+                <table class="data-table">
+                    <tr>
+                        <th>Einfluss</th>
+                        <th>Änderung</th>
+                        <th>Gleichgewichtsverschiebung</th>
+                        <th>K<sub>c</sub>-Änderung</th>
+                    </tr>
+                    <tr>
+                        <td>Temperatur ↑</td>
+                        <td>+10°C</td>
+                        <td>→ endotherme Richtung</td>
+                        <td>Ja</td>
+                    </tr>
+                    <tr>
+                        <td>Konzentration ↑</td>
+                        <td>Edukt zugeben</td>
+                        <td>→ zu den Produkten</td>
+                        <td>Nein</td>
+                    </tr>
+                    <tr>
+                        <td>Druck ↑</td>
+                        <td>Volumen ↓</td>
+                        <td>→ weniger Gasteilchen</td>
+                        <td>Nein</td>
+                    </tr>
+                    <tr>
+                        <td>Katalysator</td>
+                        <td>Hinzufügen</td>
+                        <td>Keine Verschiebung</td>
+                        <td>Nein</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+
+        <!-- 7. Anwendungen und Beispiele -->
+        <section class="content-section">
+            <div class="section-header">
+                🏭 7. Technische Anwendungen
+            </div>
+            <div class="section-content">
+                <h3>⚗️ Wichtige technische Prozesse</h3>
+                
+                <div class="two-column">
+                    <div class="info-card">
+                        <h3>🧪 Schwefelsäure-Herstellung</h3>
+                        <div class="formel">
+                            2SO₂ + O₂ ⇌ 2SO₃
+                        </div>
+                        <p><strong>Optimierung:</strong></p>
+                        <ul>
+                            <li>Niedrige Temperatur (exotherm)</li>
+                            <li>Hoher Druck (3 → 2 Gasteilchen)</li>
+                            <li>V₂O₅-Katalysator</li>
+                            <li>Überschuss an O₂</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>🔥 Kalkbrennen</h3>
+                        <div class="formel">
+                            CaCO₃(s) ⇌ CaO(s) + CO₂(g)
+                        </div>
+                        <p><strong>Optimierung:</strong></p>
+                        <ul>
+                            <li>Hohe Temperatur (endotherm)</li>
+                            <li>CO₂ kontinuierlich entfernen</li>
+                            <li>Niedriger CO₂-Partialdruck</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="info-card tipp">
+                    <h3>🌊 Löslichkeitsgleichgewichte</h3>
+                    <p>Auch Lösungsvorgänge sind Gleichgewichtsreaktionen!</p>
+                    <div class="formel">
+                        AgCl(s) ⇌ Ag⁺(aq) + Cl⁻(aq)
+                    </div>
+                    <div class="formel">
+                        K<sub>L</sub> = [Ag⁺] · [Cl⁻] = Löslichkeitsprodukt
+                    </div>
+                    <p><strong>Anwendung:</strong> Fällung von Silberchlorid in der Analytik</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Übungen und Selbsttest -->
+        <section class="content-section">
+            <div class="section-header">
+                🧩 8. Übungen und Selbsttest
+            </div>
+            <div class="section-content">
+                <div class="quiz-container">
+                    <h3>🎯 Verständnisfragen</h3>
+                    
+                    <div style="margin: 20px 0;">
+                        <div class="quiz-question">
+                            1. Was passiert mit der Reaktionsgeschwindigkeit, wenn die Temperatur um 20°C erhöht wird?
+                        </div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="checkAnswer(this, false)">a) Sie verdoppelt sich</div>
+                            <div class="quiz-option" onclick="checkAnswer(this, true)">b) Sie vervierfacht sich (2² = 4)</div>
+                            <div class="quiz-option" onclick="checkAnswer(this, false)">c) Sie bleibt gleich</div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <div class="quiz-question">
+                            2. Welche Aussage über Katalysatoren ist richtig?
+                        </div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="checkAnswer(this, false)">a) Sie verschieben das Gleichgewicht</div>
+                            <div class="quiz-option" onclick="checkAnswer(this, true)">b) Sie beschleunigen Hin- und Rückreaktion gleichermaßen</div>
+                            <div class="quiz-option" onclick="checkAnswer(this, false)">c) Sie erhöhen die Aktivierungsenergie</div>
+                        </div>
+                    </div>
+
+                    <div style="margin: 20px 0;">
+                        <div class="quiz-question">
+                            3. Für die Reaktion A + B ⇌ 2C ist K<sub>c</sub> = 100. Das bedeutet:
+                        </div>
+                        <div class="quiz-options">
+                            <div class="quiz-option" onclick="checkAnswer(this, true)">a) Im Gleichgewicht liegen mehr Produkte als Edukte vor</div>
+                            <div class="quiz-option" onclick="checkAnswer(this, false)">b) Im Gleichgewicht liegen mehr Edukte als Produkte vor</div>
+                            <div class="quiz-option" onclick="checkAnswer(this, false)">c) Edukte und Produkte liegen in gleicher Konzentration vor</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card formel">
+                    <h3>📝 Rechenaufgabe</h3>
+                    <p><strong>Gegeben:</strong> Die Reaktion H₂ + I₂ ⇌ 2HI bei 700 K</p>
+                    <p>Im Gleichgewicht: [H₂] = 0,2 mol/L, [I₂] = 0,3 mol/L, [HI] = 1,2 mol/L</p>
+                    <p><strong>Gesucht:</strong> K<sub>c</sub></p>
+                    
+                    <details style="margin-top: 15px;">
+                        <summary style="cursor: pointer; font-weight: bold;">💡 Lösung anzeigen</summary>
+                        <div style="margin-top: 10px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                            K<sub>c</sub> = [HI]² / ([H₂] · [I₂])<br>
+                            K<sub>c</sub> = (1,2)² / (0,2 · 0,3)<br>
+                            K<sub>c</sub> = 1,44 / 0,06 = 24
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Zusammenfassung -->
+        <section class="content-section">
+            <div class="section-header">
+                📚 9. Zusammenfassung
+            </div>
+            <div class="section-content">
+                <div class="info-card wichtig">
+                    <h3>🎯 Die wichtigsten Punkte</h3>
+                    <ul class="styled-list">
+                        <li><strong>Reaktionsgeschwindigkeit</strong> hängt ab von: Temperatur, Konzentration, Zerteilungsgrad, Katalysatoren</li>
+                        <li><strong>Kollisionsmodell:</strong> Teilchen müssen mit ausreichender Energie zusammenstoßen</li>
+                        <li><strong>Katalysatoren</strong> senken die Aktivierungsenergie, ohne verbraucht zu werden</li>
+                        <li><strong>Dynamisches Gleichgewicht:</strong> v<sub>Hin</sub> = v<sub>Rück</sub>, konstante Konzentrationen</li>
+                        <li><strong>Massenwirkungsgesetz:</strong> K<sub>c</sub> = Produkte/Edukte (mit Exponenten)</li>
+                        <li><strong>Le Chatelier:</strong> System weicht äußerem Zwang aus</li>
+                    </ul>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card tipp">
+                        <h3>💡 Lerntipps</h3>
+                        <ul>
+                            <li>Übe das Aufstellen von MWG-Ausdrücken</li>
+                            <li>Verstehe die Unterschiede zwischen K<sub>c</sub>, K<sub>p</sub> und K<sub>L</sub></li>
+                            <li>Lerne die wichtigen technischen Prozesse</li>
+                            <li>Präge dir ein: Katalysatoren ändern nie das Gleichgewicht!</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>🔗 Querverbindungen</h3>
+                        <ul>
+                            <li>→ Säure-Base-Gleichgewichte (Kapitel 6)</li>
+                            <li>→ Redox-Gleichgewichte (Kapitel 7)</li>
+                            <li>→ Löslichkeitsgleichgewichte</li>
+                            <li>→ Thermodynamik (ΔG und Gleichgewicht)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+           </div>
+
+ <!-- Navigation zu anderen Kapiteln -->
+        <section class="content-section">
+            <div class="section-header">
+                📖 Kapitel Navigation
+            </div>
+            <div class="section-content">
+                <div class="three-column">
+                    <div class="info-card" onclick="window.open('energetik.html', '_self')" style="cursor: pointer;">
+                        <h3>← Vorheriges Kapitel</h3>
+                        <p><strong>Chemische Energetik</strong></p>
+                        <p>Thermodynamik, Enthalpie, Entropie</p>
+                    </div>
+                    
+                    <div class="info-card" onclick="window.open('index.html', '_self')" style="cursor: pointer;">
+                        <h3>🏠 Übersicht</h3>
+                        <p><strong>Alle Kapitel</strong></p>
+                        <p>Zurück zur Hauptübersicht</p>
+                    </div>
+                    
+                    <div class="info-card" onclick="window.open('saeure-base.html', '_self')" style="cursor: pointer;">
+                        <h3>Nächstes Kapitel →</h3>
+                        <p><strong>Säure-Base-Reaktionen</strong></p>
+                        <p>pH-Wert, Puffer, Titrationen</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ↑
+    </button>
+
+    <script>
+        // Back to Top Button Functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            const readingProgress = document.getElementById('reading-progress');
+            
+            // Show/hide back to top button
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+            
+            // Update reading progress
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            readingProgress.style.width = scrolled + "%";
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Quiz Functionality
+        function checkAnswer(element, isCorrect) {
+            // Remove previous classes
+            const options = element.parentNode.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+            });
+            
+            // Add appropriate class
+            if (isCorrect) {
+                element.classList.add('correct');
+                setTimeout(() => {
+                    alert('✅ Richtig! Sehr gut!');
+                }, 100);
+            } else {
+                element.classList.add('incorrect');
+                setTimeout(() => {
+                    alert('❌ Leider falsch. Versuche es nochmal!');
+                }, 100);
+            }
+        }
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Loading animation
+        window.addEventListener('load', function() {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease-in-out';
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
+        });
+
+        // Interactive formula highlighting
+        document.querySelectorAll('.formel').forEach(formula => {
+            formula.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.05)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            formula.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+
+        // Print functionality
+        function printPage() {
+            window.print();
+        }
+
+            </script>
+</body>
+</html>>
+        

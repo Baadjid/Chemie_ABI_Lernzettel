@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kohlenstoff und Kohlenwasserstoffe - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            top: 20px;
+            z-index: 100;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .nav-breadcrumb a:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        .chapter-info {
+            background: linear-gradient(45deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+        
+        /* Progress Indicator */
+        .progress-indicator {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 25px;
+            font-size: 1.4em;
+            font-weight: 600;
+            position: relative;
+        }
+        
+        .section-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #84fab0, #8fd3f4);
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        /* Grid Layouts */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        /* Cards */
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .modifikation-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .modifikation-card:hover {
+            transform: translateY(-5px) scale(1.02);
+        }
+        
+        .modifikation-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .modifikation-card li {
+            margin: 5px 0;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* Molecule Display */
+        .molecule-display {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            margin: 15px 0;
+            border: 2px dashed #667eea;
+        }
+        
+        .formula {
+            font-family: 'Courier New', monospace;
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #2c3e50;
+            background: #e8f5e8;
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            display: block;
+        }
+        
+        /* Interactive Elements */
+        .quiz-section {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .quiz-button {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            margin: 5px;
+            display: inline-block;
+        }
+        
+        .quiz-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .quiz-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        /* Wichtige Hinweise */
+        .wichtig {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border: 2px solid #ff9a56;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+            padding-left: 60px;
+        }
+        
+        .wichtig::before {
+            content: '⚠️';
+            font-size: 1.5em;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+        
+        .wichtig h3 {
+            color: #d35400;
+            margin-bottom: 10px;
+        }
+        
+        .wichtig ul {
+            margin-top: 10px;
+        }
+        
+        /* Merksätze */
+        .merksatz {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #667eea;
+            position: relative;
+            padding-right: 60px;
+        }
+        
+        .merksatz::before {
+            content: '💡';
+            font-size: 1.5em;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin: 5px 0;
+        }
+        
+        /* Headings */
+        h2, h3, h4 {
+            margin: 20px 0 10px 0;
+            color: #2c3e50;
+        }
+        
+        h2 {
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            font-size: 1.4em;
+        }
+        
+        h4 {
+            font-size: 1.2em;
+        }
+        
+        /* Paragraphs */
+        p {
+            margin: 10px 0;
+        }
+        
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .two-column, .three-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-breadcrumb {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+            }
+            
+            .data-table {
+                font-size: 0.8em;
+            }
+            
+            .wichtig, .merksatz {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+            
+            .wichtig::before, .merksatz::before {
+                display: none;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .content-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus, .quiz-button:focus {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        /* Hidden elements */
+        .answer-div {
+            margin-top: 10px;
+            display: none;
+        }
+        
+        /* Print styles */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .content-section, .info-card {
+                background: white !important;
+                box-shadow: none !important;
+                border: 1px solid #ccc !important;
+                margin-bottom: 20px !important;
+                page-break-inside: avoid;
+            }
+            
+            .back-to-top, .nav-breadcrumb {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Übersicht</a>
+            <span>→</span>
+            <span style="color: #764ba2; font-weight: bold;">2. Kohlenstoff und Kohlenwasserstoffe</span>
+        </nav>
+
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <h3>📈 Fortschritt in diesem Kapitel</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="chapter-progress"></div>
+            </div>
+            <span id="progress-text">0% abgeschlossen</span>
+        </div>
+
+        <!-- Header -->
+        <header id="top">
+            <h1>🧬 Kohlenstoff und Kohlenwasserstoffe</h1>
+            <p class="subtitle">Kapitel 2 - Die Grundlagen der organischen Chemie</p>
+            <div class="chapter-info">
+                📚 Umfang: 12 Unterkapitel | ⏱️ Lernzeit: ca. 3-4 Stunden | 🎯 Abiturrelevanz: Sehr hoch
+            </div>
+        </header>
+
+        <!-- Einführung -->
+        <section class="content-section">
+            <div class="section-header">
+                🎯 Lernziele und Überblick
+            </div>
+            <div class="section-content">
+                <div class="wichtig">
+                    <h3>Was du nach diesem Kapitel können solltest:</h3>
+                    <ul>
+                        <li>Die besonderen Eigenschaften des Kohlenstoffs erklären</li>
+                        <li>Verschiedene Kohlenstoff-Modifikationen unterscheiden</li>
+                        <li>Homologe Reihen der Kohlenwasserstoffe aufstellen</li>
+                        <li>Nomenklaturregeln für organische Verbindungen anwenden</li>
+                        <li>Isomerie-Arten erkennen und zuordnen</li>
+                        <li>Struktur-Eigenschafts-Beziehungen erklären</li>
+                    </ul>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h3>🔬 Experimentelle Grundlagen</h3>
+                        <ul>
+                            <li>Modelle von Kohlenstoff-Strukturen</li>
+                            <li>Eigenschaften verschiedener Alkane</li>
+                            <li>Brennbarkeit von Kohlenwasserstoffen</li>
+                            <li>Löslichkeitsversuche</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>🌍 Alltagsbezug</h3>
+                        <ul>
+                            <li>Erdöl und Erdgas als Energieträger</li>
+                            <li>Benzin und Diesel</li>
+                            <li>Kunststoffe im Alltag</li>
+                            <li>Methan als Biogas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kohlenstoff als Element -->
+        <section class="content-section">
+            <div class="section-header">
+                ⚛️ Kohlenstoff - ein vielseitiges Element
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div>
+                        <h3>🧮 Position im Periodensystem</h3>
+                        <div class="info-card">
+                            <p><strong>Element:</strong> Kohlenstoff (C)</p>
+                            <p><strong>Ordnungszahl:</strong> 6</p>
+                            <p><strong>Periode:</strong> 2</p>
+                            <p><strong>Hauptgruppe:</strong> IV (14)</p>
+                            <p><strong>Elektronenkonfiguration:</strong> 1s² 2s² 2p²</p>
+                            <p><strong>Valenzelektronen:</strong> 4</p>
+                        </div>
+                        
+                        <div class="merksatz">
+                            <h4>Besonderheit des Kohlenstoffs</h4>
+                            <p>Mit 4 Valenzelektronen kann Kohlenstoff <strong>4 Elektronenpaarbindungen</strong> eingehen. Dies ermöglicht die Bildung von Ketten, Ringen und komplexen dreidimensionalen Strukturen.</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>🔗 Bindungsmöglichkeiten</h3>
+                        <div class="molecule-display">
+                            <h4>Hybridisierung des Kohlenstoffs</h4>
+                            <div class="formula">sp³: Tetraeder (109,5°)</div>
+                            <div class="formula">sp²: Trigonal planar (120°)</div>
+                            <div class="formula">sp: Linear (180°)</div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>🔄 C-C-Verknüpfungsprinzip</h4>
+                            <p>Kohlenstoff-Atome können untereinander <strong>beliebig lange Ketten</strong> bilden durch:</p>
+                            <ul>
+                                <li>Einfachbindungen (C-C)</li>
+                                <li>Doppelbindungen (C=C)</li>
+                                <li>Dreifachbindungen (C≡C)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kohlenstoff-Modifikationen -->
+        <section class="content-section">
+            <div class="section-header">
+                💎 Modifikationen des Kohlenstoffs
+            </div>
+            <div class="section-content">
+                <p>Kohlenstoff kommt in verschiedenen <strong>Modifikationen</strong> vor - das sind unterschiedliche Strukturformen desselben Elements.</p>
+                
+                <div class="three-column">
+                    <div class="modifikation-card">
+                        <h3>💎 Diamant</h3>
+                        <p><strong>Struktur:</strong> 3D-Netzwerk</p>
+                        <p><strong>Bindung:</strong> sp³-Hybridisierung</p>
+                        <p><strong>Eigenschaften:</strong></p>
+                        <ul>
+                            <li>Härtester natürlicher Stoff</li>
+                            <li>Elektrischer Isolator</li>
+                            <li>Hoher Brechungsindex</li>
+                            <li>Sehr hohe Wärmeleitfähigkeit</li>
+                        </ul>
+                        <p><strong>Verwendung:</strong> Schmuck, Werkzeuge</p>
+                    </div>
+                    
+                    <div class="modifikation-card">
+                        <h3>✏️ Graphit</h3>
+                        <p><strong>Struktur:</strong> Schichtstruktur</p>
+                        <p><strong>Bindung:</strong> sp²-Hybridisierung</p>
+                        <p><strong>Eigenschaften:</strong></p>
+                        <ul>
+                            <li>Weich und spaltbar</li>
+                            <li>Elektrischer Leiter</li>
+                            <li>Schreibt auf Papier</li>
+                            <li>Hohe Hitzebeständigkeit</li>
+                        </ul>
+                        <p><strong>Verwendung:</strong> Bleistiftminen, Elektroden</p>
+                    </div>
+                    
+                    <div class="modifikation-card">
+                        <h3>⚽ Fullerene</h3>
+                        <p><strong>Struktur:</strong> Kugelförmige Moleküle</p>
+                        <p><strong>Bindung:</strong> sp²-Hybridisierung</p>
+                        <p><strong>Eigenschaften:</strong></p>
+                        <ul>
+                            <li>Hohlkugel-Struktur</li>
+                            <li>C₆₀-Molekül (Buckball)</li>
+                            <li>Besondere elektronische Eigenschaften</li>
+                            <li>Löslich in organischen Lösungsmitteln</li>
+                        </ul>
+                        <p><strong>Verwendung:</strong> Nanotechnologie, Medizin</p>
+                    </div>
+                </div>
+                
+                <div class="two-column">
+                    <div class="modifikation-card">
+                        <h3>🧪 Kohlenstoff-Nanotubes</h3>
+                        <p><strong>Struktur:</strong> Röhrenförmig</p>
+                        <p><strong>Eigenschaften:</strong> Extrem fest, leitfähig</p>
+                        <p><strong>Anwendung:</strong> Verbundwerkstoffe, Elektronik</p>
+                    </div>
+                    
+                    <div class="modifikation-card">
+                        <h3>📱 Graphen</h3>
+                        <p><strong>Struktur:</strong> Einzelne Graphit-Schicht</p>
+                        <p><strong>Eigenschaften:</strong> 2D-Material, transparent</p>
+                        <p><strong>Anwendung:</strong> Flexible Elektronik</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alkane -->
+        <section class="content-section">
+            <div class="section-header">
+                ⛽ Die Alkane - gesättigte Kohlenwasserstoffe
+            </div>
+            <div class="section-content">
+                <div class="merksatz">
+                    <h4>Definition: Alkane</h4>
+                    <p>Alkane sind <strong>gesättigte Kohlenwasserstoffe</strong> mit der allgemeinen Summenformel <strong>CₙH₂ₙ₊₂</strong>. Sie enthalten nur Einfachbindungen zwischen den Kohlenstoff-Atomen.</p>
+                </div>
+                
+                <h3>📋 Homologe Reihe der Alkane</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Anzahl C-Atome</th>
+                            <th>Molekülformel</th>
+                            <th>Strukturformel</th>
+                            <th>Siedepunkt (°C)</th>
+                            <th>Aggregatzustand (20°C)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Methan</strong></td>
+                            <td>1</td>
+                            <td>CH₄</td>
+                            <td>H₃C-H</td>
+                            <td>-162</td>
+                            <td>gasförmig</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ethan</strong></td>
+                            <td>2</td>
+                            <td>C₂H₆</td>
+                            <td>H₃C-CH₃</td>
+                            <td>-89</td>
+                            <td>gasförmig</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Propan</strong></td>
+                            <td>3</td>
+                            <td>C₃H₈</td>
+                            <td>H₃C-CH₂-CH₃</td>
+                            <td>-42</td>
+                            <td>gasförmig</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Butan</strong></td>
+                            <td>4</td>
+                            <td>C₄H₁₀</td>
+                            <td>H₃C-CH₂-CH₂-CH₃</td>
+                            <td>-1</td>
+                            <td>gasförmig</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Pentan</strong></td>
+                            <td>5</td>
+                            <td>C₅H₁₂</td>
+                            <td>H₃C-CH₂-CH₂-CH₂-CH₃</td>
+                            <td>36</td>
+                            <td>flüssig</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hexan</strong></td>
+                            <td>6</td>
+                            <td>C₆H₁₄</td>
+                            <td>H₃C-(CH₂)₄-CH₃</td>
+                            <td>69</td>
+                            <td>flüssig</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Heptan</strong></td>
+                            <td>7</td>
+                            <td>C₇H₁₆</td>
+                            <td>H₃C-(CH₂)₅-CH₃</td>
+                            <td>98</td>
+                            <td>flüssig</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Octan</strong></td>
+                            <td>8</td>
+                            <td>C₈H₁₈</td>
+                            <td>H₃C-(CH₂)₆-CH₃</td>
+                            <td>126</td>
+                            <td>flüssig</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="wichtig">
+                    <h3>Trend in der homologen Reihe</h3>
+                    <p>Mit zunehmender Kettenlänge:</p>
+                    <ul>
+                        <li>Steigen Siedepunkt und Schmelzpunkt (stärkere London-Kräfte)</li>
+                        <li>Steigt die Viskosität (Dickflüssigkeit)</li>
+                        <li>Nimmt die Löslichkeit in Wasser ab</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Nomenklatur -->
+        <section class="content-section">
+            <div class="section-header">
+                📝 Nomenklatur der Alkane
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div>
+                        <h3>🔢 IUPAC-Regeln für Alkane</h3>
+                        <div class="info-card">
+                            <h4>Schritt-für-Schritt Anleitung:</h4>
+                            <ol>
+                                <li><strong>Längste Kette finden</strong> → Grundname</li>
+                                <li><strong>Kette nummerieren</strong> → kleinste Zahlen für Substituenten</li>
+                                <li><strong>Substituenten benennen</strong> → -yl-Endung</li>
+                                <li><strong>Reihenfolge:</strong> Anzahl-Position-Name</li>
+                            </ol>
+                        </div>
+                        
+                        <div class="molecule-display">
+                            <h4>Beispiele für Substituenten:</h4>
+                            <div class="formula">-CH₃ = Methyl</div>
+                            <div class="formula">-C₂H₅ = Ethyl</div>
+                            <div class="formula">-C₃H₇ = Propyl</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>📚 Übungsbeispiele</h3>
+                        <div class="info-card">
+                            <h4>Beispiel 1:</h4>
+                            <p>CH₃-CH(CH₃)-CH₂-CH₃</p>
+                            <p><strong>Name:</strong> 2-Methylbutan</p>
+                            <p><strong>Erklärung:</strong> 4 C-Atome = Butan, Methylgruppe an Position 2</p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>Beispiel 2:</h4>
+                            <p>CH₃-CH₂-CH(CH₃)-CH(C₂H₅)-CH₃</p>
+                            <p><strong>Name:</strong> 2-Ethyl-3-methylpentan</p>
+                            <p><strong>Erklärung:</strong> 5 C-Atome = Pentan, alphabetische Reihenfolge</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Isomerie -->
+        <section class="content-section">
+            <div class="section-header">
+                🔀 Isomerie bei Kohlenwasserstoffen
+            </div>
+            <div class="section-content">
+                <div class="merksatz">
+                    <h4>Definition: Isomerie</h4>
+                    <p><strong>Isomere</strong> sind Verbindungen mit gleicher Summenformel, aber unterschiedlicher Struktur und damit unterschiedlichen Eigenschaften.</p>
+                </div>
+                
+                <h3>🏗️ Arten der Strukturisomerie</h3>
+                <div class="three-column">
+                    <div class="info-card">
+                        <h4>🔗 Kettenisomerie</h4>
+                        <p><strong>Unterschiedliche Verzweigung der C-Kette</strong></p>
+                        <div class="molecule-display">
+                            <p>C₄H₁₀:</p>
+                            <div class="formula">CH₃-CH₂-CH₂-CH₃</div>
+                            <p>Butan (unverzweigt)</p>
+                            <div class="formula">CH₃-CH(CH₃)-CH₃</div>
+                            <p>2-Methylpropan (verzweigt)</p>
+                        </div>
+                        <p><strong>Siedepunkte:</strong> Butan: -1°C, 2-Methylpropan: -12°C</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🎯 Stellungsisomerie</h4>
+                        <p><strong>Verschiedene Position funktioneller Gruppen</strong></p>
+                        <p>Wird bei Alkenen wichtig:</p>
+                        <div class="molecule-display">
+                            <div class="formula">CH₂=CH-CH₂-CH₃</div>
+                            <p>1-Buten</p>
+                            <div class="formula">CH₃-CH=CH-CH₃</div>
+                            <p>2-Buten</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🌐 Stereoisomerie</h4>
+                        <p><strong>Verschiedene räumliche Anordnung</strong></p>
+                        <p>Bei Doppelbindungen:</p>
+                        <div class="molecule-display">
+                            <p><strong>cis-Isomer:</strong> Gleiche Seite</p>
+                            <p><strong>trans-Isomer:</strong> Gegenüberliegende Seiten</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="wichtig">
+                    <h3>Auswirkungen der Isomerie</h3>
+                    <p>Isomere haben oft deutlich unterschiedliche Eigenschaften:</p>
+                    <ul>
+                        <li><strong>Siedepunkte:</strong> Verzweigte Moleküle haben niedrigere Siedepunkte</li>
+                        <li><strong>Löslichkeit:</strong> Kann stark variieren</li>
+                        <li><strong>Reaktivität:</strong> Unterschiedliche chemische Eigenschaften</li>
+                        <li><strong>Biologische Aktivität:</strong> Besonders wichtig bei Arzneimitteln</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alkene -->
+        <section class="content-section">
+            <div class="section-header">
+                🔗 Die Alkene - ungesättigte Kohlenwasserstoffe
+            </div>
+            <div class="section-content">
+                <div class="merksatz">
+                    <h4>Definition: Alkene</h4>
+                    <p>Alkene sind <strong>ungesättigte Kohlenwasserstoffe</strong> mit mindestens einer C=C-Doppelbindung. Allgemeine Summenformel: <strong>CₙH₂ₙ</strong></p>
+                </div>
+                
+                <div class="two-column">
+                    <div>
+                        <h3>📋 Wichtige Alkene</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Formel</th>
+                                    <th>Strukturformel</th>
+                                    <th>Verwendung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Ethen</strong></td>
+                                    <td>C₂H₄</td>
+                                    <td>H₂C=CH₂</td>
+                                    <td>Polyethylen, Reifegas</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Propen</strong></td>
+                                    <td>C₃H₆</td>
+                                    <td>H₂C=CH-CH₃</td>
+                                    <td>Polypropylen</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>1-Buten</strong></td>
+                                    <td>C₄H₈</td>
+                                    <td>H₂C=CH-CH₂-CH₃</td>
+                                    <td>Synthesebaustein</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>2-Buten</strong></td>
+                                    <td>C₄H₈</td>
+                                    <td>CH₃-CH=CH-CH₃</td>
+                                    <td>Isomerengemisch</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div>
+                        <h3>⚡ Eigenschaften der Alkene</h3>
+                        <div class="info-card">
+                            <h4>🧪 Charakteristische Reaktionen</h4>
+                            <p><strong>Additionsreaktionen:</strong> Typisch für Doppelbindungen</p>
+                            <div class="molecule-display">
+                                <div class="formula">H₂C=CH₂ + Br₂ → H₂CBr-CH₂Br</div>
+                                <p>Bromwasser-Test (Entfärbung)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>🔥 Verbrennung</h4>
+                            <div class="molecule-display">
+                                <div class="formula">C₂H₄ + 3O₂ → 2CO₂ + 2H₂O</div>
+                                <p>Exotherm, rußende Flamme</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>📊 Physikalische Eigenschaften</h4>
+                            <ul>
+                                <li>Ähnlich den Alkanen</li>
+                                <li>Leicht niedrigere Siedepunkte</li>
+                                <li>Unpolar → hydrophob</li>
+                                <li>Gut brennbar</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Struktur-Eigenschafts-Beziehungen -->
+        <section class="content-section">
+            <div class="section-header">
+                🔗 Struktur-Eigenschafts-Beziehungen
+            </div>
+            <div class="section-content">
+                <h3>🧲 Zwischenmolekulare Kräfte bei Kohlenwasserstoffen</h3>
+                <div class="three-column">
+                    <div class="info-card">
+                        <h4>⚡ London-Kräfte</h4>
+                        <p><strong>Ursache:</strong> Temporäre Dipole</p>
+                        <p><strong>Stärke:</strong> Schwach</p>
+                        <p><strong>Abhängigkeit:</strong></p>
+                        <ul>
+                            <li>Molekülgröße ↑ → Kräfte ↑</li>
+                            <li>Verzweigung ↑ → Kräfte ↓</li>
+                            <li>Oberfläche ↑ → Kräfte ↑</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>📈 Siedepunkt-Trends</h4>
+                        <p><strong>Kettenlänge:</strong></p>
+                        <ul>
+                            <li>Methan: -162°C</li>
+                            <li>Ethan: -89°C</li>
+                            <li>Propan: -42°C</li>
+                            <li>Butan: -1°C</li>
+                            <li>Pentan: 36°C</li>
+                        </ul>
+                        <p><strong>→ Pro CH₂-Gruppe: +20-30°C</strong></p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>🌊 Viskosität</h4>
+                        <p><strong>Definition:</strong> Fließverhalten</p>
+                        <p><strong>Trend:</strong> Längere Ketten → höhere Viskosität</p>
+                        <p><strong>Beispiele:</strong></p>
+                        <ul>
+                            <li>Pentan: dünnflüssig</li>
+                            <li>Decan: zähflüssig</li>
+                            <li>Paraffin: wachsartig</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="two-column">
+                    <div>
+                        <h3>💧 Löslichkeitsregeln</h3>
+                        <div class="merksatz">
+                            <h4>"Similia similibus solvuntur"</h4>
+                            <p><strong>Ähnliches löst Ähnliches</strong></p>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>🧪 Kohlenwasserstoffe sind:</h4>
+                            <ul>
+                                <li><strong>Hydrophob:</strong> Schlecht wasserlöslich</li>
+                                <li><strong>Lipophil:</strong> Gut löslich in unpolaren Lösungsmitteln</li>
+                                <li><strong>Grund:</strong> Unpolare C-H-Bindungen</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>🔥 Brennbarkeit</h3>
+                        <div class="info-card">
+                            <h4>Alle Kohlenwasserstoffe sind brennbar!</h4>
+                            <div class="molecule-display">
+                                <div class="formula">CₙH₂ₙ₊₂ + (3n+1)/2 O₂ → nCO₂ + (n+1)H₂O</div>
+                                <p>Allgemeine Verbrennungsgleichung für Alkane</p>
+                            </div>
+                            
+                            <p><strong>Flammenfarbe:</strong></p>
+                            <ul>
+                                <li>Sauerstoffüberschuss: Blaue Flamme</li>
+                                <li>Sauerstoffmangel: Gelbe, rußende Flamme</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz -->
+        <section class="quiz-section">
+            <h2>🧩 Interaktive Übungen und Selbsttests</h2>
+            
+            <div class="quiz-question">
+                <h3>📝 Übung 1: Homologe Reihen</h3>
+                <p>Welche Summenformel hat das Alkan mit 7 Kohlenstoff-Atomen?</p>
+                <button class="quiz-button" onclick="checkAnswer(1, 'C7H16', this)">C₇H₁₆</button>
+                <button class="quiz-button" onclick="checkAnswer(1, 'C7H14', this)">C₇H₁₄</button>
+                <button class="quiz-button" onclick="checkAnswer(1, 'C7H18', this)">C₇H₁₈</button>
+                <div id="answer1" class="answer-div"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>📝 Übung 2: Nomenklatur</h3>
+                <p>Wie heißt diese Verbindung: CH₃-CH(CH₃)-CH₂-CH(C₂H₅)-CH₃?</p>
+                <button class="quiz-button" onclick="checkAnswer(2, '4-Ethyl-2-methylpentan', this)">4-Ethyl-2-methylpentan</button>
+                <button class="quiz-button" onclick="checkAnswer(2, '2-Ethyl-4-methylpentan', this)">2-Ethyl-4-methylpentan</button>
+                <button class="quiz-button" onclick="checkAnswer(2, '2-Methyl-4-ethylpentan', this)">2-Methyl-4-ethylpentan</button>
+                <div id="answer2" class="answer-div"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>📝 Übung 3: Eigenschaften</h3>
+                <p>Warum haben verzweigte Alkane niedrigere Siedepunkte als unverzweigte?</p>
+                <button class="quiz-button" onclick="checkAnswer(3, 'schwächere London-Kräfte', this)">Schwächere London-Kräfte</button>
+                <button class="quiz-button" onclick="checkAnswer(3, 'stärkere London-Kräfte', this)">Stärkere London-Kräfte</button>
+                <button class="quiz-button" onclick="checkAnswer(3, 'andere Bindungen', this)">Andere chemische Bindungen</button>
+                <div id="answer3" class="answer-div"></div>
+            </div>
+            
+            <div class="quiz-question">
+                <h3>📝 Übung 4: Alkene vs. Alkane</h3>
+                <p>Was ist der Hauptunterschied zwischen Alkenen und Alkanen?</p>
+                <button class="quiz-button" onclick="checkAnswer(4, 'Doppelbindung', this)">Alkene haben Doppelbindungen</button>
+                <button class="quiz-button" onclick="checkAnswer(4, 'Linear vs gewinkelt', this)">Linear vs. gewinkelt</button>
+                <button class="quiz-button" onclick="checkAnswer(4, 'Länge der Kette', this)">Länge der Kette</button>
+                <div id="answer4" class="answer-div"></div>
+            </div>
+        </section>
+
+        <!-- Zusammenfassung -->
+        <section class="content-section">
+            <div class="section-header">
+                📚 Zusammenfassung: Das Wichtigste auf einen Blick
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div>
+                        <h3>🔑 Schlüsselkonzepte</h3>
+                        <div class="info-card">
+                            <h4>⚛️ Kohlenstoff</h4>
+                            <ul>
+                                <li>4 Valenzelektronen → 4 Bindungen</li>
+                                <li>Verschiedene Modifikationen</li>
+                                <li>C-C-Verknüpfungsprinzip</li>
+                                <li>sp³, sp², sp-Hybridisierung</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>🧬 Kohlenwasserstoffe</h4>
+                            <ul>
+                                <li><strong>Alkane:</strong> CₙH₂ₙ₊₂ (gesättigt)</li>
+                                <li><strong>Alkene:</strong> CₙH₂ₙ (1 Doppelbindung)</li>
+                                <li><strong>Alkine:</strong> CₙH₂ₙ₋₂ (1 Dreifachbindung)</li>
+                                <li>Homologe Reihen</li>
+                                <li>Strukturisomerie</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3>📊 Wichtige Trends</h3>
+                        <div class="info-card">
+                            <h4>📈 Mit steigender Kettenlänge:</h4>
+                            <ul>
+                                <li>Siedepunkt ↑</li>
+                                <li>Schmelzpunkt ↑</li>
+                                <li>Viskosität ↑</li>
+                                <li>Wasserlöslichkeit ↓</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="info-card">
+                            <h4>🔀 Verzweigung bewirkt:</h4>
+                            <ul>
+                                <li>Niedrigere Siedepunkte</li>
+                                <li>Schwächere London-Kräfte</li>
+                                <li>Kompaktere Molekülgestalt</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="merksatz">
+                    <h4>🎯 Abitur-Relevanz</h4>
+                    <p><strong>Besonders wichtig für die Prüfung:</strong></p>
+                    <ul>
+                        <li>Nomenklatur nach IUPAC-Regeln</li>
+                        <li>Strukturformeln zeichnen und interpretieren</li>
+                        <li>Isomerie erkennen und benennen</li>
+                        <li>Struktur-Eigenschafts-Beziehungen erklären</li>
+                        <li>Reaktionstypen unterscheiden (Addition vs. Substitution)</li>
+                        <li>Erdöl als Rohstoffquelle verstehen</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="">
+                <div>
+    <h3>📖 Kapitel Navigation</h3>
+    <button class="quiz-button" onclick="window.location.href='atombau-periodensystem.html'">← Atombau, Periodensystem und chemische Bindung</button>
+    <button class="quiz-button" onclick="window.location.href='index.html'">🏠 Zur Startseite</button>
+    <button class="quiz-button" onclick="window.location.href='sauerstoff-verbindungen.html'">🧪 Organische Sauerstoff-Verbindungen →</button>
+</div>
+                
+            </div>
+            <p style="margin-top: 20px; color: #7f8c8d;">
+                &copy; 2025 Chemie Lernzettel - Abitur 2026 | Kapitel 2: Kohlenstoff und Kohlenwasserstoffe<br>
+                
+            </p>
+        </footer>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" title="Nach oben">
+        ↑
+    </button>
+
+    <script>
+        // Progress tracking
+        let progress = 0;
+        const totalSections = 8;
+        
+        function updateProgress() {
+            progress = Math.min(progress + 12.5, 100);
+            const progressFill = document.getElementById('chapter-progress');
+            const progressText = document.getElementById('progress-text');
+            
+            if (progressFill && progressText) {
+                progressFill.style.width = progress + '%';
+                progressText.textContent = Math.round(progress) + '% abgeschlossen';
+            }
+            
+            // Save progress
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.setItem('kohlenwasserstoffe-progress', progress);
+            }
+        }
+
+        // Load saved progress
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof(Storage) !== "undefined") {
+                const savedProgress = sessionStorage.getItem('kohlenwasserstoffe-progress');
+                if (savedProgress) {
+                    progress = parseFloat(savedProgress);
+                    const progressFill = document.getElementById('chapter-progress');
+                    const progressText = document.getElementById('progress-text');
+                    
+                    if (progressFill && progressText) {
+                        progressFill.style.width = progress + '%';
+                        progressText.textContent = Math.round(progress) + '% abgeschlossen';
+                    }
+                }
+            }
+        });
+
+        // Quiz functionality
+        function checkAnswer(questionNum, correctAnswer, buttonElement) {
+            const answerDiv = document.getElementById('answer' + questionNum);
+            const buttons = buttonElement.parentNode.querySelectorAll('.quiz-button');
+            
+            // Disable all buttons for this question
+            buttons.forEach(btn => {
+                btn.disabled = true;
+                btn.style.cursor = 'not-allowed';
+            });
+            
+            // Check if answer is correct
+            const selectedText = buttonElement.textContent.toLowerCase();
+            const correctText = correctAnswer.toLowerCase();
+            const isCorrect = selectedText.includes(correctText) || correctText.includes(selectedText);
+            
+            if (isCorrect) {
+                buttonElement.style.background = 'linear-gradient(45deg, #4CAF50, #45a049)';
+                answerDiv.innerHTML = '<p style="color: #4CAF50; font-weight: bold;">✅ Richtig! Sehr gut!</p>';
+                updateProgress();
+            } else {
+                buttonElement.style.background = 'linear-gradient(45deg, #f44336, #da190b)';
+                answerDiv.innerHTML = '<p style="color: #f44336; font-weight: bold;">❌ Nicht ganz richtig. Die korrekte Antwort ist: ' + correctAnswer + '</p>';
+            }
+            
+            answerDiv.style.display = 'block';
+            
+            // Add explanations
+            setTimeout(function() {
+                let explanation = '';
+                switch(questionNum) {
+                    case 1:
+                        if (isCorrect) explanation = '<p style="color: #666; margin-top: 10px;"><strong>Erklärung:</strong> Alkane haben die Formel CₙH₂ₙ₊₂. Bei n=7: C₇H₁₆</p>';
+                        break;
+                    case 2:
+                        if (isCorrect) explanation = '<p style="color: #666; margin-top: 10px;"><strong>Erklärung:</strong> Alphabetische Reihenfolge: Ethyl vor Methyl. Nummerierung für kleinste Zahlen.</p>';
+                        break;
+                    case 3:
+                        if (isCorrect) explanation = '<p style="color: #666; margin-top: 10px;"><strong>Erklärung:</strong> Verzweigte Moleküle haben weniger Oberflächenkontakt → schwächere London-Kräfte</p>';
+                        break;
+                    case 4:
+                        if (isCorrect) explanation = '<p style="color: #666; margin-top: 10px;"><strong>Erklärung:</strong> Alkene haben C=C-Doppelbindungen, Alkane nur Einfachbindungen</p>';
+                        break;
+                }
+                if (explanation) {
+                    answerDiv.innerHTML += explanation;
+                }
+            }, 500);
+        }
+
+        // Scroll to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Back to top button visibility
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (backToTop) {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            }
+        });
+
+        // Smooth scrolling animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.content-section, .quiz-section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Home') {
+                e.preventDefault();
+                scrollToTop();
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            }
+        });
+
+        // Touch gestures for mobile
+        let touchStartY = 0;
+        let touchStartX = 0;
+
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.touches[0].clientY;
+            touchStartX = e.touches[0].clientX;
+        }, {passive: true});
+
+        document.addEventListener('touchend', function(e) {
+            const touchEndY = e.changedTouches[0].clientY;
+            const touchEndX = e.changedTouches[0].clientX;
+            const diffY = touchStartY - touchEndY;
+            const diffX = touchStartX - touchEndX;
+            
+            // Swipe up to go to top (only if vertical swipe is significant)
+            if (Math.abs(diffY) > Math.abs(diffX) && diffY > 100 && window.pageYOffset > 300) {
+                scrollToTop();
+            }
+        }, {passive: true});
+
+        // Accessibility improvements
+        document.addEventListener('DOMContentLoaded', function() {
+            const focusableElements = document.querySelectorAll('button, a, .quiz-button');
+            focusableElements.forEach(element => {
+                element.addEventListener('focus', function() {
+                    this.style.outline = '3px solid #667eea';
+                    this.style.outlineOffset = '2px';
+                });
+                
+                element.addEventListener('blur', function() {
+                    this.style.outline = 'none';
+                });
+            });
+        });
+
+        // Auto-save reading position
+        let readingPosition = 0;
+        window.addEventListener('scroll', function() {
+            readingPosition = window.pageYOffset;
+            if (typeof(Storage) !== "undefined") {
+                sessionStorage.setItem('kohlenwasserstoffe-position', readingPosition);
+            }
+        });
+
+        // Restore reading position
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof(Storage) !== "undefined") {
+                const savedPosition = sessionStorage.getItem('kohlenwasserstoffe-position');
+                if (savedPosition && savedPosition > 0) {
+                    setTimeout(() => {
+                        window.scrollTo(0, parseInt(savedPosition));
+                    }, 100);
+                }
+            }
+        });
+
+        // Chapter completion tracking
+        function markChapterComplete() {
+            if (progress >= 80) {
+                if (typeof(Storage) !== "undefined") {
+                    localStorage.setItem('chapter-2-completed', 'true');
+                    localStorage.setItem('chapter-2-completion-date', new Date().toISOString());
+                }
+                
+                // Dispatch custom event for overall progress tracking
+                const event = new CustomEvent('chapterComplete', { 
+                    detail: { 
+                        chapter: 2, 
+                        title: 'Kohlenstoff und Kohlenwasserstoffe',
+                        progress: progress 
+                    }
+                });
+                window.dispatchEvent(event);
+            }
+        }
+
+        // Check completion when user scrolls to bottom
+        window.addEventListener('scroll', function() {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            
+            if (scrollTop + windowHeight >= docHeight - 100) {
+                markChapterComplete();
+            }
+        });
+
+        // Add smooth transitions for all interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            const interactiveElements = document.querySelectorAll('.info-card, .modifikation-card, .quiz-button, .content-section');
+            interactiveElements.forEach(element => {
+                if (!element.style.transition) {
+                    element.style.transition = 'all 0.3s ease';
+                }
+            });
+        });
+
+        // Error handling for missing elements
+        function safeGetElement(id) {
+            const element = document.getElementById(id);
+            if (!element) {
+                console.warn('Element with id "' + id + '" not found');
+            }
+            return element;
+        }
+
+        // Enhanced progress tracking with localStorage backup
+        function saveProgress() {
+            if (typeof(Storage) !== "undefined") {
+                try {
+                    sessionStorage.setItem('kohlenwasserstoffe-progress', progress);
+                    localStorage.setItem('kohlenwasserstoffe-progress-backup', progress);
+                } catch (e) {
+                    console.warn('Could not save progress to storage:', e);
+                }
+            }
+        }
+
+        // Load progress with fallback
+        function loadProgress() {
+            if (typeof(Storage) !== "undefined") {
+                try {
+                    let savedProgress = sessionStorage.getItem('kohlenwasserstoffe-progress');
+                    if (!savedProgress) {
+                        savedProgress = localStorage.getItem('kohlenwasserstoffe-progress-backup');
+                    }
+                    if (savedProgress) {
+                        progress = parseFloat(savedProgress);
+                        updateProgressDisplay();
+                    }
+                } catch (e) {
+                    console.warn('Could not load progress from storage:', e);
+                }
+            }
+        }
+
+        function updateProgressDisplay() {
+            const progressFill = safeGetElement('chapter-progress');
+            const progressText = safeGetElement('progress-text');
+            
+            if (progressFill) {
+                progressFill.style.width = progress + '%';
+            }
+            if (progressText) {
+                progressText.textContent = Math.round(progress) + '% abgeschlossen';
+            }
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProgress();
+            
+            // Add click tracking for engagement analytics
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('quiz-button')) {
+                    console.log('Quiz interaction:', e.target.textContent);
+                } else if (e.target.classList.contains('info-card')) {
+                    console.log('Info card viewed:', e.target.querySelector('h4')?.textContent || 'Unknown');
+                }
+            });
+            
+            console.log('🧬 Kohlenstoff und Kohlenwasserstoffe - Lernzettel erfolgreich geladen');
+            console.log('📱 Mobile-optimiert | ♿ Barrierefrei | 🚀 Performance-optimiert');
+        });
+
+        // Performance monitoring
+        window.addEventListener('load', function() {
+            if ('performance' in window) {
+                const loadTime = performance.now();
+                console.log('Page load time:', Math.round(loadTime) + 'ms');
+                
+                if (loadTime > 3000) {
+                    console.warn('Page load time is high. Consider optimizing resources.');
+                }
+            }
+        });
+
+        // Service worker registration for offline functionality (if available)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+
+        // Print optimization
+        window.addEventListener('beforeprint', function() {
+            // Expand all collapsed sections for printing
+            const collapsedElements = document.querySelectorAll('[style*="display: none"]');
+            collapsedElements.forEach(el => {
+                el.style.display = 'block';
+            });
+        });
+
+        // Memory cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            saveProgress();
+            // Clean up event listeners and timers if any
+            if (observer) {
+                observer.disconnect();
+            }
+        });
+    </script>
+</body>
+</html>

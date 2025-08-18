@@ -1,0 +1,1713 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atombau, Periodensystem und chemische Bindung - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        /* Navigation Breadcrumb */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-size: 0.95em;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        /* Quick Navigation */
+        .quick-nav {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quick-nav h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+        
+        .nav-item {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 0.9em;
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.4em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-header .icon {
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        /* Grid Layouts */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        /* Special Cards */
+        .concept-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+        
+        .concept-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-box {
+            background: #e8f4fd;
+            border-left: 5px solid #3498db;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .success-box {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .data-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-table tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* Interactive Elements */
+        .quiz-section {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            color: #2c3e50;
+        }
+        
+        .quiz-question {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        
+        .quiz-options {
+            margin: 15px 0;
+        }
+        
+        .quiz-option {
+            display: block;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+        
+        .quiz-option input {
+            margin-right: 10px;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 10px 5px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(45deg, #95a5a6, #7f8c8d);
+        }
+        
+        /* Formula Display */
+        .formula {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            text-align: center;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 15px;
+            }
+            
+            .three-column {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .data-table {
+                font-size: 0.9em;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 8px 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 5px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .section-content {
+                padding: 15px;
+            }
+            
+            .concept-card,
+            .info-box,
+            .warning-box,
+            .success-box {
+                padding: 15px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .content-section,
+            .concept-card {
+                background: white !important;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            
+            .section-header {
+                background: #333 !important;
+                color: white !important;
+            }
+            
+            .nav-breadcrumb,
+            .quick-nav,
+            .quiz-section {
+                display: none;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .content-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(102, 126, 234, 0.6);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(102, 126, 234, 0.8);
+        }
+/* Stil für den Scroll-to-Top Button */
+    .scroll-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(45deg, #667eea, #764ba2);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    
+    .scroll-to-top:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .scroll-to-top.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    </style>
+</head>
+<body>
+<!-- Scroll-to-Top Button -->
+<div id="scrollToTopBtn" class="scroll-to-top">
+    ↑
+</div>
+    <div class="container">
+        <!-- Breadcrumb Navigation -->
+        <nav class="nav-breadcrumb">
+            🏠 <a href="index.html">Hauptübersicht</a> → 
+            📖 <strong>Atombau, Periodensystem und chemische Bindung</strong>
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <h1>⚛️ Atombau, Periodensystem und chemische Bindung</h1>
+            <p class="subtitle">Kapitel 1 - Die Grundlagen der Chemie</p>
+            <p>Verstehe den Aufbau der Materie und die Kräfte, die Atome zusammenhalten</p>
+        </header>
+
+        <!-- Quick Navigation -->
+        <div class="quick-nav">
+            <h3>📋 Schnellnavigation zu den Unterkapiteln</h3>
+            <div class="nav-grid">
+                <a href="#atombau" class="nav-item">🔬 Atombau & Modelle</a>
+                <a href="#periodensystem" class="nav-item">📊 Periodensystem</a>
+                <a href="#ionenbindung" class="nav-item">⚡ Ionenbindung</a>
+                <a href="#elektronenpaarbindung" class="nav-item">🔗 Elektronenpaarbindung</a>
+                <a href="#metallbindung" class="nav-item">🔧 Metallbindung</a>
+                <a href="#zwischenmolekular" class="nav-item">🔄 Zwischenmolekulare Kräfte</a>
+                <a href="#orbitale" class="nav-item">🌊 Orbitale</a>
+                <a href="#uebungen" class="nav-item">📝 Übungen</a>
+            </div>
+        </div>
+
+        <!-- 1. Atombau und Atommodelle -->
+        <section class="content-section" id="atombau">
+            <div class="section-header">
+                <span class="icon">🔬</span>
+                1.1 Atombau und Atommodelle
+            </div>
+            <div class="section-content">
+                <div class="concept-card">
+                    <h3>💡 Kernaussage</h3>
+                    <p>Atome bestehen aus einem positiv geladenen Kern (Protonen + Neutronen) und einer negativ geladenen Hülle (Elektronen). Die Entwicklung der Atommodelle spiegelt den wissenschaftlichen Fortschritt wider.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h4>🏗️ Aufbau des Atoms</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Teilchen</th>
+                                    <th>Ladung</th>
+                                    <th>Masse (u)</th>
+                                    <th>Ort</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Proton</strong></td>
+                                    <td>+1</td>
+                                    <td>1,007</td>
+                                    <td>Kern</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Neutron</strong></td>
+                                    <td>0</td>
+                                    <td>1,009</td>
+                                    <td>Kern</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Elektron</strong></td>
+                                    <td>-1</td>
+                                    <td>0,0005</td>
+                                    <td>Hülle</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h4>📏 Wichtige Größen</h4>
+                        <div class="info-box">
+                            <p><strong>Ordnungszahl (Z):</strong> Anzahl der Protonen = Anzahl der Elektronen</p>
+                            <p><strong>Massenzahl (A):</strong> Anzahl Protonen + Neutronen</p>
+                            <p><strong>Kernladungszahl:</strong> = Ordnungszahl</p>
+                            <p><strong>Atomradius:</strong> ca. 10⁻¹⁰ m</p>
+                            <p><strong>Kernradius:</strong> ca. 10⁻¹⁵ m</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>🔄 Entwicklung der Atommodelle</h4>
+                <div class="three-column">
+                    <div class="info-box">
+                        <h5>Dalton (1803)</h5>
+                        <p><strong>Idee:</strong> Atome als unteilbare Kugeln</p>
+                        <p><strong>Grenzen:</strong> Keine Erklärung für Elektrizität</p>
+                    </div>
+                    <div class="info-box">
+                        <h5>Thomson (1897)</h5>
+                        <p><strong>Idee:</strong> "Rosinenkuchen-Modell" - Elektronen in positiver Masse</p>
+                        <p><strong>Erfolg:</strong> Entdeckung des Elektrons</p>
+                    </div>
+                    <div class="info-box">
+                        <h5>Rutherford (1911)</h5>
+                        <p><strong>Idee:</strong> Kern-Hülle-Modell</p>
+                        <p><strong>Problem:</strong> Elektronen müssten in Kern stürzen</p>
+                    </div>
+                </div>
+
+                <div class="three-column">
+                    <div class="success-box">
+                        <h5>Bohr (1913)</h5>
+                        <p><strong>Idee:</strong> Elektronen auf festen Bahnen</p>
+                        <p><strong>Erfolg:</strong> Erklärung des H-Spektrums</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>Sommerfeld (1916)</h5>
+                        <p><strong>Idee:</strong> Elliptische Bahnen</p>
+                        <p><strong>Verbesserung:</strong> Genauere Spektren</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>Orbitalmodell (1926)</h5>
+                        <p><strong>Idee:</strong> Aufenthaltswahrscheinlichkeiten</p>
+                        <p><strong>Heute:</strong> Aktuelles Atommodell</p>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Wichtig für die Prüfung</h4>
+                    <p>Können Sie die Grenzen der einzelnen Atommodelle erklären und begründen, warum neue Modelle entwickelt wurden? Dies ist ein häufiges Prüfungsthema!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Periodensystem -->
+        <section class="content-section" id="periodensystem">
+            <div class="section-header">
+                <span class="icon">📊</span>
+                1.2 Das Periodensystem der Elemente
+            </div>
+            <div class="section-content">
+                <div class="concept-card">
+                    <h3>💡 Kernaussage</h3>
+                    <p>Das Periodensystem ordnet alle Elemente nach steigender Ordnungszahl. Die periodische Wiederholung der Eigenschaften erklärt sich durch den schalenweisen Aufbau der Elektronenhülle.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h4>🏗️ Aufbau des PSE</h4>
+                        <div class="info-box">
+                            <p><strong>Perioden (waagerecht):</strong> 7 Zeilen</p>
+                            <p>→ Gleiche Anzahl Elektronenschalen</p>
+                            <br>
+                            <p><strong>Hauptgruppen (senkrecht):</strong> 8 Spalten</p>
+                            <p>→ Gleiche Anzahl Außenelektronen</p>
+                            <br>
+                            <p><strong>Nebengruppen:</strong> Übergangsmetalle</p>
+                            <p>→ d-Orbitale werden aufgefüllt</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>📈 Periodische Eigenschaften</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Eigenschaft</th>
+                                    <th>In der Periode →</th>
+                                    <th>In der Gruppe ↓</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Atomradius</td>
+                                    <td>nimmt ab</td>
+                                    <td>nimmt zu</td>
+                                </tr>
+                                <tr>
+                                    <td>Ionisierungsenergie</td>
+                                    <td>nimmt zu</td>
+                                    <td>nimmt ab</td>
+                                </tr>
+                                <tr>
+                                    <td>Elektronegativität</td>
+                                    <td>nimmt zu</td>
+                                    <td>nimmt ab</td>
+                                </tr>
+                                <tr>
+                                    <td>Metallcharakter</td>
+                                    <td>nimmt ab</td>
+                                    <td>nimmt zu</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <h4>🔢 Elektronenkonfiguration</h4>
+                <div class="formula">
+                    Aufbauprinzip: 1s² 2s² 2p⁶ 3s² 3p⁶ 4s² 3d¹⁰ 4p⁶ ...
+                </div>
+                
+                <div class="three-column">
+                    <div class="success-box">
+                        <h5>Beispiel: Natrium (Na)</h5>
+                        <p><strong>Z = 11</strong></p>
+                        <p>Elektronenkonfiguration: 1s² 2s² 2p⁶ 3s¹</p>
+                        <p>Kurzschreibweise: [Ne] 3s¹</p>
+                        <p>3. Periode, 1. Hauptgruppe</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>Beispiel: Chlor (Cl)</h5>
+                        <p><strong>Z = 17</strong></p>
+                        <p>Elektronenkonfiguration: 1s² 2s² 2p⁶ 3s² 3p⁵</p>
+                        <p>Kurzschreibweise: [Ne] 3s² 3p⁵</p>
+                        <p>3. Periode, 7. Hauptgruppe</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>Edelgaskonfiguration</h5>
+                        <p>Besonders stabile Elektronenkonfiguration</p>
+                        <p>Alle Orbitale vollständig besetzt</p>
+                        <p>→ Basis für Ionenbildung</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Ionenbindung -->
+        <section class="content-section" id="ionenbindung">
+            <div class="section-header">
+                <span class="icon">⚡</span>
+                1.3 Ionenbindung und Salzbildung
+            </div>
+            <div class="section-content">
+                <div class="concept-card">
+                    <h3>💡 Kernaussage</h3>
+                    <p>Bei der Ionenbindung übertragen Metallatome Elektronen auf Nichtmetallatome. Die entstehenden Ionen ziehen sich elektrostatisch an und bilden Ionengitter (Salze).</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h4>🔄 Entstehung von Ionen</h4>
+                        <div class="formula">
+                            Na → Na⁺ + e⁻  (Oxidation)<br>
+                            Cl + e⁻ → Cl⁻   (Reduktion)<br>
+                            ___________________<br>
+                            Na + Cl → Na⁺Cl⁻ (NaCl)
+                        </div>
+                        
+                        <div class="info-box">
+                            <p><strong>Kationen (positiv):</strong> Metalle geben Elektronen ab</p>
+                            <p><strong>Anionen (negativ):</strong> Nichtmetalle nehmen Elektronen auf</p>
+                            <p><strong>Triebkraft:</strong> Erreichen der Edelgaskonfiguration</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>⚡ Energetik der Salzbildung</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Prozess</th>
+                                    <th>Energieumsatz</th>
+                                    <th>Bemerkung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Ionisierung</td>
+                                    <td>endotherm (+)</td>
+                                    <td>Energie wird benötigt</td>
+                                </tr>
+                                <tr>
+                                    <td>Elektronenaffinität</td>
+                                    <td>exotherm (-)</td>
+                                    <td>Energie wird frei</td>
+                                </tr>
+                                <tr>
+                                    <td>Gitterbildung</td>
+                                    <td>exotherm (-)</td>
+                                    <td>Größter Energiegewinn</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Gesamt</strong></td>
+                                    <td><strong>exotherm</strong></td>
+                                    <td>Salzbildung läuft ab</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <h4>🏗️ Eigenschaften von Salzen</h4>
+                <div class="three-column">
+                    <div class="info-box">
+                        <h5>Elektrische Eigenschaften</h5>
+                        <p>• Fest: Isolator</p>
+                        <p>• Geschmolzen: Leiter</p>
+                        <p>• In Lösung: Leiter</p>
+                        <p>→ Bewegliche Ionen nötig</p>
+                    </div>
+                    <div class="info-box">
+                        <h5>Mechanische Eigenschaften</h5>
+                        <p>• Spröde und hart</p>
+                        <p>• Hohe Schmelzpunkte</p>
+                        <p>• Kristalline Struktur</p>
+                        <p>→ Starke Coulomb-Kräfte</p>
+                    </div>
+                    <div class="info-box">
+                        <h5>Löslichkeit</h5>
+                        <p>• Oft wasserlöslich</p>
+                        <p>• Hydratation der Ionen</p>
+                        <p>• Energiebilanz entscheidend</p>
+                        <p>→ Polare Lösungsmittel</p>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <h4>🧮 Born-Haber-Kreisprozess</h4>
+                    <p>Ermöglicht die Berechnung der Gitterenergie durch Anwendung des Hess'schen Satzes:</p>
+                    <div class="formula">
+                        ΔH(Bildung) = ΔH(Sublimation) + ΔH(Ionisierung) + ΔH(Dissoziation) + ΔH(Elektronenaffinität) + ΔH(Gitter)
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Elektronenpaarbindung -->
+        <section class="content-section" id="elektronenpaarbindung">
+            <div class="section-header">
+                <span class="icon">🔗</span>
+                1.4 Elektronenpaarbindung (Atombindung)
+            </div>
+            <div class="section-content">
+                <div class="concept-card">
+                    <h3>💡 Kernaussage</h3>
+                    <p>Bei der Elektronenpaarbindung teilen sich Atome Elektronenpaare. Diese Bindung tritt hauptsächlich zwischen Nichtmetallen auf und führt zur Bildung von Molekülen.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h4>🔗 Entstehung der Bindung</h4>
+                        <div class="info-box">
+                            <p><strong>Prinzip:</strong> Gemeinsame Nutzung von Elektronenpaaren</p>
+                            <p><strong>Triebkraft:</strong> Erreichen der Edelgaskonfiguration</p>
+                            <p><strong>Partner:</strong> Meist Nichtmetalle untereinander</p>
+                            <p><strong>Resultat:</strong> Moleküle mit definierten Eigenschaften</p>
+                        </div>
+
+                        <h5>Bindungstypen:</h5>
+                        <div class="formula">
+                            Einfachbindung: H-H<br>
+                            Doppelbindung: O=O<br>
+                            Dreifachbindung: N≡N
+                        </div>
+                    </div>
+                    <div>
+                        <h4>⚖️ Polarität von Bindungen</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>ΔEN</th>
+                                    <th>Bindungstyp</th>
+                                    <th>Beispiel</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>0 - 0,4</td>
+                                    <td>unpolar</td>
+                                    <td>H-H, C-C</td>
+                                </tr>
+                                <tr>
+                                    <td>0,4 - 1,7</td>
+                                    <td>polar</td>
+                                    <td>H-Cl, C-O</td>
+                                </tr>
+                                <tr>
+                                    <td>> 1,7</td>
+                                    <td>ionisch</td>
+                                    <td>Na-Cl</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="success-box">
+                            <h5>Elektronegativität (nach Pauling)</h5>
+                            <p>F: 4,0 | O: 3,5 | N: 3,0 | Cl: 3,0</p>
+                            <p>C: 2,5 | H: 2,1 | Na: 0,9</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📐 EPA-Modell (Elektronenpaar-Abstoßungs-Modell)</h4>
+                <div class="three-column">
+                    <div class="info-box">
+                        <h5>Lineare Geometrie</h5>
+                        <p><strong>2 Elektronenpaare</strong></p>
+                        <p>Bindungswinkel: 180°</p>
+                        <p>Beispiel: BeCl₂, CO₂</p>
+                        <div style="text-align: center; font-size: 1.5em; margin: 10px 0;">
+                            Cl—Be—Cl
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h5>Trigonal-planar</h5>
+                        <p><strong>3 Elektronenpaare</strong></p>
+                        <p>Bindungswinkel: 120°</p>
+                        <p>Beispiel: BF₃</p>
+                        <div style="text-align: center; font-size: 1.2em; margin: 10px 0;">
+                            F<br>
+                            |<br>
+                            F—B—F
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <h5>Tetraedrisch</h5>
+                        <p><strong>4 Elektronenpaare</strong></p>
+                        <p>Bindungswinkel: 109,5°</p>
+                        <p>Beispiel: CH₄, CCl₄</p>
+                        <div style="text-align: center; font-size: 1.2em; margin: 10px 0;">
+                            H<br>
+                            |<br>
+                            H—C—H<br>
+                            |<br>
+                            H
+                        </div>
+                    </div>
+                </div>
+
+                <div class="three-column">
+                    <div class="warning-box">
+                        <h5>Pyramidal (gewinkelt)</h5>
+                        <p><strong>3 BP + 1 FEP</strong></p>
+                        <p>Bindungswinkel: < 109,5°</p>
+                        <p>Beispiel: NH₃ (107°)</p>
+                        <p>Freies Elektronenpaar braucht mehr Platz!</p>
+                    </div>
+                    <div class="warning-box">
+                        <h5>Gewinkelt</h5>
+                        <p><strong>2 BP + 2 FEP</strong></p>
+                        <p>Bindungswinkel: < 109,5°</p>
+                        <p>Beispiel: H₂O (104,5°)</p>
+                        <p>Zwei freie Elektronenpaare!</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>Oktetraeder</h5>
+                        <p><strong>6 Elektronenpaare</strong></p>
+                        <p>Bindungswinkel: 90°</p>
+                        <p>Beispiel: SF₆</p>
+                        <p>Erweiterte Elektronenhülle!</p>
+                    </div>
+                </div>
+
+                <div class="success-box">
+                    <h4>🎯 Merkregen für EPA-Modell</h4>
+                    <p><strong>1.</strong> Zähle alle Elektronenpaare um das Zentralatom (bindende + freie)</p>
+                    <p><strong>2.</strong> Ordne sie mit maximalem Abstand an</p>
+                    <p><strong>3.</strong> Freie Elektronenpaare brauchen mehr Platz → kleinere Bindungswinkel</p>
+                    <p><strong>4.</strong> Die Molekülgeometrie wird nur durch die Atompositionen beschrieben</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Metallbindung -->
+        <section class="content-section" id="metallbindung">
+            <div class="section-header">
+                <span class="icon">🔧</span>
+                1.5 Metallbindung
+            </div>
+            <div class="section-content">
+                <div class="concept-card">
+                    <h3>💡 Kernaussage</h3>
+                    <p>In Metallen sind die Valenzelektronen delokalisiert und bilden ein "Elektronengas" um die positiven Metallionen. Diese besondere Bindung erklärt die typischen Metalleigenschaften.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h4>⚡ Elektronengas-Modell</h4>
+                        <div class="info-box">
+                            <p><strong>Aufbau:</strong></p>
+                            <p>• Positive Metallionen (Atomrümpfe)</p>
+                            <p>• Delokalisierte Valenzelektronen</p>
+                            <p>• Gleichmäßige Ladungsverteilung</p>
+                            <br>
+                            <p><strong>Bindung:</strong></p>
+                            <p>• Elektrostatische Anziehung</p>
+                            <p>• Zwischen Kationen und Elektronengas</p>
+                            <p>• Ungerichtete Bindung</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>🏗️ Eigenschaften von Metallen</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Eigenschaft</th>
+                                    <th>Ursache</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Elektrische Leitfähigkeit</strong></td>
+                                    <td>Bewegliche Elektronen</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Wärmeleitfähigkeit</strong></td>
+                                    <td>Bewegliche Elektronen</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Verformbarkeit</strong></td>
+                                    <td>Ungerichtete Bindung</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Metallglanz</strong></td>
+                                    <td>Lichtreflexion an Elektronengas</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Duktilität</strong></td>
+                                    <td>Bindung bleibt bei Verformung</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <h4>📊 Eigenschaften verschiedener Metalle</h4>
+                <div class="three-column">
+                    <div class="success-box">
+                        <h5>Alkalimetalle (1. HG)</h5>
+                        <p>• Nur 1 Valenzelektron</p>
+                        <p>• Weich, niedrige Schmelzpunkte</p>
+                        <p>• Sehr reaktiv</p>
+                        <p>• Beispiel: Na, K</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>Erdalkalimetalle (2. HG)</h5>
+                        <p>• 2 Valenzelektronen</p>
+                        <p>• Härter als Alkalimetalle</p>
+                        <p>• Reaktiv, aber weniger als 1. HG</p>
+                        <p>• Beispiel: Mg, Ca</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>Übergangsmetalle</h5>
+                        <p>• Viele Valenzelektronen</p>
+                        <p>• Sehr hart, hohe Schmelzpunkte</p>
+                        <p>• Gute Leiter</p>
+                        <p>• Beispiel: Fe, Cu, Au</p>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>⚠️ Legierungen</h4>
+                    <p><strong>Definition:</strong> Mischungen verschiedener Metalle (oder Metall + Nichtmetall)</p>
+                    <p><strong>Eigenschaften:</strong> Oft besser als reine Metalle (härter, korrosionsbeständiger)</p>
+                    <p><strong>Beispiele:</strong> Stahl (Fe + C), Bronze (Cu + Sn), Messing (Cu + Zn)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Zwischenmolekulare Kräfte -->
+        <section class="content-section" id="zwischenmolekular">
+            <div class="section-header">
+                <span class="icon">🔄</span>
+                1.6 Zwischenmolekulare Kräfte
+            </div>
+            <div class="section-content">
+                <div class="concept-card">
+                    <h3>💡 Kernaussage</h3>
+                    <p>Zwischen Molekülen wirken schwächere Kräfte als chemische Bindungen. Diese bestimmen die physikalischen Eigenschaften wie Siedepunkt, Schmelzpunkt und Löslichkeit.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h4>💫 Van-der-Waals-Kräfte</h4>
+                        
+                        <h5>1. London-Kräfte (Dispersionskräfte)</h5>
+                        <div class="info-box">
+                            <p><strong>Ursache:</strong> Temporäre Dipole</p>
+                            <p><strong>Vorkommen:</strong> Zwischen allen Molekülen</p>
+                            <p><strong>Stärke:</strong> Schwächste zwischenmolekulare Kraft</p>
+                            <p><strong>Abhängigkeit:</strong> Molekülgröße, Elektronenzahl</p>
+                        </div>
+
+                        <h5>2. Dipol-Dipol-Kräfte</h5>
+                        <div class="info-box">
+                            <p><strong>Ursache:</strong> Permanente Dipole</p>
+                            <p><strong>Vorkommen:</strong> Zwischen polaren Molekülen</p>
+                            <p><strong>Stärke:</strong> Stärker als London-Kräfte</p>
+                            <p><strong>Beispiel:</strong> HCl-Moleküle</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>🌊 Wasserstoffbrücken</h4>
+                        <div class="success-box">
+                            <p><strong>Voraussetzungen:</strong></p>
+                            <p>• H-Atom an stark elektronegatives Atom (F, O, N) gebunden</p>
+                            <p>• Freies Elektronenpaar am Akzeptor</p>
+                            <br>
+                            <p><strong>Besonderheiten:</strong></p>
+                            <p>• Stärkste zwischenmolekulare Kraft</p>
+                            <p>• Gerichtet (anders als van-der-Waals)</p>
+                            <p>• Bestimmt Struktur von DNA, Proteinen</p>
+                        </div>
+
+                        <div class="formula">
+                            H₂O···H₂O (Wasserstoffbrücke)<br>
+                            HF···HF<br>
+                            NH₃···NH₃
+                        </div>
+                    </div>
+                </div>
+
+                <h4>📊 Auswirkungen auf Stoffeigenschaften</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Substanz</th>
+                            <th>Zwischenmolekulare Kraft</th>
+                            <th>Siedepunkt (°C)</th>
+                            <th>Besonderheit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>CH₄ (Methan)</td>
+                            <td>London-Kräfte</td>
+                            <td>-162</td>
+                            <td>Unpolare Moleküle</td>
+                        </tr>
+                        <tr>
+                            <td>HCl</td>
+                            <td>Dipol-Dipol + London</td>
+                            <td>-85</td>
+                            <td>Polare Moleküle</td>
+                        </tr>
+                        <tr>
+                            <td>H₂O (Wasser)</td>
+                            <td>Wasserstoffbrücken</td>
+                            <td>100</td>
+                            <td>Anomalie des Wassers</td>
+                        </tr>
+                        <tr>
+                            <td>HF</td>
+                            <td>Wasserstoffbrücken</td>
+                            <td>20</td>
+                            <td>Stärkste H-Brücken</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <div class="three-column">
+                    <div class="info-box">
+                        <h5>Löslichkeitsregeln</h5>
+                        <p><strong>"Ähnliches löst Ähnliches"</strong></p>
+                        <p>• Polare Stoffe → polare Lösungsmittel</p>
+                        <p>• Unpolare Stoffe → unpolare Lösungsmittel</p>
+                        <p>• Wasser: universelles polares Lösungsmittel</p>
+                    </div>
+                    <div class="warning-box">
+                        <h5>Anomalie des Wassers</h5>
+                        <p>• Dichtemaximum bei 4°C</p>
+                        <p>• Eis schwimmt auf Wasser</p>
+                        <p>• Hoher Siedepunkt trotz kleiner Moleküle</p>
+                        <p>→ Wasserstoffbrücken!</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>Biologische Bedeutung</h5>
+                        <p>• DNA-Doppelhelix</p>
+                        <p>• Proteinstruktur</p>
+                        <p>• Membranbildung</p>
+                        <p>• Leben im Wasser möglich</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Orbitale und Hybridisierung -->
+        <section class="content-section" id="orbitale">
+            <div class="section-header">
+                <span class="icon">🌊</span>
+                1.7 Atomorbitale und Molekülorbitale
+            </div>
+            <div class="section-content">
+                <div class="concept-card">
+                    <h3>💡 Kernaussage</h3>
+                    <p>Orbitale beschreiben die Aufenthaltswahrscheinlichkeit von Elektronen. Sie erklären die chemische Bindung auf quantenmechanischer Ebene und ermöglichen das Verständnis der Molekülgeometrie.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h4>🔢 Quantenzahlen</h4>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Quantenzahl</th>
+                                    <th>Symbol</th>
+                                    <th>Bedeutung</th>
+                                    <th>Werte</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Hauptquantenzahl</td>
+                                    <td>n</td>
+                                    <td>Schale/Energie</td>
+                                    <td>1, 2, 3, 4...</td>
+                                </tr>
+                                <tr>
+                                    <td>Nebenquantenzahl</td>
+                                    <td>l</td>
+                                    <td>Orbitaltyp</td>
+                                    <td>0 bis (n-1)</td>
+                                </tr>
+                                <tr>
+                                    <td>Magnetquantenzahl</td>
+                                    <td>m</td>
+                                    <td>Orientierung</td>
+                                    <td>-l bis +l</td>
+                                </tr>
+                                <tr>
+                                    <td>Spinquantenzahl</td>
+                                    <td>s</td>
+                                    <td>Eigendrehung</td>
+                                    <td>±½</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h4>🎯 Orbitaltypen</h4>
+                        <div class="info-box">
+                            <p><strong>s-Orbitale (l=0):</strong></p>
+                            <p>• Kugelförmig</p>
+                            <p>• 1 Orbital pro Schale</p>
+                            <p>• Max. 2 Elektronen</p>
+                        </div>
+                        
+                        <div class="info-box">
+                            <p><strong>p-Orbitale (l=1):</strong></p>
+                            <p>• Hantelförmig</p>
+                            <p>• 3 Orbitale pro Schale (px, py, pz)</p>
+                            <p>• Max. 6 Elektronen</p>
+                        </div>
+                        
+                        <div class="info-box">
+                            <p><strong>d-Orbitale (l=2):</strong></p>
+                            <p>• Komplexe Formen</p>
+                            <p>• 5 Orbitale pro Schale</p>
+                            <p>• Max. 10 Elektronen</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h4>🔄 Hybridisierung</h4>
+                <div class="three-column">
+                    <div class="success-box">
+                        <h5>sp³-Hybridisierung</h5>
+                        <p><strong>Ausgangsorbitale:</strong> 1s + 3p</p>
+                        <p><strong>Hybridorbitale:</strong> 4 sp³</p>
+                        <p><strong>Geometrie:</strong> Tetraedrisch</p>
+                        <p><strong>Winkel:</strong> 109,5°</p>
+                        <p><strong>Beispiel:</strong> CH₄, CCl₄</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>sp²-Hybridisierung</h5>
+                        <p><strong>Ausgangsorbitale:</strong> 1s + 2p</p>
+                        <p><strong>Hybridorbitale:</strong> 3 sp²</p>
+                        <p><strong>Geometrie:</strong> Trigonal-planar</p>
+                        <p><strong>Winkel:</strong> 120°</p>
+                        <p><strong>Beispiel:</strong> C₂H₄ (Ethen)</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>sp-Hybridisierung</h5>
+                        <p><strong>Ausgangsorbitale:</strong> 1s + 1p</p>
+                        <p><strong>Hybridorbitale:</strong> 2 sp</p>
+                        <p><strong>Geometrie:</strong> Linear</p>
+                        <p><strong>Winkel:</strong> 180°</p>
+                        <p><strong>Beispiel:</strong> C₂H₂ (Ethin)</p>
+                    </div>
+                </div>
+
+                <h4>🔗 Molekülorbital-Theorie (MO)</h4>
+                <div class="two-column">
+                    <div>
+                        <div class="info-box">
+                            <h5>Grundprinzipien</h5>
+                            <p><strong>Überlappung:</strong> AO → MO</p>
+                            <p><strong>Anzahl:</strong> n AO → n MO</p>
+                            <p><strong>Typen:</strong> Bindende und antibindende MO</p>
+                            <p><strong>Energie:</strong> Bindende MO energieärmer</p>
+                        </div>
+                        
+                        <div class="formula">
+                            Bindungsordnung = ½(bindende e⁻ - antibindende e⁻)
+                        </div>
+                    </div>
+                    <div>
+                        <div class="success-box">
+                            <h5>Beispiel: H₂-Molekül</h5>
+                            <p><strong>AO:</strong> 2 × 1s</p>
+                            <p><strong>MO:</strong> σ₁s (bindend) + σ*₁s (antibindend)</p>
+                            <p><strong>Elektronenbesetzung:</strong> σ₁s²</p>
+                            <p><strong>Bindungsordnung:</strong> ½(2-0) = 1</p>
+                            <p>→ Einfachbindung, stabil</p>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h5>Beispiel: He₂-Molekül</h5>
+                            <p><strong>Elektronenbesetzung:</strong> σ₁s² σ*₁s²</p>
+                            <p><strong>Bindungsordnung:</strong> ½(2-2) = 0</p>
+                            <p>→ Keine Bindung, instabil!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Übungen und Selbsttest -->
+        <section class="content-section" id="uebungen">
+            <div class="section-header">
+                <span class="icon">📝</span>
+                1.8 Übungen und Selbsttest
+            </div>
+            <div class="section-content">
+                <div class="quiz-section">
+                    <h3>🧩 Interaktiver Selbsttest</h3>
+                    
+                    <div class="quiz-question">
+                        <h4>Frage 1: Welches Atommodell erklärt die Spektrallinien des Wasserstoffs?</h4>
+                        <div class="quiz-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="q1" value="a"> a) Dalton-Modell
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q1" value="b"> b) Thomson-Modell
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q1" value="c"> c) Bohr-Modell
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q1" value="d"> d) Rutherford-Modell
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Frage 2: Welche Molekülgeometrie hat NH₃?</h4>
+                        <div class="quiz-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="q2" value="a"> a) Tetraedrisch
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q2" value="b"> b) Pyramidal
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q2" value="c"> c) Trigonal-planar
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q2" value="d"> d) Linear
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="quiz-question">
+                        <h4>Frage 3: Welche zwischenmolekulare Kraft ist am stärksten?</h4>
+                        <div class="quiz-options">
+                            <label class="quiz-option">
+                                <input type="radio" name="q3" value="a"> a) London-Kräfte
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q3" value="b"> b) Dipol-Dipol-Kräfte
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q3" value="c"> c) Wasserstoffbrücken
+                            </label>
+                            <label class="quiz-option">
+                                <input type="radio" name="q3" value="d"> d) Alle gleich stark
+                            </label>
+                        </div>
+                    </div>
+
+                    <button class="btn" onclick="checkQuiz()">Antworten überprüfen</button>
+                    <button class="btn btn-secondary" onclick="resetQuiz()">Zurücksetzen</button>
+                    
+                    <div id="quiz-results" style="margin-top: 20px; display: none;"></div>
+                </div>
+
+                <h4>📚 Übungsaufgaben für die Prüfung</h4>
+                
+                <div class="three-column">
+                    <div class="info-box">
+                        <h5>Grundlagen (⚪ Leicht)</h5>
+                        <p><strong>A1:</strong> Bestimmen Sie die Elektronenkonfiguration von Ca²⁺</p>
+                        <p><strong>A2:</strong> Erklären Sie den Aufbau des PSE</p>
+                        <p><strong>A3:</strong> Zeichnen Sie die Lewis-Struktur von H₂O</p>
+                    </div>
+                    <div class="warning-box">
+                        <h5>Mittelstufe (🟡 Mittel)</h5>
+                        <p><strong>B1:</strong> Erklären Sie die Anomalie des Wassers</p>
+                        <p><strong>B2:</strong> Bestimmen Sie die Molekülgeometrie von SF₄</p>
+                        <p><strong>B3:</strong> Berechnen Sie die Gitterenergie von NaCl</p>
+                    </div>
+                    <div class="success-box">
+                        <h5>Fortgeschritten (🟢 Schwer)</h5>
+                        <p><strong>C1:</strong> Erläutern Sie die MO-Theorie am Beispiel von O₂</p>
+                        <p><strong>C2:</strong> Diskutieren Sie Hybridisierung in C₂H₄</p>
+                        <p><strong>C3:</strong> Analysieren Sie Born-Haber-Kreisprozess für MgO</p>
+                    </div>
+                </div>
+
+                <div class="info-box">
+                    <h4>🎯 Tipps für die Abiturprüfung</h4>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li><strong>Atommodelle:</strong> Können Sie die Entwicklung erklären und Grenzen benennen?</li>
+                        <li><strong>PSE-Trends:</strong> Verstehen Sie die Ursachen für periodische Eigenschaften?</li>
+                        <li><strong>EPA-Modell:</strong> Üben Sie die Vorhersage von Molekülgeometrien!</li>
+                        <li><strong>Bindungstypen:</strong> Können Sie anhand der EN entscheiden?</li>
+                        <li><strong>Zwischenmolekulare Kräfte:</strong> Verbinden Sie mit Stoffeigenschaften!</li>
+                        <li><strong>Energetik:</strong> Born-Haber-Kreisprozess ist prüfungsrelevant!</li>
+                    </ul>
+                </div>
+
+                <div class="success-box">
+                    <h4>✅ Lernziele-Checkliste</h4>
+                    <p>Haken Sie ab, was Sie beherrschen:</p>
+                    <div style="column-count: 2; column-gap: 30px; margin-top: 15px;">
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Atommodelle erklären</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Elektronenkonfiguration bestimmen</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> PSE-Trends begründen</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Ionenbildung erklären</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Lewis-Strukturen zeichnen</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> EPA-Modell anwenden</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Polarität bestimmen</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Metallbindung erklären</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Zwischenmolekulare Kräfte</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Orbitale verstehen</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Hybridisierung erklären</label>
+                        <label style="display: block; margin: 8px 0;"><input type="checkbox"> Born-Haber-Kreisprozess</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zusammenfassung -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="icon">📋</span>
+                Zusammenfassung und Ausblick
+            </div>
+            <div class="section-content">
+                <div class="concept-card">
+                    <h3>🎯 Das Wichtigste in Kürze</h3>
+                    <p>In diesem Kapitel haben Sie die Grundlagen der Chemie erlernt: vom Atombau über das Periodensystem bis hin zu den verschiedenen Bindungstypen. Diese Konzepte sind fundamental für alle weiteren Themen der Chemie.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h4>🔑 Schlüsselkonzepte</h4>
+                        <div class="success-box">
+                            <p><strong>Atombau:</strong> Kern-Hülle-Modell mit Protonen, Neutronen und Elektronen</p>
+                            <p><strong>Periodensystem:</strong> Ordnung nach Elektronenkonfiguration</p>
+                            <p><strong>Chemische Bindung:</strong> Ionen-, Elektronenpaar- und Metallbindung</p>
+                            <p><strong>Molekülgeometrie:</strong> EPA-Modell erklärt räumlichen Bau</p>
+                            <p><strong>Zwischenmolekulare Kräfte:</strong> Bestimmen physikalische Eigenschaften</p>
+                        </div>
+                    </div>
+                    <div>
+                        <h4>➡️ Ausblick auf weitere Kapitel</h4>
+                        <div class="info-box">
+                            <p><strong>Kapitel 2:</strong> Kohlenwasserstoffe - Grundlagen der organischen Chemie</p>
+                            <p><strong>Kapitel 3:</strong> Sauerstoffverbindungen - Funktionelle Gruppen</p>
+                            <p><strong>Kapitel 4:</strong> Energetik - Warum laufen Reaktionen ab?</p>
+                            <p><strong>Kapitel 5:</strong> Gleichgewichte - Dynamik chemischer Reaktionen</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="warning-box">
+                    <h4>💡 Für das Abitur 2026 besonders wichtig</h4>
+                    <p><strong>Neue Formelsammlung:</strong> Machen Sie sich mit der ländergemeinsamen Formelsammlung vertraut!</p>
+                    <p><strong>Kompetenzorientierung:</strong> Nicht nur Wissen, sondern auch Anwendung und Bewertung sind gefragt</p>
+                    <p><strong>Basiskonzepte:</strong> Verbinden Sie dieses Kapitel mit den 5 Basiskonzepten der Chemie</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer Navigation -->
+        <footer style="background: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 15px; text-align: center; margin-top: 30px;">
+            <h3>🧭 Navigation</h3>
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
+                <a href="index.html" class="btn">🏠 Hauptübersicht</a>
+                <a href="kohlenwasserstoffe.html" class="btn">➡️ Nächstes Kapitel</a>
+                
+            </div>
+            <p style="margin-top: 20px; color: #7f8c8d;">
+                💡 <strong>Tipp:</strong> Bookmarken Sie diese Seite für schnellen Zugriff!<br>
+                📅 Stand: August 2025 | Gültig für Abitur 2026
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Quiz-Funktionalität
+        const quizAnswers = {
+            q1: 'c', // Bohr-Modell
+            q2: 'b', // Pyramidal
+            q3: 'c'  // Wasserstoffbrücken
+        };
+
+        function checkQuiz() {
+            const results = document.getElementById('quiz-results');
+            let score = 0;
+            let totalQuestions = Object.keys(quizAnswers).length;
+            let resultHTML = '<h4>📊 Ihre Ergebnisse:</h4>';
+
+            for (let question in quizAnswers) {
+                const selectedAnswer = document.querySelector(`input[name="${question}"]:checked`);
+                const correctAnswer = quizAnswers[question];
+                
+                if (selectedAnswer && selectedAnswer.value === correctAnswer) {
+                    score++;
+                    resultHTML += `<p style="color: green;">✅ ${question.toUpperCase()}: Richtig!</p>`;
+                } else {
+                    resultHTML += `<p style="color: red;">❌ ${question.toUpperCase()}: Falsch. Richtige Antwort: ${correctAnswer}</p>`;
+                }
+            }
+
+            const percentage = Math.round((score / totalQuestions) * 100);
+            resultHTML += `<h5>Gesamtergebnis: ${score}/${totalQuestions} (${percentage}%)</h5>`;
+            
+            if (percentage >= 80) {
+                resultHTML += '<p style="color: green; font-weight: bold;">🎉 Sehr gut! Sie haben das Kapitel verstanden.</p>';
+            } else if (percentage >= 60) {
+                resultHTML += '<p style="color: orange; font-weight: bold;">👍 Gut! Wiederholen Sie noch einmal die schwierigen Themen.</p>';
+            } else {
+                resultHTML += '<p style="color: red; font-weight: bold;">📚 Sie sollten das Kapitel nochmals durcharbeiten.</p>';
+            }
+
+            results.innerHTML = resultHTML;
+            results.style.display = 'block';
+        }
+
+        function resetQuiz() {
+            // Alle Radio-Buttons zurücksetzen
+            const radioButtons = document.querySelectorAll('input[type="radio"]');
+            radioButtons.forEach(radio => radio.checked = false);
+            
+            // Ergebnisse ausblenden
+            document.getElementById('quiz-results').style.display = 'none';
+        }
+
+        // Smooth Scrolling für Anker-Links
+        document.addEventListener('DOMContentLoaded', function() {
+            const links = document.querySelectorAll('a[href^="#"]');
+            
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Progress tracking für Checkliste
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const totalBoxes = checkboxes.length;
+                    const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked').length;
+                    const progress = Math.round((checkedBoxes / totalBoxes) * 100);
+                    
+                    // Lokale Speicherung des Fortschritts
+                    if (typeof(Storage) !== "undefined") {
+                        sessionStorage.setItem('atombau-progress', progress);
+                    }
+                    
+                    // Feedback
+                    if (progress === 100) {
+                        alert('🎉 Gratulation! Sie haben alle Lernziele abgehakt!');
+                    }
+                });
+            });
+
+            // Fortschritt laden
+            if (typeof(Storage) !== "undefined") {
+                const savedProgress = sessionStorage.getItem('atombau-progress');
+                if (savedProgress) {
+                    console.log(`Gespeicherter Fortschritt: ${savedProgress}%`);
+                }
+            }
+
+            
+            // Easter Egg: Chemiker-Zitat
+            let clickCount = 0;
+            document.querySelector('h1').addEventListener('click', function() {
+                clickCount++;
+                if (clickCount === 5) {
+                    alert('🧪 "Die Chemie ist die Kunst, Moleküle und Atome zu manipulieren!" - Ahmed Zewail (Nobelpreisträger)');
+                    clickCount = 0;
+                }
+            });
+
+            // Keyboard Navigation
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Home') {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+                if (e.key === 'End') {
+                    e.preventDefault();
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }
+            });
+
+            // Performance-Optimierung: Lazy Loading für Animationen
+            if ('IntersectionObserver' in window) {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -100px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.animationDelay = '0ms';
+                            entry.target.style.opacity = '1';
+                        }
+                    });
+                }, observerOptions);
+
+                document.querySelectorAll('.content-section').forEach(section => {
+                    observer.observe(section);
+                });
+            }
+        });
+
+        // Print-Funktionalität
+        function printPage() {
+            window.print();
+        }
+
+        // Responsive Table Handling
+        function makeTablesResponsive() {
+            const tables = document.querySelectorAll('.data-table');
+            tables.forEach(table => {
+                if (window.innerWidth < 768) {
+                    table.style.fontSize = '0.8em';
+                } else {
+                    table.style.fontSize = '1em';
+                }
+            });
+        }
+
+        window.addEventListener('resize', makeTablesResponsive);
+        window.addEventListener('load', makeTablesResponsive);
+
+        // Auto-Save für Quiz-Antworten
+        document.querySelectorAll('input[type="radio"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (typeof(Storage) !== "undefined") {
+                    sessionStorage.setItem('quiz-' + this.name, this.value);
+                }
+            });
+        });
+
+        // Quiz-Antworten beim Laden wiederherstellen
+        window.addEventListener('load', function() {
+            if (typeof(Storage) !== "undefined") {
+                for (let i = 1; i <= 3; i++) {
+                    const savedAnswer = sessionStorage.getItem(`quiz-q${i}`);
+                    if (savedAnswer) {
+                        const radio = document.querySelector(`input[name="q${i}"][value="${savedAnswer}"]`);
+                        if (radio) radio.checked = true;
+                    }
+                }
+            }
+        });
+
+        // Fehlerbehandlung für ältere Browser
+        if (!Element.prototype.scrollIntoView) {
+            Element.prototype.scrollIntoView = function() {
+                this.scrollTop = this.offsetTop;
+            };
+        }
+
+        // Touch-Optimierung für mobile Geräte
+        if ('ontouchstart' in window) {
+            document.body.classList.add('touch-device');
+            
+            // Verbesserung der Touch-Targets
+            const buttons = document.querySelectorAll('.btn, .nav-item, .quiz-option');
+            buttons.forEach(button => {
+                button.style.minHeight = '44px';
+                button.style.minWidth = '44px';
+            });
+        }
+
+        // Performance-Monitoring (optional)
+        if ('performance' in window) {
+            window.addEventListener('load', function() {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                console.log(`Seite geladen in ${loadTime}ms`);
+            });
+        }
+
+        // Accessibility-Verbesserungen
+        document.addEventListener('keydown', function(e) {
+            // Tab-Navigation verbessern
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-navigation');
+            }
+        });
+
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-navigation');
+        });
+
+        // Service Worker Registrierung (für Offline-Funktionalität)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                // Service Worker würde hier registriert werden für Offline-Nutzung
+                console.log('Service Worker ready for implementation');
+            });
+        }// Scroll-to-Top Button Funktionalität
+    const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+    
+    // Button sichtbar machen, wenn der Benutzer nach unten scrollt
+    window.addEventListener('scroll', function() {
+        if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add('active');
+        } else {
+            scrollToTopBtn.classList.remove('active');
+        }
+    });
+    
+    // Beim Klick nach oben scrollen
+    scrollToTopBtn.addEventListener('click', function() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+
+</body>
+</html>

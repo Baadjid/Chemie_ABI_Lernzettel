@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚖️ Gleichgewichtskonzept - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-size: 0.95em;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 25px;
+            font-size: 1.3em;
+            font-weight: 600;
+        }
+        
+        .section-content {
+            padding: 25px;
+        }
+        
+        /* Special Intro Section */
+        .concept-intro {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #667eea;
+        }
+        
+        /* Grid Layouts */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        /* Cards */
+        .info-card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .highlight-card {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            color: #2c3e50;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 4px solid #2c3e50;
+        }
+        
+        .warning-card {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            border-left: 4px solid #f39c12;
+        }
+        
+        /* Mathematical Formulas */
+        .formula-box {
+            background: #e8f4f8;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            font-size: 1.2em;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .formula-explanation {
+            background: #f0f8f0;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        /* Examples and Exercises */
+        .example-box {
+            background: #f9f3ff;
+            border: 2px solid #9b59b6;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        .exercise-box {
+            background: #ffe6e6;
+            border: 2px solid #e74c3c;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        
+        /* Interactive Elements */
+        .quiz-container {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-question {
+            background: #667eea;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .quiz-option {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quiz-option:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+        }
+        
+        .quiz-option.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+        
+        .quiz-option.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+        
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* Lists */
+        ul, ol {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+        
+        li {
+            margin: 8px 0;
+        }
+        
+        /* Typography */
+        h2 {
+            color: #2c3e50;
+            margin: 25px 0 15px 0;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin: 20px 0 10px 0;
+            font-size: 1.4em;
+        }
+        
+        h4 {
+            color: #34495e;
+            margin: 15px 0 8px 0;
+            font-size: 1.2em;
+        }
+        
+        strong {
+            color: #2c3e50;
+        }
+        
+        em {
+            color: #667eea;
+            font-style: normal;
+            font-weight: 600;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .three-column {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-content {
+                padding: 15px;
+            }
+            
+            .nav-breadcrumb {
+                padding: 10px 15px;
+                font-size: 0.9em;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .formula-box {
+                font-size: 1em;
+                padding: 15px;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 8px 10px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .content-section, .info-card {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            
+            .section-header {
+                background: #f0f0f0;
+                color: black;
+                border-bottom: 2px solid #ccc;
+            }
+            
+            .nav-breadcrumb {
+                display: none;
+            }
+        }
+        
+        /* Progress Indicator */
+        .progress-indicator {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Startseite</a> →
+            <span>⚖️ Gleichgewichtskonzept</span>
+        </nav>
+
+        <!-- Progress Indicator -->
+        <div class="progress-indicator">
+            <h4>Lernfortschritt: Gleichgewichtskonzept</h4>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <p style="margin-top: 8px; text-align: center; color: #7f8c8d;">0% abgeschlossen</p>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <h1>⚖️ Gleichgewichtskonzept</h1>
+            <p class="subtitle">Dynamische Gleichgewichte und deren Beeinflussung</p>
+            <p>Ein fundamentales Konzept zum Verständnis reversibler Reaktionen</p>
+        </header>
+
+        <!-- Concept Introduction -->
+        <section class="concept-intro">
+            <h2>🎯 Was ist das Gleichgewichtskonzept?</h2>
+            <p>Das <strong>Gleichgewichtskonzept</strong> beschreibt dynamische Gleichgewichte bei reversiblen chemischen Reaktionen. Es erklärt, wie sich die Konzentrationen von Edukten und Produkten in einem geschlossenen System verhalten und wie äußere Faktoren diese beeinflussen können.</p>
+            
+            <div class="highlight-card">
+                <h3>🔑 Kernaussage</h3>
+                <p><strong>Im chemischen Gleichgewicht</strong> laufen Hin- und Rückreaktion mit derselben Geschwindigkeit ab. Die Konzentrationen aller Stoffe bleiben konstant, obwohl weiterhin Reaktionen stattfinden.</p>
+            </div>
+        </section>
+
+        <!-- Grundlagen des chemischen Gleichgewichts -->
+        <section class="content-section">
+            <div class="section-header">📚 1. Grundlagen des chemischen Gleichgewichts</div>
+            <div class="section-content">
+                
+                <h3>🔄 Dynamisches Gleichgewicht</h3>
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>Eigenschaften des Gleichgewichts</h4>
+                        <ul>
+                            <li><strong>Dynamisch:</strong> Reaktionen laufen weiter ab</li>
+                            <li><strong>Konstante Konzentrationen:</strong> Keine makroskopischen Änderungen</li>
+                            <li><strong>Geschwindigkeitsgleichheit:</strong> v<sub>hin</sub> = v<sub>rück</sub></li>
+                            <li><strong>Reversibel:</strong> Reaktion läuft in beide Richtungen</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>Bedingungen für Gleichgewicht</h4>
+                        <ul>
+                            <li>Geschlossenes System</li>
+                            <li>Konstante Temperatur</li>
+                            <li>Konstanter Druck</li>
+                            <li>Keine Entnahme von Stoffen</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>📖 Beispiel: Esterbildung</h4>
+                    <div class="formula-box">
+                        Carbonsäure + Alkohol ⇌ Ester + Wasser<br>
+                        R-COOH + R'-OH ⇌ R-COO-R' + H₂O
+                    </div>
+                    <p>Unabhängig von den Ausgangsstoffen stellt sich nach einiger Zeit dasselbe Gleichgewicht ein. Sowohl Edukte als auch Produkte liegen nebeneinander vor.</p>
+                </div>
+
+                <h3>⚡ Gleichgewichtseinstellung</h3>
+                <div class="info-card">
+                    <h4>Zeitlicher Verlauf</h4>
+                    <ol>
+                        <li><strong>Start:</strong> Nur Edukte vorhanden → maximale Hinreaktionsgeschwindigkeit</li>
+                        <li><strong>Verlauf:</strong> Bildung von Produkten → Rückreaktion beginnt</li>
+                        <li><strong>Gleichgewicht:</strong> v<sub>hin</sub> = v<sub>rück</sub> → konstante Konzentrationen</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Massenwirkungsgesetz -->
+        <section class="content-section">
+            <div class="section-header">⚖️ 2. Das Massenwirkungsgesetz (MWG)</div>
+            <div class="section-content">
+                
+                <h3>📐 Mathematische Formulierung</h3>
+                <p>Für eine allgemeine Reaktion:</p>
+                <div class="formula-box">
+                    aA + bB ⇌ cC + dD
+                </div>
+                
+                <p>gilt das Massenwirkungsgesetz:</p>
+                <div class="formula-box">
+                    K<sub>c</sub> = [c(C)<sup>c</sup> · c(D)<sup>d</sup>] / [c(A)<sup>a</sup> · c(B)<sup>b</sup>]
+                </div>
+
+                <div class="formula-explanation">
+                    <h4>Erklärung der Formel:</h4>
+                    <ul>
+                        <li><strong>K<sub>c</sub>:</strong> Gleichgewichtskonstante (temperaturabhängig)</li>
+                        <li><strong>c(X):</strong> Konzentration des Stoffes X im Gleichgewicht</li>
+                        <li><strong>Exponenten:</strong> Entsprechen den stöchiometrischen Koeffizienten</li>
+                    </ul>
+                </div>
+
+                <h3>🔍 Interpretation der Gleichgewichtskonstante</h3>
+                <div class="three-column">
+                    <div class="info-card">
+                        <h4>K<sub>c</sub> ≫ 1</h4>
+                        <p><strong>Gleichgewicht liegt rechts</strong></p>
+                        <p>Produkte dominieren, hohe Ausbeute</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>K<sub>c</sub> ≈ 1</h4>
+                        <p><strong>Gleichgewicht in der Mitte</strong></p>
+                        <p>Edukte und Produkte etwa gleich</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>K<sub>c</sub> ≪ 1</h4>
+                        <p><strong>Gleichgewicht liegt links</strong></p>
+                        <p>Edukte dominieren, geringe Ausbeute</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>📖 Rechenbeispiel: Esterbildung</h4>
+                    <p>Für die Reaktion: CH₃COOH + C₂H₅OH ⇌ CH₃COOC₂H₅ + H₂O</p>
+                    <p>Gleichgewichtskonzentrationen:</p>
+                    <table>
+                        <tr>
+                            <th>Stoff</th>
+                            <th>Konzentration (mol/L)</th>
+                        </tr>
+                        <tr>
+                            <td>Essigsäure</td>
+                            <td>0,33</td>
+                        </tr>
+                        <tr>
+                            <td>Ethanol</td>
+                            <td>0,33</td>
+                        </tr>
+                        <tr>
+                            <td>Ester</td>
+                            <td>0,67</td>
+                        </tr>
+                        <tr>
+                            <td>Wasser</td>
+                            <td>0,67</td>
+                        </tr>
+                    </table>
+                    <div class="formula-box">
+                        K<sub>c</sub> = (0,67 · 0,67) / (0,33 · 0,33) = 4,1
+                    </div>
+                    <p>K<sub>c</sub> > 1 → Gleichgewicht liegt auf der Produktseite</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Prinzip von Le Chatelier -->
+        <section class="content-section">
+            <div class="section-header">🔄 3. Prinzip von Le Chatelier (Prinzip des kleinsten Zwangs)</div>
+            <div class="section-content">
+                
+                <div class="highlight-card">
+                    <h3>📜 Prinzip von Le Chatelier und Braun</h3>
+                    <p><strong>"Übt man auf ein im Gleichgewicht befindliches System durch Änderung der äußeren Bedingungen einen Zwang aus, so verschiebt sich das Gleichgewicht derart, dass es dem äußeren Zwang ausweicht."</strong></p>
+                </div>
+
+                <h3>🌡️ Temperatureinfluss</h3>
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>Temperaturerhöhung</h4>
+                        <p>Verschiebung in Richtung der <strong>endothermen</strong> Reaktion</p>
+                        <p>→ Das System nimmt Wärme auf</p>
+                        <p>→ K<sub>c</sub> ändert sich!</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Temperaturerniedrigung</h4>
+                        <p>Verschiebung in Richtung der <strong>exothermen</strong> Reaktion</p>
+                        <p>→ Das System gibt Wärme ab</p>
+                        <p>→ K<sub>c</sub> ändert sich!</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>📖 Beispiel: Ammoniak-Synthese</h4>
+                    <div class="formula-box">
+                        3 H₂(g) + N₂(g) ⇌ 2 NH₃(g) + 92 kJ
+                    </div>
+                    <p>Die Reaktion ist <strong>exotherm</strong> (Wärme wird freigesetzt)</p>
+                    <ul>
+                        <li><strong>Temperaturerhöhung:</strong> Gleichgewicht verschiebt sich nach links (weniger NH₃)</li>
+                        <li><strong>Temperaturerniedrigung:</strong> Gleichgewicht verschiebt sich nach rechts (mehr NH₃)</li>
+                    </ul>
+                </div>
+
+                <h3>📊 Druckeinfluss (nur bei Gasreaktionen)</h3>
+                <div class="warning-card">
+                    <h4>⚠️ Wichtig: Satz von Avogadro</h4>
+                    <p>Jedes Gas nimmt bei gleicher Teilchenzahl und gleichen Bedingungen das gleiche Volumen ein.</p>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>Druckerhöhung</h4>
+                        <p>Verschiebung zur Seite mit <strong>kleinerer Teilchenzahl</strong></p>
+                        <p>→ Volumenverringerung</p>
+                        <p>→ K<sub>c</sub> bleibt konstant!</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Druckverringerung</h4>
+                        <p>Verschiebung zur Seite mit <strong>größerer Teilchenzahl</strong></p>
+                        <p>→ Volumenvergrößerung</p>
+                        <p>→ K<sub>c</sub> bleibt konstant!</p>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>📖 Beispiel: Ammoniak-Synthese</h4>
+                    <div class="formula-box">
+                        3 H₂(g) + N₂(g) ⇌ 2 NH₃(g)<br>
+                        4 Teilchen → 2 Teilchen
+                    </div>
+                    <ul>
+                        <li><strong>Druckerhöhung:</strong> Gleichgewicht verschiebt sich nach rechts (2 < 4 Teilchen)</li>
+                        <li><strong>Druckverringerung:</strong> Gleichgewicht verschiebt sich nach links (4 > 2 Teilchen)</li>
+                    </ul>
+                </div>
+
+                <h3>🧪 Konzentrationseinfluss</h3>
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>Konzentrationserhöhung</h4>
+                        <p>Erhöhung der Konzentration eines Stoffes</p>
+                        <p>→ Gleichgewicht verschiebt sich <strong>weg</strong> von diesem Stoff</p>
+                        <p>→ K<sub>c</sub> bleibt konstant!</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Konzentrationsverringerung</h4>
+                        <p>Verringerung der Konzentration eines Stoffes</p>
+                        <p>→ Gleichgewicht verschiebt sich <strong>hin</strong> zu diesem Stoff</p>
+                        <p>→ K<sub>c</sub> bleibt konstant!</p>
+                    </div>
+                </div>
+
+                <div class="warning-card">
+                    <h4>🔬 Sonderfall: Verdünnung</h4>
+                    <p>Bei Verdünnung will die Reaktion die Konzentrationsänderung ausgleichen, indem sie die Teilchenzahl erhöht. Das Gleichgewicht verschiebt sich zur Seite mit <strong>höherer Teilchenzahl</strong>.</p>
+                </div>
+
+                <h3>⚗️ Katalysatoreinfluss</h3>
+                <div class="info-card">
+                    <h4>Wichtiger Grundsatz</h4>
+                    <p><strong>Katalysatoren beeinflussen die Gleichgewichtslage NICHT!</strong></p>
+                    <ul>
+                        <li>Beschleunigen Hin- UND Rückreaktion gleichermaßen</li>
+                        <li>Verkürzen nur die Zeit bis zur Gleichgewichtseinstellung</li>
+                        <li>K<sub>c</sub> bleibt unverändert</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Anwendungen und Beispiele -->
+        <section class="content-section">
+            <div class="section-header">🔬 4. Wichtige Anwendungen</div>
+            <div class="section-content">
+                
+                <h3>🧂 Löslichkeitsprodukt</h3>
+                <p>Zwischen den hydratisierten Ionen in gesättigter Lösung und dem festen Bodenkörper besteht ein heterogenes Gleichgewicht:</p>
+                
+                <div class="formula-box">
+                    A<sub>m</sub>B<sub>n</sub>(s) ⇌ m A<sup>n+</sup>(aq) + n B<sup>m-</sup>(aq)
+                </div>
+                
+                <div class="formula-box">
+                    K<sub>L</sub> = c(A<sup>n+</sup>)<sup>m</sup> · c(B<sup>m-</sup>)<sup>n</sup>
+                </div>
+
+                <div class="formula-explanation">
+                    <p><strong>K<sub>L</sub></strong> ist das Löslichkeitsprodukt - ein Maß für die Löslichkeit eines Salzes.</p>
+                </div>
+
+                <h3>💊 Säure-Base-Gleichgewichte</h3>
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>Säuredissoziation</h4>
+                        <div class="formula-box">
+                            HA + H₂O ⇌ H₃O⁺ + A⁻
+                        </div>
+                        <div class="formula-box">
+                            K<sub>s</sub> = [c(H₃O⁺) · c(A⁻)] / c(HA)
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h4>Basendissoziation</h4>
+                        <div class="formula-box">
+                            K<sub>b</sub> = [c(OH⁻) · c(HB⁺)] / c(B)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>pK-Werte</h4>
+                    <p>Statt K<sub>s</sub> und K<sub>b</sub> werden häufig pK<sub>s</sub>- und pK<sub>b</sub>-Werte angegeben:</p>
+                    <div class="formula-box">
+                        pK<sub>s</sub> = -log K<sub>s</sub> &nbsp;&nbsp;&nbsp; pK<sub>b</sub> = -log K<sub>b</sub>
+                    </div>
+                    <ul>
+                        <li><strong>Kleine pK<sub>s</sub>-Werte:</strong> Starke Säuren</li>
+                        <li><strong>Große pK<sub>s</sub>-Werte:</strong> Schwache Säuren</li>
+                    </ul>
+                </div>
+
+                <h3>🏭 Technische Anwendung: Haber-Bosch-Verfahren</h3>
+                <div class="example-box">
+                    <h4>📖 Optimierung der Ammoniak-Synthese</h4>
+                    <div class="formula-box">
+                        3 H₂(g) + N₂(g) ⇌ 2 NH₃(g) + 92 kJ
+                    </div>
+                    
+                    <table>
+                        <tr>
+                            <th>Faktor</th>
+                            <th>Optimierung</th>
+                            <th>Begründung</th>
+                        </tr>
+                        <tr>
+                            <td>Temperatur</td>
+                            <td>450-500°C (Kompromiss)</td>
+                            <td>Niedrig für Gleichgewicht, hoch für Geschwindigkeit</td>
+                        </tr>
+                        <tr>
+                            <td>Druck</td>
+                            <td>200-300 bar</td>
+                            <td>Hoher Druck begünstigt NH₃-Bildung</td>
+                        </tr>
+                        <tr>
+                            <td>Katalysator</td>
+                            <td>Eisen mit Promotoren</td>
+                            <td>Beschleunigt Gleichgewichtseinstellung</td>
+                        </tr>
+                        <tr>
+                            <td>Entnahme</td>
+                            <td>Kontinuierliche NH₃-Entfernung</td>
+                            <td>Verschiebt Gleichgewicht nach rechts</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interaktiver Quiz-Bereich -->
+        <section class="content-section">
+            <div class="section-header">🧩 5. Interaktives Quiz</div>
+            <div class="section-content">
+                
+                <div class="quiz-container">
+                    <div class="quiz-question">
+                        Frage 1: Was passiert mit dem Gleichgewicht N₂O₄(g) ⇌ 2 NO₂(g) bei Druckerhöhung?
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        A) Gleichgewicht verschiebt sich nach rechts
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">
+                        B) Gleichgewicht verschiebt sich nach links
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        C) Gleichgewicht bleibt unverändert
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        D) Kann nicht vorhergesagt werden
+                    </div>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">
+                        Frage 2: Bei einer exothermen Reaktion A + B ⇌ C + Wärme führt Temperaturerhöhung zu:
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">
+                        A) Verschiebung nach links (mehr Edukte)
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        B) Verschiebung nach rechts (mehr Produkte)
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        C) Keine Änderung der Gleichgewichtslage
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        D) Erhöhung der Gleichgewichtskonstante
+                    </div>
+                </div>
+
+                <div class="quiz-container">
+                    <div class="quiz-question">
+                        Frage 3: Was bewirkt ein Katalysator im chemischen Gleichgewicht?
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        A) Verschiebt das Gleichgewicht nach rechts
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true)">
+                        B) Verkürzt die Zeit bis zur Gleichgewichtseinstellung
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        C) Erhöht die Gleichgewichtskonstante
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false)">
+                        D) Senkt die Aktivierungsenergie nur der Hinreaktion
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Übungsaufgaben -->
+        <section class="content-section">
+            <div class="section-header">📝 6. Übungsaufgaben</div>
+            <div class="section-content">
+                
+                <div class="exercise-box">
+                    <h4>Aufgabe 1: Massenwirkungsgesetz</h4>
+                    <p>Für die Reaktion: 2 SO₂(g) + O₂(g) ⇌ 2 SO₃(g)</p>
+                    <p>Gleichgewichtskonzentrationen: c(SO₂) = 0,2 mol/L, c(O₂) = 0,1 mol/L, c(SO₃) = 0,8 mol/L</p>
+                    <p><strong>Berechnen Sie die Gleichgewichtskonstante K<sub>c</sub>.</strong></p>
+                    
+                    <details style="margin-top: 15px;">
+                        <summary style="cursor: pointer; color: #667eea; font-weight: bold;">💡 Lösung anzeigen</summary>
+                        <div style="margin-top: 10px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                            <div class="formula-box">
+                                K<sub>c</sub> = [c(SO₃)]² / ([c(SO₂)]² · c(O₂))
+                            </div>
+                            <div class="formula-box">
+                                K<sub>c</sub> = (0,8)² / ((0,2)² · 0,1) = 0,64 / (0,04 · 0,1) = 0,64 / 0,004 = 160
+                            </div>
+                            <p><strong>Antwort:</strong> K<sub>c</sub> = 160 → Gleichgewicht liegt stark auf der Produktseite</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="exercise-box">
+                    <h4>Aufgabe 2: Le Chatelier-Prinzip</h4>
+                    <p>Gegeben: PCl₅(g) ⇌ PCl₃(g) + Cl₂(g) (endotherme Reaktion)</p>
+                    <p><strong>Vorhersagen Sie die Gleichgewichtsverschiebung bei:</strong></p>
+                    <ol>
+                        <li>Temperaturerhöhung</li>
+                        <li>Druckerhöhung</li>
+                        <li>Zugabe von PCl₃</li>
+                        <li>Entfernung von Cl₂</li>
+                    </ol>
+                    
+                    <details style="margin-top: 15px;">
+                        <summary style="cursor: pointer; color: #667eea; font-weight: bold;">💡 Lösung anzeigen</summary>
+                        <div style="margin-top: 10px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                            <ol>
+                                <li><strong>Temperaturerhöhung:</strong> Nach rechts (endotherme Richtung wird begünstigt)</li>
+                                <li><strong>Druckerhöhung:</strong> Nach links (1 Teilchen < 2 Teilchen)</li>
+                                <li><strong>Zugabe von PCl₃:</strong> Nach links (weg vom zugegebenen Stoff)</li>
+                                <li><strong>Entfernung von Cl₂:</strong> Nach rechts (hin zum entfernten Stoff)</li>
+                            </ol>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="exercise-box">
+                    <h4>Aufgabe 3: Industrielle Anwendung</h4>
+                    <p>Erklären Sie, warum beim Haber-Bosch-Verfahren:</p>
+                    <ol>
+                        <li>Ein hoher Druck (200-300 bar) verwendet wird</li>
+                        <li>Eine mittlere Temperatur (450°C) gewählt wird</li>
+                        <li>Das gebildete Ammoniak kontinuierlich entfernt wird</li>
+                    </ol>
+                    
+                    <details style="margin-top: 15px;">
+                        <summary style="cursor: pointer; color: #667eea; font-weight: bold;">💡 Lösung anzeigen</summary>
+                        <div style="margin-top: 10px; padding: 15px; background: #f8f9fa; border-radius: 5px;">
+                            <ol>
+                                <li><strong>Hoher Druck:</strong> 3H₂ + N₂ → 2NH₃ (4 → 2 Teilchen), Gleichgewicht verschiebt sich nach rechts</li>
+                                <li><strong>Mittlere Temperatur:</strong> Kompromiss zwischen Gleichgewichtslage (niedrig gut) und Reaktionsgeschwindigkeit (hoch gut)</li>
+                                <li><strong>NH₃-Entfernung:</strong> Konzentration von NH₃ sinkt → Gleichgewicht verschiebt sich nach rechts (Nachbildung)</li>
+                            </ol>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zusammenfassung -->
+        <section class="content-section">
+            <div class="section-header">📋 7. Zusammenfassung</div>
+            <div class="section-content">
+                
+                <div class="highlight-card">
+                    <h3>🎯 Kernpunkte des Gleichgewichtskonzepts</h3>
+                    <ul>
+                        <li><strong>Dynamisches Gleichgewicht:</strong> v<sub>hin</sub> = v<sub>rück</sub>, konstante Konzentrationen</li>
+                        <li><strong>Massenwirkungsgesetz:</strong> K<sub>c</sub> beschreibt Gleichgewichtslage quantitativ</li>
+                        <li><strong>Le Chatelier-Prinzip:</strong> System weicht äußerem Zwang aus</li>
+                        <li><strong>Temperatur:</strong> Ändert K<sub>c</sub>, begünstigt endothermen/exothermen Verlauf</li>
+                        <li><strong>Druck:</strong> Nur bei Gasreaktionen, Verschiebung zur kleineren Teilchenzahl</li>
+                        <li><strong>Konzentration:</strong> Verschiebung weg vom erhöhten/hin zum verringerten Stoff</li>
+                        <li><strong>Katalysator:</strong> Keine Änderung der Gleichgewichtslage, nur schnellere Einstellung</li>
+                    </ul>
+                </div>
+
+                <div class="warning-card">
+                    <h4>⚠️ Häufige Fehler vermeiden</h4>
+                    <ul>
+                        <li>Katalysatoren verschieben das Gleichgewicht NICHT</li>
+                        <li>Nur Temperaturänderungen ändern K<sub>c</sub></li>
+                        <li>Druckeinfluss nur bei unterschiedlicher Teilchenzahl</li>
+                        <li>Feststoffe werden im MWG nicht berücksichtigt</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>🔗 Verbindungen zu anderen Basiskonzepten</h4>
+                    <ul>
+                        <li><strong>Energiekonzept:</strong> Exotherme/endotherme Reaktionen und Temperatureinfluss</li>
+                        <li><strong>Stoff-Teilchen-Konzept:</strong> Teilchenzahl bei Druckeinfluss</li>
+                        <li><strong>Donator-Akzeptor-Konzept:</strong> Säure-Base- und Redox-Gleichgewichte</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation zu anderen Seiten -->
+        <section class="content-section">
+            <div class="section-header">🧭 Verknüpfung mit anderen Basiskonzepten</div>
+            <div class="section-content">
+                <div class="three-column">
+                    <div class="info-card" onclick="window.open('energiekonzept.html', '_blank')" style="cursor: pointer;">
+                        <h4>⚡ Energiekonzept</h4>
+                        <p>Enthalpie, Entropie und deren Einfluss auf Gleichgewichte</p>
+                    </div>
+                    <div class="info-card" onclick="window.open('saeure-base.html', '_blank')" style="cursor: pointer;">
+                        <h4>🧪 Säure-Base-Reaktionen</h4>
+                        <p>Anwendung des Gleichgewichtskonzepts auf Protolysen</p>
+                    </div>
+                    <div class="info-card" onclick="window.open('kinetik-gleichgewicht.html', '_blank')" style="cursor: pointer;">
+                        <h4>⚡ Reaktionsgeschwindigkeit</h4>
+                        <p>Zusammenhang zwischen Kinetik und Gleichgewicht</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+<nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Zurück zur Übersicht</a> 
+        </nav>
+    </div>
+
+    <script>
+        // Progress tracking
+        let completedSections = 0;
+        const totalSections = 7;
+
+        function updateProgress() {
+            const progressPercent = (completedSections / totalSections) * 100;
+            document.getElementById('progress-fill').style.width = progressPercent + '%';
+            document.querySelector('.progress-indicator p').textContent = 
+                Math.round(progressPercent) + '% abgeschlossen';
+        }
+
+        // Quiz functionality
+        function checkAnswer(element, isCorrect) {
+            // Remove any existing classes
+            const options = element.parentNode.querySelectorAll('.quiz-option');
+            options.forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+                option.style.pointerEvents = 'none';
+            });
+
+            // Add appropriate class
+            if (isCorrect) {
+                element.classList.add('correct');
+                // Mark quiz section as completed
+                if (completedSections < 5) {
+                    completedSections = 5;
+                    updateProgress();
+                }
+            } else {
+                element.classList.add('incorrect');
+                // Show correct answer
+                options.forEach(option => {
+                    if (option.onclick.toString().includes('true')) {
+                        option.classList.add('correct');
+                    }
+                });
+            }
+        }
+
+        // Track section completion on scroll
+        function trackProgress() {
+            const sections = document.querySelectorAll('.content-section');
+            const scrollPosition = window.scrollY + window.innerHeight;
+            
+            sections.forEach((section, index) => {
+                const sectionBottom = section.offsetTop + section.offsetHeight;
+                if (scrollPosition > sectionBottom && completedSections <= index) {
+                    completedSections = index + 1;
+                    updateProgress();
+                }
+            });
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', trackProgress);
+        window.addEventListener('load', updateProgress);
+
+        // Smooth scrolling for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Print functionality
+        function printPage() {
+            window.print();
+        }
+
+        
+        // Add back to top functionality
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('back-to-top');
+            if (!backToTop) {
+                const button = document.createElement('button');
+                button.id = 'back-to-top';
+                button.innerHTML = '↑';
+                button.style.cssText = `
+                    position: fixed;
+                    bottom: 10px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.9);
+                    color: #667eea;
+                    border: 2px solid #667eea;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    font-size: 20px;
+                    font-weight: bold;
+                    display: none;
+                    z-index: 999;
+                    transition: all 0.3s ease;
+                `;
+                
+                button.onclick = function() {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                };
+                
+                document.body.appendChild(button);
+            }
+            
+            const backToTopBtn = document.getElementById('back-to-top');
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

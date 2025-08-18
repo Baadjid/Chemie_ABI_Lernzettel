@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemie Quiz - Abitur 2026 Lernzettel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background: rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        /* Quiz Kategorien */
+        .quiz-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .category-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .category-title {
+            font-size: 1.4rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .category-description {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        
+        .question-count {
+            background: linear-gradient(45deg, #84fab0, #8fd3f4);
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            font-size: 0.9rem;
+        }
+        
+        /* Quiz Interface */
+        .quiz-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            display: none;
+        }
+        
+        .quiz-container.active {
+            display: block;
+        }
+        
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .quiz-progress {
+            background: #e9ecef;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 25px;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        .question-box {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .question-text {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        .answers {
+            display: grid;
+            gap: 12px;
+        }
+        
+        .answer {
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .answer:hover {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.05);
+        }
+        
+        .answer.selected {
+            border-color: #667eea;
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .quiz-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        /* Results */
+        .results-container {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            display: none;
+        }
+        
+        .results-container.show {
+            display: block;
+        }
+        
+        .result-score {
+            font-size: 4rem;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        
+        .result-message {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #495057;
+        }
+        
+        .result-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .result-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .result-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .result-label {
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+        
+        /* Erklärungen Styles */
+        .explanations-container {
+            margin-top: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .explanations-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+        }
+        
+        .explanations-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .explanations-subtitle {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .expand-all-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 0 auto 25px;
+            display: block;
+        }
+        
+        .expand-all-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .explanation-item {
+            background: white;
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            border-left: 5px solid #e9ecef;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: slideInUp 0.6s ease forwards;
+        }
+        
+        .explanation-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .explanation-item.correct {
+            border-left-color: #28a745;
+        }
+        
+        .explanation-item.wrong {
+            border-left-color: #dc3545;
+        }
+        
+        .explanation-header {
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-bottom: 1px solid #e9ecef;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            position: relative;
+        }
+        
+        .explanation-header:hover {
+            background: linear-gradient(135deg, #f1f3f4 0%, #f8f9fa 100%);
+        }
+        
+        .explanation-header.correct {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(40, 167, 69, 0.05) 100%);
+        }
+        
+        .explanation-header.wrong {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(220, 53, 69, 0.05) 100%);
+        }
+        
+        .explanation-toggle-icon {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 1.5rem;
+            color: #667eea;
+            transition: transform 0.3s ease;
+        }
+        
+        .explanation-toggle-icon.rotated {
+            transform: rotate(180deg);
+        }
+        
+        .explanation-question {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            line-height: 1.4;
+            padding-right: 50px;
+        }
+        
+        .explanation-status-badge {
+            display: inline-block;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        
+        .explanation-status-badge.correct {
+            background: rgba(40, 167, 69, 0.2);
+            color: #155724;
+        }
+        
+        .explanation-status-badge.wrong {
+            background: rgba(220, 53, 69, 0.2);
+            color: #721c24;
+        }
+        
+        .explanation-answers {
+            display: grid;
+            gap: 10px;
+        }
+        
+        .explanation-answer {
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .explanation-answer.correct {
+            background: linear-gradient(135deg, rgba(40, 167, 69, 0.15) 0%, rgba(40, 167, 69, 0.08) 100%);
+            color: #155724;
+            font-weight: 600;
+        }
+        
+        .explanation-answer.user-wrong {
+            background: linear-gradient(135deg, rgba(220, 53, 69, 0.15) 0%, rgba(220, 53, 69, 0.08) 100%);
+            color: #721c24;
+            text-decoration: line-through;
+        }
+        
+        .explanation-answer.neutral {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            color: #6c757d;
+        }
+        
+        .answer-icon {
+            font-size: 1.2rem;
+            min-width: 24px;
+            text-align: center;
+        }
+        
+        .explanation-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        
+        .explanation-content.expanded {
+            padding: 25px;
+            max-height: 1000px;
+        }
+        
+        .explanation-inner {
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 0;
+        }
+        
+        .explanation-status {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .explanation-status.correct {
+            color: #28a745;
+        }
+        
+        .explanation-status.wrong {
+            color: #dc3545;
+        }
+        
+        .explanation-text {
+            color: #495057;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+        
+        .explanation-text strong {
+            color: #2c3e50;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+        
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+        
+        .explanation-highlight {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 50%, #fff3cd 100%);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Animationen */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .quiz-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .quiz-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .quiz-controls {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+            
+            .explanation-header {
+                padding: 20px;
+            }
+            
+            .explanation-question {
+                font-size: 1.1rem;
+                padding-right: 40px;
+            }
+            
+            .explanation-toggle-icon {
+                right: 20px;
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Hauptübersicht</a>
+            <span>→</span>
+            <span style="color: #2c3e50; font-weight: bold;">🧩 Quiz</span>
+        </nav>
+
+        <!-- Header -->
+        <div class="header">
+            <h1>🧩 Chemie Quiz</h1>
+            <p class="subtitle">Teste dein Wissen für das Abitur 2026</p>
+            <p>Interaktive Fragen zu allen Themenbereichen und Basiskonzepten</p>
+        </div>
+
+        <!-- Quiz Kategorien -->
+        <div class="quiz-categories" id="categories">
+            <div class="category-card" onclick="startQuiz('basiskonzepte')">
+                <span class="category-icon">🏗️</span>
+                <h3 class="category-title">Basiskonzepte</h3>
+                <p class="category-description">Grundlegende Konzepte der Chemie: Stoff-Teilchen, Struktur-Eigenschaften, Donator-Akzeptor, Energie und Gleichgewicht</p>
+                <span class="question-count">5 Fragen</span>
+            </div>
+
+            <div class="category-card" onclick="startQuiz('themen')">
+                <span class="category-icon">📚</span>
+                <h3 class="category-title">Themenbereiche</h3>
+                <p class="category-description">Alle 16 Hauptthemen von Atombau bis Analytik</p>
+                <span class="question-count">5 Fragen</span>
+            </div>
+
+            <div class="category-card" onclick="startQuiz('allgemein')">
+                <span class="category-icon">🎯</span>
+                <h3 class="category-title">Allgemeinwissen</h3>
+                <p class="category-description">Grundlagen, Definitionen und wichtige Begriffe</p>
+                <span class="question-count">5 Fragen</span>
+            </div>
+
+            <div class="category-card" onclick="startQuiz('schwer')">
+                <span class="category-icon">🔥</span>
+                <h3 class="category-title">Abitur-Level</h3>
+                <p class="category-description">Anspruchsvolle Fragen auf Abiturniveau</p>
+                <span class="question-count">5 Fragen</span>
+            </div>
+        </div>
+
+        <!-- Quiz Interface -->
+        <div class="quiz-container" id="quiz">
+            <div class="quiz-header">
+                <h2 id="quiz-title">Quiz</h2>
+                <span id="question-counter">Frage 1 von 5</span>
+            </div>
+            
+            <div class="quiz-progress">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+            
+            <div class="question-box">
+                <div class="question-text" id="question">Frage wird hier angezeigt...</div>
+                <div class="answers" id="answers">
+                    <!-- Antworten werden hier eingefügt -->
+                </div>
+            </div>
+            
+            <div class="quiz-controls">
+                <button class="btn btn-secondary" onclick="previousQuestion()" id="prevBtn" disabled>⬅️ Zurück</button>
+                <button class="btn btn-primary" onclick="nextQuestion()" id="nextBtn">Weiter ➡️</button>
+                <button class="btn btn-success" onclick="finishQuiz()" id="finishBtn" style="display: none;">Quiz beenden</button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="results-container" id="results">
+            <div class="result-score" id="score">85%</div>
+            <div class="result-message" id="message">Sehr gut gemacht!</div>
+            
+            <div class="result-details">
+                <div class="result-item">
+                    <div class="result-number" id="correct">4</div>
+                    <div class="result-label">Richtig</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number" id="wrong">1</div>
+                    <div class="result-label">Falsch</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number" id="time">2:45</div>
+                    <div class="result-label">Zeit</div>
+                </div>
+                <div class="result-item">
+                    <div class="result-number" id="rating">⭐⭐⭐⭐</div>
+                    <div class="result-label">Bewertung</div>
+                </div>
+            </div>
+            
+            <div class="quiz-controls" style="margin-bottom: 30px;">
+                <button class="btn btn-primary" onclick="restartQuiz()">🔄 Nochmal</button>
+                <button class="btn btn-secondary" onclick="backToCategories()">📚 Kategorien</button>
+                <button class="btn btn-success" onclick="showExplanations()" id="explanationsBtn">📖 Lösungen & Erklärungen</button>
+            </div>
+
+            <!-- Erklärungen-Bereich -->
+            <div class="explanations-container" id="explanations" style="display: none;">
+                <div class="explanations-header">
+                    <h2 class="explanations-title">📖 Lösungen und Erklärungen</h2>
+                    <p class="explanations-subtitle">Verstehe die Chemie hinter jeder Antwort</p>
+                </div>
+                
+                <button class="expand-all-btn" onclick="toggleAllExplanations()" id="expandAllBtn">
+                    🔍 Alle Erklärungen aufklappen
+                </button>
+                
+                <div id="explanations-content">
+                    <!-- Wird dynamisch gefüllt -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="background: rgba(255, 255, 255, 0.9); padding: 20px; border-radius: 10px; text-align: center; color: #7f8c8d; margin-top: 30px;">
+            <p>&copy; 2025 Chemie Lernzettel Quiz - Abitur 2026</p>
+            <p>💡 Tipp: Nutze die Tastatur! 1-4 für Antworten, Pfeiltasten für Navigation</p>
+            <p>🔧 In Erklärungen: E = Alle aufklappen, 1-5 = Einzelne Frage aufklappen</p>
+        </div>
+    </div>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">⬆️</button>
+
+    <script>
+        // Quiz Daten mit detaillierten Erklärungen
+        const quizData = {
+            basiskonzepte: [
+                {
+                    question: "Was beschreibt das Stoff-Teilchen-Konzept?",
+                    answers: [
+                        "Die Beziehung zwischen Stoffebene und Teilchenebene",
+                        "Die Energieumsätze bei chemischen Reaktionen",
+                        "Die Geschwindigkeit chemischer Reaktionen",
+                        "Die räumliche Struktur von Molekülen"
+                    ],
+                    correct: 0,
+                    explanation: "Das Stoff-Teilchen-Konzept stellt die fundamentale Verbindung zwischen der makroskopischen Stoffebene (was wir sehen und messen können) und der mikroskopischen Teilchenebene (Atome, Moleküle, Ionen) her. Es erklärt, wie die Eigenschaften von Stoffen durch die Art und Anordnung ihrer Teilchen bestimmt werden."
+                },
+                {
+                    question: "Welches Basiskonzept erklärt, warum Diamant hart und Graphit weich ist?",
+                    answers: [
+                        "Energiekonzept",
+                        "Struktur-Eigenschafts-Konzept",
+                        "Donator-Akzeptor-Konzept",
+                        "Gleichgewichtskonzept"
+                    ],
+                    correct: 1,
+                    explanation: "Das Struktur-Eigenschafts-Konzept erklärt, wie die unterschiedliche Anordnung der Kohlenstoffatome zu verschiedenen Eigenschaften führt. Diamant hat eine 3D-Netzwerkstruktur mit sp³-hybridisierten C-Atomen (tetraedrisch), was ihn sehr hart macht. Graphit hat Schichtstrukturen mit sp²-hybridisierten C-Atomen, zwischen denen nur schwache Van-der-Waals-Kräfte wirken, was ihn weich und spaltbar macht."
+                },
+                {
+                    question: "Was haben Säure-Base- und Redox-Reaktionen gemeinsam?",
+                    answers: [
+                        "Sie sind immer exotherm",
+                        "Sie folgen dem Donator-Akzeptor-Prinzip",
+                        "Sie benötigen einen Katalysator",
+                        "Sie sind immer reversibel"
+                    ],
+                    correct: 1,
+                    explanation: "Beide Reaktionstypen folgen dem Donator-Akzeptor-Prinzip: Bei Säure-Base-Reaktionen werden Protonen (H⁺) übertragen - die Säure ist der Protonendonator, die Base der Protonenakzeptor. Bei Redox-Reaktionen werden Elektronen übertragen - das Reduktionsmittel ist der Elektronendonator, das Oxidationsmittel der Elektronenakzeptor."
+                },
+                {
+                    question: "Das Energiekonzept beschäftigt sich mit:",
+                    answers: [
+                        "Der Reaktionsgeschwindigkeit",
+                        "Energieumsätzen bei Reaktionen",
+                        "Der Molekülgeometrie",
+                        "Der Löslichkeit von Stoffen"
+                    ],
+                    correct: 1,
+                    explanation: "Das Energiekonzept befasst sich mit allen Formen von Energieumsätzen in der Chemie: Reaktionsenthalpie (ΔH), Aktivierungsenergie, freie Enthalpie (ΔG), Entropie (ΔS) und deren Einfluss auf die Spontaneität und Richtung chemischer Reaktionen."
+                },
+		{
+                    question: "Das Gleichgewichtskonzept erklärt:",
+                    answers: [
+                        "Nur chemische Gleichgewichte",
+                        "Nur Lösungsgleichgewichte",
+                        "Alle dynamischen Gleichgewichte",
+                        "Nur Säure-Base-Gleichgewichte"
+                    ],
+                    correct: 2,
+                    explanation: "Das Gleichgewichtskonzept umfasst alle Arten von dynamischen Gleichgewichten: chemische Gleichgewichte, Löslichkeitsgleichgewichte, Säure-Base-Gleichgewichte, Komplexbildungsgleichgewichte und Verteilungsgleichgewichte. Es beschreibt den Zustand, in dem Hin- und Rückreaktion gleich schnell ablaufen."
+                }
+            ],
+            themen: [
+                {
+                    question: "Die Ordnungszahl im Periodensystem entspricht:",
+                    answers: [
+                        "Der Neutronenzahl",
+                        "Der Protonenzahl",
+                        "Der Elektronenzahl in Verbindungen",
+                        "Der Massenzahl"
+                    ],
+                    correct: 1,
+                    explanation: "Die Ordnungszahl (Kernladungszahl Z) entspricht der Anzahl der Protonen im Atomkern. Sie ist charakteristisch für jedes Element und bestimmt dessen chemische Eigenschaften. Bei neutralen Atomen entspricht sie auch der Elektronenzahl."
+                },
+                {
+                    question: "Bei der vollständigen Verbrennung von Methan entsteht:",
+                    answers: [
+                        "CO und H₂O",
+                        "CO₂ und H₂",
+                        "CO₂ und H₂O",
+                        "C und H₂O"
+                    ],
+                    correct: 2,
+                    explanation: "Die vollständige Verbrennung von Methan läuft nach folgender Gleichung ab: CH₄ + 2 O₂ → CO₂ + 2 H₂O. Bei ausreichender Sauerstoffzufuhr wird der Kohlenstoff vollständig zu CO₂ oxidiert und der Wasserstoff zu H₂O."
+                },
+                {
+                    question: "Die funktionelle Gruppe der Alkohole ist:",
+                    answers: [
+                        "Carbonylgruppe (-CO-)",
+                        "Carboxylgruppe (-COOH)",
+                        "Hydroxylgruppe (-OH)",
+                        "Aminogruppe (-NH₂)"
+                    ],
+                    correct: 2,
+                    explanation: "Alkohole sind durch die Hydroxylgruppe (-OH) charakterisiert, die an einen Kohlenstoffrest gebunden ist (R-OH). Diese Gruppe verleiht Alkoholen ihre typischen Eigenschaften: Wasserstoffbrückenbindungen und oft gute Wasserlöslichkeit."
+                },
+                {
+                    question: "Die Nernst-Gleichung beschreibt:",
+                    answers: [
+                        "Spannung und Konzentration bei Elektroden",
+                        "Die Reaktionsgeschwindigkeit",
+                        "Das chemische Gleichgewicht",
+                        "Die Löslichkeit von Salzen"
+                    ],
+                    correct: 0,
+                    explanation: "Die Nernst-Gleichung beschreibt, wie sich das Elektrodenpotential mit der Konzentration der beteiligten Ionen ändert: E = E° - (RT/nF) × ln(c_Red/c_Ox). Sie zeigt, dass das tatsächliche Potential vom Standardpotential und dem Konzentrationsverhältnis abhängt."
+                },
+                {
+                    question: "Aromaten sind gekennzeichnet durch:",
+                    answers: [
+                        "Gesättigte Kohlenstoffketten",
+                        "Delokalisierte π-Elektronen",
+                        "Nur Einfachbindungen",
+                        "Heteroatome im Ring"
+                    ],
+                    correct: 1,
+                    explanation: "Aromaten sind durch delokalisierte π-Elektronen gekennzeichnet, die über den gesamten Ring verteilt sind. Dies führt zur besonderen Stabilität (Aromatizität). Benzol hat 6 π-Elektronen und erfüllt die Hückel-Regel (4n+2 π-Elektronen)."
+                }
+            ],
+            allgemein: [
+                {
+                    question: "Ein Mol entspricht:",
+                    answers: [
+                        "1 Gramm einer Substanz",
+                        "6,022 × 10²³ Teilchen",
+                        "22,4 Liter bei Standardbedingungen",
+                        "1 Liter Lösung"
+                    ],
+                    correct: 1,
+                    explanation: "Ein Mol ist definiert als die Stoffmenge, die 6,022 × 10²³ Teilchen (Avogadro-Konstante) enthält. Diese Zahl wurde so gewählt, dass ein Mol einer Substanz eine Masse in Gramm hat, die numerisch der relativen Atom- oder Molekülmasse entspricht."
+                },
+                {
+                    question: "Eine exotherme Reaktion:",
+                    answers: [
+                        "Nimmt Energie auf",
+                        "Gibt Energie ab",
+                        "Hat keine Energieänderung",
+                        "Läuft nur bei hohen Temperaturen"
+                    ],
+                    correct: 1,
+                    explanation: "Bei exothermen Reaktionen wird Energie (meist als Wärme) an die Umgebung abgegeben, die Reaktionsenthalpie ΔH ist negativ. Die Produkte haben einen niedrigeren Energiegehalt als die Edukte. Beispiele: Verbrennung, viele Neutralisationsreaktionen."
+                },
+                {
+                    question: "Ein Katalysator:",
+                    answers: [
+                        "Wird verbraucht",
+                        "Ändert das Gleichgewicht",
+                        "Senkt die Aktivierungsenergie",
+                        "Erhöht die Ausbeute"
+                    ],
+                    correct: 2,
+                    explanation: "Ein Katalysator senkt die Aktivierungsenergie einer Reaktion, indem er einen alternativen Reaktionsweg mit niedrigerer Energiebarriere bereitstellt. Dadurch wird die Reaktion beschleunigt, aber das thermodynamische Gleichgewicht bleibt unverändert."
+                },
+                {
+                    question: "Die Oktettregel besagt:",
+                    answers: [
+                        "8 Protonen im Kern",
+                        "8 Elektronen in der Außenschale",
+                        "8 Atome pro Molekül",
+                        "8 Bindungen pro Atom"
+                    ],
+                    correct: 1,
+                    explanation: "Die Oktettregel besagt, dass Atome die Tendenz haben, durch Aufnahme, Abgabe oder gemeinsame Nutzung von Elektronen eine Edelgaskonfiguration mit 8 Elektronen in der Außenschale zu erreichen. Dies erklärt die Bildung von Ionen und kovalenten Bindungen."
+                },
+                {
+                    question: "Isotope unterscheiden sich in:",
+                    answers: [
+                        "Der Protonenzahl",
+                        "Der Elektronenzahl",
+                        "Der Neutronenzahl",
+                        "Der Ordnungszahl"
+                    ],
+                    correct: 2,
+                    explanation: "Isotope sind Varianten eines Elements mit gleicher Protonenzahl, aber unterschiedlicher Neutronenzahl. Sie haben daher verschiedene Massenzahlen. Beispiel: ¹²C und ¹⁴C haben beide 6 Protonen, aber 6 bzw. 8 Neutronen."
+                }
+            ],
+            schwer: [
+                {
+                    question: "Der pH-Wert einer 0,01 M HCl-Lösung beträgt:",
+                    answers: [
+                        "pH = 1",
+                        "pH = 2",
+                        "pH = 12",
+                        "pH = 14"
+                    ],
+                    correct: 1,
+                    explanation: "HCl ist eine starke Säure und dissoziiert vollständig: HCl → H⁺ + Cl⁻. Bei 0,01 M HCl ist [H⁺] = 0,01 M = 10⁻² M. Der pH-Wert berechnet sich als pH = -log[H⁺] = -log(10⁻²) = 2."
+                },
+                {
+                    question: "Bei der elektrophilen aromatischen Substitution entsteht:",
+                    answers: [
+                        "Ein Carbanion",
+                        "Ein σ-Komplex (Areniumion)",
+                        "Ein Radikal",
+                        "Ein Carben"
+                    ],
+                    correct: 1,
+                    explanation: "Bei der elektrophilen aromatischen Substitution greift ein Elektrophil den Benzolring an und bildet einen σ-Komplex (Areniumion). Dieser ist ein Carbokation, bei dem die positive Ladung über mehrere Kohlenstoffatome delokalisiert ist."
+                },
+                {
+                    question: "Bei der SN2-Reaktion erfolgt:",
+                    answers: [
+                        "Konfigurationserhaltung",
+                        "Walden-Umkehr",
+                        "Racemisierung",
+                        "Eliminierung"
+                    ],
+                    correct: 1,
+                    explanation: "Bei der SN2-Reaktion greift das Nukleophil von der Rückseite des Kohlenstoffatoms an, während gleichzeitig die Abgangsgruppe weggeht. Dies führt zur Walden-Umkehr (Inversion der Konfiguration)."
+                },
+                {
+                    question: "Die freie Enthalpie ΔG berechnet sich nach:",
+                    answers: [
+                        "ΔG = ΔH + TΔS",
+                        "ΔG = ΔH - TΔS",
+                        "ΔG = ΔH × TΔS",
+                        "ΔG = ΔH / TΔS"
+                    ],
+                    correct: 1,
+                    explanation: "Die Gibbs-Helmholtz-Gleichung lautet ΔG = ΔH - TΔS. ΔG bestimmt die Spontaneität: ΔG < 0 = spontan, ΔG > 0 = nicht spontan, ΔG = 0 = Gleichgewicht."
+                },
+                {
+                    question: "Welche Aussage zur Hybridisierung ist korrekt?",
+                    answers: [
+                        "sp³-Hybridisierung führt zu linearer Geometrie",
+                        "sp²-Hybridisierung führt zu trigonal-planarer Geometrie",
+                        "sp-Hybridisierung führt zu tetraedrischer Geometrie",
+                        "Hybridisierung ändert die Elektronenzahl"
+                    ],
+                    correct: 1,
+                    explanation: "sp²-Hybridisierung entsteht durch Mischung eines s- und zweier p-Orbitale und führt zu trigonal-planarer Geometrie mit 120° Bindungswinkeln (z.B. bei C=C-Doppelbindungen)."
+                }
+            ]
+        };
+
+        // Quiz Variablen
+        let currentCategory = '';
+        let currentQuestions = [];
+        let currentQuestionIndex = 0;
+        let userAnswers = [];
+        let startTime = null;
+        let allExpanded = false;
+
+        // Quiz starten
+        function startQuiz(category) {
+            currentCategory = category;
+            currentQuestions = [...quizData[category]];
+            currentQuestionIndex = 0;
+            userAnswers = [];
+            startTime = new Date();
+            
+            // UI umschalten
+            document.getElementById('categories').style.display = 'none';
+            document.getElementById('quiz').classList.add('active');
+            document.getElementById('results').classList.remove('show');
+            
+            // Titel setzen
+            const titles = {
+                'basiskonzepte': 'Basiskonzepte Quiz',
+                'themen': 'Themenbereiche Quiz',
+                'allgemein': 'Allgemeinwissen Quiz',
+                'schwer': 'Abitur-Level Quiz'
+            };
+            document.getElementById('quiz-title').textContent = titles[category];
+            
+            showQuestion();
+        }
+
+        // Frage anzeigen
+        function showQuestion() {
+            const question = currentQuestions[currentQuestionIndex];
+            const total = currentQuestions.length;
+            
+            // Frage und Zähler
+            document.getElementById('question').textContent = question.question;
+            document.getElementById('question-counter').textContent = `Frage ${currentQuestionIndex + 1} von ${total}`;
+            
+            // Fortschritt
+            const progress = ((currentQuestionIndex + 1) / total) * 100;
+            document.getElementById('progress').style.width = progress + '%';
+            
+            // Antworten
+            const answersContainer = document.getElementById('answers');
+            answersContainer.innerHTML = '';
+            
+            question.answers.forEach((answer, index) => {
+                const answerDiv = document.createElement('div');
+                answerDiv.className = 'answer';
+                answerDiv.textContent = answer;
+                answerDiv.onclick = () => selectAnswer(index);
+                answerDiv.setAttribute('data-index', index);
+                answersContainer.appendChild(answerDiv);
+            });
+            
+            // Vorherige Antwort wiederherstellen
+            if (userAnswers[currentQuestionIndex] !== undefined) {
+                const selected = document.querySelector(`[data-index="${userAnswers[currentQuestionIndex]}"]`);
+                if (selected) selected.classList.add('selected');
+            }
+            
+            // Buttons
+            document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+            
+            const isLast = currentQuestionIndex === currentQuestions.length - 1;
+            document.getElementById('nextBtn').style.display = isLast ? 'none' : 'inline-block';
+            document.getElementById('finishBtn').style.display = isLast ? 'inline-block' : 'none';
+        }
+
+        // Antwort auswählen
+        function selectAnswer(answerIndex) {
+            // Alle Antworten zurücksetzen
+            document.querySelectorAll('.answer').forEach(answer => {
+                answer.classList.remove('selected');
+            });
+            
+            // Neue Antwort markieren
+            document.querySelector(`[data-index="${answerIndex}"]`).classList.add('selected');
+            
+            // Antwort speichern
+            userAnswers[currentQuestionIndex] = answerIndex;
+        }
+
+        // Nächste Frage
+        function nextQuestion() {
+            if (currentQuestionIndex < currentQuestions.length - 1) {
+                currentQuestionIndex++;
+                showQuestion();
+            }
+        }
+
+        // Vorherige Frage
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                showQuestion();
+            }
+        }
+
+        // Quiz beenden
+        function finishQuiz() {
+            const endTime = new Date();
+            const timeTaken = Math.round((endTime - startTime) / 1000);
+            
+            let correct = 0;
+            currentQuestions.forEach((question, index) => {
+                if (userAnswers[index] === question.correct) {
+                    correct++;
+                }
+            });
+            
+            const total = currentQuestions.length;
+            const percentage = Math.round((correct / total) * 100);
+            
+            showResults(correct, total, percentage, timeTaken);
+        }
+
+        // Ergebnisse anzeigen
+        function showResults(correct, total, percentage, timeTaken) {
+            // UI umschalten
+            document.getElementById('quiz').classList.remove('active');
+            document.getElementById('results').classList.add('show');
+            
+            // Ergebnisse einsetzen
+            document.getElementById('score').textContent = percentage + '%';
+            document.getElementById('correct').textContent = correct;
+            document.getElementById('wrong').textContent = total - correct;
+            
+            // Zeit formatieren
+            const minutes = Math.floor(timeTaken / 60);
+            const seconds = timeTaken % 60;
+            document.getElementById('time').textContent = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+            
+            // Bewertung und Nachricht
+            let message, rating;
+            if (percentage >= 90) {
+                message = '🏆 Exzellent! Du bist bestens vorbereitet!';
+                rating = '⭐⭐⭐⭐⭐';
+            } else if (percentage >= 80) {
+                message = '🎉 Sehr gut! Weiter so!';
+                rating = '⭐⭐⭐⭐';
+            } else if (percentage >= 70) {
+                message = '👍 Gut gemacht! Noch etwas üben.';
+                rating = '⭐⭐⭐';
+            } else if (percentage >= 60) {
+                message = '📚 Solide Grundlage, aber mehr lernen nötig.';
+                rating = '⭐⭐';
+            } else {
+                message = '💪 Nicht aufgeben! Mehr üben hilft.';
+                rating = '⭐';
+            }
+            
+            document.getElementById('message').textContent = message;
+            document.getElementById('rating').textContent = rating;
+            
+            // Erklärungen-Button wieder einblenden
+            document.getElementById('explanationsBtn').style.display = 'inline-block';
+            document.getElementById('explanations').style.display = 'none';
+        }
+
+        // Erklärungen anzeigen
+        function showExplanations() {
+            const explanationsContainer = document.getElementById('explanations');
+            const explanationsContent = document.getElementById('explanations-content');
+            
+            explanationsContainer.style.display = 'block';
+            document.getElementById('explanationsBtn').style.display = 'none';
+            
+            explanationsContent.innerHTML = '';
+            
+            currentQuestions.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const correctAnswer = question.correct;
+                const isCorrect = userAnswer === correctAnswer;
+                
+                const explanationDiv = document.createElement('div');
+                explanationDiv.className = `explanation-item ${isCorrect ? 'correct' : 'wrong'}`;
+                explanationDiv.style.animationDelay = `${index * 0.1}s`;
+                
+                let enhancedExplanation = question.explanation;
+                
+                // Füge Formel-Boxen hinzu
+                enhancedExplanation = enhancedExplanation.replace(
+                    /(CH₄ \+ 2 O₂ → CO₂ \+ 2 H₂O|ΔG = ΔH - TΔS|pH = -log\[H⁺\]|HCl → H⁺ \+ Cl⁻)/g,
+                    '<div class="formula-box">$1</div>'
+                );
+                
+                // Highlighte wichtige Begriffe
+                enhancedExplanation = enhancedExplanation.replace(
+                    /(Avogadro-Konstante|Elektronenpaarbindung|Aktivierungsenergie|Walden-Umkehr|Aromatizität|Gibbs-Helmholtz-Gleichung)/g,
+                    '<span class="explanation-highlight">$1</span>'
+                );
+                
+                explanationDiv.innerHTML = `
+                    <div class="explanation-header ${isCorrect ? 'correct' : 'wrong'}" onclick="toggleExplanation(${index})">
+                        <div class="explanation-toggle-icon" id="toggle-icon-${index}">🔽</div>
+                        <div class="explanation-status-badge ${isCorrect ? 'correct' : 'wrong'}">
+                            ${isCorrect ? '✅ Richtig' : '❌ Falsch'}
+                        </div>
+                        <div class="explanation-question">
+                            Frage ${index + 1}: ${question.question}
+                        </div>
+                        <div class="explanation-answers">
+                            ${question.answers.map((answer, answerIndex) => {
+                                let className = 'neutral';
+                                let icon = '○';
+                                
+                                if (answerIndex === correctAnswer) {
+                                    className = 'correct';
+                                    icon = '✅';
+                                } else if (answerIndex === userAnswer && userAnswer !== correctAnswer) {
+                                    className = 'user-wrong';
+                                    icon = '❌';
+                                }
+                                
+                                return `<div class="explanation-answer ${className}">
+                                    <span class="answer-icon">${icon}</span>
+                                    <span>${answer}</span>
+                                </div>`;
+                            }).join('')}
+                        </div>
+                    </div>
+                    <div class="explanation-content" id="explanation-content-${index}">
+                        <div class="explanation-inner">
+                            <div class="explanation-status ${isCorrect ? 'correct' : 'wrong'}">
+                                ${isCorrect ? '🎉 Perfekt! Du hast die richtige Antwort gewählt.' : '🤔 Nicht ganz richtig, aber eine gute Lernchance!'}
+                            </div>
+                            <div class="explanation-text">
+                                <strong>💡 Wissenschaftliche Erklärung:</strong><br><br>
+                                ${enhancedExplanation}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                explanationsContent.appendChild(explanationDiv);
+            });
+            
+            setTimeout(() => {
+                explanationsContainer.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            }, 300);
+        }
+
+        // Einzelne Erklärung ein-/ausklappen
+        function toggleExplanation(index) {
+            const content = document.getElementById(`explanation-content-${index}`);
+            const icon = document.getElementById(`toggle-icon-${index}`);
+            
+            if (content.classList.contains('expanded')) {
+                content.classList.remove('expanded');
+                icon.classList.remove('rotated');
+                icon.textContent = '🔽';
+            } else {
+                content.classList.add('expanded');
+                icon.classList.add('rotated');
+                icon.textContent = '🔼';
+                
+                setTimeout(() => {
+                    content.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'nearest' 
+                    });
+                }, 400);
+            }
+        }
+
+        // Alle Erklärungen ein-/ausklappen
+        function toggleAllExplanations() {
+            const expandAllBtn = document.getElementById('expandAllBtn');
+            const allContents = document.querySelectorAll('.explanation-content');
+            
+            allExpanded = !allExpanded;
+            
+            allContents.forEach((content, index) => {
+                const icon = document.getElementById(`toggle-icon-${index}`);
+                
+                if (allExpanded) {
+                    content.classList.add('expanded');
+                    icon.classList.add('rotated');
+                    icon.textContent = '🔼';
+                } else {
+                    content.classList.remove('expanded');
+                    icon.classList.remove('rotated');
+                    icon.textContent = '🔽';
+                }
+            });
+            
+            expandAllBtn.innerHTML = allExpanded ? 
+                '📖 Alle Erklärungen zuklappen' : 
+                '🔍 Alle Erklärungen aufklappen';
+        }
+
+        // Quiz neu starten
+        function restartQuiz() {
+            document.getElementById('explanations').style.display = 'none';
+            document.getElementById('explanationsBtn').style.display = 'inline-block';
+            allExpanded = false;
+            startQuiz(currentCategory);
+        }
+
+        // Zurück zu Kategorien
+        function backToCategories() {
+            document.getElementById('explanations').style.display = 'none';
+            document.getElementById('explanationsBtn').style.display = 'inline-block';
+            allExpanded = false;
+            document.getElementById('quiz').classList.remove('active');
+            document.getElementById('results').classList.remove('show');
+            document.getElementById('categories').style.display = 'grid';
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Scroll button visibility
+        window.addEventListener('scroll', function() {
+            const scrollButton = document.getElementById('scrollTop');
+            if (window.pageYOffset > 300) {
+                scrollButton.classList.add('visible');
+            } else {
+                scrollButton.classList.remove('visible');
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            if (document.getElementById('quiz').classList.contains('active')) {
+                switch(event.key) {
+                    case '1':
+                    case '2':
+                    case '3':
+                    case '4':
+                        event.preventDefault();
+                        const answerIndex = parseInt(event.key) - 1;
+                        const answers = document.querySelectorAll('.answer');
+                        if (answers[answerIndex]) {
+                            selectAnswer(answerIndex);
+                        }
+                        break;
+                    case 'ArrowLeft':
+                        event.preventDefault();
+                        previousQuestion();
+                        break;
+                    case 'ArrowRight':
+                    case ' ':
+                        event.preventDefault();
+                        if (currentQuestionIndex === currentQuestions.length - 1) {
+                            finishQuiz();
+                        } else {
+                            nextQuestion();
+                        }
+                        break;
+                    case 'Escape':
+                        event.preventDefault();
+                        backToCategories();
+                        break;
+                }
+            }
+            
+            // Erklärungen Tastatur-Steuerung
+            if (document.getElementById('explanations').style.display === 'block') {
+                switch(event.key) {
+                    case 'e':
+                    case 'E':
+                        event.preventDefault();
+                        toggleAllExplanations();
+                        break;
+                    case '1':
+                    case '2':
+                    case '3':
+                    case '4':
+                    case '5':
+                        event.preventDefault();
+                        const questionIndex = parseInt(event.key) - 1;
+                        if (questionIndex < currentQuestions.length) {
+                            toggleExplanation(questionIndex);
+                        }
+                        break;
+                }
+            }
+        });
+
+        // Initialisierung
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Quiz geladen');
+            document.getElementById('categories').style.display = 'grid';
+            document.getElementById('quiz').classList.remove('active');
+            document.getElementById('results').classList.remove('show');
+        });
+    </script>
+</body>
+</html>

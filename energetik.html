@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chemische Energetik - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+        
+        /* Header Section */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        /* Navigation */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 12px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+        }
+        
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-2px);
+        }
+        
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 20px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .section-header:hover {
+            background: linear-gradient(45deg, #5a6fd8, #6a42a0);
+        }
+        
+        .section-content {
+            padding: 20px;
+            display: block;
+        }
+        
+        .section-content.collapsed {
+            display: none;
+        }
+        
+        /* Two Column Layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+        
+        /* Formula Box */
+        .formula-box {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            transition: background 0.3s ease;
+        }
+        
+        .formula-box:hover {
+            background: #e8f2ff;
+        }
+        
+        .formula-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 18px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .info-card h4 {
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+        
+        /* Highlight Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 10px;
+            padding: 18px;
+            margin: 15px 0;
+            color: #2c3e50;
+            border-left: 5px solid #667eea;
+        }
+        
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 5px solid #f39c12;
+        }
+        
+        /* Interactive Elements */
+        .quiz-section {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .quiz-question {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            border-left: 4px solid #667eea;
+        }
+        
+        .quiz-answer {
+            background: #e8f5e8;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .data-table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+        }
+        
+        .data-table tr:hover {
+            background: #f5f5f5;
+        }
+        
+        /* Progress Indicator */
+        .progress-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: none;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .back-to-top.show {
+            display: block;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-breadcrumb {
+                font-size: 0.8em;
+                padding: 10px 15px;
+            }
+            
+            .section-content {
+                padding: 15px;
+            }
+            
+            .back-to-top {
+                width: 50px;
+                height: 50px;
+                font-size: 16px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5em;
+            }
+            
+            .formula-box {
+                font-size: 0.9em;
+                padding: 12px;
+            }
+            
+            .data-table {
+                font-size: 0.85em;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 8px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .content-section,
+            .info-card,
+            .highlight-box {
+                background: white !important;
+                box-shadow: none !important;
+                border: 1px solid #ccc;
+                margin-bottom: 20px;
+                page-break-inside: avoid;
+            }
+            
+            .back-to-top {
+                display: none !important;
+            }
+            
+            .nav-breadcrumb {
+                display: none;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .content-section {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(45deg, #5a6fd8, #6a42a0);
+        }
+/* Kapitel Navigation */
+.chapter-navigation {
+    margin-top: 40px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.chapter-navigation h3 {
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.nav-button {
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1em;
+    text-align: center;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-prev {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+}
+
+.nav-home {
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+}
+
+.nav-next {
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+<!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Übersicht</a> >
+            <strong>Chemische Energetik</strong>
+        </nav>
+        <!-- Header -->
+        <header>
+            <h1>⚡ Chemische Energetik</h1>
+            <p class="subtitle">Thermodynamik in der Chemie - Abitur 2026</p>
+            <p>Enthalpie, Entropie, freie Enthalpie und Kalorimetrie</p>
+        </header>
+
+        
+
+        <!-- Progress Indicator -->
+        <div class="progress-container">
+            <h3>📊 Lernfortschritt: Chemische Energetik</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="topic-progress"></div>
+            </div>
+            <p style="margin-top: 10px; text-align: center; color: #7f8c8d;">0% abgeschlossen</p>
+        </div>
+
+        <!-- Introduction -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                🎯 Einführung und Lernziele
+            </div>
+            <div class="section-content">
+                <div class="highlight-box">
+                    <h3>🎯 Was lernst du in diesem Kapitel?</h3>
+                    <p>Die <strong>chemische Energetik</strong> (Thermodynamik) beschreibt Energieumwandlungen bei chemischen Reaktionen. Du lernst:</p>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Wie man Systeme und Umgebung unterscheidet</li>
+                        <li>Was innere Energie und Enthalpie bedeuten</li>
+                        <li>Wie man Reaktionsenthalpien berechnet</li>
+                        <li>Was Entropie und freie Enthalpie aussagen</li>
+                        <li>Wie Kalorimetrie funktioniert</li>
+                        <li>Warum manche Reaktionen spontan ablaufen</li>
+                    </ul>
+                </div>
+                
+                <div class="warning-box">
+                    <strong>⚠️ Wichtig für das Abitur 2026:</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Neue ländergemeinsame Formelsammlung verwenden</li>
+                        <li>Verknüpfung mit dem Energiekonzept verstehen</li>
+                        <li>Berechnungen mit Standardwerten üben</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Systems and Surroundings -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                🌍 Systeme und Umgebung
+            </div>
+            <div class="section-content">
+                <p>Ein <strong>System</strong> ist ein festgelegter räumlicher Bereich, in dem sich Stoffe befinden oder eine chemische Reaktion abläuft. Alles andere ist die <strong>Umgebung</strong>.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🔒 Isoliertes System</h4>
+                        <p>Kann weder Stoffe noch Energie mit der Umgebung austauschen.</p>
+                        <p><strong>Beispiel:</strong> Thermosflasche (idealisiert)</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🚪 Geschlossenes System</h4>
+                        <p>Kann nur Energie (nicht Stoffe) mit der Umgebung austauschen.</p>
+                        <p><strong>Beispiel:</strong> Verschlossener Kolben mit beweglichem Stempel</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🌬️ Offenes System</h4>
+                        <p>Kann Stoffe und Energie mit der Umgebung austauschen.</p>
+                        <p><strong>Beispiel:</strong> Becher mit chemischer Reaktion</p>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>💡 Wichtige Erkenntnis:</h4>
+                    <p>Die meisten chemischen Reaktionen laufen in <strong>offenen Systemen</strong> bei konstantem Druck ab. Deshalb ist die <strong>Enthalpie</strong> oft wichtiger als die innere Energie!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inner Energy and Enthalpy -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                🔋 Innere Energie und Enthalpie
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div>
+                        <h4>🔋 Innere Energie (U)</h4>
+                        <p>Die <strong>innere Energie U</strong> ist die Summe aller Energien der Teilchen in einem System:</p>
+                        <ul style="margin-top: 10px; padding-left: 20px;">
+                            <li>Kinetische Energie der Teilchen</li>
+                            <li>Potentielle Energie der Teilchen</li>
+                            <li>Bindungsenergie in Molekülen</li>
+                            <li>Elektronische Energie in Atomen</li>
+                        </ul>
+                        
+                        <div class="formula-box">
+                            <div class="formula-title">Reaktionsenergie</div>
+                            ΔᵣU = U₂ - U₁ = Qᵥ<br>
+                            <small>Bei konstantem Volumen</small>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>⚡ Enthalpie (H)</h4>
+                        <p>Die <strong>Enthalpie H</strong> beschreibt Energieänderungen bei konstantem Druck:</p>
+                        
+                        <div class="formula-box">
+                            <div class="formula-title">Definition der Enthalpie</div>
+                            H = U + p·V
+                        </div>
+                        
+                        <div class="formula-box">
+                            <div class="formula-title">Reaktionsenthalpie</div>
+                            ΔᵣH = H₂ - H₁ = Qₚ<br>
+                            <small>Bei konstantem Druck</small>
+                        </div>
+                        
+                        <div class="formula-box">
+                            <div class="formula-title">Zusammenhang U und H</div>
+                            ΔᵣH = ΔᵣU + p·ΔV
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>🔥 Exotherm vs. Endotherm</h4>
+                    <div class="two-column">
+                        <div>
+                            <strong>Exotherm:</strong> ΔᵣH < 0<br>
+                            Energie wird <em>freigesetzt</em><br>
+                            Beispiel: Verbrennung
+                        </div>
+                        <div>
+                            <strong>Endotherm:</strong> ΔᵣH > 0<br>
+                            Energie wird <em>verbraucht</em><br>
+                            Beispiel: Photosynthese
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calorimetry -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                🌡️ Kalorimetrie
+            </div>
+            <div class="section-content">
+                <p>Die <strong>Kalorimetrie</strong> ist die experimentelle Bestimmung von Reaktionswärmen mithilfe eines Kalorimeters.</p>
+                
+                <div class="formula-box">
+                    <div class="formula-title">Grundgleichung der Kalorimetrie</div>
+                    Qᵣ = -(cw · mw + Cc) · Δϑ
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Bedeutung</th>
+                            <th>Einheit</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Qᵣ</td>
+                            <td>Reaktionswärme</td>
+                            <td>J</td>
+                        </tr>
+                        <tr>
+                            <td>cw</td>
+                            <td>Spezifische Wärmekapazität des Wassers</td>
+                            <td>4,18 J/(g·K)</td>
+                        </tr>
+                        <tr>
+                            <td>mw</td>
+                            <td>Masse des Wassers</td>
+                            <td>g</td>
+                        </tr>
+                        <tr>
+                            <td>Cc</td>
+                            <td>Wärmekapazität des Kalorimeters</td>
+                            <td>J/K</td>
+                        </tr>
+                        <tr>
+                            <td>Δϑ</td>
+                            <td>Temperaturänderung</td>
+                            <td>K</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="warning-box">
+                    <strong>🧪 Experimentelle Hinweise:</strong>
+                    <ul style="margin-top: 10px; padding-left: 20px;">
+                        <li>Kalorimeter muss gut isoliert sein</li>
+                        <li>Vollständige Durchmischung ist wichtig</li>
+                        <li>Temperatur kontinuierlich messen</li>
+                        <li>Wärmekapazität des Kalorimeters berücksichtigen</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formation and Combustion Enthalpies -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                🏗️ Bildungs- und Verbrennungsenthalpien
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div>
+                        <h4>🏗️ Bildungsenthalpie</h4>
+                        <p>Die <strong>molare Standardbildungsenthalpie ΔfH°m</strong> ist die Enthalpieänderung bei der Bildung von 1 mol einer Verbindung aus den Elementen bei Standardbedingungen.</p>
+                        
+                        <div class="formula-box">
+                            <div class="formula-title">Standardbedingungen</div>
+                            ϑ = 25°C (298 K)<br>
+                            p = 1000 hPa = 1 bar
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <strong>📌 Wichtig:</strong> ΔfH°m(Elemente) = 0 kJ/mol
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4>🔥 Verbrennungsenthalpie</h4>
+                        <p>Die <strong>molare Standardverbrennungsenthalpie ΔcH°m</strong> ist die Enthalpieänderung bei der vollständigen Verbrennung von 1 mol einer Verbindung.</p>
+                        
+                        <div class="info-card">
+                            <h4>Beispiel: Methan</h4>
+                            <p>CH₄ + 2O₂ → CO₂ + 2H₂O</p>
+                            <p>ΔcH°m(CH₄) = -890 kJ/mol</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>📊 Wichtige Standardbildungsenthalpien (kJ/mol)</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Verbindung</th>
+                            <th>ΔfH°m</th>
+                            <th>Verbindung</th>
+                            <th>ΔfH°m</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>H₂O(l)</td>
+                            <td>-286</td>
+                            <td>CO₂(g)</td>
+                            <td>-394</td>
+                        </tr>
+                        <tr>
+                            <td>H₂O(g)</td>
+                            <td>-242</td>
+                            <td>NH₃(g)</td>
+                            <td>-46</td>
+                        </tr>
+                        <tr>
+                            <td>HCl(g)</td>
+                            <td>-92</td>
+                            <td>CH₄(g)</td>
+                            <td>-75</td>
+                        </tr>
+                        <tr>
+                            <td>NaCl(s)</td>
+                            <td>-411</td>
+                            <td>C₂H₅OH(l)</td>
+                            <td>-278</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Hess's Law -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                🔄 Satz von Hess
+            </div>
+            <div class="section-content">
+                <div class="highlight-box">
+                    <h3>📜 Satz von Hess</h3>
+                    <p><strong>Die Reaktionsenthalpie ist unabhängig vom Reaktionsweg.</strong></p>
+                </div>
+                
+                <div class="formula-box">
+                    <div class="formula-title">Berechnung mit Bildungsenthalpien</div>
+                    ΔᵣH° = Σ νᵢ·ΔfH°m(Produkte) - Σ νᵢ·ΔfH°m(Edukte)
+                </div>
+                
+                <div class="quiz-section">
+                    <h4>🧩 Übungsaufgabe: Verbrennung von Ethanol</h4>
+                    <div class="quiz-question">
+                        <p><strong>Aufgabe:</strong> Berechne die Standardreaktionsenthalpie für die Verbrennung von Ethanol:</p>
+                        <p>C₂H₅OH(l) + 3O₂(g) → 2CO₂(g) + 3H₂O(l)</p>
+                        <p><strong>Gegeben:</strong></p>
+                        <ul style="padding-left: 20px;">
+                            <li>ΔfH°m(C₂H₅OH) = -278 kJ/mol</li>
+                            <li>ΔfH°m(CO₂) = -394 kJ/mol</li>
+                            <li>ΔfH°m(H₂O) = -286 kJ/mol</li>
+                            <li>ΔfH°m(O₂) = 0 kJ/mol</li>
+                        </ul>
+                        <button onclick="showAnswer(this)" style="margin-top: 10px; padding: 8px 15px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Lösung anzeigen</button>
+                        <div class="quiz-answer">
+                            <p><strong>Lösung:</strong></p>
+                            <p>ΔᵣH° = [2·(-394) + 3·(-286)] - [1·(-278) + 3·0]</p>
+                            <p>ΔᵣH° = [-788 - 858] - [-278]</p>
+                            <p>ΔᵣH° = -1646 + 278 = <strong>-1368 kJ/mol</strong></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Entropy -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                🌪️ Entropie
+            </div>
+            <div class="section-content">
+                <p>Die <strong>Entropie S</strong> ist ein Maß für die Unordnung oder Zufallsverteilung der Teilchen in einem System.</p>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>📈 Entropie nimmt zu bei:</h4>
+                        <ul style="padding-left: 15px; margin-top: 8px;">
+                            <li>Temperaturerhöhung</li>
+                            <li>Zunahme der Teilchenzahl</li>
+                            <li>Phasenübergängen (s→l→g)</li>
+                            <li>Vermischung von Stoffen</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h4>📉 Entropie nimmt ab bei:</h4>
+                        <ul style="padding-left: 15px; margin-top: 8px;">
+                            <li>Abkühlung</li>
+                            <li>Kondensation/Erstarrung</li>
+                            <li>Bildung geordneter Strukturen</li>
+                            <li>Abnahme der Teilchenzahl</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="formula-box">
+                    <div class="formula-title">Standardreaktionsentropie</div>
+                    ΔᵣS° = Σ νᵢ·S°m(Produkte) - Σ νᵢ·S°m(Edukte)
+                </div>
+                
+                <div class="highlight-box">
+                    <h4>🌟 Zweiter Hauptsatz der Thermodynamik</h4>
+                    <p>Die Gesamtentropie (System + Umgebung) kann nur zunehmen oder gleich bleiben:</p>
+                    <p><strong>ΔSGesamt ≥ 0</strong></p>
+                    <p>Spontane Vorgänge sind immer mit einer Zunahme der Gesamtentropie verbunden!</p>
+                </div>
+                
+                <h4>📊 Molare Standardentropien (J/(mol·K)) bei 25°C</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Stoff</th>
+                            <th>S°m</th>
+                            <th>Stoff</th>
+                            <th>S°m</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>H₂(g)</td>
+                            <td>131</td>
+                            <td>O₂(g)</td>
+                            <td>205</td>
+                        </tr>
+                        <tr>
+                            <td>H₂O(l)</td>
+                            <td>70</td>
+                            <td>H₂O(g)</td>
+                            <td>189</td>
+                        </tr>
+                        <tr>
+                            <td>CO₂(g)</td>
+                            <td>214</td>
+                            <td>NH₃(g)</td>
+                            <td>193</td>
+                        </tr>
+                        <tr>
+                            <td>NaCl(s)</td>
+                            <td>72</td>
+                            <td>C(Graphit)</td>
+                            <td>6</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Free Enthalpy -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                🆓 Freie Enthalpie (Gibbs-Energie)
+            </div>
+            <div class="section-content">
+                <p>Die <strong>freie Enthalpie G</strong> (Gibbs-Energie) kombiniert Enthalpie und Entropie und bestimmt, ob eine Reaktion spontan abläuft.</p>
+                
+                <div class="formula-box">
+                    <div class="formula-title">Gibbs-Helmholtz-Gleichung</div>
+                    ΔᵣG = ΔᵣH - T·ΔᵣS
+                </div>
+                
+                <div class="formula-box">
+                    <div class="formula-title">Zusammenhang mit Gesamtentropie</div>
+                    ΔᵣG = -T·ΔSGesamt
+                </div>
+                
+                <h4>🎯 Kriterien für Spontaneität</h4>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>✅ Exergonisch (spontan)</h4>
+                        <p><strong>ΔᵣG < 0</strong></p>
+                        <p>Reaktion läuft freiwillig ab</p>
+                        <p>Gleichgewicht liegt bei den Produkten</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>❌ Endergonisch (nicht spontan)</h4>
+                        <p><strong>ΔᵣG > 0</strong></p>
+                        <p>Reaktion läuft nicht freiwillig ab</p>
+                        <p>Gleichgewicht liegt bei den Edukten</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>⚖️ Gleichgewicht</h4>
+                        <p><strong>ΔᵣG = 0</strong></p>
+                        <p>System im Gleichgewicht</p>
+                        <p>Edukte ⇌ Produkte</p>
+                    </div>
+                </div>
+                
+                <h4>🌡️ Temperaturabhängigkeit der Spontaneität</h4>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ΔᵣH</th>
+                            <th>ΔᵣS</th>
+                            <th>ΔᵣG bei niedriger T</th>
+                            <th>ΔᵣG bei hoher T</th>
+                            <th>Spontaneität</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>< 0</td>
+                            <td>> 0</td>
+                            <td>< 0</td>
+                            <td>< 0</td>
+                            <td>Immer spontan</td>
+                        </tr>
+                        <tr>
+                            <td>> 0</td>
+                            <td>< 0</td>
+                            <td>> 0</td>
+                            <td>> 0</td>
+                            <td>Nie spontan</td>
+                        </tr>
+                        <tr>
+                            <td>< 0</td>
+                            <td>< 0</td>
+                            <td>< 0</td>
+                            <td>> 0</td>
+                            <td>Nur bei niedriger T</td>
+                        </tr>
+                        <tr>
+                            <td>> 0</td>
+                            <td>> 0</td>
+                            <td>> 0</td>
+                            <td>< 0</td>
+                            <td>Nur bei hoher T</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="quiz-section">
+                    <h4>🧩 Übungsaufgabe: CaCO₃-Zersetzung</h4>
+                    <div class="quiz-question">
+                        <p><strong>Aufgabe:</strong> Bei welcher Temperatur zersetzt sich CaCO₃ spontan?</p>
+                        <p>CaCO₃(s) → CaO(s) + CO₂(g)</p>
+                        <p><strong>Gegeben:</strong></p>
+                        <ul style="padding-left: 20px;">
+                            <li>ΔᵣH° = +178 kJ/mol</li>
+                            <li>ΔᵣS° = +161 J/(mol·K)</li>
+                        </ul>
+                        <button onclick="showAnswer(this)" style="margin-top: 10px; padding: 8px 15px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Lösung anzeigen</button>
+                        <div class="quiz-answer">
+                            <p><strong>Lösung:</strong></p>
+                            <p>Bei ΔᵣG = 0 gilt: T = ΔᵣH° / ΔᵣS°</p>
+                            <p>T = 178.000 J/mol ÷ 161 J/(mol·K)</p>
+                            <p>T = <strong>1106 K = 833°C</strong></p>
+                            <p>Oberhalb von 833°C zersetzt sich CaCO₃ spontan!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Applications -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                🔬 Anwendungen und Beispiele
+            </div>
+            <div class="section-content">
+                <h4>🏭 Technische Anwendungen</h4>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>🔋 Galvanische Zellen</h4>
+                        <p>Die maximale Arbeit einer Batterie entspricht ΔᵣG der ablaufenden Reaktion:</p>
+                        <p><strong>Wmax = -ΔᵣG</strong></p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🏗️ Metallgewinnung</h4>
+                        <p>Reduktion von Metalloxiden ist nur bei genügend hoher Temperatur spontan (ΔᵣG < 0).</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>🧪 Phasenübergänge</h4>
+                        <p>Schmelz- und Siedetemperaturen entsprechen ΔᵣG = 0 für den Phasenübergang.</p>
+                    </div>
+                </div>
+                
+                <h4>🌿 Biologische Systeme</h4>
+                <div class="highlight-box">
+                    <p><strong>ATP-Hydrolyse:</strong> ATP + H₂O → ADP + Pᵢ</p>
+                    <p>ΔᵣG° = -31 kJ/mol</p>
+                    <p>Diese exergonische Reaktion treibt viele endergonische Prozesse in Zellen an!</p>
+                </div>
+                
+                <h4>⚖️ Gleichgewichtslage vorhersagen</h4>
+                <div class="formula-box">
+                    <div class="formula-title">Zusammenhang ΔᵣG° und Gleichgewichtskonstante</div>
+                    ΔᵣG° = -RT·ln(K)<br>
+                    <small>R = 8,314 J/(mol·K)</small>
+                </div>
+                
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>ΔᵣG° (kJ/mol)</th>
+                            <th>K bei 25°C</th>
+                            <th>Gleichgewichtslage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>-100</td>
+                            <td>3 × 10¹⁷</td>
+                            <td>Stark bei Produkten</td>
+                        </tr>
+                        <tr>
+                            <td>-10</td>
+                            <td>55</td>
+                            <td>Bei Produkten</td>
+                        </tr>
+                        <tr>
+                            <td>0</td>
+                            <td>1</td>
+                            <td>Ausgeglichen</td>
+                        </tr>
+                        <tr>
+                            <td>+10</td>
+                            <td>0,018</td>
+                            <td>Bei Edukten</td>
+                        </tr>
+                        <tr>
+                            <td>+100</td>
+                            <td>3 × 10⁻¹⁸</td>
+                            <td>Stark bei Edukten</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Summary and Exercises -->
+        <section class="content-section">
+            <div class="section-header" onclick="toggleSection(this)">
+                📝 Zusammenfassung und Übungen
+            </div>
+            <div class="section-content">
+                <div class="highlight-box">
+                    <h3>🎯 Die wichtigsten Punkte auf einen Blick:</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4>📚 Grundbegriffe:</h4>
+                            <ul style="padding-left: 15px;">
+                                <li>System vs. Umgebung</li>
+                                <li>Innere Energie U</li>
+                                <li>Enthalpie H = U + pV</li>
+                                <li>Entropie S (Unordnung)</li>
+                                <li>Freie Enthalpie G</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>🔑 Schlüsselgleichungen:</h4>
+                            <ul style="padding-left: 15px;">
+                                <li>ΔᵣH° = Σ ΔfH°(P) - Σ ΔfH°(E)</li>
+                                <li>ΔᵣG = ΔᵣH - T·ΔᵣS</li>
+                                <li>Spontan wenn ΔᵣG < 0</li>
+                                <li>Qᵣ = -(cw·mw + Cc)·Δϑ</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>🧪 Weitere Übungsaufgaben</h4>
+                <div class="quiz-section">
+                    <div class="quiz-question">
+                        <p><strong>1.</strong> Berechne ΔᵣH° für: N₂ + 3H₂ → 2NH₃ (ΔfH°(NH₃) = -46 kJ/mol)</p>
+                        <button onclick="showAnswer(this)" style="margin-top: 10px; padding: 8px 15px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Lösung</button>
+                        <div class="quiz-answer">
+                            <p>ΔᵣH° = 2·(-46) - [0 + 0] = <strong>-92 kJ/mol</strong></p>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <p><strong>2.</strong> Ist die Verdampfung von Wasser bei 25°C spontan? (ΔᵥₐₚH = 44 kJ/mol, ΔᵥₐₚS = 119 J/(mol·K))</p>
+                        <button onclick="showAnswer(this)" style="margin-top: 10px; padding: 8px 15px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Lösung</button>
+                        <div class="quiz-answer">
+                            <p>ΔG = 44.000 - 298·119 = 44.000 - 35.462 = <strong>+8.538 J/mol</strong></p>
+                            <p>Da ΔG > 0: <strong>Nicht spontan</strong> bei 25°C</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <p><strong>3.</strong> Ein Kalorimeter enthält 200 g Wasser. Die Temperatur steigt um 5,2 K. Berechne die freigesetzte Wärme (Cc = 50 J/K).</p>
+                        <button onclick="showAnswer(this)" style="margin-top: 10px; padding: 8px 15px; background: #667eea; color: white; border: none; border-radius: 5px; cursor: pointer;">Lösung</button>
+                        <div class="quiz-answer">
+                            <p>Qᵣ = -(4,18·200 + 50)·5,2</p>
+                            <p>Qᵣ = -(836 + 50)·5,2 = <strong>-4.607 J</strong></p>
+                            <p>4,6 kJ wurden freigesetzt (exotherm)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="warning-box">
+                    <h4>🎯 Abitur-Tipps:</h4>
+                    <ul style="padding-left: 20px;">
+                        <li><strong>Einheiten beachten:</strong> kJ/mol vs. J/(mol·K)</li>
+                        <li><strong>Vorzeichen:</strong> Exotherm = negativ, Endotherm = positiv</li>
+                        <li><strong>Standardbedingungen:</strong> 25°C, 1 bar</li>
+                        <li><strong>Formelsammlung:</strong> Alle Formeln stehen drin!</li>
+                        <li><strong>Rechenwege:</strong> Immer klar strukturieren</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+<!-- Kapitel Navigation -->
+<div class="chapter-navigation">
+    <h3>📖 Kapitel Navigation</h3>
+    <div class="nav-buttons">
+        <button class="nav-button nav-prev" onclick="window.location.href='sauerstoff-verbindungen.html'">
+            ← 🧪 Organische Sauerstoff-Verbindungen
+        </button>
+        <button class="nav-button nav-home" onclick="window.location.href='index.html'">
+            🏠 Zur Startseite
+        </button>
+        <button class="nav-button nav-next" onclick="window.location.href='kinetik-gleichgewicht.html'">
+            ⚗️ Reaktionsgeschwindigkeit und chemisches Gleichgewicht →
+        </button>
+    </div>
+</div>
+
+          </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ↑
+    </button>
+
+    <script>
+        // Toggle section content
+        function toggleSection(header) {
+            const content = header.nextElementSibling;
+            content.classList.toggle('collapsed');
+            
+            // Update progress
+            updateProgress();
+        }
+
+        // Show quiz answer
+        function showAnswer(button) {
+            const answer = button.parentElement.querySelector('.quiz-answer');
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+            button.textContent = answer.style.display === 'block' ? 'Lösung verbergen' : 'Lösung anzeigen';
+        }
+
+        // Update progress based on opened sections
+        function updateProgress() {
+            const totalSections = document.querySelectorAll('.content-section').length;
+            const openSections = document.querySelectorAll('.section-content:not(.collapsed)').length;
+            const progress = (openSections / totalSections) * 100;
+            
+            document.getElementById('topic-progress').style.width = progress + '%';
+            document.querySelector('.progress-container p').textContent = Math.round(progress) + '% abgeschlossen';
+        }
+
+        // Back to top functionality
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initially expand first section
+            const firstSection = document.querySelector('.section-content');
+            if (firstSection) {
+                firstSection.classList.remove('collapsed');
+            }
+            
+            // Set initial progress
+            updateProgress();
+            
+            // Add smooth scrolling to all anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Load progress from session storage
+            const savedProgress = sessionStorage.getItem('energetik-progress');
+            if (savedProgress) {
+                const openSections = JSON.parse(savedProgress);
+                openSections.forEach(index => {
+                    const section = document.querySelectorAll('.section-content')[index];
+                    if (section) {
+                        section.classList.remove('collapsed');
+                    }
+                });
+                updateProgress();
+            }
+        });
+
+        // Save progress to session storage
+        window.addEventListener('beforeunload', function() {
+            const openSections = [];
+            document.querySelectorAll('.section-content').forEach((section, index) => {
+                if (!section.classList.contains('collapsed')) {
+                    openSections.push(index);
+                }
+            });
+            sessionStorage.setItem('energetik-progress', JSON.stringify(openSections));
+        });
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', function(e) {
+            // Press 'T' to go to top
+            if (e.key === 't' || e.key === 'T') {
+                scrollToTop();
+            }
+            // Press 'H' to go to home
+            if (e.key === 'h' || e.key === 'H') {
+                window.location.href = 'index.html';
+            }
+        });
+
+        // Print functionality
+        function printPage() {
+            // Expand all sections for printing
+            document.querySelectorAll('.section-content').forEach(section => {
+                section.classList.remove('collapsed');
+            });
+            
+            window.print();
+        }
+
+            </script>
+</body>
+</html>

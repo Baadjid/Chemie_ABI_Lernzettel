@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Komplexverbindungen - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Navigation */
+        .nav-breadcrumb {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .nav-breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        /* Content Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            margin-bottom: 25px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px 30px;
+            font-size: 1.4em;
+            font-weight: 600;
+        }
+
+        .section-content {
+            padding: 30px;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin: 20px 0;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        /* Cards */
+        .card {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .card h4 {
+            color: #495057;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        .card p {
+            color: #495057;
+            margin-bottom: 10px;
+        }
+
+        .card ul {
+            margin-left: 20px;
+            color: #495057;
+        }
+
+        .card li {
+            margin-bottom: 5px;
+        }
+
+        /* Special Boxes */
+        .highlight-box {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .important-box {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            border-left: 5px solid #f39c12;
+        }
+
+        .formula-box {
+            background: #e8f5e8;
+            border: 1px solid #c3e6c3;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        /* Tables */
+        .table-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: white;
+        }
+
+        .table {
+            width: 100%;
+            min-width: 600px; /* Mindestbreite für bessere Lesbarkeit */
+            border-collapse: collapse;
+            background: white;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            white-space: nowrap; /* Verhindert Zeilenumbruch */
+        }
+
+        .table th {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* Scroll-Hinweis für mobile Geräte */
+        .table-container::after {
+            
+            display: block;
+            text-align: center;
+            font-size: 0.8em;
+            color: #6c757d;
+            padding: 8px;
+            background: #f8f9fa;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (min-width: 768px) {
+            .table-container::after {
+                display: none;
+            }
+        }
+
+        /* Quiz */
+        .quiz {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .quiz h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .quiz-question {
+            font-weight: 600;
+            margin: 20px 0 15px 0;
+            color: #2c3e50;
+        }
+
+        .quiz-options {
+            list-style: none;
+            padding: 0;
+        }
+
+        .quiz-options li {
+            margin: 10px 0;
+            padding: 12px 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .quiz-options li:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .quiz-options li.correct {
+            background: #d4edda;
+            border-color: #28a745;
+            color: #155724;
+        }
+
+        .quiz-options li.incorrect {
+            background: #f8d7da;
+            border-color: #dc3545;
+            color: #721c24;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin: 10px 5px;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        /* Scroll to Top Button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5em;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Progress Bar */
+        .progress {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0%;
+            transition: width 0.8s ease;
+        }
+
+        /* Chemical Formulas */
+        .formula {
+            font-family: 'Times New Roman', serif;
+            font-weight: 500;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .section-content {
+                padding: 20px;
+            }
+
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 5px;
+            }
+
+            .section-header {
+                padding: 15px 20px;
+                font-size: 1.2em;
+            }
+
+            .section-content {
+                padding: 15px;
+            }
+
+            .card {
+                padding: 15px;
+            }
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+
+            .section,
+            .card {
+                background: white;
+                box-shadow: none;
+                border: 1px solid #ccc;
+                page-break-inside: avoid;
+            }
+
+            .scroll-top,
+            .quiz {
+                display: none;
+            }
+
+            .section-header {
+                background: #f0f0f0 !important;
+                color: black !important;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            🧭 <a href="index.html">Hauptübersicht</a> → 
+            <strong>Komplexverbindungen</strong>
+        </nav>
+
+        <!-- Header -->
+        <header class="header">
+            <h1>🧬 Komplexverbindungen</h1>
+            <p class="subtitle">Koordinationschemie - Struktur, Bindung und Anwendungen</p>
+            <p>Kapitel 14 - Chemie Abitur 2026</p>
+        </header>
+
+        <!-- Progress -->
+        <div class="progress">
+            <h3>📊 Lernfortschritt Komplexverbindungen</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress"></div>
+            </div>
+            <p style="margin-top: 10px; text-align: center; color: #7f8c8d;">0% des Kapitels abgeschlossen</p>
+        </div>
+
+        <!-- 1. Einführung -->
+        <section class="section fade-in">
+            <div class="section-header">
+                🎯 1. Was sind Komplexverbindungen?
+            </div>
+            <div class="section-content">
+                <div class="highlight-box">
+                    <h3>💡 Definition</h3>
+                    <p>Komplexverbindungen sind Verbindungen, die <strong>Komplexe als Bausteine</strong> enthalten. Ein Komplex besteht aus einem zentralen Metallatom oder -ion (Zentralatom), das von Molekülen oder Ionen (Liganden) umgeben ist.</p>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h3>🔬 Historische Entdeckung</h3>
+                        <p>Komplexverbindungen wurden bereits im 18. Jahrhundert entdeckt, aber erst durch <strong>Alfred Werner</strong> (Nobelpreis 1913) systematisch erklärt.</p>
+                        <h4>Wichtige Beispiele:</h4>
+                        <ul>
+                            <li>Berliner Blau (Preußischblau)</li>
+                            <li>Amminkomplexe von Kobalt</li>
+                            <li>Kupfer-Ammoniak-Komplexe</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>🌈 Charakteristische Eigenschaften</h3>
+                        <ul>
+                            <li><strong>Intensive Farben</strong> - oft anders als die Ausgangsstoffe</li>
+                            <li><strong>Veränderte Löslichkeit</strong></li>
+                            <li><strong>Magnetische Eigenschaften</strong></li>
+                            <li><strong>Katalytische Aktivität</strong></li>
+                            <li><strong>Biologische Funktionen</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="formula-box">
+                    <h4>Allgemeine Formel eines Komplexes:</h4>
+                    <p class="formula">[Zentralatom(Liganden)<sub>n</sub>]<sup>Ladung</sup></p>
+                    <p style="margin-top: 10px;">Beispiel: [Cu(NH<sub>3</sub>)<sub>4</sub>]<sup>2+</sup></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Struktur und Aufbau -->
+        <section class="section fade-in">
+            <div class="section-header">
+                🏗️ 2. Struktur und Aufbau von Komplexen
+            </div>
+            <div class="section-content">
+                <div class="important-box">
+                    <h4>🔑 Wichtige Begriffe:</h4>
+                    <ul>
+                        <li><strong>Zentralatom/Zentralion:</strong> Meist Übergangsmetalle (d-Block-Elemente)</li>
+                        <li><strong>Liganden:</strong> Moleküle oder Ionen mit freien Elektronenpaaren</li>
+                        <li><strong>Koordinationszahl:</strong> Anzahl der Bindungen zwischen Zentralatom und Liganden</li>
+                        <li><strong>Koordinationssphäre:</strong> Zentralatom + direkt gebundene Liganden</li>
+                    </ul>
+                </div>
+
+                <h3>📐 Räumlicher Bau von Komplexen</h3>
+                <div class="grid-3">
+                    <div class="card">
+                        <h4>Koordinationszahl 4</h4>
+                        <p><strong>Tetraedrisch:</strong></p>
+                        <p>Bindungswinkel: 109,5°</p>
+                        <p>Beispiel: [Zn(NH<sub>3</sub>)<sub>4</sub>]<sup>2+</sup></p>
+                        
+                        <p style="margin-top: 15px;"><strong>Quadratisch-planar:</strong></p>
+                        <p>Bindungswinkel: 90°</p>
+                        <p>Beispiel: [PtCl<sub>4</sub>]<sup>2-</sup></p>
+                    </div>
+                    <div class="card">
+                        <h4>Koordinationszahl 6</h4>
+                        <p><strong>Oktaedrisch:</strong></p>
+                        <p>Bindungswinkel: 90°</p>
+                        <p>Beispiel: [Fe(CN)<sub>6</sub>]<sup>3-</sup></p>
+                        <p style="color: #e74c3c; font-weight: 600;">Die häufigste Koordinationsgeometrie!</p>
+                    </div>
+                    <div class="card">
+                        <h4>Andere Geometrien</h4>
+                        <p><strong>KZ 2:</strong> Linear</p>
+                        <p>Beispiel: [Ag(NH<sub>3</sub>)<sub>2</sub>]<sup>+</sup></p>
+                        
+                        <p style="margin-top: 10px;"><strong>KZ 5:</strong> Trigonal-bipyramidal oder quadratisch-pyramidal</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Liganden -->
+        <section class="section fade-in">
+            <div class="section-header">
+                🔗 3. Liganden - Die Bindungspartner
+            </div>
+            <div class="section-content">
+                <h3>🦷 Klassifikation der Liganden</h3>
+                
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Ligandentyp</th>
+                                <th>Koordinationsstellen</th>
+                                <th>Beispiele</th>
+                                <th>Besonderheiten</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Einzähnig</strong></td>
+                                <td>1</td>
+                                <td>H<sub>2</sub>O, NH<sub>3</sub>, Cl<sup>-</sup>, CN<sup>-</sup></td>
+                                <td>Besetzen eine Koordinationsstelle</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Zweizähnig</strong></td>
+                                <td>2</td>
+                                <td>en (Ethylendiamin), ox<sup>2-</sup></td>
+                                <td>Bilden Chelatkomplexe</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mehrzähnig</strong></td>
+                                <td>3-6</td>
+                                <td>EDTA<sup>4-</sup> (6-zähnig)</td>
+                                <td>Sehr stabile Komplexe</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>🔗 Chelatkomplexe</h4>
+                        <p>Komplexe mit <strong>mehrzähnigen Liganden</strong> heißen Chelatkomplexe (griech. chela = Krebsschere).</p>
+                        <p><strong>Chelateffekt:</strong> Mehrzähnige Liganden bilden deutlich stabilere Komplexe als einzähnige.</p>
+                        <p><strong>Beispiel:</strong> [Cu(en)<sub>2</sub>]<sup>2+</sup> ist stabiler als [Cu(NH<sub>3</sub>)<sub>4</sub>]<sup>2+</sup></p>
+                    </div>
+                    <div class="card">
+                        <h4>🎯 Wichtige Liganden</h4>
+                        <ul>
+                            <li><strong>H<sub>2</sub>O:</strong> Aqua</li>
+                            <li><strong>NH<sub>3</sub>:</strong> Ammin</li>
+                            <li><strong>Cl<sup>-</sup>:</strong> Chloro</li>
+                            <li><strong>CN<sup>-</sup>:</strong> Cyano</li>
+                            <li><strong>OH<sup>-</sup>:</strong> Hydroxo</li>
+                            <li><strong>en:</strong> Ethylendiamin</li>
+                            <li><strong>EDTA<sup>4-</sup>:</strong> Ethylendiamintetraacetat</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Nomenklatur -->
+        <section class="section fade-in">
+            <div class="section-header">
+                📝 4. Nomenklatur von Komplexverbindungen
+            </div>
+            <div class="section-content">
+                <div class="important-box">
+                    <h4>📋 Nomenklaturregeln (IUPAC)</h4>
+                    <ol>
+                        <li>Liganden werden vor dem Zentralatom genannt</li>
+                        <li>Anionische Liganden erhalten die Endung "-o"</li>
+                        <li>Anzahl gleicher Liganden: mono-, di-, tri-, tetra-, penta-, hexa-</li>
+                        <li>Bei komplizierteren Liganden: bis-, tris-, tetrakis-</li>
+                        <li>Oxidationszahl des Zentralatoms in römischen Zahlen</li>
+                        <li>Anionische Komplexe erhalten die Endung "-at"</li>
+                    </ol>
+                </div>
+
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Formel</th>
+                                <th>Name</th>
+                                <th>Typ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>[Cu(NH<sub>3</sub>)<sub>4</sub>]SO<sub>4</sub></td>
+                                <td>Tetraamminkopper(II)-sulfat</td>
+                                <td>Kationischer Komplex</td>
+                            </tr>
+                            <tr>
+                                <td>K<sub>3</sub>[Fe(CN)<sub>6</sub>]</td>
+                                <td>Kaliumhexacyanoferrat(III)</td>
+                                <td>Anionischer Komplex</td>
+                            </tr>
+                            <tr>
+                                <td>[Co(en)<sub>3</sub>]Cl<sub>3</sub></td>
+                                <td>Tris(ethylendiamin)cobalt(III)-chlorid</td>
+                                <td>Komplizierter Ligand</td>
+                            </tr>
+                            <tr>
+                                <td>[PtCl<sub>2</sub>(NH<sub>3</sub>)<sub>2</sub>]</td>
+                                <td>Dichlorodiamminplatin(II)</td>
+                                <td>Neutraler Komplex</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Anwendungen -->
+        <section class="section fade-in">
+            <div class="section-header">
+                🔬 5. Anwendungen von Komplexverbindungen
+            </div>
+            <div class="section-content">
+                <div class="grid-3">
+                    <div class="card">
+                        <h3>🧪 Analytische Chemie</h3>
+                        <p><strong>Nachweis-Reaktionen:</strong></p>
+                        <ul>
+                            <li>Cu<sup>2+</sup> + NH<sub>3</sub> → blaue Färbung</li>
+                            <li>Fe<sup>3+</sup> + SCN<sup>-</sup> → rote Färbung</li>
+                            <li>Ni<sup>2+</sup> + Dimethylglyoxim → roter Niederschlag</li>
+                        </ul>
+                        <p><strong>EDTA-Titration:</strong> Wasserhärte-Bestimmung</p>
+                    </div>
+                    <div class="card">
+                        <h3>💊 Medizin</h3>
+                        <p><strong>Komplextherapie:</strong></p>
+                        <ul>
+                            <li>EDTA bei Schwermetallvergiftungen</li>
+                            <li>cis-Platin als Krebsmedikament</li>
+                            <li>Gadolinium-Komplexe als MRT-Kontrastmittel</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h3>⚡ Katalyse</h3>
+                        <p><strong>Industrielle Katalysatoren:</strong></p>
+                        <ul>
+                            <li>Wilkinson-Katalysator</li>
+                            <li>Ziegler-Natta-Katalysatoren</li>
+                            <li>Enzyme (biologische Komplexe)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>🌿 Biologische Komplexe</h4>
+                    <ul>
+                        <li><strong>Hämoglobin:</strong> Fe<sup>2+</sup>-Komplex für Sauerstofftransport</li>
+                        <li><strong>Chlorophyll:</strong> Mg<sup>2+</sup>-Komplex für Photosynthese</li>
+                        <li><strong>Vitamin B₁₂:</strong> Co<sup>3+</sup>-Komplex als Enzym-Cofaktor</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Quiz -->
+        <section class="quiz fade-in">
+            <h2>🧩 Interaktives Quiz - Komplexverbindungen</h2>
+            
+            <div class="quiz-question">1. Wie lautet der Name für [Cu(NH₃)₄]SO₄?</div>
+            <ul class="quiz-options">
+                <li onclick="checkAnswer(this, false)">Kupfer-Ammoniak-Sulfat</li>
+                <li onclick="checkAnswer(this, true)">Tetraamminkopper(II)-sulfat</li>
+                <li onclick="checkAnswer(this, false)">Diamminkopper-sulfat</li>
+                <li onclick="checkAnswer(this, false)">Kopper(II)-ammonium-sulfat</li>
+            </ul>
+
+            <div class="quiz-question">2. Welche Koordinationszahl hat das Zentralatom in [Fe(CN)₆]³⁻?</div>
+            <ul class="quiz-options">
+                <li onclick="checkAnswer(this, false)">4</li>
+                <li onclick="checkAnswer(this, false)">5</li>
+                <li onclick="checkAnswer(this, true)">6</li>
+                <li onclick="checkAnswer(this, false)">3</li>
+            </ul>
+
+            <div class="quiz-question">3. Was ist EDTA⁴⁻?</div>
+            <ul class="quiz-options">
+                <li onclick="checkAnswer(this, false)">Ein einzähniger Ligand</li>
+                <li onclick="checkAnswer(this, true)">Ein sechszähniger Ligand</li>
+                <li onclick="checkAnswer(this, false)">Ein zweizähniger Ligand</li>
+                <li onclick="checkAnswer(this, false)">Ein Zentralatom</li>
+            </ul>
+
+            <button class="btn btn-primary" onclick="resetQuiz()">Quiz zurücksetzen</button>
+        </section>
+
+        <!-- 7. Zusammenfassung -->
+        <section class="section fade-in">
+            <div class="section-header">
+                📋 6. Zusammenfassung
+            </div>
+            <div class="section-content">
+                <div class="highlight-box">
+                    <h3>🎯 Das Wichtigste im Überblick</h3>
+                    <ol>
+                        <li><strong>Aufbau:</strong> Zentralatom + Liganden = Komplex</li>
+                        <li><strong>Struktur:</strong> Geometrie abhängig von Koordinationszahl</li>
+                        <li><strong>Liganden:</strong> Ein- bis mehrzähnig, Chelateffekt</li>
+                        <li><strong>Nomenklatur:</strong> IUPAC-Regeln beachten</li>
+                        <li><strong>Farbe:</strong> d-Orbital-Übergänge</li>
+                        <li><strong>Stabilität:</strong> Abhängig von Zentralion und Liganden</li>
+                        <li><strong>Anwendung:</strong> Analytik, Katalyse, Medizin, Biologie</li>
+                    </ol>
+                </div>
+
+                <div class="grid-2">
+                    <div class="card">
+                        <h4>📚 Prüfungsrelevant</h4>
+                        <ul>
+                            <li>Nomenklatur von Komplexen</li>
+                            <li>Koordinationszahl bestimmen</li>
+                            <li>Nachweis-Reaktionen</li>
+                            <li>Biologische Bedeutung</li>
+                            <li>Chelatkomplexe verstehen</li>
+                            <li>Anwendungen kennen</li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h4>🔗 Verknüpfungen</h4>
+                        <ul>
+                            <li><strong>Säure-Base:</strong> Lewis-Säure-Base-Konzept</li>
+                            <li><strong>Redox:</strong> Elektronenübertragung</li>
+                            <li><strong>Gleichgewicht:</strong> Komplexbildungskonstanten</li>
+                            <li><strong>Analytik:</strong> Nachweisreaktionen</li>
+                            <li><strong>Biochemie:</strong> Metalloproteine</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="important-box">
+                    <h4>⚡ Tipps für die Abiturprüfung</h4>
+                    <ol>
+                        <li>Koordinationszahl = Anzahl der Koordinationsstellen (nicht Liganden!)</li>
+                        <li>Bei der Nomenklatur immer alphabetisch ordnen</li>
+                        <li>Oxidationszahl des Zentralatoms berechnen können</li>
+                        <li>Chelateffekt verstehen und erklären können</li>
+                        <li>Wichtige Nachweisreaktionen mit Farbangaben kennen</li>
+                        <li>Biologische Beispiele (Hämoglobin, Chlorophyll) parat haben</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation zu anderen Kapiteln -->
+        <section class="section fade-in">
+            <div class="section-header">
+                🧭 Weiterführende Kapitel
+            </div>
+            <div class="section-content">
+                <div class="grid-3">
+                    <a href="farbstoffe.html" class="btn btn-primary">← Organische Farbstoffe</a>
+                    <a href="index.html" class="btn btn-secondary">🏠 Hauptübersicht</a>
+                    <a href="kreislaeufe.html" class="btn btn-primary">Globale Kreisläufe →</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top" id="scrollBtn" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Scroll to Top Funktionalität
+        window.addEventListener('scroll', function() {
+            const scrollBtn = document.getElementById('scrollBtn');
+            if (window.pageYOffset > 300) {
+                scrollBtn.classList.add('visible');
+            } else {
+                scrollBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Progress Bar Animation
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                const progressBar = document.getElementById('progress');
+                progressBar.style.width = '30%';
+            }, 1000);
+
+            // Fade-in Animation für Abschnitte
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // Quiz Funktionalität
+        function checkAnswer(element, isCorrect) {
+            const options = element.parentNode.querySelectorAll('li');
+            
+            // Alle Optionen deaktivieren
+            options.forEach(option => {
+                option.style.pointerEvents = 'none';
+                
+                if (option === element) {
+                    if (isCorrect) {
+                        option.classList.add('correct');
+                    } else {
+                        option.classList.add('incorrect');
+                    }
+                }
+                
+                // Richtige Antwort hervorheben
+                if (option.onclick && option.onclick.toString().includes('true') && option !== element) {
+                    option.classList.add('correct');
+                }
+            });
+        }
+
+        function resetQuiz() {
+            document.querySelectorAll('.quiz-options li').forEach(option => {
+                option.classList.remove('correct', 'incorrect');
+                option.style.pointerEvents = 'auto';
+            });
+        }
+
+        // Zusätzliche Interaktivität
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hover-Effekte für Formeln
+            document.querySelectorAll('.formula').forEach(formula => {
+                formula.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.05)';
+                    this.style.transition = 'transform 0.2s ease';
+                });
+                
+                formula.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // Click-Effekte für Karten
+            document.querySelectorAll('.card').forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 150);
+                });
+            });
+
+            // Fortschritt speichern (wenn möglich)
+            try {
+                let maxScroll = 0;
+                window.addEventListener('scroll', function() {
+                    const scrollPercent = Math.round((window.pageYOffset / (document.body.scrollHeight - window.innerHeight)) * 100);
+                    if (scrollPercent > maxScroll) {
+                        maxScroll = scrollPercent;
+                        if (typeof(Storage) !== "undefined") {
+                            sessionStorage.setItem('komplexe-progress', maxScroll);
+                        }
+                        document.getElementById('progress').style.width = maxScroll + '%';
+                        document.querySelector('.progress p').textContent = maxScroll + '% des Kapitels abgeschlossen';
+                    }
+                });
+
+                // Gespeicherten Fortschritt laden
+                if (typeof(Storage) !== "undefined") {
+                    const savedProgress = sessionStorage.getItem('komplexe-progress') || '0';
+                    document.getElementById('progress').style.width = savedProgress + '%';
+                    document.querySelector('.progress p').textContent = savedProgress + '% des Kapitels abgeschlossen';
+                }
+            } catch (e) {
+                console.log('Storage nicht verfügbar');
+            }
+
+            
+            // Mobile Optimierung
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.grid-2, .grid-3').forEach(grid => {
+                    grid.style.gridTemplateColumns = '1fr';
+                });
+            }
+        });
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Home') {
+                scrollToTop();
+            }
+        });
+    </script>
+</body>
+</html>

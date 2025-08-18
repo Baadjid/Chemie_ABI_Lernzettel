@@ -1,0 +1,1806 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aromaten - Chemie Lernzettel Abitur 2026</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-color: #667eea;
+            --secondary-color: #764ba2;
+            --accent-color: #f093fb;
+            --success-color: #84fab0;
+            --warning-color: #ffd93d;
+            --danger-color: #ff6b6b;
+            --text-color: #2c3e50;
+            --light-text: #7f8c8d;
+            --bg-white: rgba(255, 255, 255, 0.95);
+            --bg-glass: rgba(255, 255, 255, 0.9);
+            --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        /* Navigation */
+        .nav-breadcrumb {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .nav-breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 5px;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-breadcrumb a:hover {
+            color: var(--secondary-color);
+            text-decoration: underline;
+        }
+        
+        /* Header */
+        header {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            text-align: center;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            color: var(--light-text);
+            font-size: 1.3em;
+            margin-bottom: 20px;
+        }
+        
+        .topic-overview {
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
+            border-left: 5px solid var(--accent-color);
+        }
+        
+        /* Content Sections */
+        .content-section {
+            background: var(--bg-white);
+            margin-bottom: 30px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-light);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .content-section:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .section-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px 30px;
+            font-size: 1.4em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .section-content {
+            padding: 30px;
+        }
+        
+        .section-icon {
+            font-size: 1.5em;
+        }
+        
+        /* Grid Layouts */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 25px 0;
+        }
+        
+        .three-column {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        /* Cards */
+        .info-card {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            border-radius: 15px;
+            padding: 25px;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .info-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-light);
+        }
+        
+        .info-card h3 {
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+        
+        .reaction-card {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #ff7f50;
+            box-shadow: 0 4px 15px rgba(255, 127, 80, 0.2);
+        }
+        
+        .example-card {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #20bdff;
+            box-shadow: 0 4px 15px rgba(32, 189, 255, 0.2);
+        }
+        
+        .mechanism-card {
+            background: linear-gradient(135deg, #e0c3fc 0%, #9bb5ff 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #8e2de2;
+            box-shadow: 0 4px 15px rgba(142, 45, 226, 0.2);
+        }
+        
+        /* Special Boxes */
+        .wichtig-box {
+            background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+            border: 2px solid var(--warning-color);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(255, 217, 61, 0.2);
+        }
+        
+        .wichtig-box::before {
+            content: "⚠️";
+            position: absolute;
+            top: -12px;
+            left: 25px;
+            background: var(--warning-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 1.2em;
+        }
+        
+        .merksatz-box {
+            background: linear-gradient(135deg, #d4edda, #c3e6cb);
+            border: 2px solid var(--success-color);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(132, 250, 176, 0.2);
+        }
+        
+        .merksatz-box::before {
+            content: "💡";
+            position: absolute;
+            top: -12px;
+            left: 25px;
+            background: var(--success-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 1.2em;
+        }
+        
+        .definition-box {
+            background: linear-gradient(135deg, #cce5ff, #b3d9ff);
+            border: 2px solid var(--primary-color);
+            border-radius: 15px;
+            padding: 25px;
+            margin: 25px 0;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.2);
+        }
+        
+        .definition-box::before {
+            content: "📖";
+            position: absolute;
+            top: -12px;
+            left: 25px;
+            background: var(--primary-color);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 1.2em;
+        }
+        
+        /* Interactive Elements */
+        .quiz-section {
+            background: var(--bg-white);
+            border-radius: 20px;
+            padding: 35px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .quiz-question {
+            background: linear-gradient(145deg, #f8f9fa, #e9ecef);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        
+        .quiz-question:hover {
+            background: linear-gradient(145deg, #e9ecef, #dee2e6);
+            transform: translateX(10px);
+            border-left-color: var(--primary-color);
+        }
+        
+        .quiz-answer {
+            background: linear-gradient(135deg, #e8f5e8, #d4edda);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 15px;
+            display: none;
+            border-left: 4px solid var(--success-color);
+            animation: slideDown 0.3s ease;
+        }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .formula-box {
+            background: linear-gradient(145deg, #f8f9fa, #ffffff);
+            border: 2px solid #dee2e6;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        /* Tables - Horizontal Scrollable */
+        .table-container {
+            overflow-x: auto;
+            margin: 25px 0;
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        }
+        
+        .comparison-table {
+            width: 100%;
+            min-width: 600px; /* Minimum width to ensure readability */
+            border-collapse: collapse;
+            background: white;
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #dee2e6;
+            transition: background-color 0.3s ease;
+            min-width: 120px;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .comparison-table tr:hover {
+            background: #e3f2fd;
+        }
+        
+        /* Progress and Navigation */
+        .progress-section {
+            background: var(--bg-white);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-light);
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 30px;
+            background: #e9ecef;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 20px 0;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 20px;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .chapter-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-white);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: var(--shadow-light);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .nav-button {
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+        
+        .nav-button.disabled {
+            background: #6c757d;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            opacity: 0;
+            transform: translateY(100px);
+        }
+        
+        .back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .two-column,
+            .three-column {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            
+            .section-content {
+                padding: 20px;
+            }
+            
+            .chapter-nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .nav-button {
+                width: 100%;
+                min-width: auto;
+            }
+            
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.2em;
+            }
+            
+            /* Tables on mobile */
+            .table-container {
+                margin: 15px -20px; /* Extend to edges on mobile */
+                border-radius: 0;
+            }
+            
+            .comparison-table {
+                font-size: 0.9em;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 8px;
+                min-width: 100px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            
+            .section-header {
+                padding: 20px;
+                font-size: 1.2em;
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .section-icon {
+                font-size: 2em;
+            }
+            
+            .comparison-table {
+                font-size: 0.8em;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 10px 6px;
+                min-width: 80px;
+            }
+        }
+        
+        /* Print Styles */
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            
+            .back-to-top,
+            .nav-breadcrumb,
+            .chapter-nav {
+                display: none;
+            }
+            
+            .content-section {
+                page-break-inside: avoid;
+                margin-bottom: 20px;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+            
+            .section-header {
+                background: #f0f0f0 !important;
+                color: black !important;
+            }
+        }
+        
+        /* Utilities */
+        .text-center { text-align: center; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+        
+        ul {
+            padding-left: 20px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        strong {
+            color: var(--primary-color);
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, transparent 0%, transparent 40%, #ffeb3b 40%, #ffeb3b 60%, transparent 60%);
+            padding: 2px 4px;
+        }
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Focus styles for accessibility */
+        .quiz-question:focus,
+        .nav-button:focus,
+        .back-to-top:focus {
+            outline: 3px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav-breadcrumb">
+            <a href="index.html">🏠 Hauptübersicht</a> 
+            <span>></span> 
+            <strong>🌸 Aromaten</strong>
+        </nav>
+
+        <!-- Header -->
+        <header>
+            <h1>🌸 Aromaten</h1>
+            <p class="subtitle">Benzol, Aromatizität, elektrophile Substitution und Arzneimittel</p>
+            <div class="topic-overview">
+                <h3>📋 Was du in diesem Kapitel lernst:</h3>
+                <p>Aromaten sind eine faszinierende Stoffklasse mit besonderen Eigenschaften. Du lernst die Struktur von Benzol kennen, verstehst das Konzept der Aromatizität und die charakteristischen Reaktionen wie die elektrophile Substitution. Außerdem erfährst du, wie wichtige Arzneimittel wie ASS (Aspirin) funktionieren.</p>
+            </div>
+        </header>
+
+        <!-- Lernziele -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-icon">🎯</span>
+                <span>Lernziele und Kompetenzen</span>
+            </div>
+            <div class="section-content">
+                <div class="three-column">
+                    <div class="info-card">
+                        <h3>🔬 Strukturverständnis</h3>
+                        <ul>
+                            <li>Benzolstruktur und Bindungsverhältnisse</li>
+                            <li>Mesomerie und Delokalisierung</li>
+                            <li>Hückel-Regel (4n+2-Regel)</li>
+                            <li>Aromatizitätskriterien</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>⚡ Reaktionsmechanismen</h3>
+                        <ul>
+                            <li>Elektrophile aromatische Substitution</li>
+                            <li>Zweitsubstitution und Dirigierung</li>
+                            <li>Unterschied zu Alkenen</li>
+                            <li>KKK- und SSS-Regel</li>
+                        </ul>
+                    </div>
+                    <div class="info-card">
+                        <h3>💊 Anwendungen</h3>
+                        <ul>
+                            <li>Wichtige Aromaten im Alltag</li>
+                            <li>Arzneimittel (ASS, Paracetamol)</li>
+                            <li>Kunststoffe mit Aromaten</li>
+                            <li>Umwelt- und Gesundheitsaspekte</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Benzol als Prototyp -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-icon">⚛️</span>
+                <span>Benzol - Der Prototyp der Aromaten</span>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h3>Definition: Aromat</h3>
+                    <p>Ein <strong>Aromat</strong> ist eine cyclische, konjugierte Verbindung mit <strong>4n+2 π-Elektronen</strong> (Hückel-Regel), die eine besondere Stabilität durch <strong>Delokalisierung</strong> der π-Elektronen aufweist.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h3>🧪 Benzol (C₆H₆)</h3>
+                        <div class="formula-box">
+                            <p><strong>Molekularer Aufbau:</strong></p>
+                            <p>• 6 C-Atome im Ring</p>
+                            <p>• 6 H-Atome</p>
+                            <p>• 6 delokalisierte π-Elektronen</p>
+                            <p>• Planare Struktur</p>
+                            <p>• Alle Bindungswinkel: 120°</p>
+                            <p>• Alle C-C-Bindungslängen: 139 pm</p>
+                        </div>
+
+                        <div class="wichtig-box">
+                            <h4>Wichtig: Keine Doppelbindungen!</h4>
+                            <p>Benzol hat <strong>keine</strong> abwechselnden Einzel- und Doppelbindungen, wie die Kekulé-Formel suggeriert. Die π-Elektronen sind über den gesamten Ring <strong>delokalisiert</strong>.</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>🔄 Mesomerie im Benzol</h3>
+                        <div class="formula-box">
+                            <p><strong>Grenzformeln nach Kekulé:</strong></p>
+                            <p>      ⌬   ⇌   ⌬</p>
+                            <p>     / \     / \</p>
+                            <p>    |   |   |   |</p>
+                            <p>     \ /     \ /</p>
+                            <p>      ⌬       ⌬</p>
+                            <br>
+                            <p><strong>Realität: Delokalisierung</strong></p>
+                            <p>      ⌬</p>
+                            <p>     / \</p>
+                            <p>    | ● |  ← Kreis = delokalisierte e⁻</p>
+                            <p>     \ /</p>
+                            <p>      ⌬</p>
+                        </div>
+
+                        <div class="merksatz-box">
+                            <h4>Merksatz: Aromatizitätskriterien</h4>
+                            <p>1. <strong>Zyklisch</strong> (Ringstruktur)<br>
+                            2. <strong>Konjugiert</strong> (durchgehende π-Orbitale)<br>
+                            3. <strong>Planar</strong> (alle Atome in einer Ebene)<br>
+                            4. <strong>Hückel-Regel</strong> (4n+2 π-Elektronen)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <h3>📊 Experimentelle Beweise für die Delokalisierung</h3>
+                    <div class="table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Beobachtung</th>
+                                    <th>Erwartung bei "Cyclohexatrien"</th>
+                                    <th>Realität bei Benzol</th>
+                                    <th>Erklärung</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Reaktion mit Br₂</td>
+                                    <td>Addition (wie bei Alkenen)</td>
+                                    <td>Substitution</td>
+                                    <td>Erhaltung der Aromatizität</td>
+                                </tr>
+                                <tr>
+                                    <td>Isomere von 1,2-Dibrombenzol</td>
+                                    <td>2 Isomere möglich</td>
+                                    <td>Nur 1 Isomer</td>
+                                    <td>Alle C-C-Bindungen gleich</td>
+                                </tr>
+                                <tr>
+                                    <td>Hydrierungsenergie</td>
+                                    <td>-360 kJ/mol</td>
+                                    <td>-208 kJ/mol</td>
+                                    <td>Mesomeriestabilisierung</td>
+                                </tr>
+                                <tr>
+                                    <td>C-C-Bindungslängen</td>
+                                    <td>154 pm (Einzel) + 134 pm (Doppel)</td>
+                                    <td>Alle 139 pm</td>
+                                    <td>Delokalisierung</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Elektrophile aromatische Substitution -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-icon">⚡</span>
+                <span>Elektrophile aromatische Substitution (SEAr)</span>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h3>Definition: Elektrophile aromatische Substitution</h3>
+                    <p>Die <strong>elektrophile aromatische Substitution (SEAr)</strong> ist die charakteristische Reaktion der Aromaten. Ein <strong>Elektrophil</strong> (elektronenliebend) greift das elektronenreiche π-System an und ersetzt ein Wasserstoffatom.</p>
+                </div>
+
+                <div class="mechanism-card">
+                    <h3>🔄 Allgemeiner Mechanismus</h3>
+                    <div class="formula-box">
+                        <p><strong>Schritt 1: Bildung des π-Komplexes</strong></p>
+                        <p>Benzol + E⁺ → [Benzol···E⁺] (schwache Wechselwirkung)</p>
+                        <br>
+                        <p><strong>Schritt 2: Bildung des σ-Komplexes (Arenium-Ion)</strong></p>
+                        <p>[Benzol···E⁺] → [C₆H₆E⁺] (kovalente Bindung, Verlust der Aromatizität)</p>
+                        <br>
+                        <p><strong>Schritt 3: Deprotonierung und Rearomatisierung</strong></p>
+                        <p>[C₆H₆E⁺] → C₆H₅E + H⁺ (Wiederherstellung der Aromatizität)</p>
+                    </div>
+                </div>
+
+                <div class="wichtig-box">
+                    <h4>Warum Substitution statt Addition?</h4>
+                    <p>Obwohl Benzol formal ungesättigten Charakter hat, findet <strong>Substitution</strong> statt, weil:</p>
+                    <ul>
+                        <li>Die <strong>Aromatizität erhalten</strong> bleibt</li>
+                        <li>Die <strong>Mesomeriestabilisierung</strong> nicht verloren geht</li>
+                        <li>Addition würde ca. 150 kJ/mol Stabilisierungsenergie kosten</li>
+                    </ul>
+                </div>
+
+                <div class="three-column">
+                    <div class="reaction-card">
+                        <h4>🟫 Bromierung</h4>
+                        <div class="formula-box">
+                            <p>C₆H₆ + Br₂ → C₆H₅Br + HBr</p>
+                            <p><small>Katalysator: FeBr₃</small></p>
+                        </div>
+                        <p><strong>Elektrophil:</strong> Br⁺ (aus Br₂ + FeBr₃)</p>
+                        <p><strong>Bedingung:</strong> Kälte, Katalysator</p>
+                    </div>
+
+                    <div class="reaction-card">
+                        <h4>🔴 Nitrierung</h4>
+                        <div class="formula-box">
+                            <p>C₆H₆ + HNO₃ → C₆H₅NO₂ + H₂O</p>
+                            <p><small>Katalysator: H₂SO₄</small></p>
+                        </div>
+                        <p><strong>Elektrophil:</strong> NO₂⁺ (Nitronium-Ion)</p>
+                        <p><strong>Bedeutung:</strong> Sprengstoff-, Farbstoffsynthese</p>
+                    </div>
+
+                    <div class="reaction-card">
+                        <h4>⚫ Sulfonierung</h4>
+                        <div class="formula-box">
+                            <p>C₆H₆ + H₂SO₄ → C₆H₅SO₃H + H₂O</p>
+                        </div>
+                        <p><strong>Elektrophil:</strong> SO₃ bzw. HSO₃⁺</p>
+                        <p><strong>Bedeutung:</strong> Waschmittel, Farbstoffe</p>
+                    </div>
+                </div>
+
+                <div class="merksatz-box">
+                    <h4>KKK- und SSS-Regel</h4>
+                    <p><strong>KKK-Regel:</strong> <strong>K</strong>ern (Benzolring), <strong>K</strong>älte, <strong>K</strong>atalysator → elektrophile Substitution am Ring</p>
+                    <p><strong>SSS-Regel:</strong> <strong>S</strong>eitenkette, <strong>S</strong>iedehitze, <strong>S</strong>onnenlicht → radikalische Substitution an der Seitenkette</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zweitsubstitution -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-icon">🎯</span>
+                <span>Zweitsubstitution und dirigierende Effekte</span>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h3>Dirigierende Effekte bei der Zweitsubstitution</h3>
+                    <p>Der <strong>Erstsubstituent</strong> beeinflusst sowohl die <strong>Reaktionsgeschwindigkeit</strong> als auch die <strong>Position</strong> der Zweitsubstitution durch mesomere (+M/-M) und induktive (+I/-I) Effekte.</p>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card" style="border-left-color: #28a745;">
+                        <h3>🟢 Aktivierende Substituenten</h3>
+                        <p><strong>Effekt:</strong> +M und/oder +I</p>
+                        <p><strong>Dirigierung:</strong> ortho/para</p>
+                        <p><strong>Geschwindigkeit:</strong> schneller als Benzol</p>
+                        
+                        <h4>Beispiele:</h4>
+                        <ul>
+                            <li><strong>-OH (Phenol):</strong> +M >> -I</li>
+                            <li><strong>-NH₂ (Anilin):</strong> +M >> -I</li>
+                            <li><strong>-OCH₃:</strong> +M > -I</li>
+                            <li><strong>-CH₃ (Toluol):</strong> +I</li>
+                            <li><strong>-C₂H₅:</strong> +I</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card" style="border-left-color: #dc3545;">
+                        <h3>🔴 Desaktivierende Substituenten</h3>
+                        <p><strong>Effekt:</strong> -M und/oder -I</p>
+                        <p><strong>Dirigierung:</strong> meta</p>
+                        <p><strong>Geschwindigkeit:</strong> langsamer als Benzol</p>
+                        
+                        <h4>Beispiele:</h4>
+                        <ul>
+                            <li><strong>-NO₂:</strong> -M, -I</li>
+                            <li><strong>-CN:</strong> -M, -I</li>
+                            <li><strong>-CHO:</strong> -M, -I</li>
+                            <li><strong>-COOH:</strong> -M, -I</li>
+                            <li><strong>-SO₃H:</strong> -M, -I</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <h3>📋 Beispiele für dirigierende Effekte</h3>
+                    <div class="formula-box">
+                        <p><strong>Phenol + Br₂ →</strong></p>
+                        <p>Hauptprodukte: 2-Bromphenol (ortho) + 4-Bromphenol (para)</p>
+                        <p><small>Begründung: OH-Gruppe ist +M-Substituent</small></p>
+                        <br>
+                        <p><strong>Nitrobenzol + Br₂ →</strong></p>
+                        <p>Hauptprodukt: 3-Bromnitrobenzol (meta)</p>
+                        <p><small>Begründung: NO₂-Gruppe ist -M-Substituent</small></p>
+                    </div>
+                </div>
+
+                <div class="mechanism-card">
+                    <h3>🔬 Mechanistische Erklärung</h3>
+                    <p><strong>+M-Effekt (ortho/para-dirigierend):</strong></p>
+                    <ul>
+                        <li>Freie Elektronenpaare erhöhen Elektronendichte</li>
+                        <li>Besonders in ortho- und para-Position</li>
+                        <li>Stabilisierung des σ-Komplexes durch Mesomerie</li>
+                    </ul>
+                    
+                    <p><strong>-M-Effekt (meta-dirigierend):</strong></p>
+                    <ul>
+                        <li>Elektronenziehende Gruppen verringern Elektronendichte</li>
+                        <li>ortho/para-Positionen stärker betroffen</li>
+                        <li>meta-Position am wenigsten destabilisiert</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Wichtige Aromaten -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-icon">🧪</span>
+                <span>Wichtige aromatische Verbindungen</span>
+            </div>
+            <div class="section-content">
+                <div class="three-column">
+                    <div class="info-card">
+                        <h3>🔵 Toluol (Methylbenzol)</h3>
+                        <div class="formula-box">
+                            <p>C₆H₅-CH₃</p>
+                        </div>
+                        <p><strong>Eigenschaften:</strong></p>
+                        <ul>
+                            <li>Farblose Flüssigkeit</li>
+                            <li>Charakteristischer Geruch</li>
+                            <li>Lösungsmittel</li>
+                            <li>Ausgangsstoff für TNT</li>
+                        </ul>
+                        <p><strong>Reaktivität:</strong> Aktiviert durch +I-Effekt der CH₃-Gruppe</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🟡 Phenol (Hydroxybenzol)</h3>
+                        <div class="formula-box">
+                            <p>C₆H₅-OH</p>
+                        </div>
+                        <p><strong>Eigenschaften:</strong></p>
+                        <ul>
+                            <li>Kristalliner Feststoff</li>
+                            <li>Schwache Säure (pKₐ = 10)</li>
+                            <li>Desinfektionsmittel</li>
+                            <li>Kunststoffherstellung</li>
+                        </ul>
+                        <p><strong>Besonderheit:</strong> Saurer als Alkohole durch Mesomeriestabilisierung des Phenolat-Ions</p>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🟠 Anilin (Aminobenzol)</h3>
+                        <div class="formula-box">
+                            <p>C₆H₅-NH₂</p>
+                        </div>
+                        <p><strong>Eigenschaften:</strong></p>
+                        <ul>
+                            <li>Schwach gelbliche Flüssigkeit</li>
+                            <li>Schwache Base</li>
+                            <li>Ausgangsstoff für Farbstoffe</li>
+                            <li>Giftig, krebserregend</li>
+                        </ul>
+                        <p><strong>Besonderheit:</strong> Schwächere Base als Ammoniak durch Delokalisierung</p>
+                    </div>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card">
+                        <h3>🔴 Nitrobenzol</h3>
+                        <div class="formula-box">
+                            <p>C₆H₅-NO₂</p>
+                        </div>
+                        <p><strong>Verwendung:</strong></p>
+                        <ul>
+                            <li>Lösungsmittel</li>
+                            <li>Ausgangsstoff für Anilin</li>
+                            <li>Sprengstoffherstellung</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🟫 Benzoesäure</h3>
+                        <div class="formula-box">
+                            <p>C₆H₅-COOH</p>
+                        </div>
+                        <p><strong>Verwendung:</strong></p>
+                        <ul>
+                            <li>Konservierungsmittel (E210)</li>
+                            <li>Arzneimittelherstellung</li>
+                            <li>Weichmacher</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASS und Arzneimittel -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-icon">💊</span>
+                <span>Acetylsalicylsäure (ASS) - Ein wichtiges Arzneimittel</span>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h3>ASS - Der "Pharmazeutenhammer"</h3>
+                    <p><strong>Acetylsalicylsäure (ASS)</strong> ist eines der bekanntesten und vielseitigsten Arzneimittel. Es zeigt exemplarisch, wie aromatische Verbindungen in der Medizin eingesetzt werden.</p>
+                </div>
+
+                <div class="two-column">
+                    <div>
+                        <h3>🧬 Struktur und Synthese</h3>
+                        <div class="formula-box">
+                            <p><strong>Molekülformel:</strong> C₉H₈O₄</p>
+                            <p><strong>Strukturformel:</strong></p>
+                            <p>    COOH</p>
+                            <p>    |</p>
+                            <p>C₆H₄-OCOCH₃</p>
+                            <p><small>(Salicylsäure + Essigsäureanhydrid)</small></p>
+                        </div>
+
+                        <div class="reaction-card">
+                            <h4>🔄 Synthese (Veresterung)</h4>
+                            <div class="formula-box">
+                                <p>Salicylsäure + Essigsäureanhydrid → ASS + Essigsäure</p>
+                                <p>C₇H₆O₃ + (CH₃CO)₂O → C₉H₈O₄ + CH₃COOH</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3>⚕️ Wirkungen von ASS</h3>
+                        <div class="info-card">
+                            <h4>Vierfachwirkung:</h4>
+                            <ul>
+                                <li><strong>Analgetisch:</strong> schmerzlindernd</li>
+                                <li><strong>Antipyretisch:</strong> fiebersenkend</li>
+                                <li><strong>Antiphlogistisch:</strong> entzündungshemmend</li>
+                                <li><strong>Thrombozytenaggregationshemmend:</strong> "blutverdünnend"</li>
+                            </ul>
+                        </div>
+
+                        <div class="wichtig-box">
+                            <h4>Wirkmechanismus</h4>
+                            <p>ASS hemmt irreversibel das Enzym <strong>Cyclooxygenase (COX)</strong>, das für die Prostaglandin-Synthese verantwortlich ist. Prostaglandine sind Entzündungsmediatoren.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-card">
+                    <h3>📊 ASS vs. andere Schmerzmittel</h3>
+                    <div class="table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Wirkstoff</th>
+                                    <th>Struktur</th>
+                                    <th>Besonderheiten</th>
+                                    <th>Nebenwirkungen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>ASS</strong></td>
+                                    <td>Aromatisch mit Ester</td>
+                                    <td>Irreversible COX-Hemmung</td>
+                                    <td>Magen-Darm-Beschwerden</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Paracetamol</strong></td>
+                                    <td>Aromatisch mit Amid</td>
+                                    <td>Keine Entzündungshemmung</td>
+                                    <td>Lebertoxisch bei Überdosis</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Ibuprofen</strong></td>
+                                    <td>Aromatisch mit Propionsäure</td>
+                                    <td>Reversible COX-Hemmung</td>
+                                    <td>Nieren- und Herzprobleme</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="merksatz-box">
+                    <h4>Bedeutung für die Chemie</h4>
+                    <p>ASS zeigt exemplarisch:</p>
+                    <ul>
+                        <li>Wie <strong>funktionelle Gruppen</strong> die Wirkung bestimmen</li>
+                        <li>Bedeutung der <strong>Estergruppe</strong> für die Stabilität</li>
+                        <li>Zusammenhang zwischen <strong>Struktur und Wirkung</strong></li>
+                        <li>Rolle der <strong>Aromatizität</strong> in Arzneimitteln</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Aromaten im Alltag -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-icon">🏠</span>
+                <span>Aromaten im Alltag und in der Technik</span>
+            </div>
+            <div class="section-content">
+                <div class="three-column">
+                    <div class="info-card">
+                        <h3>🧴 Kunststoffe</h3>
+                        <ul>
+                            <li><strong>Polystyrol (PS):</strong> aus Styrol (Phenylethylen)</li>
+                            <li><strong>PET:</strong> enthält Terephthalsäure</li>
+                            <li><strong>Polycarbonat:</strong> aus Bisphenol A</li>
+                            <li><strong>Phenol-Formaldehyd-Harze</strong></li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🎨 Farbstoffe</h3>
+                        <ul>
+                            <li><strong>Azofarbstoffe:</strong> enthalten Benzolringe</li>
+                            <li><strong>Triphenylmethan-Farbstoffe</strong></li>
+                            <li><strong>Anthrachinon-Farbstoffe</strong></li>
+                            <li><strong>Indigo:</strong> historisch wichtig</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🧼 Tenside/Waschmittel</h3>
+                        <ul>
+                            <li><strong>Alkylbenzolsulfonate:</strong> anionische Tenside</li>
+                            <li><strong>Dodecylbenzolsulfonat</strong></li>
+                            <li>Biologische Abbaubarkeit wichtig</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="wichtig-box">
+                    <h4>Umwelt- und Gesundheitsaspekte</h4>
+                    <p><strong>Problematische Aromaten:</strong></p>
+                    <ul>
+                        <li><strong>Benzol:</strong> krebserregend, in Kraftstoffen reguliert</li>
+                        <li><strong>Toluol:</strong> Lösungsmittelmissbrauch, neurotoxisch</li>
+                        <li><strong>PAKs (Polycyclische aromatische KW):</strong> in Teer, Rauch</li>
+                        <li><strong>Dioxine:</strong> chlorierte Aromaten, sehr giftig</li>
+                    </ul>
+                    <p><strong>Schutzmaßnahmen:</strong> Grenzwerte, Substitution, Arbeitsschutz</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Polycyclische Aromaten -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-icon">🔗</span>
+                <span>Polycyclische aromatische Kohlenwasserstoffe (PAK)</span>
+            </div>
+            <div class="section-content">
+                <div class="definition-box">
+                    <h3>PAK - Mehrkernige Aromaten</h3>
+                    <p><strong>Polycyclische aromatische Kohlenwasserstoffe (PAK)</strong> bestehen aus mehreren kondensierten Benzolringen. Sie entstehen bei unvollständiger Verbrennung und sind oft gesundheitsschädlich.</p>
+                </div>
+
+                <div class="three-column">
+                    <div class="info-card">
+                        <h3>🟫 Naphthalin</h3>
+                        <div class="formula-box">
+                            <p>C₁₀H₈</p>
+                            <p>2 kondensierte Benzolringe</p>
+                        </div>
+                        <p><strong>Vorkommen:</strong></p>
+                        <ul>
+                            <li>Mottenkugeln (früher)</li>
+                            <li>Steinkohleteer</li>
+                            <li>Zigarettenrauch</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🟪 Anthracen</h3>
+                        <div class="formula-box">
+                            <p>C₁₄H₁₀</p>
+                            <p>3 kondensierte Benzolringe</p>
+                        </div>
+                        <p><strong>Verwendung:</strong></p>
+                        <ul>
+                            <li>Farbstoffherstellung</li>
+                            <li>Fluoreszenzmarker</li>
+                            <li>Forschung</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h3>🔴 Benzo[a]pyren</h3>
+                        <div class="formula-box">
+                            <p>C₂₀H₁₂</p>
+                            <p>5 kondensierte Benzolringe</p>
+                        </div>
+                        <p><strong>Eigenschaften:</strong></p>
+                        <ul>
+                            <li>Stark krebserregend</li>
+                            <li>In Grillrauch</li>
+                            <li>Umweltschadstoff</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="wichtig-box">
+                    <h4>Gesundheitsrisiken von PAK</h4>
+                    <p>PAK sind problematisch, weil sie:</p>
+                    <ul>
+                        <li><strong>Krebserregend</strong> sein können (besonders 3+ Ringe)</li>
+                        <li><strong>Persistent</strong> in der Umwelt sind</li>
+                        <li><strong>Bioakkumulation</strong> zeigen</li>
+                        <li>Bei <strong>Grillvorgängen</strong> entstehen können</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Übungen und Aufgaben -->
+        <section class="quiz-section">
+            <h2>🧩 Übungen und Selbsttest</h2>
+            
+            <div class="quiz-question" onclick="toggleAnswer(this)">
+                <h4>Frage 1: Warum ist Benzol besonders stabil?</h4>
+                <div class="quiz-answer">
+                    <p><strong>Antwort:</strong> Benzol ist besonders stabil aufgrund der <strong>Mesomeriestabilisierung</strong> durch delokalisierte π-Elektronen. Die 6 π-Elektronen sind über den gesamten Ring verteilt, was eine Stabilisierungsenergie von etwa 150 kJ/mol bewirkt.</p>
+                </div>
+            </div>
+
+            <div class="quiz-question" onclick="toggleAnswer(this)">
+                <h4>Frage 2: Welches Produkt entsteht hauptsächlich bei der Bromierung von Phenol?</h4>
+                <div class="quiz-answer">
+                    <p><strong>Antwort:</strong> Bei der Bromierung von Phenol entstehen hauptsächlich <strong>2-Bromphenol (ortho)</strong> und <strong>4-Bromphenol (para)</strong>. Die OH-Gruppe ist ein +M-Substituent und dirigiert in ortho/para-Position.</p>
+                </div>
+            </div>
+
+            <div class="quiz-question" onclick="toggleAnswer(this)">
+                <h4>Frage 3: Warum reagiert Benzol nicht wie typische Alkene?</h4>
+                <div class="quiz-answer">
+                    <p><strong>Antwort:</strong> Benzol reagiert nicht wie Alkene, weil:</p>
+                    <ul>
+                        <li>Die π-Elektronen <strong>delokalisiert</strong> sind (keine lokalen Doppelbindungen)</li>
+                        <li><strong>Substitution</strong> die Aromatizität erhält, <strong>Addition</strong> würde sie zerstören</li>
+                        <li>Der Energiegewinn durch Rearomatisierung die Reaktion antreibt</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quiz-question" onclick="toggleAnswer(this)">
+                <h4>Frage 4: Erklären Sie die Wirkung von ASS auf molekularer Ebene.</h4>
+                <div class="quiz-answer">
+                    <p><strong>Antwort:</strong> ASS wirkt durch <strong>irreversible Hemmung der Cyclooxygenase (COX)</strong>:</p>
+                    <ul>
+                        <li>ASS acetyliert einen Serinrest im aktiven Zentrum der COX</li>
+                        <li>Dies blockiert die Prostaglandin-Synthese</li>
+                        <li>Weniger Prostaglandine → weniger Schmerz, Fieber, Entzündung</li>
+                        <li>Hemmung der Thrombozytenaggregation</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quiz-question" onclick="toggleAnswer(this)">
+                <h4>Frage 5: Nennen Sie die vier Aromatizitätskriterien nach Hückel.</h4>
+                <div class="quiz-answer">
+                    <p><strong>Antwort:</strong> Die vier Aromatizitätskriterien sind:</p>
+                    <ul>
+                        <li><strong>Zyklisch:</strong> Ringstruktur erforderlich</li>
+                        <li><strong>Konjugiert:</strong> durchgehende π-Orbitale</li>
+                        <li><strong>Planar:</strong> alle Atome in einer Ebene</li>
+                        <li><strong>Hückel-Regel:</strong> 4n+2 π-Elektronen (n = 0, 1, 2, ...)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="quiz-question" onclick="toggleAnswer(this)">
+                <h4>Frage 6: Unterscheiden Sie zwischen KKK- und SSS-Regel.</h4>
+                <div class="quiz-answer">
+                    <p><strong>Antwort:</strong></p>
+                    <p><strong>KKK-Regel:</strong> <strong>K</strong>ern, <strong>K</strong>älte, <strong>K</strong>atalysator → Elektrophile Substitution am Benzolring</p>
+                    <p><strong>SSS-Regel:</strong> <strong>S</strong>eitenkette, <strong>S</strong>iedehitze, <strong>S</strong>onnenlicht → Radikalische Substitution an der Alkylseitenkette</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zusammenfassung -->
+        <section class="content-section">
+            <div class="section-header">
+                <span class="section-icon">📝</span>
+                <span>Zusammenfassung: Aromaten</span>
+            </div>
+            <div class="section-content">
+                <div class="merksatz-box">
+                    <h3>🎯 Die wichtigsten Punkte</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4>Struktur und Eigenschaften:</h4>
+                            <ul>
+                                <li>Benzol: C₆H₆, planarer Ring</li>
+                                <li>6 delokalisierte π-Elektronen</li>
+                                <li>Hückel-Regel: 4n+2 π-Elektronen</li>
+                                <li>Mesomeriestabilisierung</li>
+                                <li>Alle C-C-Bindungen gleich lang (139 pm)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Reaktionen und Anwendungen:</h4>
+                            <ul>
+                                <li>Elektrophile aromatische Substitution</li>
+                                <li>Dirigierende Effekte (+M/-M, +I/-I)</li>
+                                <li>KKK-Regel vs. SSS-Regel</li>
+                                <li>Wichtige Derivate: Phenol, Anilin, Toluol</li>
+                                <li>ASS als Arzneimittel-Beispiel</li>
+                                <li>PAK als Umweltschadstoffe</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="wichtig-box">
+                    <h4>Abiturrelevante Aspekte</h4>
+                    <ul>
+                        <li><strong>Mechanismus</strong> der elektrophilen Substitution erklären können</li>
+                        <li><strong>Dirigierende Effekte</strong> vorhersagen und begründen</li>
+                        <li><strong>Struktur-Eigenschafts-Beziehungen</strong> verstehen</li>
+                        <li><strong>Unterschiede</strong> zu Alkenen erklären können</li>
+                        <li><strong>Bedeutung in Alltag und Technik</strong> kennen</li>
+                        <li><strong>Umwelt- und Gesundheitsaspekte</strong> bewerten können</li>
+                    </ul>
+                </div>
+
+                <div class="example-card">
+                    <h3>🎓 Typische Abituraufgaben zu Aromaten</h3>
+                    <div class="table-container">
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Aufgabentyp</th>
+                                    <th>Beispiel</th>
+                                    <th>Lösungsansatz</th>
+                                    <th>Punkte</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Strukturaufklärung</td>
+                                    <td>Isomere von Dibrombenzol</td>
+                                    <td>ortho, meta, para-Positionen bestimmen</td>
+                                    <td>3-5</td>
+                                </tr>
+                                <tr>
+                                    <td>Reaktionsmechanismus</td>
+                                    <td>Bromierung von Benzol</td>
+                                    <td>SEAr-Mechanismus in 3 Schritten</td>
+                                    <td>6-8</td>
+                                </tr>
+                                <tr>
+                                    <td>Dirigierende Effekte</td>
+                                    <td>Zweitsubstitution bei Toluol</td>
+                                    <td>+I-Effekt → ortho/para-Dirigierung</td>
+                                    <td>4-6</td>
+                                </tr>
+                                <tr>
+                                    <td>Synthese</td>
+                                    <td>ASS aus Salicylsäure</td>
+                                    <td>Veresterungsreaktion beschreiben</td>
+                                    <td>5-7</td>
+                                </tr>
+                                <tr>
+                                    <td>Anwendungsbezug</td>
+                                    <td>Wirkweise von Aspirin</td>
+                                    <td>COX-Hemmung → Prostaglandin-Synthese</td>
+                                    <td>4-6</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+       
+        <!-- Navigation -->
+        <nav class="chapter-nav">
+            <a href="reaktionsmechanismen.html" class="nav-button">
+                ← Reaktionswege und Reaktionsmechanismen
+            </a>
+            <a href="index.html" class="nav-button">
+                🏠 Hauptübersicht
+            </a>
+            <a href="kunststoffe.html" class="nav-button">
+                Kunststoffe →
+            </a>
+        </nav>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">
+        ⬆️
+    </button>
+
+    <script>
+        // Back to Top Funktionalität
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Quiz Funktionalität
+        function toggleAnswer(element) {
+            const answer = element.querySelector('.quiz-answer');
+            const isVisible = answer.style.display === 'block';
+            
+            // Alle anderen Antworten schließen
+            document.querySelectorAll('.quiz-answer').forEach(ans => {
+                ans.style.display = 'none';
+            });
+            
+            // Aktuelle Antwort umschalten
+            answer.style.display = isVisible ? 'none' : 'block';
+            
+            if (!isVisible) {
+                answer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                element.classList.add('answered');
+                trackQuizProgress();
+            }
+        }
+
+        // Quiz Fortschritt verfolgen
+        function trackQuizProgress() {
+            const totalQuestions = document.querySelectorAll('.quiz-question').length;
+            const answeredQuestions = document.querySelectorAll('.quiz-question.answered').length;
+            const quizProgress = Math.round((answeredQuestions / totalQuestions) * 100);
+            
+            if (quizProgress === 100) {
+                showToast('🎉 Alle Quiz-Fragen beantwortet!', 'success');
+            } else if (quizProgress >= 50) {
+                showToast(`📊 ${quizProgress}% der Quiz-Fragen beantwortet!`, 'info');
+            }
+        }
+
+        // Fortschritt verwalten
+        let progress = parseInt(sessionStorage.getItem('aromaten-progress') || '0');
+        
+        function updateProgress() {
+            const progressBar = document.getElementById('progress-aromaten');
+            const progressText = document.getElementById('progress-text');
+            
+            progressBar.style.width = progress + '%';
+            progressText.textContent = progress + '% abgeschlossen';
+            
+            sessionStorage.setItem('aromaten-progress', progress.toString());
+        }
+
+        function markCompleted() {
+            progress = 100;
+            updateProgress();
+            
+            // Gesamtfortschritt aktualisieren
+            let overallProgress = JSON.parse(sessionStorage.getItem('chemie-progress') || '{}');
+            overallProgress['aromaten'] = true;
+            sessionStorage.setItem('chemie-progress', JSON.stringify(overallProgress));
+            
+            showToast('🎉 Aromaten-Kapitel abgeschlossen! Weiter zum nächsten Thema.', 'success');
+        }
+
+        // Scroll-Progress
+        window.addEventListener('scroll', function() {
+            const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+            progress = Math.max(progress, Math.min(scrollPercent, 95)); // Max 95% durch Scrollen
+            updateProgress();
+        });
+
+        // Toast-Benachrichtigungen
+        function showToast(message, type = 'info') {
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'success' ? '#28a745' : type === 'info' ? '#17a2b8' : '#ffc107'};
+                color: white;
+                padding: 15px 20px;
+                border-radius: 12px;
+                box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+                z-index: 1001;
+                opacity: 0;
+                transform: translateY(-20px);
+                transition: all 0.3s ease;
+                max-width: 300px;
+                font-weight: 500;
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                toast.style.opacity = '1';
+                toast.style.transform = 'translateY(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(-20px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+
+        // Animationen beim Laden
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            
+            // Smooth reveal Animationen
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.content-section, .info-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+
+            // Interaktive Hover-Effekte für Quiz-Fragen
+            document.querySelectorAll('.quiz-question').forEach((question, index) => {
+                question.setAttribute('tabindex', '0');
+                question.setAttribute('role', 'button');
+                question.setAttribute('aria-expanded', 'false');
+                question.setAttribute('aria-label', `Frage ${index + 1} - Klicken für Antwort`);
+                
+                question.addEventListener('mouseenter', function() {
+                    if (!this.classList.contains('answered')) {
+                        this.style.backgroundColor = '#e9ecef';
+                        this.style.borderLeftColor = getComputedStyle(document.documentElement).getPropertyValue('--primary-color');
+                    }
+                });
+                
+                question.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('answered')) {
+                        this.style.backgroundColor = '';
+                        this.style.borderLeftColor = 'transparent';
+                    }
+                });
+
+                // Keyboard Navigation
+                question.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleAnswer(this);
+                        this.setAttribute('aria-expanded', 
+                            this.querySelector('.quiz-answer').style.display === 'block' ? 'true' : 'false');
+                    }
+                });
+            });
+
+            // Erfolgs-Toast für abgeschlossene Bereiche
+            if (progress >= 100) {
+                showToast('✅ Aromaten-Kapitel bereits abgeschlossen!', 'success');
+            } else if (progress > 0) {
+                showToast(`📚 Willkommen zurück! Fortschritt: ${progress}%`, 'info');
+            } else {
+                showToast('🎓 Willkommen zum Aromaten-Lernzettel!', 'info');
+            }
+
+            // Keyboard Navigation für die gesamte Seite
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Home') {
+                    e.preventDefault();
+                    scrollToTop();
+                }
+                if (e.key === 'End') {
+                    e.preventDefault();
+                    window.scrollTo({
+                        top: document.body.scrollHeight,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+
+            // Auto-Save Progress
+            setInterval(function() {
+                const currentProgress = {
+                    aromaten: progress,
+                    timestamp: Date.now(),
+                    currentSection: getCurrentSection()
+                };
+                sessionStorage.setItem('current-progress', JSON.stringify(currentProgress));
+            }, 30000); // Alle 30 Sekunden
+
+            // Restore Progress beim Laden
+            const savedProgress = JSON.parse(sessionStorage.getItem('current-progress') || '{}');
+            if (savedProgress.aromaten && savedProgress.aromaten > progress) {
+                progress = savedProgress.aromaten;
+                updateProgress();
+            }
+
+            // Easter Eggs und Interaktivität
+            let clickCount = 0;
+            document.querySelector('h1').addEventListener('click', function() {
+                clickCount++;
+                if (clickCount === 5) {
+                    showToast('🎉 Du hast das Aromaten-Easter-Egg gefunden!', 'success');
+                    this.style.animation = 'bounce 0.8s ease';
+                    setTimeout(() => this.style.animation = '', 800);
+                }
+            });
+
+            // Smooth Scrolling für alle internen Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+
+        function getCurrentSection() {
+            const sections = document.querySelectorAll('.content-section');
+            for (let section of sections) {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 100 && rect.bottom >= 100) {
+                    return section.querySelector('.section-header span:last-child').textContent;
+                }
+            }
+            return 'Beginn';
+        }
+
+        // Performance Monitoring
+        if ('performance' in window) {
+            window.addEventListener('load', function() {
+                const loadTime = performance.timing.loadEventEnd - performance.timing.navigationStart;
+                if (loadTime > 3000) {
+                    console.warn('Seite lädt langsam. Ladezeit:', loadTime + 'ms');
+                } else {
+                    console.log('✅ Seite erfolgreich geladen in', loadTime + 'ms');
+                }
+            });
+        }
+
+        // Service Worker für Offline-Funktionalität (vereinfacht)
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(function() {
+                // Service Worker nicht verfügbar - kein Problem für diese Demo
+            });
+        }
+
+        // Kontext-Menü für erweiterte Optionen
+        document.addEventListener('contextmenu', function(e) {
+            if (e.ctrlKey) {
+                e.preventDefault();
+                const menu = document.createElement('div');
+                menu.innerHTML = `
+                    <div style="position: fixed; top: ${e.clientY}px; left: ${e.clientX}px; background: white; border: 1px solid #ccc; border-radius: 8px; padding: 15px; z-index: 1000; box-shadow: var(--shadow-medium); font-family: inherit;">
+                        <div onclick="toggleDarkMode()" style="padding: 8px; cursor: pointer; border-radius: 5px; transition: background 0.3s;">🌙 Dark Mode</div>
+                        <div onclick="window.print()" style="padding: 8px; cursor: pointer; border-radius: 5px; transition: background 0.3s;">🖨️ Drucken</div>
+                        <div onclick="location.reload()" style="padding: 8px; cursor: pointer; border-radius: 5px; transition: background 0.3s;">🔄 Neu laden</div>
+                        <div onclick="exportNotes()" style="padding: 8px; cursor: pointer; border-radius: 5px; transition: background 0.3s;">📄 Notizen exportieren</div>
+                        <div onclick="showStats()" style="padding: 8px; cursor: pointer; border-radius: 5px; transition: background 0.3s;">📊 Statistiken</div>
+                    </div>
+                `;
+                
+                menu.querySelectorAll('div > div').forEach(item => {
+                    item.addEventListener('mouseenter', function() {
+                        this.style.background = '#f0f0f0';
+                    });
+                    item.addEventListener('mouseleave', function() {
+                        this.style.background = '';
+                    });
+                });
+
+                document.body.appendChild(menu);
+                setTimeout(() => menu.remove(), 5000);
+            }
+        });
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.style.filter = document.body.style.filter ? '' : 'invert(1) hue-rotate(180deg)';
+            document.querySelectorAll('img, video').forEach(el => {
+                el.style.filter = el.style.filter ? '' : 'invert(1) hue-rotate(180deg)';
+            });
+            showToast(document.body.style.filter ? '🌙 Dark Mode aktiviert' : '☀️ Light Mode aktiviert');
+        }
+
+        // Notizen Export-Funktion
+        function exportNotes() {
+            const content = document.querySelector('.container').innerText;
+            const blob = new Blob([content], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'aromaten-lernzettel.txt';
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('📄 Lernzettel exportiert!', 'success');
+        }
+
+        // Statistiken anzeigen
+        function showStats() {
+            const totalQuestions = document.querySelectorAll('.quiz-question').length;
+            const answeredQuestions = document.querySelectorAll('.quiz-question.answered').length;
+            const quizProgress = Math.round((answeredQuestions / totalQuestions) * 100);
+            
+            const stats = `
+📊 Lernstatistiken:
+• Gesamtfortschritt: ${progress}%
+• Quiz-Fragen beantwortet: ${answeredQuestions}/${totalQuestions} (${quizProgress}%)
+• Verweildauer: ${Math.round((Date.now() - sessionStorage.getItem('start-time') || Date.now()) / 60000)} Minuten
+• Letzte Aktivität: ${getCurrentSection()}
+            `;
+            
+            alert(stats);
+        }
+
+        // Erweiterte Animationen
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bounce {
+                0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+                40% { transform: translateY(-15px); }
+                60% { transform: translateY(-8px); }
+            }
+            
+            @keyframes pulse {
+                0% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+                100% { transform: scale(1); }
+            }
+            
+            .quiz-question.answered {
+                background: linear-gradient(135deg, #d4edda, #c3e6cb) !important;
+                border-left-color: var(--success-color) !important;
+            }
+
+            .table-container::-webkit-scrollbar {
+                height: 8px;
+            }
+            
+            .table-container::-webkit-scrollbar-track {
+                background: #f1f1f1;
+                border-radius: 10px;
+            }
+            
+            .table-container::-webkit-scrollbar-thumb {
+                background: var(--primary-color);
+                border-radius: 10px;
+            }
+            
+            .table-container::-webkit-scrollbar-thumb:hover {
+                background: var(--secondary-color);
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Session Start Time speichern
+        if (!sessionStorage.getItem('start-time')) {
+            sessionStorage.setItem('start-time', Date.now());
+        }
+
+        // Initialisierung abgeschlossen
+        console.log('🧪 Aromaten-Lernzettel erfolgreich geladen!');
+        console.log('💡 Tipps:');
+        console.log('  - Klicke auf Quiz-Fragen für Antworten');
+        console.log('  - Verwende Strg+Rechtsklick für erweiterte Optionen');
+        console.log('  - Tastatur: Home/End für Navigation, Tab für Fokus');
+        console.log('  - Fortschritt wird automatisch gespeichert');
+        console.log('  - Tabellen sind horizontal scrollbar');
+    </script>
+</body>
+</html>
