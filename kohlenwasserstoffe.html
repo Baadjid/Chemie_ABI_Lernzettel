@@ -217,15 +217,19 @@
             margin: 5px 0;
         }
         
-        /* Tables */
+        /* Tables - Responsive Scroll Container */
+        .table-scroll-container {
+            overflow-x: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
         .data-table {
             width: 100%;
+            min-width: 600px; /* Verhindert zu starke Komprimierung */
             border-collapse: collapse;
-            margin: 20px 0;
             background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
         
         .data-table th {
@@ -234,15 +238,42 @@
             padding: 15px;
             text-align: left;
             font-weight: 600;
+            white-space: nowrap; /* Verhindert Zeilenumbruch */
         }
         
         .data-table td {
             padding: 12px 15px;
             border-bottom: 1px solid #eee;
+            white-space: nowrap; /* Verhindert Zeilenumbruch */
         }
         
         .data-table tr:hover {
             background: #f8f9fa;
+        }
+        
+        /* Mobile Anpassungen für Tabellen */
+        @media (max-width: 768px) {
+            .data-table {
+                font-size: 0.8em; /* Kleinere Schrift auf Handy */
+                min-width: 500px;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 8px 10px; /* Weniger Padding */
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .data-table {
+                font-size: 0.7em;
+                min-width: 450px;
+            }
+            
+            .data-table th,
+            .data-table td {
+                padding: 6px 8px;
+            }
         }
         
         /* Molecule Display */
@@ -448,10 +479,6 @@
                 width: 50px;
                 height: 50px;
                 font-size: 1.2em;
-            }
-            
-            .data-table {
-                font-size: 0.8em;
             }
             
             .wichtig, .merksatz {
@@ -710,84 +737,88 @@
                 </div>
                 
                 <h3>📋 Homologe Reihe der Alkane</h3>
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Anzahl C-Atome</th>
-                            <th>Molekülformel</th>
-                            <th>Strukturformel</th>
-                            <th>Siedepunkt (°C)</th>
-                            <th>Aggregatzustand (20°C)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Methan</strong></td>
-                            <td>1</td>
-                            <td>CH₄</td>
-                            <td>H₃C-H</td>
-                            <td>-162</td>
-                            <td>gasförmig</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Ethan</strong></td>
-                            <td>2</td>
-                            <td>C₂H₆</td>
-                            <td>H₃C-CH₃</td>
-                            <td>-89</td>
-                            <td>gasförmig</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Propan</strong></td>
-                            <td>3</td>
-                            <td>C₃H₈</td>
-                            <td>H₃C-CH₂-CH₃</td>
-                            <td>-42</td>
-                            <td>gasförmig</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Butan</strong></td>
-                            <td>4</td>
-                            <td>C₄H₁₀</td>
-                            <td>H₃C-CH₂-CH₂-CH₃</td>
-                            <td>-1</td>
-                            <td>gasförmig</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Pentan</strong></td>
-                            <td>5</td>
-                            <td>C₅H₁₂</td>
-                            <td>H₃C-CH₂-CH₂-CH₂-CH₃</td>
-                            <td>36</td>
-                            <td>flüssig</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Hexan</strong></td>
-                            <td>6</td>
-                            <td>C₆H₁₄</td>
-                            <td>H₃C-(CH₂)₄-CH₃</td>
-                            <td>69</td>
-                            <td>flüssig</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Heptan</strong></td>
-                            <td>7</td>
-                            <td>C₇H₁₆</td>
-                            <td>H₃C-(CH₂)₅-CH₃</td>
-                            <td>98</td>
-                            <td>flüssig</td>
-                        </tr>
-                        <tr>
-                            <td><strong>Octan</strong></td>
-                            <td>8</td>
-                            <td>C₈H₁₈</td>
-                            <td>H₃C-(CH₂)₆-CH₃</td>
-                            <td>126</td>
-                            <td>flüssig</td>
-                        </tr>
-                    </tbody>
-                </table>
+                ```html
+<div class="table-scroll-container">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Anzahl C-Atome</th>
+                <th>Molekülformel</th>
+                <th>Strukturformel</th>
+                <th>Siedepunkt (°C)</th>
+                <th>Aggregatzustand (20°C)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Methan</strong></td>
+                <td>1</td>
+                <td>CH₄</td>
+                <td>H₃C-H</td>
+                <td>-162</td>
+                <td>gasförmig</td>
+            </tr>
+            <tr>
+                <td><strong>Ethan</strong></td>
+                <td>2</td>
+                <td>C₂H₆</td>
+                <td>H₃C-CH₃</td>
+                <td>-89</td>
+                <td>gasförmig</td>
+            </tr>
+            <tr>
+                <td><strong>Propan</strong></td>
+                <td>3</td>
+                <td>C₃H₈</td>
+                <td>H₃C-CH₂-CH₃</td>
+                <td>-42</td>
+                <td>gasförmig</td>
+            </tr>
+            <tr>
+                <td><strong>Butan</strong></td>
+                <td>4</td>
+                <td>C₄H₁₀</td>
+                <td>H₃C-CH₂-CH₂-CH₃</td>
+                <td>-1</td>
+                <td>gasförmig</td>
+            </tr>
+            <tr>
+                <td><strong>Pentan</strong></td>
+                <td>5</td>
+                <td>C₅H₁₂</td>
+                <td>H₃C-CH₂-CH₂-CH₂-CH₃</td>
+                <td>36</td>
+                <td>flüssig</td>
+            </tr>
+            <tr>
+                <td><strong>Hexan</strong></td>
+                <td>6</td>
+                <td>C₆H₁₄</td>
+                <td>H₃C-(CH₂)₄-CH₃</td>
+                <td>69</td>
+                <td>flüssig</td>
+            </tr>
+            <tr>
+                <td><strong>Heptan</strong></td>
+                <td>7</td>
+                <td>C₇H₁₆</td>
+                <td>H₃C-(CH₂)₅-CH₃</td>
+                <td>98</td>
+                <td>flüssig</td>
+            </tr>
+            <tr>
+                <td><strong>Octan</strong></td>
+                <td>8</td>
+                <td>C₈H₁₈</td>
+                <td>H₃C-(CH₂)₆-CH₃</td>
+                <td>126</td>
+                <td>flüssig</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
                 
                 <div class="wichtig">
                     <h3>Trend in der homologen Reihe</h3>
@@ -924,42 +955,44 @@
                 <div class="two-column">
                     <div>
                         <h3>📋 Wichtige Alkene</h3>
-                        <table class="data-table">
-                            <thead>
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Formel</th>
-                                    <th>Strukturformel</th>
-                                    <th>Verwendung</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><strong>Ethen</strong></td>
-                                    <td>C₂H₄</td>
-                                    <td>H₂C=CH₂</td>
-                                    <td>Polyethylen, Reifegas</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Propen</strong></td>
-                                    <td>C₃H₆</td>
-                                    <td>H₂C=CH-CH₃</td>
-                                    <td>Polypropylen</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>1-Buten</strong></td>
-                                    <td>C₄H₈</td>
-                                    <td>H₂C=CH-CH₂-CH₃</td>
-                                    <td>Synthesebaustein</td>
-                                </tr>
-                                <tr>
-                                    <td><strong>2-Buten</strong></td>
-                                    <td>C₄H₈</td>
-                                    <td>CH₃-CH=CH-CH₃</td>
-                                    <td>Isomerengemisch</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-scroll-container">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Formel</th>
+                                        <th>Strukturformel</th>
+                                        <th>Verwendung</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Ethen</strong></td>
+                                        <td>C₂H₄</td>
+                                        <td>H₂C=CH₂</td>
+                                        <td>Polyethylen, Reifegas</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Propen</strong></td>
+                                        <td>C₃H₆</td>
+                                        <td>H₂C=CH-CH₃</td>
+                                        <td>Polypropylen</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>1-Buten</strong></td>
+                                        <td>C₄H₈</td>
+                                        <td>H₂C=CH-CH₂-CH₃</td>
+                                        <td>Synthesebaustein</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>2-Buten</strong></td>
+                                        <td>C₄H₈</td>
+                                        <td>CH₃-CH=CH-CH₃</td>
+                                        <td>Isomerengemisch</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     
                     <div>
@@ -1193,16 +1226,14 @@
         <footer>
             <div class="">
                 <div>
-    <h3>📖 Kapitel Navigation</h3>
-    <button class="quiz-button" onclick="window.location.href='atombau-periodensystem.html'">← Atombau, Periodensystem und chemische Bindung</button>
-    <button class="quiz-button" onclick="window.location.href='index.html'">🏠 Zur Startseite</button>
-    <button class="quiz-button" onclick="window.location.href='sauerstoff-verbindungen.html'">🧪 Organische Sauerstoff-Verbindungen →</button>
-</div>
-                
+                    <h3>📖 Kapitel Navigation</h3>
+                    <button class="quiz-button" onclick="window.location.href='atombau-periodensystem.html'">← Atombau, Periodensystem und chemische Bindung</button>
+                    <button class="quiz-button" onclick="window.location.href='index.html'">🏠 Zur Startseite</button>
+                    <button class="quiz-button" onclick="window.location.href='sauerstoff-verbindungen.html'">🧪 Organische Sauerstoff-Verbindungen →</button>
+                </div>
             </div>
             <p style="margin-top: 20px; color: #7f8c8d;">
                 &copy; 2025 Chemie Lernzettel - Abitur 2026 | Kapitel 2: Kohlenstoff und Kohlenwasserstoffe<br>
-                
             </p>
         </footer>
     </div>
