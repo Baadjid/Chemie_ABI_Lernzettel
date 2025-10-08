@@ -1428,36 +1428,36 @@
             <div class="quiz-item">
                 <h3>📝 Übung 1: Homologe Reihen</h3>
                 <p>Welche Summenformel hat das Alkan mit 7 Kohlenstoff-Atomen?</p>
-                <button class="quiz-btn" onclick="checkAnswer(1, 'C7H16', this)">C₇H₁₆</button>
-                <button class="quiz-btn" onclick="checkAnswer(1, 'C7H14', this)">C₇H₁₄</button>
-                <button class="quiz-btn" onclick="checkAnswer(1, 'C7H18', this)">C₇H₁₈</button>
+                <button class="quiz-btn" onclick="checkAnswer(1, 'true', this)">C₇H₁₆</button>
+				<button class="quiz-btn" onclick="checkAnswer(1, 'false', this)">C₇H₁₄</button>
+				<button class="quiz-btn" onclick="checkAnswer(1, 'false', this)">C₇H₁₈</button>
                 <div id="feedback1" class="answer-feedback"></div>
             </div>
             
             <div class="quiz-item">
                 <h3>📝 Übung 2: Nomenklatur</h3>
                 <p>Wie heißt diese Verbindung: CH₃-CH(CH₃)-CH₂-CH(C₂H₅)-CH₃?</p>
-                <button class="quiz-btn" onclick="checkAnswer(2, '4-Ethyl-2-methylpentan', this)">4-Ethyl-2-methylpentan</button>
-                <button class="quiz-btn" onclick="checkAnswer(2, '2-Ethyl-4-methylpentan', this)">2-Ethyl-4-methylpentan</button>
-                <button class="quiz-btn" onclick="checkAnswer(2, '2-Methyl-4-ethylpentan', this)">2-Methyl-4-ethylpentan</button>
+                <button class="quiz-btn" onclick="checkAnswer(2, 'false', this)">4-Ethyl-2-methylpentan</button>
+				<button class="quiz-btn" onclick="checkAnswer(2, 'true', this)">2-Ethyl-4-methylpentan</button>
+				<button class="quiz-btn" onclick="checkAnswer(2, 'false', this)">2-Methyl-4-ethylpentan</button>
                 <div id="feedback2" class="answer-feedback"></div>
             </div>
             
             <div class="quiz-item">
                 <h3>📝 Übung 3: Eigenschaften</h3>
                 <p>Warum haben verzweigte Alkane niedrigere Siedepunkte als unverzweigte?</p>
-                <button class="quiz-btn" onclick="checkAnswer(3, 'schwächere London-Kräfte', this)">Schwächere London-Kräfte</button>
-                <button class="quiz-btn" onclick="checkAnswer(3, 'stärkere London-Kräfte', this)">Stärkere London-Kräfte</button>
-                <button class="quiz-btn" onclick="checkAnswer(3, 'andere Bindungen', this)">Andere chemische Bindungen</button>
+                <button class="quiz-btn" onclick="checkAnswer(3, 'true', this)">Schwächere London-Kräfte</button>
+				<button class="quiz-btn" onclick="checkAnswer(3, 'false', this)">Stärkere London-Kräfte</button>
+				<button class="quiz-btn" onclick="checkAnswer(3, 'false', this)">Andere chemische Bindungen</button>
                 <div id="feedback3" class="answer-feedback"></div>
             </div>
             
             <div class="quiz-item">
                 <h3>📝 Übung 4: Alkene vs. Alkane</h3>
                 <p>Was ist der Hauptunterschied zwischen Alkenen und Alkanen?</p>
-                <button class="quiz-btn" onclick="checkAnswer(4, 'Doppelbindung', this)">Alkene haben Doppelbindungen</button>
-                <button class="quiz-btn" onclick="checkAnswer(4, 'Linear vs gewinkelt', this)">Linear vs. gewinkelt</button>
-                <button class="quiz-btn" onclick="checkAnswer(4, 'Länge der Kette', this)">Länge der Kette</button>
+				<button class="quiz-btn" onclick="checkAnswer(4, 'true', this)">Alkene haben Doppelbindungen</button>
+				<button class="quiz-btn" onclick="checkAnswer(4, 'false', this)">Linear vs. gewinkelt</button>
+				<button class="quiz-btn" onclick="checkAnswer(4, 'false', this)">Länge der Kette</button>
                 <div id="feedback4" class="answer-feedback"></div>
             </div>
         </section>
@@ -1579,40 +1579,21 @@
         }
 
         // Quiz functionality
-function normalizeText(text) {
-    // Konvertiere tiefgestellte Zahlen zu normalen Zahlen
-    const subscriptMap = {
-        '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4',
-        '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9'
-    };
-    let normalized = text.toLowerCase().trim();
-    for (let [sub, normal] of Object.entries(subscriptMap)) {
-        normalized = normalized.replace(new RegExp(sub, 'g'), normal);
-    }
-    return normalized;
-}
-
-function checkAnswer(questionNum, correctAnswer, button) {
+function checkAnswer(questionNum, isCorrect, button) {
     const feedback = document.getElementById('feedback' + questionNum);
     const buttons = button.parentElement.querySelectorAll('.quiz-btn');
     
     // Disable all buttons
     buttons.forEach(btn => btn.disabled = true);
     
-    const selectedText = normalizeText(button.textContent);
-    const correctText = normalizeText(correctAnswer);
-    const isCorrect = selectedText === correctText || 
-                      selectedText.includes(correctText) || 
-                      correctText.includes(selectedText);
-    
-    if (isCorrect) {
+    if (isCorrect === 'true') {
         button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
         feedback.innerHTML = '<p style="color: #4CAF50; font-weight: bold;">✅ Richtig! Sehr gut!</p>';
         feedback.style.background = 'rgba(76, 175, 80, 0.1)';
         updateProgress();
     } else {
         button.style.background = 'linear-gradient(135deg, #f44336, #da190b)';
-        feedback.innerHTML = '<p style="color: #f44336; font-weight: bold;">❌ Nicht ganz richtig. Die korrekte Antwort ist: ' + correctAnswer + '</p>';
+        feedback.innerHTML = '<p style="color: #f44336; font-weight: bold;">❌ Nicht ganz richtig. Versuche es nochmal!</p>';
         feedback.style.background = 'rgba(244, 67, 54, 0.1)';
     }
     
@@ -1622,7 +1603,7 @@ function checkAnswer(questionNum, correctAnswer, button) {
     feedback.style.marginTop = '15px';
     
     // Add explanation
-    setTimeout(() => addExplanation(questionNum, feedback, isCorrect), 300);
+    setTimeout(() => addExplanation(questionNum, feedback, isCorrect === 'true'), 300);
 }
 
         function addExplanation(questionNum, feedback, isCorrect) {
@@ -1695,6 +1676,7 @@ function checkAnswer(questionNum, correctAnswer, button) {
     </script>
 </body>
 </html>
+
 
 
 
