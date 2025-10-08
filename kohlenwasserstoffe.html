@@ -1579,36 +1579,51 @@
         }
 
         // Quiz functionality
-        function checkAnswer(questionNum, correctAnswer, button) {
-            const feedback = document.getElementById('feedback' + questionNum);
-            const buttons = button.parentElement.querySelectorAll('.quiz-btn');
-            
-            // Disable all buttons
-            buttons.forEach(btn => btn.disabled = true);
-            
-            const selectedText = button.textContent.toLowerCase().trim();
-            const correctText = correctAnswer.toLowerCase().trim();
-            const isCorrect = selectedText.includes(correctText) || correctText.includes(selectedText);
-            
-            if (isCorrect) {
-                button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
-                feedback.innerHTML = '<p style="color: #4CAF50; font-weight: bold;">✅ Richtig! Sehr gut!</p>';
-                feedback.style.background = 'rgba(76, 175, 80, 0.1)';
-                updateProgress();
-            } else {
-                button.style.background = 'linear-gradient(135deg, #f44336, #da190b)';
-                feedback.innerHTML = '<p style="color: #f44336; font-weight: bold;">❌ Nicht ganz richtig. Die korrekte Antwort ist: ' + correctAnswer + '</p>';
-                feedback.style.background = 'rgba(244, 67, 54, 0.1)';
-            }
-            
-            feedback.style.display = 'block';
-            feedback.style.padding = '15px';
-            feedback.style.borderRadius = '8px';
-            feedback.style.marginTop = '15px';
-            
-            // Add explanation
-            setTimeout(() => addExplanation(questionNum, feedback, isCorrect), 300);
-        }
+function normalizeText(text) {
+    // Konvertiere tiefgestellte Zahlen zu normalen Zahlen
+    const subscriptMap = {
+        '₀': '0', '₁': '1', '₂': '2', '₃': '3', '₄': '4',
+        '₅': '5', '₆': '6', '₇': '7', '₈': '8', '₉': '9'
+    };
+    let normalized = text.toLowerCase().trim();
+    for (let [sub, normal] of Object.entries(subscriptMap)) {
+        normalized = normalized.replace(new RegExp(sub, 'g'), normal);
+    }
+    return normalized;
+}
+
+function checkAnswer(questionNum, correctAnswer, button) {
+    const feedback = document.getElementById('feedback' + questionNum);
+    const buttons = button.parentElement.querySelectorAll('.quiz-btn');
+    
+    // Disable all buttons
+    buttons.forEach(btn => btn.disabled = true);
+    
+    const selectedText = normalizeText(button.textContent);
+    const correctText = normalizeText(correctAnswer);
+    const isCorrect = selectedText === correctText || 
+                      selectedText.includes(correctText) || 
+                      correctText.includes(selectedText);
+    
+    if (isCorrect) {
+        button.style.background = 'linear-gradient(135deg, #4CAF50, #45a049)';
+        feedback.innerHTML = '<p style="color: #4CAF50; font-weight: bold;">✅ Richtig! Sehr gut!</p>';
+        feedback.style.background = 'rgba(76, 175, 80, 0.1)';
+        updateProgress();
+    } else {
+        button.style.background = 'linear-gradient(135deg, #f44336, #da190b)';
+        feedback.innerHTML = '<p style="color: #f44336; font-weight: bold;">❌ Nicht ganz richtig. Die korrekte Antwort ist: ' + correctAnswer + '</p>';
+        feedback.style.background = 'rgba(244, 67, 54, 0.1)';
+    }
+    
+    feedback.style.display = 'block';
+    feedback.style.padding = '15px';
+    feedback.style.borderRadius = '8px';
+    feedback.style.marginTop = '15px';
+    
+    // Add explanation
+    setTimeout(() => addExplanation(questionNum, feedback, isCorrect), 300);
+}
 
         function addExplanation(questionNum, feedback, isCorrect) {
             if (!isCorrect) return;
@@ -1680,6 +1695,7 @@
     </script>
 </body>
 </html>
+
 
 
 
